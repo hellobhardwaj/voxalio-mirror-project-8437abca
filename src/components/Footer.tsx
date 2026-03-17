@@ -51,7 +51,7 @@ const Footer = () => {
 
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="font-semibold text-sm mb-4 text-white/80">{title}</h4>
+              <h4 className="font-medium text-[13px] mb-4 text-white/80">{title}</h4>
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
