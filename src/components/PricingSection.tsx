@@ -223,7 +223,7 @@ const PricingSection = () => {
             >
               <Card
                 className={cn(
-                  "relative bg-white/[0.03] backdrop-blur-sm border-white/[0.08] rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1",
+                  "relative bg-white/[0.03] backdrop-blur-sm border-white/[0.08] rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 h-full flex flex-col",
                   plan.popular &&
                     "border-[hsl(var(--vox-teal)/0.4)] bg-white/[0.06] shadow-[0_0_40px_hsl(var(--vox-teal)/0.1)]"
                 )}
