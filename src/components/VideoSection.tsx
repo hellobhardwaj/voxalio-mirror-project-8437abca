@@ -118,8 +118,8 @@ const VideoSection = () => {
                 <div className="md:col-span-3 bg-white/[0.03] backdrop-blur-sm border border-white/[0.05] rounded-2xl p-5 flex flex-col">
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <p className="text-white/80 text-sm font-semibold">Call Volume</p>
-                      <p className="text-white/25 text-[10px] mt-0.5">Last 30 days</p>
+                       <p className="text-white/75 text-[13px] font-medium tracking-[-0.01em]">Call Volume</p>
+                       <p className="text-white/20 text-[10px] font-normal mt-0.5">Last 30 days</p>
                     </div>
                     <div className="flex gap-1">
                       {["7D", "30D", "90D"].map((period, i) => (
