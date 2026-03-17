@@ -16,18 +16,27 @@ export type Database = {
     Tables: {
       leads: {
         Row: {
+          company: string | null
           created_at: string
+          email: string | null
           id: string
+          name: string | null
           phone: string
         }
         Insert: {
+          company?: string | null
           created_at?: string
+          email?: string | null
           id?: string
+          name?: string | null
           phone: string
         }
         Update: {
+          company?: string | null
           created_at?: string
+          email?: string | null
           id?: string
+          name?: string | null
           phone?: string
         }
         Relationships: []
