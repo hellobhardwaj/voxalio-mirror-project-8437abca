@@ -18,7 +18,7 @@ const IntegrationsSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-28 relative overflow-hidden">
+    <section className="py-28 relative overflow-hidden" id="integrations">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-gradient-to-tl from-[hsl(var(--vox-blue)/0.03)] to-transparent rounded-full blur-3xl" />
       </div>
