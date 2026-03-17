@@ -196,7 +196,7 @@ const PricingSection = () => {
           </TimelineContent>
 
           <TimelineContent animationNum={1} timelineRef={pricingRef}>
-            <p className="mt-4 text-white/50 max-w-xl mx-auto text-lg">
+            <p className="mt-4 text-white/50 max-w-xl mx-auto text-[16px] font-normal leading-[1.6]">
               {t("pricing.subtitle")}
             </p>
           </TimelineContent>
