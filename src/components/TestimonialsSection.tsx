@@ -3,33 +3,37 @@ import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useCallback, useEffect, useRef } from "react";
 import { Sparkles } from "@/components/ui/sparkles";
+import testimonial1 from "@/assets/testimonial-1.jpg";
+import testimonial2 from "@/assets/testimonial-2.jpg";
+import testimonial3 from "@/assets/testimonial-3.jpg";
+import testimonial4 from "@/assets/testimonial-4.jpg";
 
 const testimonials = [
   {
     quoteKey: "test.quote",
     authorKey: "test.author",
-    initials: ["MK", "TR", "SL"],
+    photo: testimonial1,
   },
   {
     quoteEn: "\"Voxalio cut our response time by 80%. Our customers don't even realize they're talking to an AI — the voice quality is that good. It's been a game-changer for our support team.\"",
     quoteDe: "\"Voxalio hat unsere Antwortzeit um 80% reduziert. Unsere Kunden merken nicht einmal, dass sie mit einer KI sprechen — die Sprachqualität ist so gut. Es war ein Game-Changer für unser Support-Team.\"",
     authorEn: "— Thomas R., DataFlow GmbH",
     authorDe: "— Thomas R., DataFlow GmbH",
-    initials: ["TR", "AW", "JB"],
+    photo: testimonial2,
   },
   {
     quoteEn: "\"We replaced our entire after-hours answering service with Voxalio. It handles appointment scheduling, transfers urgent calls, and costs a fraction of what we used to pay.\"",
     quoteDe: "\"Wir haben unseren gesamten Anrufbeantworter-Service durch Voxalio ersetzt. Es übernimmt Terminplanung, leitet dringende Anrufe weiter und kostet nur einen Bruchteil.\"",
     authorEn: "— Sarah L., CloudSync Medical",
     authorDe: "— Sarah L., CloudSync Medical",
-    initials: ["SL", "PH", "KM"],
+    photo: testimonial3,
   },
   {
     quoteEn: "\"The integration with our CRM was seamless. Every call is logged, transcribed, and categorized automatically. Our sales team has never been more productive.\"",
     quoteDe: "\"Die Integration mit unserem CRM war nahtlos. Jeder Anruf wird automatisch protokolliert, transkribiert und kategorisiert. Unser Vertriebsteam war noch nie so produktiv.\"",
     authorEn: "— Jan B., NetWave Solutions",
     authorDe: "— Jan B., NetWave Solutions",
-    initials: ["JB", "MK", "LF"],
+    photo: testimonial4,
   },
 ];
 
