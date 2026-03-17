@@ -235,7 +235,7 @@ const PricingSection = () => {
 
                 <CardHeader className="pb-4 pt-6 px-6">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-[18px] font-semibold text-white">
+                    <h3 className="text-[17px] font-medium text-white tracking-[-0.015em]">
                       {plan.name}
                     </h3>
                     {plan.popular && (
