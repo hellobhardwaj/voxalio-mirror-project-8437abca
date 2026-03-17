@@ -21,8 +21,8 @@ const CTASection = () => {
           </div>
 
           <div className="relative z-10">
-            <h2 className="text-[32px] md:text-[36px] lg:text-[42px] font-bold tracking-tight">{t("cta.title")}</h2>
-            <p className="mt-5 opacity-80 max-w-lg mx-auto text-[16px] font-normal leading-[1.6]">{t("cta.desc")}</p>
+            <h2 className="text-[28px] md:text-[34px] lg:text-[40px] font-semibold tracking-[-0.025em] leading-[1.1]">{t("cta.title")}</h2>
+            <p className="mt-5 opacity-75 max-w-lg mx-auto text-[15px] font-normal leading-[1.7] tracking-[-0.01em]">{t("cta.desc")}</p>
             <a
               href="#start"
               className="inline-block mt-8 bg-background text-foreground px-8 py-3.5 rounded-full font-semibold text-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-px"
