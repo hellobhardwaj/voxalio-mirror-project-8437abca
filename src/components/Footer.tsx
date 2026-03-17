@@ -69,8 +69,8 @@ const Footer = () => {
         </div>
 
         <div className="mt-14 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[13px] font-normal opacity-35">{t("footer.rights")}</p>
-          <p className="text-[12px] font-normal opacity-25">{t("footer.disclosure")}</p>
+          <p className="text-[12px] font-normal opacity-30 tracking-normal">{t("footer.rights")}</p>
+          <p className="text-[11px] font-normal opacity-20 tracking-normal">{t("footer.disclosure")}</p>
         </div>
       </div>
     </footer>

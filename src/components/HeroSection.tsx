@@ -185,7 +185,7 @@ const HeroSection = () => {
             <button
               onClick={handleSubmit}
               disabled={loading || !phone.trim()}
-              className="w-full py-3 rounded-lg bg-foreground text-background font-semibold text-sm hover:opacity-90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg"
+              className="w-full py-3 rounded-lg bg-foreground text-background font-medium text-[14px] hover:opacity-90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg tracking-[-0.01em]"
             >
               {loading
                 ? lang === "de"

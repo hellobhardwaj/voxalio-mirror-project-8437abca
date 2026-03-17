@@ -294,7 +294,7 @@ const PricingSection = () => {
                       {plan.features.map((feature, featureIndex) => (
                         <li
                           key={featureIndex}
-                          className="flex items-center gap-2.5 text-sm text-white/50"
+                          className="flex items-center gap-2.5 text-[13px] font-normal text-white/45 tracking-[-0.01em]"
                         >
                           <Check className="w-4 h-4 text-[hsl(var(--vox-teal))] flex-shrink-0" />
                           {feature}

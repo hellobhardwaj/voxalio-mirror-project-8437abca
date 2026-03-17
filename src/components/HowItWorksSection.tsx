@@ -127,7 +127,7 @@ const HowItWorksSection = () => {
                               transition={{ duration: 0.3, ease: "easeInOut" }}
                               className="overflow-hidden"
                             >
-                              <p className="text-[15px] font-normal text-muted-foreground leading-[1.6] mt-3 pl-14">
+                              <p className="text-[14px] font-normal text-muted-foreground leading-[1.7] mt-3 pl-14 tracking-[-0.01em]">
                                 {step.description}
                               </p>
                             </motion.div>

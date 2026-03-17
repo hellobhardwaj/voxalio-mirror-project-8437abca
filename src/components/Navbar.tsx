@@ -46,7 +46,7 @@ const Navbar = () => {
           </a>
           <a
             href="#contact"
-            className="vox-gradient-bg text-primary-foreground px-5 py-2 rounded-full text-[14px] font-semibold hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-px"
+            className="vox-gradient-bg text-primary-foreground px-5 py-2 rounded-full text-[14px] font-medium hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-px tracking-[-0.01em]"
           >
             {t("nav.startNow")}
           </a>

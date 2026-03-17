@@ -25,7 +25,7 @@ const CTASection = () => {
             <p className="mt-5 opacity-75 max-w-lg mx-auto text-[15px] font-normal leading-[1.7] tracking-[-0.01em]">{t("cta.desc")}</p>
             <a
               href="#start"
-              className="inline-block mt-8 bg-background text-foreground px-8 py-3.5 rounded-full font-semibold text-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-px"
+              className="inline-block mt-8 bg-background text-foreground px-8 py-3.5 rounded-full font-medium text-[14px] hover:shadow-xl transition-all duration-300 hover:-translate-y-px tracking-[-0.01em]"
             >
               {t("cta.button")}
             </a>
