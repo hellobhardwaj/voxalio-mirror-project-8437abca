@@ -115,7 +115,7 @@ const TestimonialsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-white leading-tight tracking-tight">
+            <h2 className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold text-white leading-[1.15] tracking-[-0.025em]">
               {t("test.title")}
             </h2>
 
