@@ -29,10 +29,10 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <div className="col-span-2 md:col-span-1">
-            <span className="text-base font-semibold">
+            <span className="text-[15px] font-medium tracking-[-0.02em]">
               Voxalio<span className="vox-gradient-text">.de</span>
             </span>
-            <p className="mt-3 text-[13px] font-normal opacity-40 leading-relaxed">{t("hero.badge")}</p>
+            <p className="mt-3 text-[13px] font-normal opacity-35 leading-[1.7] tracking-normal">{t("hero.badge")}</p>
 
             <div className="flex items-center gap-3 mt-5">
               <a href="#" className="w-9 h-9 rounded-full bg-white/[0.06] border border-white/[0.08] flex items-center justify-center hover:bg-white/[0.12] hover:border-white/[0.15] transition-all duration-200" aria-label="LinkedIn">
@@ -46,18 +46,18 @@ const Footer = () => {
               </a>
             </div>
 
-            <p className="mt-5 text-xs opacity-30">{t("footer.powered")}</p>
+            <p className="mt-5 text-[11px] font-normal opacity-25 tracking-normal">{t("footer.powered")}</p>
           </div>
 
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="font-medium text-[13px] mb-4 text-white/80">{title}</h4>
+              <h4 className="font-medium text-[12px] mb-4 text-white/70 uppercase tracking-[0.04em]">{title}</h4>
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-[13px] font-normal opacity-40 hover:opacity-80 transition-all duration-200 hover:translate-x-0.5 inline-block"
+                      className="text-[13px] font-normal opacity-35 hover:opacity-75 transition-all duration-200 hover:translate-x-0.5 inline-block tracking-normal"
                     >
                       {link.label}
                     </a>
@@ -69,8 +69,8 @@ const Footer = () => {
         </div>
 
         <div className="mt-14 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[13px] font-normal opacity-35">{t("footer.rights")}</p>
-          <p className="text-[12px] font-normal opacity-25">{t("footer.disclosure")}</p>
+          <p className="text-[12px] font-normal opacity-30 tracking-normal">{t("footer.rights")}</p>
+          <p className="text-[11px] font-normal opacity-20 tracking-normal">{t("footer.disclosure")}</p>
         </div>
       </div>
     </footer>

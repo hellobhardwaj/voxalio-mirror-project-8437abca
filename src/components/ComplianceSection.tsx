@@ -116,10 +116,10 @@ const ComplianceSection = () => {
                       ? "bg-card border-border/60 hover:border-border"
                       : "bg-muted/40 border-border/40 ml-8 hover:border-border/60"
                   }`}>
-                    <p className="text-xs font-semibold text-muted-foreground mb-1">
+                    <p className="text-[11px] font-medium text-muted-foreground mb-1 tracking-normal">
                       {msg.type === "ai" ? "🤖" : "👤"} {msg.label}
                     </p>
-                    <p className="text-sm text-foreground leading-relaxed">{msg.text}</p>
+                    <p className="text-[14px] font-normal text-foreground leading-[1.7] tracking-[-0.01em]">{msg.text}</p>
                   </div>
                 )}
               </motion.div>

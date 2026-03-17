@@ -90,7 +90,7 @@ const HeroSection = () => {
         >
           <div className="inline-flex items-center gap-2 bg-secondary/80 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6 border border-border/50">
             <span className="w-2 h-2 rounded-full vox-gradient-bg animate-pulse" />
-            <span className="text-sm font-medium text-muted-foreground">{t("hero.badge")}</span>
+            <span className="text-[13px] font-normal text-muted-foreground tracking-normal">{t("hero.badge")}</span>
           </div>
         </motion.div>
 
@@ -98,7 +98,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-[40px] sm:text-[48px] md:text-[56px] lg:text-[64px] font-bold text-foreground leading-[1.1] max-w-3xl mx-auto tracking-tight"
+          className="text-[36px] sm:text-[44px] md:text-[50px] lg:text-[56px] font-semibold text-foreground leading-[1.08] max-w-3xl mx-auto tracking-[-0.03em]"
         >
           {t("hero.title")}
         </motion.h1>
@@ -107,7 +107,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-5 text-muted-foreground text-[18px] font-normal leading-[1.6] max-w-xl mx-auto"
+          className="mt-5 text-muted-foreground text-[17px] font-normal leading-[1.7] max-w-xl mx-auto tracking-[-0.01em]"
         >
           {t("hero.subtitle")}
         </motion.p>
@@ -185,7 +185,7 @@ const HeroSection = () => {
             <button
               onClick={handleSubmit}
               disabled={loading || !phone.trim()}
-              className="w-full py-3 rounded-lg bg-foreground text-background font-semibold text-sm hover:opacity-90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg"
+              className="w-full py-3 rounded-lg bg-foreground text-background font-medium text-[14px] hover:opacity-90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg tracking-[-0.01em]"
             >
               {loading
                 ? lang === "de"

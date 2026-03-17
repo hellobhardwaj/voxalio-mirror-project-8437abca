@@ -30,10 +30,10 @@ const HowItWorksSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
-          <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-foreground tracking-tight">
+          <h2 className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold text-foreground tracking-[-0.025em] leading-[1.15]">
             {t("how.title")}
           </h2>
-          <p className="mt-4 vox-gradient-text font-medium text-[16px]">
+          <p className="mt-4 vox-gradient-text font-normal text-[15px] tracking-[-0.01em]">
             {t("how.subtitle")}
           </p>
         </motion.div>
@@ -89,7 +89,7 @@ const HowItWorksSection = () => {
                           <div className="flex items-start gap-4">
                             {/* Step number */}
                             <span
-                              className={`w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold shrink-0 transition-all duration-500 ${
+                              className={`w-10 h-10 rounded-xl flex items-center justify-center text-[13px] font-medium shrink-0 transition-all duration-500 ${
                                 isActive
                                   ? "vox-gradient-bg text-primary-foreground shadow-md"
                                   : "bg-muted text-muted-foreground group-hover:bg-muted/80"
@@ -101,7 +101,7 @@ const HowItWorksSection = () => {
                             <div>
                               {/* Title */}
                               <h3
-                                className={`font-semibold text-[16px] transition-colors duration-300 ${
+                                className={`font-medium text-[15px] transition-colors duration-300 tracking-[-0.015em] ${
                                   isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
                                 }`}
                               >
@@ -127,7 +127,7 @@ const HowItWorksSection = () => {
                               transition={{ duration: 0.3, ease: "easeInOut" }}
                               className="overflow-hidden"
                             >
-                              <p className="text-[15px] font-normal text-muted-foreground leading-[1.6] mt-3 pl-14">
+                              <p className="text-[14px] font-normal text-muted-foreground leading-[1.7] mt-3 pl-14 tracking-[-0.01em]">
                                 {step.description}
                               </p>
                             </motion.div>

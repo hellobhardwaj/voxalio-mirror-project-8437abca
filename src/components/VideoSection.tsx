@@ -40,7 +40,7 @@ const VideoSection = () => {
                 <div className="w-8 h-8 rounded-xl vox-gradient-bg flex items-center justify-center">
                   <Phone className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-white/90 text-sm font-bold tracking-tight">Voxalio</span>
+                <span className="text-white/90 text-[13px] font-medium tracking-[-0.01em]">Voxalio</span>
               </div>
               {[
                 { icon: BarChart3, label: "Dashboard", active: true },
@@ -53,7 +53,7 @@ const VideoSection = () => {
               ].map(({ icon: Icon, label, active }) => (
                 <div
                   key={label}
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium transition-colors ${
+                  className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-[12px] font-normal transition-colors ${
                     active
                       ? "bg-white/[0.08] text-white"
                       : "text-white/30 hover:text-white/50"
@@ -70,8 +70,8 @@ const VideoSection = () => {
               {/* Top bar */}
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-white text-base font-bold">Dashboard</p>
-                  <p className="text-white/30 text-xs mt-0.5">Welcome back — here's your overview</p>
+                  <p className="text-white text-[15px] font-medium tracking-[-0.015em]">Dashboard</p>
+                  <p className="text-white/25 text-[11px] font-normal mt-0.5 tracking-normal">Welcome back — here's your overview</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center">
@@ -103,7 +103,7 @@ const VideoSection = () => {
                       <p className="text-white/35 text-[11px] font-medium">{stat.label}</p>
                       <stat.icon className="w-3.5 h-3.5 text-white/15" />
                     </div>
-                    <p className="text-white text-xl font-bold tracking-tight">{stat.value}</p>
+                    <p className="text-white text-[18px] font-medium tracking-[-0.02em]">{stat.value}</p>
                     <div className="flex items-center gap-1 mt-1">
                       <ArrowUpRight className="w-3 h-3 text-[hsl(var(--vox-teal))]" />
                       <p className="text-[hsl(var(--vox-teal))] text-[11px] font-medium">{stat.change}</p>
@@ -118,8 +118,8 @@ const VideoSection = () => {
                 <div className="md:col-span-3 bg-white/[0.03] backdrop-blur-sm border border-white/[0.05] rounded-2xl p-5 flex flex-col">
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <p className="text-white/80 text-sm font-semibold">Call Volume</p>
-                      <p className="text-white/25 text-[10px] mt-0.5">Last 30 days</p>
+                       <p className="text-white/75 text-[13px] font-medium tracking-[-0.01em]">Call Volume</p>
+                       <p className="text-white/20 text-[10px] font-normal mt-0.5">Last 30 days</p>
                     </div>
                     <div className="flex gap-1">
                       {["7D", "30D", "90D"].map((period, i) => (
@@ -156,7 +156,7 @@ const VideoSection = () => {
                       <div className="w-6 h-6 rounded-lg vox-gradient-bg flex items-center justify-center">
                         <MessageSquare className="w-3 h-3 text-white" />
                       </div>
-                      <p className="text-white/80 text-xs font-semibold">AI Assistant</p>
+                      <p className="text-white/75 text-[12px] font-medium tracking-[-0.01em]">AI Assistant</p>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />

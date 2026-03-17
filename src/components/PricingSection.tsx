@@ -183,7 +183,7 @@ const PricingSection = () => {
         {/* Header */}
         <div className="text-center mb-14">
           <TimelineContent animationNum={0} timelineRef={pricingRef}>
-            <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-white tracking-tight">
+            <h2 className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold text-white tracking-[-0.025em]">
               <VerticalCutReveal
                 splitBy="words"
                 staggerDuration={0.08}
@@ -196,7 +196,7 @@ const PricingSection = () => {
           </TimelineContent>
 
           <TimelineContent animationNum={1} timelineRef={pricingRef}>
-            <p className="mt-4 text-white/50 max-w-xl mx-auto text-[16px] font-normal leading-[1.6]">
+            <p className="mt-4 text-white/45 max-w-xl mx-auto text-[15px] font-normal leading-[1.7] tracking-[-0.01em]">
               {t("pricing.subtitle")}
             </p>
           </TimelineContent>
@@ -235,7 +235,7 @@ const PricingSection = () => {
 
                 <CardHeader className="pb-4 pt-6 px-6">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-[18px] font-semibold text-white">
+                    <h3 className="text-[17px] font-medium text-white tracking-[-0.015em]">
                       {plan.name}
                     </h3>
                     {plan.popular && (
@@ -247,7 +247,7 @@ const PricingSection = () => {
 
                   <div className="mt-4 flex items-baseline gap-1">
                     {plan.price === 0 ? (
-                      <span className="text-4xl font-extrabold text-white tracking-tight">
+                      <span className="text-[36px] font-semibold text-white tracking-[-0.03em]">
                         {plan.priceLabel}
                       </span>
                     ) : (
@@ -255,7 +255,7 @@ const PricingSection = () => {
                         <span className="text-white/60 text-lg">€</span>
                         <NumberFlow
                           value={isYearly ? plan.yearlyPrice : plan.price}
-                          className="text-4xl font-extrabold text-white tracking-tight"
+                          className="text-[36px] font-semibold text-white tracking-[-0.03em]"
                           transformTiming={{
                             duration: 500,
                             easing: "ease-out",
@@ -269,7 +269,7 @@ const PricingSection = () => {
                     </span>
                   </div>
 
-                  <p className="text-white/40 text-[14px] font-normal mt-2 leading-[1.6]">
+                  <p className="text-white/40 text-[14px] font-normal mt-2 leading-[1.7] tracking-[-0.01em]">
                     {plan.desc}
                   </p>
                 </CardHeader>
@@ -277,7 +277,7 @@ const PricingSection = () => {
                 <CardContent className="px-6 pb-6 flex-1 flex flex-col">
                   <button
                     className={cn(
-                      "w-full py-3 rounded-xl text-sm font-semibold transition-all duration-300",
+                      "w-full py-3 rounded-xl text-[14px] font-medium transition-all duration-300 tracking-[-0.01em]",
                       plan.popular
                         ? "vox-gradient-bg text-primary-foreground hover:shadow-lg hover:shadow-[hsl(var(--vox-teal)/0.2)] hover:-translate-y-px"
                         : "bg-white/[0.08] text-white border border-white/[0.1] hover:bg-white/[0.12] hover:border-white/[0.2]"
@@ -287,14 +287,14 @@ const PricingSection = () => {
                   </button>
 
                   <div className="mt-6 flex-1">
-                    <p className="text-xs font-semibold text-white/60 uppercase tracking-wider mb-3">
+                    <p className="text-[11px] font-medium text-white/50 uppercase tracking-[0.06em] mb-3">
                       {lang === "de" ? "Enthalten" : "Includes"}
                     </p>
                     <ul className="space-y-2.5">
                       {plan.features.map((feature, featureIndex) => (
                         <li
                           key={featureIndex}
-                          className="flex items-center gap-2.5 text-sm text-white/50"
+                          className="flex items-center gap-2.5 text-[13px] font-normal text-white/45 tracking-[-0.01em]"
                         >
                           <Check className="w-4 h-4 text-[hsl(var(--vox-teal))] flex-shrink-0" />
                           {feature}

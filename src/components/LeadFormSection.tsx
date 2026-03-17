@@ -74,7 +74,7 @@ const LeadFormSection = () => {
           {/* Top glow on card */}
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--vox-teal)/0.4)] to-transparent rounded-t-2xl" />
 
-          <h2 className="text-[28px] font-semibold text-white text-center mb-2 tracking-tight">
+          <h2 className="text-[24px] font-semibold text-white text-center mb-2 tracking-[-0.025em]">
             {t("lead.title")}
           </h2>
 
@@ -128,7 +128,7 @@ const LeadFormSection = () => {
             <button
               type="submit"
               disabled={!gdpr || submitting}
-              className="w-full py-3.5 rounded-xl vox-gradient-bg text-primary-foreground font-semibold text-sm hover:shadow-lg hover:shadow-[hsl(var(--vox-teal)/0.2)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-px"
+              className="w-full py-3.5 rounded-xl vox-gradient-bg text-primary-foreground font-medium text-[14px] hover:shadow-lg hover:shadow-[hsl(var(--vox-teal)/0.2)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-px tracking-[-0.01em]"
             >
               {submitting ? (lang === "de" ? "Wird gesendet..." : "Submitting...") : t("lead.submit")}
             </button>

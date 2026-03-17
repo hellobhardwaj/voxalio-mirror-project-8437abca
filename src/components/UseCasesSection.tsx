@@ -28,15 +28,15 @@ const UseCasesSection = () => {
             transition={{ duration: 0.5 }}
             className="max-w-xl"
           >
-            <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-semibold tracking-tight">{t("uc.title")}</h2>
-            <p className="mt-5 text-[15px] font-normal leading-[1.6] opacity-60">{t("uc.desc")}</p>
+            <h2 className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold tracking-[-0.025em] leading-[1.15]">{t("uc.title")}</h2>
+            <p className="mt-5 text-[15px] font-normal leading-[1.7] opacity-55 tracking-[-0.01em]">{t("uc.desc")}</p>
           </motion.div>
           <motion.a
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             href="#start"
-            className="vox-gradient-bg text-primary-foreground px-7 py-3 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-px self-start"
+            className="vox-gradient-bg text-primary-foreground px-7 py-3 rounded-full text-[14px] font-medium hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-px self-start tracking-[-0.01em]"
           >
             {t("uc.signup")}
           </motion.a>
@@ -56,9 +56,9 @@ const UseCasesSection = () => {
                 <div className="w-10 h-10 rounded-xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center group-hover:bg-white/[0.1] group-hover:border-white/[0.15] transition-all duration-300">
                   <uc.icon className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h3 className="font-semibold text-[17px] text-white/90">{uc.title}</h3>
+                <h3 className="font-medium text-[16px] text-white/90 tracking-[-0.015em]">{uc.title}</h3>
               </div>
-              <p className="text-[14px] font-normal opacity-50 leading-[1.6] group-hover:opacity-70 transition-opacity duration-300">{uc.description}</p>
+              <p className="text-[14px] font-normal opacity-45 leading-[1.7] group-hover:opacity-65 transition-opacity duration-300 tracking-[-0.01em]">{uc.description}</p>
             </motion.div>
           ))}
         </div>
