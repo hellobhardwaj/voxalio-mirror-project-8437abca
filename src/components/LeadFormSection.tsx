@@ -19,7 +19,10 @@ const LeadFormSection = () => {
     try {
       const phone = form.phone.replace(/[\s\-\(\)]/g, "");
       const { error } = await supabase.from("leads" as any).insert({
-        phone: phone || form.email,
+        phone: phone || null,
+        name: form.name || null,
+        email: form.email || null,
+        company: form.company || null,
       });
       if (error) console.error("Lead insert error:", error);
     } catch (err) {
