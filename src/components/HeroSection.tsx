@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, CheckCircle } from "lucide-react";
-import heroOrb from "@/assets/hero-orb.png";
+
 import { useState, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
@@ -142,7 +142,14 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-8 flex justify-center"
         >
-          <img src={heroOrb} alt="AI Orb" className="w-40 h-40 md:w-48 md:h-48 object-contain drop-shadow-2xl" />
+          <video
+            src="/hero-orb.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-48 h-48 md:w-56 md:h-56 object-contain drop-shadow-2xl pointer-events-none"
+          />
         </motion.div>
 
         <motion.div
