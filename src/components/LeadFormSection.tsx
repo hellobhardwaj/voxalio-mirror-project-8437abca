@@ -2,18 +2,33 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { supabase } from "@/integrations/supabase/client";
 
 const LeadFormSection = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const navigate = useNavigate();
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "" });
   const [gdpr, setGdpr] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!gdpr) return;
+    if (!gdpr || submitting) return;
+    setSubmitting(true);
+
+    try {
+      const phone = form.phone.replace(/[\s\-\(\)]/g, "");
+      const { error } = await supabase.from("leads" as any).insert({
+        phone: phone || form.email,
+      });
+      if (error) console.error("Lead insert error:", error);
+    } catch (err) {
+      console.error("Failed to store lead:", err);
+    }
+
     setForm({ name: "", email: "", phone: "", company: "" });
     setGdpr(false);
+    setSubmitting(false);
     navigate("/thank-you");
   };
 
@@ -76,10 +91,10 @@ const LeadFormSection = () => {
             </label>
             <button
               type="submit"
-              disabled={!gdpr}
+              disabled={!gdpr || submitting}
               className="w-full py-3 rounded-lg vox-gradient-bg text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {t("lead.submit")}
+              {submitting ? (lang === "de" ? "Wird gesendet..." : "Submitting...") : t("lead.submit")}
             </button>
           </form>
         </motion.div>
