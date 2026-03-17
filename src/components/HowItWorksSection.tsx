@@ -89,7 +89,7 @@ const HowItWorksSection = () => {
                           <div className="flex items-start gap-4">
                             {/* Step number */}
                             <span
-                              className={`w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold shrink-0 transition-all duration-500 ${
+                              className={`w-10 h-10 rounded-xl flex items-center justify-center text-[13px] font-medium shrink-0 transition-all duration-500 ${
                                 isActive
                                   ? "vox-gradient-bg text-primary-foreground shadow-md"
                                   : "bg-muted text-muted-foreground group-hover:bg-muted/80"
