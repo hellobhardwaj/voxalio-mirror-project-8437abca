@@ -33,7 +33,7 @@ const HowItWorksSection = () => {
           <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-foreground tracking-tight">
             {t("how.title")}
           </h2>
-          <p className="mt-4 vox-gradient-text font-semibold text-lg">
+          <p className="mt-4 vox-gradient-text font-medium text-[16px]">
             {t("how.subtitle")}
           </p>
         </motion.div>
