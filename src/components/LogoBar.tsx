@@ -8,7 +8,7 @@ const LogoSVG = ({ children, width = 120 }: { children: React.ReactNode; width?:
   <svg
     viewBox={`0 0 ${width} 32`}
     fill="currentColor"
-    className="h-5 md:h-6 w-auto mx-7 md:mx-11 shrink-0 text-muted-foreground/35 select-none"
+    className="h-5 md:h-6 w-auto mx-7 md:mx-11 shrink-0 text-foreground/50 select-none"
     aria-hidden
   >
     {children}
