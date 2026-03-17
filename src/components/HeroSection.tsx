@@ -202,7 +202,7 @@ const HeroSection = () => {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="flex items-center gap-2 text-emerald-500 text-sm mb-3 justify-center"
+                  className="flex items-center gap-2 text-primary text-sm mb-3 justify-center"
                 >
                   <CheckCircle className="w-4 h-4" />
                   <span>📞 {lang === "de" ? "Wir rufen Sie jetzt an..." : "Calling you now..."}</span>
