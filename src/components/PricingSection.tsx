@@ -273,7 +273,7 @@ const PricingSection = () => {
                   </p>
                 </CardHeader>
 
-                <CardContent className="px-6 pb-6">
+                <CardContent className="px-6 pb-6 flex-1 flex flex-col">
                   <button
                     className={cn(
                       "w-full py-3 rounded-xl text-sm font-semibold transition-all duration-300",
