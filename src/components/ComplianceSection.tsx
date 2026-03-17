@@ -1,22 +1,26 @@
 import { motion } from "framer-motion";
-import { Server, Brain, Globe } from "lucide-react";
 import heroOrb from "@/assets/hero-orb.png";
 
-const items = [
+const chatMessages = [
   {
-    icon: Server,
-    title: "Location of our servers",
-    description: "We host our infrastructure in Germany — making us one of the few fully GDPR-compliant AI call assistant solutions in the EU.",
+    type: "system",
+    label: "AI call started",
+    time: "",
   },
   {
-    icon: Brain,
-    title: "Local LLMs",
-    description: "Our services are powered by LLMs (large language models) from leading providers. To ensure full GDPR and EU AI Act compliance, we host on European servers.",
+    type: "ai",
+    text: "Hello, this is Voxalio, the AI assistant for BrightHome Solutions. How can I help you today?",
+    label: "Voxalio",
   },
   {
-    icon: Globe,
-    title: "Transparency is important to us",
-    description: "We only store the data that is absolutely necessary and are able to delete all your data in real time upon request.",
+    type: "user",
+    text: "Hi, I'd like to schedule an appointment for next Tuesday please.",
+    label: "Caller",
+  },
+  {
+    type: "ai",
+    text: "Of course! I have availability on Tuesday at 10:00 AM and 2:00 PM. Which would you prefer?",
+    label: "Voxalio",
   },
 ];
 
@@ -24,6 +28,7 @@ const ComplianceSection = () => (
   <section className="py-24">
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid md:grid-cols-2 gap-16 items-center">
+        {/* Left - floating orb */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -33,24 +38,43 @@ const ComplianceSection = () => (
           <img src={heroOrb} alt="AI Compliance" className="w-64 h-64 object-contain" />
         </motion.div>
 
-        <div className="space-y-4">
-          {items.map((item, i) => (
+        {/* Right - chat transcript mockup */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="space-y-3"
+        >
+          {chatMessages.map((msg, i) => (
             <motion.div
-              key={item.title}
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="border border-border rounded-xl p-5"
             >
-              <div className="flex items-center gap-2 mb-2">
-                <item.icon className="w-5 h-5 text-primary" />
-                <h3 className="font-semibold text-foreground">{item.title}</h3>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+              {msg.type === "system" ? (
+                <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
+                  <span className="w-2 h-2 rounded-full vox-gradient-bg" />
+                  <span>{msg.label}</span>
+                </div>
+              ) : (
+                <div
+                  className={`rounded-2xl p-4 border ${
+                    msg.type === "ai"
+                      ? "bg-card border-border"
+                      : "bg-muted/50 border-border ml-8"
+                  }`}
+                >
+                  <p className="text-xs font-semibold text-muted-foreground mb-1">
+                    {msg.type === "ai" ? "🤖" : "👤"} {msg.label}
+                  </p>
+                  <p className="text-sm text-foreground leading-relaxed">{msg.text}</p>
+                </div>
+              )}
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   </section>
