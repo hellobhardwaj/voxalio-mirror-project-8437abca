@@ -277,7 +277,7 @@ const PricingSection = () => {
                 <CardContent className="px-6 pb-6 flex-1 flex flex-col">
                   <button
                     className={cn(
-                      "w-full py-3 rounded-xl text-sm font-semibold transition-all duration-300",
+                      "w-full py-3 rounded-xl text-[14px] font-medium transition-all duration-300 tracking-[-0.01em]",
                       plan.popular
                         ? "vox-gradient-bg text-primary-foreground hover:shadow-lg hover:shadow-[hsl(var(--vox-teal)/0.2)] hover:-translate-y-px"
                         : "bg-white/[0.08] text-white border border-white/[0.1] hover:bg-white/[0.12] hover:border-white/[0.2]"
