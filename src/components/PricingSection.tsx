@@ -183,7 +183,7 @@ const PricingSection = () => {
         {/* Header */}
         <div className="text-center mb-14">
           <TimelineContent animationNum={0} timelineRef={pricingRef}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-white tracking-tight">
               <VerticalCutReveal
                 splitBy="words"
                 staggerDuration={0.08}
