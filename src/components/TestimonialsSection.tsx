@@ -207,7 +207,8 @@ const TestimonialsSection = () => {
           >
             <a
               href="#lead-form"
-              className="inline-flex items-center justify-center h-12 px-8 rounded-xl vox-gradient-bg text-primary-foreground text-[15px] font-semibold tracking-[-0.01em] hover:opacity-90 transition-opacity duration-200 shadow-[0_4px_20px_hsl(var(--vox-teal)/0.3)]"
+              onClick={(e) => { e.preventDefault(); document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' }); }}
+              className="inline-flex items-center justify-center h-12 px-8 rounded-xl vox-gradient-bg text-primary-foreground text-[15px] font-semibold tracking-[-0.01em] transition-all duration-300 shadow-[0_4px_20px_hsl(var(--vox-teal)/0.3)] hover:shadow-[0_8px_32px_hsl(var(--vox-teal)/0.45)] hover:scale-105 hover:brightness-110"
             >
               {lang === "de" ? "Jetzt sichern" : "Grab Yours Now"}
             </a>
