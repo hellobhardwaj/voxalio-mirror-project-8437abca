@@ -86,6 +86,7 @@ const IntegrationsSection = () => {
                         src={item.logo}
                         alt={item.name}
                         className="w-5 h-5 md:w-7 md:h-7"
+                        style={(item as any).isRaster ? { filter: 'grayscale(100%) contrast(1.2)', objectFit: 'contain' } : undefined}
                         loading="lazy"
                       />
                     </motion.div>
