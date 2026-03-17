@@ -136,63 +136,72 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-8 max-w-sm mx-auto"
         >
-          <div className="bg-card/90 backdrop-blur-xl rounded-2xl border border-border/60 p-5 vox-shadow-xl">
-            <div className="flex items-center justify-center mb-3">
-              <Phone className="w-5 h-5 text-muted-foreground" />
-              <span className="ml-2 text-sm text-muted-foreground">
-                {lang === "de" ? "Telefonnummer eingeben" : "Enter your phone number"}
-              </span>
+          <div className="relative rounded-2xl p-[2px] overflow-hidden vox-shadow-xl">
+            {/* Rotating rainbow border */}
+            <div
+              className="absolute inset-[-50%] animate-rainbow-spin"
+              style={{
+                background: 'conic-gradient(from 0deg, hsl(210 60% 55%), hsl(270 45% 55%), hsl(310 40% 55%), hsl(150 50% 45%), hsl(185 55% 48%), hsl(210 60% 55%))',
+              }}
+            />
+            <div className="relative bg-card/95 backdrop-blur-xl rounded-[calc(1rem-1px)] p-5">
+              <div className="flex items-center justify-center mb-3">
+                <Phone className="w-5 h-5 text-muted-foreground" />
+                <span className="ml-2 text-sm text-muted-foreground">
+                  {lang === "de" ? "Telefonnummer eingeben" : "Enter your phone number"}
+                </span>
+              </div>
+
+              <div className="mb-3">
+                <input
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                    setError("");
+                  }}
+                  placeholder={lang === "de" ? "z.B. +4917612345678" : "e.g. +4917612345678"}
+                  disabled={loading}
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 disabled:opacity-50 transition-all duration-200"
+                />
+              </div>
+
+              <AnimatePresence>
+                {error && (
+                  <motion.p
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="text-destructive text-xs mb-3 text-left"
+                  >
+                    {error}
+                  </motion.p>
+                )}
+                {success && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="flex items-center gap-2 text-primary text-sm mb-3 justify-center"
+                  >
+                    <CheckCircle className="w-4 h-4" />
+                    <span>📞 {lang === "de" ? "Wir rufen Sie jetzt an..." : "Calling you now..."}</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <button
+                onClick={handleSubmit}
+                disabled={loading || !phone.trim()}
+                className="w-full py-3 rounded-lg bg-foreground text-background font-medium text-[14px] hover:opacity-90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg tracking-[-0.01em]"
+              >
+                {loading
+                  ? lang === "de"
+                    ? "Wird angerufen..."
+                    : "Calling..."
+                  : t("hero.cta")}
+              </button>
             </div>
-
-            <div className="mb-3">
-              <input
-                type="tel"
-                value={phone}
-                onChange={(e) => {
-                  setPhone(e.target.value);
-                  setError("");
-                }}
-                placeholder={lang === "de" ? "z.B. +4917612345678" : "e.g. +4917612345678"}
-                disabled={loading}
-                className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 disabled:opacity-50 transition-all duration-200"
-              />
-            </div>
-
-            <AnimatePresence>
-              {error && (
-                <motion.p
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="text-destructive text-xs mb-3 text-left"
-                >
-                  {error}
-                </motion.p>
-              )}
-              {success && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="flex items-center gap-2 text-primary text-sm mb-3 justify-center"
-                >
-                  <CheckCircle className="w-4 h-4" />
-                  <span>📞 {lang === "de" ? "Wir rufen Sie jetzt an..." : "Calling you now..."}</span>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            <button
-              onClick={handleSubmit}
-              disabled={loading || !phone.trim()}
-              className="w-full py-3 rounded-lg bg-foreground text-background font-medium text-[14px] hover:opacity-90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg tracking-[-0.01em]"
-            >
-              {loading
-                ? lang === "de"
-                  ? "Wird angerufen..."
-                  : "Calling..."
-                : t("hero.cta")}
-            </button>
           </div>
         </motion.div>
       </div>
