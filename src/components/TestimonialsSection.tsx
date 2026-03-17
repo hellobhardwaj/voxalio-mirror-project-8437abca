@@ -174,7 +174,7 @@ const TestimonialsSection = () => {
                 className="relative bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl p-8"
               >
                 <Quote className="w-10 h-10 text-[hsl(var(--vox-teal)/0.25)] mb-4" />
-                <p className="text-white/80 text-lg leading-relaxed">
+                <p className="text-white/80 text-[18px] font-normal leading-[1.6]">
                   {getQuote(current)}
                 </p>
                 <div className="mt-8 flex items-center gap-4">
