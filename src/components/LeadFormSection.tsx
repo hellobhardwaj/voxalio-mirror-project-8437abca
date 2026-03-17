@@ -1,19 +1,20 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { toast } from "@/hooks/use-toast";
 
 const LeadFormSection = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "" });
   const [gdpr, setGdpr] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!gdpr) return;
-    toast({ title: "Thank you!", description: "We'll be in touch shortly." });
     setForm({ name: "", email: "", phone: "", company: "" });
     setGdpr(false);
+    navigate("/thank-you");
   };
 
   return (
