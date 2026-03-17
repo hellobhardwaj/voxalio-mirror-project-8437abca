@@ -255,7 +255,7 @@ const PricingSection = () => {
                         <span className="text-white/60 text-lg">€</span>
                         <NumberFlow
                           value={isYearly ? plan.yearlyPrice : plan.price}
-                          className="text-4xl font-extrabold text-white tracking-tight"
+                          className="text-[36px] font-semibold text-white tracking-[-0.03em]"
                           transformTiming={{
                             duration: 500,
                             easing: "ease-out",
