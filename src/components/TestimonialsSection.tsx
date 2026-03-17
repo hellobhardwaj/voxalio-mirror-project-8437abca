@@ -196,6 +196,22 @@ const TestimonialsSection = () => {
               </motion.div>
             </AnimatePresence>
           </div>
+
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="mt-10"
+          >
+            <a
+              href="#lead-form"
+              className="inline-flex items-center justify-center h-12 px-8 rounded-xl vox-gradient-bg text-primary-foreground text-[15px] font-semibold tracking-[-0.01em] hover:opacity-90 transition-opacity duration-200 shadow-[0_4px_20px_hsl(var(--vox-teal)/0.3)]"
+            >
+              {lang === "de" ? "Jetzt sichern" : "Grab Yours Now"}
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>
