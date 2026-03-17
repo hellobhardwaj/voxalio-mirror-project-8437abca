@@ -98,7 +98,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-[40px] sm:text-[48px] md:text-[56px] lg:text-[64px] font-bold text-foreground leading-[1.1] max-w-3xl mx-auto tracking-tight"
+          className="text-[36px] sm:text-[44px] md:text-[50px] lg:text-[56px] font-semibold text-foreground leading-[1.08] max-w-3xl mx-auto tracking-[-0.03em]"
         >
           {t("hero.title")}
         </motion.h1>
