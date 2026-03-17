@@ -142,14 +142,16 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-6 flex justify-center"
         >
-          <video
-            src="/hero-orb.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-64 h-64 md:w-80 md:h-80 object-contain pointer-events-none mix-blend-screen"
-          />
+          <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden">
+            <video
+              src="/hero-orb.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover pointer-events-none scale-[1.35]"
+            />
+          </div>
         </motion.div>
 
         <motion.div
