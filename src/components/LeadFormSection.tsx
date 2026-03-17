@@ -91,10 +91,10 @@ const LeadFormSection = () => {
             </label>
             <button
               type="submit"
-              disabled={!gdpr}
+              disabled={!gdpr || submitting}
               className="w-full py-3 rounded-lg vox-gradient-bg text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {t("lead.submit")}
+              {submitting ? (lang === "de" ? "Wird gesendet..." : "Submitting...") : t("lead.submit")}
             </button>
           </form>
         </motion.div>
