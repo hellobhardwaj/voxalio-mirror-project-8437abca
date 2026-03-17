@@ -103,7 +103,7 @@ const VideoSection = () => {
                       <p className="text-white/35 text-[11px] font-medium">{stat.label}</p>
                       <stat.icon className="w-3.5 h-3.5 text-white/15" />
                     </div>
-                    <p className="text-white text-xl font-bold tracking-tight">{stat.value}</p>
+                    <p className="text-white text-[18px] font-medium tracking-[-0.02em]">{stat.value}</p>
                     <div className="flex items-center gap-1 mt-1">
                       <ArrowUpRight className="w-3 h-3 text-[hsl(var(--vox-teal))]" />
                       <p className="text-[hsl(var(--vox-teal))] text-[11px] font-medium">{stat.change}</p>
