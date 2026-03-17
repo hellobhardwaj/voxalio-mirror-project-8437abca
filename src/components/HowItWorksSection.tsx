@@ -1,26 +1,20 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Mic, ListChecks, Phone, Plug, BarChart3 } from "lucide-react";
 
 const HowItWorksSection = () => {
-  const [openIndex, setOpenIndex] = useState(0);
   const { t } = useLanguage();
 
   const steps = [
-    { title: t("how.step1.title"), description: t("how.step1.desc") },
-    { title: t("how.step2.title"), description: t("how.step2.desc") },
-    { title: t("how.step3.title"), description: t("how.step3.desc") },
-    { title: t("how.step4.title"), description: t("how.step4.desc") },
-    { title: t("how.step5.title"), description: t("how.step5.desc") },
+    { title: t("how.step1.title"), description: t("how.step1.desc"), icon: Mic },
+    { title: t("how.step2.title"), description: t("how.step2.desc"), icon: ListChecks },
+    { title: t("how.step3.title"), description: t("how.step3.desc"), icon: Phone },
+    { title: t("how.step4.title"), description: t("how.step4.desc"), icon: Plug },
+    { title: t("how.step5.title"), description: t("how.step5.desc"), icon: BarChart3 },
   ];
 
   return (
     <section className="py-28 relative" id="how-it-works">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-gradient-to-br from-[hsl(var(--vox-teal)/0.03)] to-[hsl(var(--vox-blue)/0.03)] rounded-full blur-3xl" />
-      </div>
-
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div
@@ -28,7 +22,7 @@ const HowItWorksSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
           <h2 className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold text-foreground tracking-[-0.025em] leading-[1.15]">
             {t("how.title")}
@@ -38,111 +32,90 @@ const HowItWorksSection = () => {
           </p>
         </motion.div>
 
-        {/* Zig-zag steps with connecting line */}
-        <div className="relative">
-          {/* Vertical connecting line (desktop only) */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2">
-            <div className="w-full h-full bg-gradient-to-b from-border/0 via-border/60 to-border/0" />
-          </div>
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+          {/* Step 1 — Hero tile spanning 4 cols */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="md:col-span-4 relative overflow-hidden rounded-[20px] p-8 md:p-10 min-h-[220px] group cursor-default
+              bg-[linear-gradient(135deg,hsl(var(--vox-teal)),hsl(200_70%_48%),hsl(var(--vox-blue)))]
+              shadow-[0_8px_30px_-8px_hsl(var(--vox-teal)/0.3)]
+              hover:shadow-[0_16px_48px_-12px_hsl(var(--vox-teal)/0.4)] transition-shadow duration-500"
+          >
+            {/* Background decorative icon */}
+            {(() => { const Icon = steps[0].icon; return <Icon className="absolute -bottom-4 -right-4 w-40 h-40 text-primary-foreground/[0.08]" />; })()}
+            <div className="relative z-10 flex flex-col h-full justify-between">
+              <span className="w-10 h-10 rounded-xl flex items-center justify-center text-[13px] font-semibold bg-primary-foreground/20 text-primary-foreground backdrop-blur-sm">
+                1
+              </span>
+              <div className="mt-6">
+                <h3 className="text-[18px] md:text-[20px] font-semibold text-primary-foreground tracking-[-0.02em]">
+                  {steps[0].title}
+                </h3>
+                <p className="mt-2 text-[14px] text-primary-foreground/80 leading-[1.7] max-w-md">
+                  {steps[0].description}
+                </p>
+              </div>
+            </div>
+          </motion.div>
 
-          <div className="flex flex-col gap-8 md:gap-12">
-            {steps.map((step, i) => {
-              const isLeft = i % 2 === 0;
-              const isActive = openIndex === i;
+          {/* Step 2 — 2 cols */}
+          <BentoTile step={steps[1]} index={1} delay={0.1} className="md:col-span-2" />
 
-              return (
-                <div key={i} className="relative">
-                  {/* Connection dot on the center line (desktop) */}
-                  <div className="hidden md:flex absolute left-1/2 top-8 -translate-x-1/2 z-10">
-                    <motion.div
-                      className={`w-4 h-4 rounded-full border-2 transition-all duration-500 ${
-                        isActive
-                          ? "border-[hsl(var(--vox-teal))] bg-[hsl(var(--vox-teal))] shadow-[0_0_12px_hsl(var(--vox-teal)/0.5)]"
-                          : "border-border bg-background"
-                      }`}
-                      animate={isActive ? { scale: [1, 1.3, 1] } : {}}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    />
-                  </div>
+          {/* Step 3 — 2 cols */}
+          <BentoTile step={steps[2]} index={2} delay={0.2} className="md:col-span-2" />
 
-                  {/* Card container */}
-                  <div
-                    className={`md:w-[calc(50%-2rem)] ${
-                      isLeft ? "md:mr-auto md:pr-0" : "md:ml-auto md:pl-0"
-                    }`}
-                  >
-                    <motion.div
-                      initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
-                      transition={{ duration: 0.5, delay: i * 0.08 }}
-                    >
-                      <button
-                        onClick={() => setOpenIndex(isActive ? -1 : i)}
-                        className={`w-full text-left rounded-2xl p-6 transition-all duration-500 border group ${
-                          isActive
-                            ? "bg-card border-[hsl(var(--vox-teal)/0.3)] shadow-[0_8px_30px_-12px_hsl(var(--vox-teal)/0.15)] -translate-y-1"
-                            : "bg-card/60 border-border/50 hover:border-border hover:bg-card hover:-translate-y-0.5 hover:shadow-lg"
-                        }`}
-                      >
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="flex items-start gap-4">
-                            {/* Step number */}
-                            <span
-                              className={`w-10 h-10 rounded-xl flex items-center justify-center text-[13px] font-medium shrink-0 transition-all duration-500 ${
-                                isActive
-                                  ? "vox-gradient-bg text-primary-foreground shadow-md"
-                                  : "bg-muted text-muted-foreground group-hover:bg-muted/80"
-                              }`}
-                            >
-                              {i + 1}
-                            </span>
+          {/* Step 4 — 2 cols */}
+          <BentoTile step={steps[3]} index={3} delay={0.3} className="md:col-span-2" />
 
-                            <div>
-                              {/* Title */}
-                              <h3
-                                className={`font-medium text-[15px] transition-colors duration-300 tracking-[-0.015em] ${
-                                  isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
-                                }`}
-                              >
-                                {step.title}
-                              </h3>
-                            </div>
-                          </div>
-
-                          <ChevronDown
-                            className={`w-4 h-4 text-muted-foreground shrink-0 mt-1 transition-transform duration-300 ${
-                              isActive ? "rotate-180" : ""
-                            }`}
-                          />
-                        </div>
-
-                        {/* Expandable description */}
-                        <AnimatePresence>
-                          {isActive && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.3, ease: "easeInOut" }}
-                              className="overflow-hidden"
-                            >
-                              <p className="text-[14px] font-normal text-muted-foreground leading-[1.7] mt-3 pl-14 tracking-[-0.01em]">
-                                {step.description}
-                              </p>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </button>
-                    </motion.div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          {/* Step 5 — wider 4 cols */}
+          <BentoTile step={steps[4]} index={4} delay={0.35} className="md:col-span-2" />
         </div>
       </div>
     </section>
+  );
+};
+
+interface BentoTileProps {
+  step: { title: string; description: string; icon: React.ElementType };
+  index: number;
+  delay: number;
+  className?: string;
+}
+
+const BentoTile = ({ step, index, delay, className = "" }: BentoTileProps) => {
+  const Icon = step.icon;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      className={`relative overflow-hidden rounded-[20px] p-7 min-h-[200px] group cursor-default
+        bg-muted/60 border border-border/50
+        hover:bg-muted hover:shadow-[0_12px_36px_-8px_hsl(var(--foreground)/0.08)] hover:-translate-y-0.5
+        transition-all duration-500 ${className}`}
+    >
+      {/* Background decorative icon */}
+      <Icon className="absolute -bottom-3 -right-3 w-28 h-28 text-foreground/[0.04] transition-colors duration-500 group-hover:text-foreground/[0.07]" />
+      <div className="relative z-10 flex flex-col h-full justify-between">
+        <span className="w-9 h-9 rounded-xl flex items-center justify-center text-[12px] font-medium bg-card text-muted-foreground border border-border/60 shadow-sm
+          group-hover:vox-gradient-bg group-hover:text-primary-foreground group-hover:border-transparent transition-all duration-500">
+          {index + 1}
+        </span>
+        <div className="mt-5">
+          <h3 className="text-[15px] font-medium text-foreground tracking-[-0.015em]">
+            {step.title}
+          </h3>
+          <p className="mt-1.5 text-[13px] text-muted-foreground leading-[1.65]">
+            {step.description}
+          </p>
+        </div>
+      </div>
+    </motion.div>
   );
 };
 
