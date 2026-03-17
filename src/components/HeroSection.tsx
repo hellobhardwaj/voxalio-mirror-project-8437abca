@@ -5,35 +5,10 @@ import { useState, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 import { AuroraBackground } from "@/components/ui/aurora-background";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
-const COUNTRY_CODES = [
-  { code: "+49", flag: "🇩🇪", label: "DE" },
-  { code: "+43", flag: "🇦🇹", label: "AT" },
-  { code: "+41", flag: "🇨🇭", label: "CH" },
-  { code: "+44", flag: "🇬🇧", label: "UK" },
-  { code: "+1", flag: "🇺🇸", label: "US" },
-  { code: "+33", flag: "🇫🇷", label: "FR" },
-  { code: "+39", flag: "🇮🇹", label: "IT" },
-  { code: "+34", flag: "🇪🇸", label: "ES" },
-  { code: "+31", flag: "🇳🇱", label: "NL" },
-  { code: "+48", flag: "🇵🇱", label: "PL" },
-  { code: "+46", flag: "🇸🇪", label: "SE" },
-  { code: "+47", flag: "🇳🇴", label: "NO" },
-  { code: "+45", flag: "🇩🇰", label: "DK" },
-  { code: "+32", flag: "🇧🇪", label: "BE" },
-  { code: "+90", flag: "🇹🇷", label: "TR" },
-];
 
 const HeroSection = () => {
   const [phone, setPhone] = useState("");
-  const [countryCode, setCountryCode] = useState("+49");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -45,7 +20,8 @@ const HeroSection = () => {
   const buildE164 = (): string => {
     const cleaned = cleanPhone(phone);
     if (cleaned.startsWith("+")) return cleaned;
-    return `${countryCode}${cleaned.replace(/^0+/, "")}`;
+    // Default to +49 if no country code provided
+    return `+49${cleaned.replace(/^0+/, "")}`;
   };
 
   const validate = (e164: string): boolean => {
@@ -168,20 +144,7 @@ const HeroSection = () => {
               </span>
             </div>
 
-            <div className="flex gap-2 mb-3">
-              <Select value={countryCode} onValueChange={setCountryCode}>
-                <SelectTrigger className="w-[100px] shrink-0">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {COUNTRY_CODES.map((c) => (
-                    <SelectItem key={c.code} value={c.code}>
-                      {c.flag} {c.code}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-
+            <div className="mb-3">
               <input
                 type="tel"
                 value={phone}
@@ -189,9 +152,9 @@ const HeroSection = () => {
                   setPhone(e.target.value);
                   setError("");
                 }}
-                placeholder={t("hero.placeholder")}
+                placeholder={lang === "de" ? "z.B. +4917612345678" : "e.g. +4917612345678"}
                 disabled={loading}
-                className="flex-1 px-4 py-2.5 rounded-lg border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 disabled:opacity-50 transition-all duration-200"
+                className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 disabled:opacity-50 transition-all duration-200"
               />
             </div>
 
