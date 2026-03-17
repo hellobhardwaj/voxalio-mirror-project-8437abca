@@ -139,6 +139,18 @@
     z-index: 0;
   }
 
+  /* Rainbow border spin */
+  @keyframes rainbow-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-rainbow-spin {
+    animation: rainbow-spin 4.5s linear infinite;
+    /* Scale up so rotation corners don't reveal gaps */
+    transform-origin: center;
+    scale: 1.5;
+  }
+
   /* Premium glass effect */
   .vox-glass {
     background: hsl(0 0% 100% / 0.7);
