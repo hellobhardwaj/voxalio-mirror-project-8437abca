@@ -6,35 +6,28 @@ const Footer = () => {
 
   const footerLinks = {
     [lang === "de" ? "Navigation" : "Navigation"]: [
-      lang === "de" ? "Anwendungsfälle" : "Use Cases",
-      lang === "de" ? "KI-Anrufassistent" : "AI Call Assistant",
-      lang === "de" ? "Preise" : "Pricing",
-      lang === "de" ? "Partner werden" : "Become Partner",
+      { label: lang === "de" ? "Anwendungsfälle" : "Use Cases", href: "#use-cases" },
+      { label: lang === "de" ? "Kundenstimmen" : "Testimonials", href: "#testimonials" },
+      { label: lang === "de" ? "Preise" : "Pricing", href: "#pricing" },
+      { label: lang === "de" ? "Kontakt" : "Contact", href: "#contact" },
     ],
-    [lang === "de" ? "Über uns" : "About"]: [
-      lang === "de" ? "Über uns" : "About Us",
-      "Blog",
-      lang === "de" ? "Karriere" : "Careers",
-      lang === "de" ? "Kontakt" : "Contact",
-    ],
-    [lang === "de" ? "Ressourcen" : "Resources"]: [
-      lang === "de" ? "Dokumentation" : "Documentation",
-      lang === "de" ? "Hilfecenter" : "Help Center",
-      "Tutorials",
-      "Changelog",
+    [lang === "de" ? "Produkt" : "Product"]: [
+      { label: lang === "de" ? "KI-Anrufassistent" : "AI Call Assistant", href: "#use-cases" },
+      { label: lang === "de" ? "Integrationen" : "Integrations", href: "#integrations" },
+      { label: lang === "de" ? "Demo buchen" : "Book a Demo", href: "#booking" },
+      { label: "FAQ", href: "#faq" },
     ],
     [lang === "de" ? "Rechtliches" : "Legal"]: [
-      lang === "de" ? "Datenschutzerklärung" : "Privacy Policy",
-      lang === "de" ? "Nutzungsbedingungen" : "Terms of Service",
-      lang === "de" ? "KI-Offenlegung" : "AI Disclosure",
-      lang === "de" ? "DSGVO" : "GDPR",
+      { label: lang === "de" ? "Datenschutzerklärung" : "Privacy Policy", href: "/privacy" },
+      { label: lang === "de" ? "KI-Offenlegung" : "AI Disclosure", href: "/privacy#ai-disclosure" },
+      { label: lang === "de" ? "DSGVO" : "GDPR", href: "/privacy" },
     ],
   };
 
   return (
     <footer className="vox-section-dark py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <div className="col-span-2 md:col-span-1">
             <span className="text-lg font-bold">
               Voxalio<span className="vox-gradient-text">.ai</span>
@@ -61,12 +54,12 @@ const Footer = () => {
               <h4 className="font-semibold text-sm mb-4 text-white/80">{title}</h4>
               <ul className="space-y-2.5">
                 {links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href={link === "Privacy Policy" || link === "Datenschutzerklärung" ? "/privacy" : "#"}
+                      href={link.href}
                       className="text-sm opacity-40 hover:opacity-80 transition-all duration-200 hover:translate-x-0.5 inline-block"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}

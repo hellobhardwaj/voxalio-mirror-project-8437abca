@@ -8,12 +8,10 @@ const Navbar = () => {
   const { lang, setLang, t } = useLanguage();
 
   const navItems = [
-    { label: t("nav.useCases"), hasDropdown: true, href: "#use-cases" },
+    { label: t("nav.useCases"), href: "#use-cases" },
     { label: t("nav.testimonials"), href: "#testimonials" },
     { label: t("nav.pricing"), href: "#pricing" },
-    { label: t("nav.partner"), href: "#partner" },
-    { label: t("nav.resources"), hasDropdown: true },
-    { label: t("nav.about"), hasDropdown: true },
+    { label: t("nav.partner"), href: "#contact" },
   ];
 
   return (
@@ -27,11 +25,10 @@ const Navbar = () => {
           {navItems.map((item) => (
             <a
               key={item.label}
-              href={item.href || "#"}
+              href={item.href}
               className="px-3.5 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center gap-1 rounded-lg hover:bg-muted/50"
             >
               {item.label}
-              {item.hasDropdown && <ChevronDown className="w-3.5 h-3.5" />}
             </a>
           ))}
         </div>
@@ -48,7 +45,7 @@ const Navbar = () => {
             {t("nav.bookDemo")}
           </a>
           <a
-            href="#start"
+            href="#contact"
             className="vox-gradient-bg text-primary-foreground px-5 py-2 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-px"
           >
             {t("nav.startNow")}
@@ -85,7 +82,7 @@ const Navbar = () => {
               {navItems.map((item) => (
                 <a
                   key={item.label}
-                  href={item.href || "#"}
+                  href={item.href}
                   className="py-2.5 px-3 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted/50 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
@@ -93,7 +90,7 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="#start"
+                href="#contact"
                 className="vox-gradient-bg text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold text-center mt-3"
                 onClick={() => setMobileOpen(false)}
               >
