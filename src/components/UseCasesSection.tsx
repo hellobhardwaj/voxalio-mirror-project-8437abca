@@ -28,8 +28,8 @@ const UseCasesSection = () => {
             transition={{ duration: 0.5 }}
             className="max-w-xl"
           >
-            <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-semibold tracking-tight">{t("uc.title")}</h2>
-            <p className="mt-5 text-[15px] font-normal leading-[1.6] opacity-60">{t("uc.desc")}</p>
+            <h2 className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold tracking-[-0.025em] leading-[1.15]">{t("uc.title")}</h2>
+            <p className="mt-5 text-[15px] font-normal leading-[1.7] opacity-55 tracking-[-0.01em]">{t("uc.desc")}</p>
           </motion.div>
           <motion.a
             initial={{ opacity: 0 }}
