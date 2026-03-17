@@ -100,6 +100,20 @@ const HeroSection = () => {
 
   return (
     <section className="relative pt-32 pb-20 overflow-hidden">
+      {/* Aurora background layer */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-50 will-change-transform animate-aurora"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(100deg, hsl(175 65% 40% / 0.12) 10%, hsl(190 70% 45% / 0.08) 15%, hsl(210 75% 50% / 0.1) 20%, hsl(175 65% 55% / 0.06) 25%, transparent 30%), repeating-linear-gradient(100deg, hsl(175 65% 40% / 0.06) 0%, hsl(190 70% 45% / 0.06) 7%, hsl(210 75% 50% / 0.08) 14%, hsl(175 65% 55% / 0.04) 21%, transparent 28%)",
+            backgroundSize: "300% 200%, 200% 200%",
+            filter: "blur(30px)",
+          }}
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(0_0%_100%_/_0.6)_0%,_transparent_70%)]" />
+      </div>
+
       {/* Background gradient blobs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 -right-40 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-vox-teal/5 to-vox-blue/10 blur-3xl" />
