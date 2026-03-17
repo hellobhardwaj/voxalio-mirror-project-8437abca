@@ -4,6 +4,7 @@ import heroOrb from "@/assets/hero-orb.png";
 import { useState, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import {
   Select,
   SelectContent,
@@ -99,7 +100,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
+    <AuroraBackground className="pt-32 pb-20 min-h-[90vh]">
       {/* Background gradient blobs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 -right-40 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-vox-teal/5 to-vox-blue/10 blur-3xl" />
@@ -224,7 +225,7 @@ const HeroSection = () => {
           </div>
         </motion.div>
       </div>
-    </section>
+    </AuroraBackground>
   );
 };
 
