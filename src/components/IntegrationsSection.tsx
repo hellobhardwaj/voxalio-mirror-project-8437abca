@@ -42,7 +42,7 @@ const IntegrationsSection = () => {
             transition={{ duration: 0.6 }}
             className="relative flex items-center justify-center"
           >
-            <div className="relative w-[340px] h-[340px] md:w-[400px] md:h-[400px]">
+            <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
               {/* Outer orbit ring */}
               <div className="absolute inset-0 rounded-full border border-dashed border-border/40" />
               {/* Inner orbit ring */}
