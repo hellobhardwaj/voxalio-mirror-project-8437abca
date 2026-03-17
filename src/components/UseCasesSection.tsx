@@ -36,7 +36,7 @@ const UseCasesSection = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             href="#start"
-            className="vox-gradient-bg text-primary-foreground px-7 py-3 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-px self-start"
+            className="vox-gradient-bg text-primary-foreground px-7 py-3 rounded-full text-[14px] font-medium hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-px self-start tracking-[-0.01em]"
           >
             {t("uc.signup")}
           </motion.a>
