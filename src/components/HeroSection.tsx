@@ -140,7 +140,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-8 flex justify-center"
+          className="mt-6 flex justify-center"
         >
           <video
             src="/hero-orb.mp4"
@@ -148,7 +148,7 @@ const HeroSection = () => {
             loop
             muted
             playsInline
-            className="w-48 h-48 md:w-56 md:h-56 object-contain drop-shadow-2xl pointer-events-none"
+            className="w-64 h-64 md:w-80 md:h-80 object-contain pointer-events-none mix-blend-screen"
           />
         </motion.div>
 
