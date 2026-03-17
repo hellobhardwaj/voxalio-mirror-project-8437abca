@@ -99,7 +99,7 @@ const HowItWorksSection = () => {
                   <div key={item} className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-muted/50 text-sm">
                     <span className="text-muted-foreground">{item}</span>
                     {i > 1 && i < 7 && (
-                      <span className="w-4 h-4 rounded-full bg-green-500 flex items-center justify-center text-primary-foreground text-xs">✓</span>
+                      <span className="w-4 h-4 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-xs">✓</span>
                     )}
                     {i <= 1 && <ChevronRight className="w-4 h-4 text-muted-foreground" />}
                   </div>

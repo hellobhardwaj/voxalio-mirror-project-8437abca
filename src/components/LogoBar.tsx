@@ -21,8 +21,10 @@ const LogoBar = () => (
           <span className="text-sm font-bold text-foreground">6,000+ Customers</span>
           <div className="flex">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+              <Star key={i} className="w-3.5 h-3.5 fill-accent text-accent" />
             ))}
+          </div>
+        </div>
           </div>
         </div>
       </motion.div>
