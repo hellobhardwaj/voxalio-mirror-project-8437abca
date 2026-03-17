@@ -101,7 +101,7 @@ const HowItWorksSection = () => {
                             <div>
                               {/* Title */}
                               <h3
-                                className={`font-semibold text-[16px] transition-colors duration-300 ${
+                                className={`font-medium text-[15px] transition-colors duration-300 tracking-[-0.015em] ${
                                   isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
                                 }`}
                               >
