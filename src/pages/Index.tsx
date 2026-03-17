@@ -7,9 +7,12 @@ import UseCasesSection from "@/components/UseCasesSection";
 import ComplianceSection from "@/components/ComplianceSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import IntegrationsSection from "@/components/IntegrationsSection";
+import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
+import LeadFormSection from "@/components/LeadFormSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import CookieBanner from "@/components/CookieBanner";
 
 const Index = () => (
   <div className="min-h-screen bg-background">
@@ -22,9 +25,12 @@ const Index = () => (
     <ComplianceSection />
     <TestimonialsSection />
     <IntegrationsSection />
+    <PricingSection />
     <FAQSection />
+    <LeadFormSection />
     <CTASection />
     <Footer />
+    <CookieBanner />
   </div>
 );
 

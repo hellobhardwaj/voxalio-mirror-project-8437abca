@@ -1,23 +1,25 @@
 import { useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const navItems = [
-  { label: "Use Cases", hasDropdown: true },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Become Partner", href: "#partner" },
-  { label: "Resources", hasDropdown: true },
-  { label: "About Voxalio", hasDropdown: true },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { lang, setLang, t } = useLanguage();
+
+  const navItems = [
+    { label: t("nav.useCases"), hasDropdown: true, href: "#use-cases" },
+    { label: t("nav.testimonials"), href: "#testimonials" },
+    { label: t("nav.pricing"), href: "#pricing" },
+    { label: t("nav.partner"), href: "#partner" },
+    { label: t("nav.resources"), hasDropdown: true },
+    { label: t("nav.about"), hasDropdown: true },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="text-xl font-bold tracking-tight text-foreground">
+        <a href="/" className="text-xl font-bold tracking-tight text-foreground">
           Voxalio<span className="vox-gradient-text">.ai</span>
         </a>
 
@@ -35,23 +37,40 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a href="#demo" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-            Book Demo
+          {/* Language toggle */}
+          <button
+            onClick={() => setLang(lang === "en" ? "de" : "en")}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border text-xs font-medium text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors"
+          >
+            <Globe className="w-3.5 h-3.5" />
+            {lang === "en" ? "DE" : "EN"}
+          </button>
+          <a href="#contact" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            {t("nav.bookDemo")}
           </a>
           <a
             href="#start"
             className="vox-gradient-bg text-primary-foreground px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
           >
-            Start Now
+            {t("nav.startNow")}
           </a>
         </div>
 
-        <button
-          className="lg:hidden text-foreground"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <button
+            onClick={() => setLang(lang === "en" ? "de" : "en")}
+            className="flex items-center gap-1 px-2 py-1 rounded border border-border text-xs font-medium text-muted-foreground"
+          >
+            <Globe className="w-3.5 h-3.5" />
+            {lang === "en" ? "DE" : "EN"}
+          </button>
+          <button
+            className="text-foreground"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -68,6 +87,7 @@ const Navbar = () => {
                   key={item.label}
                   href={item.href || "#"}
                   className="py-2 text-sm font-medium text-muted-foreground"
+                  onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
                 </a>
@@ -75,8 +95,9 @@ const Navbar = () => {
               <a
                 href="#start"
                 className="vox-gradient-bg text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold text-center mt-2"
+                onClick={() => setMobileOpen(false)}
               >
-                Start Now
+                {t("nav.startNow")}
               </a>
             </div>
           </motion.div>
