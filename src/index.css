@@ -79,6 +79,7 @@
   /* Premium smooth scrolling */
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   /* Better selection color */

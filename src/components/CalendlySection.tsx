@@ -13,7 +13,7 @@ const CalendlySection = () => {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-[26px] md:text-[30px] font-semibold text-foreground mb-3 tracking-[-0.025em]">
+          <h2 className="text-[28px] md:text-[40px] lg:text-[46px] font-semibold text-foreground mb-3 tracking-[-0.025em]">
             {t("calendly.title")}
           </h2>
           <p className="text-muted-foreground text-[15px] font-normal leading-[1.7] tracking-[-0.01em]">
