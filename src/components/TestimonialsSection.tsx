@@ -212,7 +212,6 @@ const TestimonialsSection = () => {
             >
               {lang === "de" ? "Jetzt sichern" : "Grab Yours Now"}
             </a>
-            </a>
           </motion.div>
         </div>
       </div>
