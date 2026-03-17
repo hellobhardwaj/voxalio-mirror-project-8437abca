@@ -57,7 +57,7 @@ const Footer = () => {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-[13px] font-normal opacity-40 hover:opacity-80 transition-all duration-200 hover:translate-x-0.5 inline-block"
+                      className="text-[13px] font-normal opacity-35 hover:opacity-75 transition-all duration-200 hover:translate-x-0.5 inline-block tracking-normal"
                     >
                       {link.label}
                     </a>
