@@ -201,19 +201,6 @@ const PricingSection = () => {
             </p>
           </TimelineContent>
 
-          {/* Cost advantage callout */}
-          <TimelineContent animationNum={2} timelineRef={pricingRef}>
-            <div className="flex justify-center mt-6 mb-8">
-              <div className="inline-flex items-center gap-4 bg-white/[0.06] backdrop-blur-sm rounded-full px-6 py-2.5 border border-white/[0.08]">
-                <span className="text-sm font-semibold vox-gradient-text">
-                  {t("pricing.perMin")}
-                </span>
-                <span className="text-xs text-white/40 line-through">
-                  {t("pricing.competitorMin")}
-                </span>
-              </div>
-            </div>
-          </TimelineContent>
 
           <TimelineContent animationNum={3} timelineRef={pricingRef}>
             <PricingSwitch
