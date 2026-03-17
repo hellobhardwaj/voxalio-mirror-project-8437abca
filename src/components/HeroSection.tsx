@@ -6,27 +6,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 
-const COUNTRY_CODES = [
-  { code: "+49", flag: "🇩🇪", label: "DE" },
-  { code: "+43", flag: "🇦🇹", label: "AT" },
-  { code: "+41", flag: "🇨🇭", label: "CH" },
-  { code: "+44", flag: "🇬🇧", label: "UK" },
-  { code: "+1", flag: "🇺🇸", label: "US" },
-  { code: "+33", flag: "🇫🇷", label: "FR" },
-  { code: "+39", flag: "🇮🇹", label: "IT" },
-  { code: "+34", flag: "🇪🇸", label: "ES" },
-  { code: "+31", flag: "🇳🇱", label: "NL" },
-  { code: "+48", flag: "🇵🇱", label: "PL" },
-  { code: "+46", flag: "🇸🇪", label: "SE" },
-  { code: "+47", flag: "🇳🇴", label: "NO" },
-  { code: "+45", flag: "🇩🇰", label: "DK" },
-  { code: "+32", flag: "🇧🇪", label: "BE" },
-  { code: "+90", flag: "🇹🇷", label: "TR" },
-];
 
 const HeroSection = () => {
   const [phone, setPhone] = useState("");
-  const [countryCode, setCountryCode] = useState("+49");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -38,7 +20,8 @@ const HeroSection = () => {
   const buildE164 = (): string => {
     const cleaned = cleanPhone(phone);
     if (cleaned.startsWith("+")) return cleaned;
-    return `${countryCode}${cleaned.replace(/^0+/, "")}`;
+    // Default to +49 if no country code provided
+    return `+49${cleaned.replace(/^0+/, "")}`;
   };
 
   const validate = (e164: string): boolean => {
