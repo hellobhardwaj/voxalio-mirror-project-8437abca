@@ -23,11 +23,14 @@ const Index = () => (
     <HeroSection />
     <LogoBar />
     <VideoSection />
+    <div className="vox-section-divider max-w-5xl mx-auto" />
     <HowItWorksSection />
     <UseCasesSection />
     <ComplianceSection />
+    <div className="vox-section-divider max-w-5xl mx-auto" />
     <TestimonialsSection />
     <IntegrationsSection />
+    <div className="vox-section-divider max-w-5xl mx-auto" />
     <PricingSection />
     <FAQSection />
     <LeadFormSection />

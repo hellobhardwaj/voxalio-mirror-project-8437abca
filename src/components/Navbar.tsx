@@ -17,18 +17,18 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 vox-glass border-b border-border/50">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="/" className="text-xl font-bold tracking-tight text-foreground">
           Voxalio<span className="vox-gradient-text">.ai</span>
         </a>
 
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-0.5">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href || "#"}
-              className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+              className="px-3.5 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center gap-1 rounded-lg hover:bg-muted/50"
             >
               {item.label}
               {item.hasDropdown && <ChevronDown className="w-3.5 h-3.5" />}
@@ -37,20 +37,19 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center gap-3">
-          {/* Language toggle */}
           <button
             onClick={() => setLang(lang === "en" ? "de" : "en")}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border text-xs font-medium text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border text-xs font-medium text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all duration-200"
           >
             <Globe className="w-3.5 h-3.5" />
             {lang === "en" ? "DE" : "EN"}
           </button>
-          <a href="#contact" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+          <a href="#contact" className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-200">
             {t("nav.bookDemo")}
           </a>
           <a
             href="#start"
-            className="vox-gradient-bg text-primary-foreground px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
+            className="vox-gradient-bg text-primary-foreground px-5 py-2 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-px"
           >
             {t("nav.startNow")}
           </a>
@@ -79,14 +78,15 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden bg-background border-b border-border overflow-hidden"
+            transition={{ duration: 0.2 }}
+            className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
           >
-            <div className="px-6 py-4 flex flex-col gap-2">
+            <div className="px-6 py-4 flex flex-col gap-1">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href || "#"}
-                  className="py-2 text-sm font-medium text-muted-foreground"
+                  className="py-2.5 px-3 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted/50 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
@@ -94,7 +94,7 @@ const Navbar = () => {
               ))}
               <a
                 href="#start"
-                className="vox-gradient-bg text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold text-center mt-2"
+                className="vox-gradient-bg text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold text-center mt-3"
                 onClick={() => setMobileOpen(false)}
               >
                 {t("nav.startNow")}

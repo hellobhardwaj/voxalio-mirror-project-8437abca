@@ -100,21 +100,20 @@ const HeroSection = () => {
   };
 
   return (
-    <AuroraBackground className="pt-32 pb-20 min-h-[90vh]">
-      {/* Background gradient blobs */}
+    <AuroraBackground className="pt-32 pb-24 min-h-[92vh]">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 -right-40 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-vox-teal/5 to-vox-blue/10 blur-3xl" />
-        <div className="absolute bottom-0 -left-40 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-vox-cyan/5 to-vox-teal/8 blur-3xl" />
+        <div className="absolute top-20 -right-40 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[hsl(var(--vox-teal)/0.04)] to-[hsl(var(--vox-blue)/0.08)] blur-3xl" />
+        <div className="absolute bottom-0 -left-40 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[hsl(var(--vox-cyan)/0.04)] to-[hsl(var(--vox-teal)/0.06)] blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <div className="inline-flex items-center gap-2 bg-secondary rounded-full px-4 py-1.5 mb-6">
-            <span className="w-2 h-2 rounded-full vox-gradient-bg" />
+          <div className="inline-flex items-center gap-2 bg-secondary/80 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6 border border-border/50">
+            <span className="w-2 h-2 rounded-full vox-gradient-bg animate-pulse" />
             <span className="text-sm font-medium text-muted-foreground">{t("hero.badge")}</span>
           </div>
         </motion.div>
@@ -123,7 +122,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight max-w-3xl mx-auto"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] font-extrabold text-foreground leading-[1.1] max-w-3xl mx-auto tracking-tight"
         >
           {t("hero.title")}
         </motion.h1>
@@ -132,7 +131,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-5 text-muted-foreground text-lg"
+          className="mt-5 text-muted-foreground text-lg max-w-xl mx-auto"
         >
           {t("hero.subtitle")}
         </motion.p>
@@ -143,7 +142,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-8 flex justify-center"
         >
-          <img src={heroOrb} alt="AI Orb" className="w-40 h-40 md:w-52 md:h-52 object-contain" />
+          <img src={heroOrb} alt="AI Orb" className="w-40 h-40 md:w-48 md:h-48 object-contain drop-shadow-2xl" />
         </motion.div>
 
         <motion.div
@@ -152,7 +151,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-8 max-w-sm mx-auto"
         >
-          <div className="bg-card rounded-2xl border border-border p-5 vox-shadow">
+          <div className="bg-card/90 backdrop-blur-xl rounded-2xl border border-border/60 p-5 vox-shadow-xl">
             <div className="flex items-center justify-center mb-3">
               <Phone className="w-5 h-5 text-muted-foreground" />
               <span className="ml-2 text-sm text-muted-foreground">
@@ -183,7 +182,7 @@ const HeroSection = () => {
                 }}
                 placeholder={t("hero.placeholder")}
                 disabled={loading}
-                className="flex-1 px-4 py-2.5 rounded-lg border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 disabled:opacity-50"
+                className="flex-1 px-4 py-2.5 rounded-lg border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 disabled:opacity-50 transition-all duration-200"
               />
             </div>
 
@@ -214,7 +213,7 @@ const HeroSection = () => {
             <button
               onClick={handleSubmit}
               disabled={loading || !phone.trim()}
-              className="w-full py-3 rounded-lg bg-foreground text-background font-semibold text-sm hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-3 rounded-lg bg-foreground text-background font-semibold text-sm hover:opacity-90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg"
             >
               {loading
                 ? lang === "de"
