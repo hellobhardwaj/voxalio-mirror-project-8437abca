@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, CheckCircle } from "lucide-react";
-import heroOrb from "@/assets/hero-orb.png";
+
 import { useState, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
