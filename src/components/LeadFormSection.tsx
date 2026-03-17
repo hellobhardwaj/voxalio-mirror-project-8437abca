@@ -36,15 +36,16 @@ const LeadFormSection = () => {
   };
 
   return (
-    <section className="py-24 bg-muted/30" id="contact">
+    <section className="py-28 bg-muted/20" id="contact">
       <div className="max-w-2xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-card rounded-2xl border border-border p-8 md:p-10 vox-shadow"
+          transition={{ duration: 0.5 }}
+          className="bg-card/90 backdrop-blur-xl rounded-2xl border border-border/60 p-8 md:p-10 vox-shadow-xl"
         >
-          <h2 className="text-2xl font-bold text-foreground text-center mb-2">{t("lead.title")}</h2>
+          <h2 className="text-2xl font-extrabold text-foreground text-center mb-2 tracking-tight">{t("lead.title")}</h2>
           <form onSubmit={handleSubmit} className="mt-6 space-y-4">
             <input
               type="text"
@@ -52,7 +53,7 @@ const LeadFormSection = () => {
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               placeholder={t("lead.name")}
-              className="w-full px-4 py-3 rounded-lg border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+              className="w-full px-4 py-3 rounded-xl border border-border/60 bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/30 transition-all duration-200"
             />
             <input
               type="email"
@@ -60,7 +61,7 @@ const LeadFormSection = () => {
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               placeholder={t("lead.email")}
-              className="w-full px-4 py-3 rounded-lg border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+              className="w-full px-4 py-3 rounded-xl border border-border/60 bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/30 transition-all duration-200"
             />
             <div className="grid grid-cols-2 gap-4">
               <input
@@ -68,14 +69,14 @@ const LeadFormSection = () => {
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 placeholder={t("lead.phone")}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="w-full px-4 py-3 rounded-xl border border-border/60 bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/30 transition-all duration-200"
               />
               <input
                 type="text"
                 value={form.company}
                 onChange={(e) => setForm({ ...form, company: e.target.value })}
                 placeholder={t("lead.company")}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="w-full px-4 py-3 rounded-xl border border-border/60 bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/30 transition-all duration-200"
               />
             </div>
             <label className="flex items-start gap-3 cursor-pointer">
@@ -87,7 +88,7 @@ const LeadFormSection = () => {
               />
               <span className="text-xs text-muted-foreground leading-relaxed">
                 {t("lead.gdpr")}{" "}
-                <a href="/privacy" className="underline text-primary">
+                <a href="/privacy" className="underline text-primary hover:text-primary/80 transition-colors">
                   {t("cookie.privacy")}
                 </a>
               </span>
@@ -95,7 +96,7 @@ const LeadFormSection = () => {
             <button
               type="submit"
               disabled={!gdpr || submitting}
-              className="w-full py-3 rounded-lg vox-gradient-bg text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-3.5 rounded-xl vox-gradient-bg text-primary-foreground font-semibold text-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-px"
             >
               {submitting ? (lang === "de" ? "Wird gesendet..." : "Submitting...") : t("lead.submit")}
             </button>
