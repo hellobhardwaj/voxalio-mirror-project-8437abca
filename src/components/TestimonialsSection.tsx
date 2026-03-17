@@ -189,7 +189,7 @@ const TestimonialsSection = () => {
                     ))}
                   </div>
                   <div>
-                    <p className="font-semibold text-sm text-white/70">
+                    <p className="font-semibold text-[14px] text-white/70">
                       {getAuthor(current)}
                     </p>
                   </div>

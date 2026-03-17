@@ -74,7 +74,7 @@ const LeadFormSection = () => {
           {/* Top glow on card */}
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--vox-teal)/0.4)] to-transparent rounded-t-2xl" />
 
-          <h2 className="text-2xl font-extrabold text-white text-center mb-2 tracking-tight">
+          <h2 className="text-[28px] font-semibold text-white text-center mb-2 tracking-tight">
             {t("lead.title")}
           </h2>
 

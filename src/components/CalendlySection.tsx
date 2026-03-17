@@ -13,10 +13,10 @@ const CalendlySection = () => {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+          <h2 className="text-[28px] md:text-[32px] font-semibold text-foreground mb-3">
             {t("calendly.title")}
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-[16px] font-normal leading-[1.6]">
             {t("calendly.subtitle")}
           </p>
         </motion.div>

@@ -35,8 +35,8 @@ const IntegrationsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">{t("int.title")}</h2>
-            <p className="mt-5 text-muted-foreground leading-relaxed">{t("int.desc")}</p>
+            <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-foreground tracking-tight">{t("int.title")}</h2>
+            <p className="mt-5 text-[15px] font-normal text-muted-foreground leading-[1.6]">{t("int.desc")}</p>
           </motion.div>
 
           <motion.div

@@ -269,7 +269,7 @@ const PricingSection = () => {
                     </span>
                   </div>
 
-                  <p className="text-white/40 text-sm mt-2 leading-relaxed">
+                  <p className="text-white/40 text-[14px] font-normal mt-2 leading-[1.6]">
                     {plan.desc}
                   </p>
                 </CardHeader>
