@@ -225,7 +225,7 @@ const HeroSection = () => {
           </div>
         </motion.div>
       </div>
-    </section>
+    </AuroraBackground>
   );
 };
 
