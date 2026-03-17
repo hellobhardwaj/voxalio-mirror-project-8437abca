@@ -1,1 +1,4 @@
 project_id = "umrornvingsdnztqkcra"
+
+[functions.trigger-call]
+verify_jwt = false
