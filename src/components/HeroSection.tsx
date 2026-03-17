@@ -90,7 +90,7 @@ const HeroSection = () => {
         >
           <div className="inline-flex items-center gap-2 bg-secondary/80 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6 border border-border/50">
             <span className="w-2 h-2 rounded-full vox-gradient-bg animate-pulse" />
-            <span className="text-sm font-medium text-muted-foreground">{t("hero.badge")}</span>
+            <span className="text-[13px] font-normal text-muted-foreground tracking-normal">{t("hero.badge")}</span>
           </div>
         </motion.div>
 
