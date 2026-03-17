@@ -46,7 +46,7 @@ const Footer = () => {
               </a>
             </div>
 
-            <p className="mt-5 text-xs opacity-30">{t("footer.powered")}</p>
+            <p className="mt-5 text-[11px] font-normal opacity-25 tracking-normal">{t("footer.powered")}</p>
           </div>
 
           {Object.entries(footerLinks).map(([title, links]) => (
