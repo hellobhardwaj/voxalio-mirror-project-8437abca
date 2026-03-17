@@ -206,8 +206,8 @@ const TestimonialsSection = () => {
             className="mt-10"
           >
             <a
-              href="#lead-form"
-              onClick={(e) => { e.preventDefault(); document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' }); }}
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
               className="inline-flex items-center justify-center h-12 px-8 rounded-xl vox-gradient-bg text-primary-foreground text-[15px] font-semibold tracking-[-0.01em] transition-all duration-300 shadow-[0_4px_20px_hsl(var(--vox-teal)/0.3)] hover:shadow-[0_8px_32px_hsl(var(--vox-teal)/0.45)] hover:scale-105 hover:brightness-110"
             >
               {lang === "de" ? "Jetzt sichern" : "Grab Yours Now"}
