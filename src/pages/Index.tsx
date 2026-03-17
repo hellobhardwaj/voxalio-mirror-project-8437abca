@@ -10,12 +10,15 @@ import IntegrationsSection from "@/components/IntegrationsSection";
 import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
 import LeadFormSection from "@/components/LeadFormSection";
+import CalendlySection from "@/components/CalendlySection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const Index = () => (
   <div className="min-h-screen bg-background">
+    <ScrollProgress />
     <Navbar />
     <HeroSection />
     <LogoBar />
@@ -28,6 +31,7 @@ const Index = () => (
     <PricingSection />
     <FAQSection />
     <LeadFormSection />
+    <CalendlySection />
     <CTASection />
     <Footer />
     <CookieBanner />

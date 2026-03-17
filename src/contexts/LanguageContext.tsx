@@ -134,6 +134,15 @@ const translations: Record<string, Record<Language, string>> = {
   "cookie.decline": { en: "Decline", de: "Ablehnen" },
   "cookie.privacy": { en: "Privacy Policy", de: "Datenschutzerklärung" },
 
+  // Calendly
+  "calendly.title": { en: "Book a Demo", de: "Demo buchen" },
+  "calendly.subtitle": { en: "Schedule a personalized walkthrough with our team.", de: "Vereinbaren Sie eine persönliche Vorstellung mit unserem Team." },
+
+  // Thank you
+  "thankyou.title": { en: "Thank you!", de: "Vielen Dank!" },
+  "thankyou.desc": { en: "Your message has been received. We'll be in touch shortly.", de: "Ihre Nachricht wurde empfangen. Wir melden uns in Kürze bei Ihnen." },
+  "thankyou.back": { en: "Back to Home", de: "Zurück zur Startseite" },
+
   // Footer
   "footer.disclosure": { en: "AI Disclosure: \"Hello, I am an AI assistant for Voxalio.\"", de: "KI-Hinweis: \"Hallo, ich bin ein KI-Assistent für Voxalio.\"" },
   "footer.powered": { en: "Powered by Optimis AI", de: "Powered by Optimis AI" },
