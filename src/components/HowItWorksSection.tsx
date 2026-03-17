@@ -46,7 +46,7 @@ const HowItWorksSection = () => {
               hover:shadow-[0_16px_48px_-12px_hsl(var(--vox-teal)/0.4)] transition-shadow duration-500"
           >
             {/* Background decorative icon */}
-            <steps[0].icon className="absolute -bottom-4 -right-4 w-40 h-40 text-primary-foreground/[0.08]" />
+            {(() => { const Icon = steps[0].icon; return <Icon className="absolute -bottom-4 -right-4 w-40 h-40 text-primary-foreground/[0.08]" />; })()}
             <div className="relative z-10 flex flex-col h-full justify-between">
               <span className="w-10 h-10 rounded-xl flex items-center justify-center text-[13px] font-semibold bg-primary-foreground/20 text-primary-foreground backdrop-blur-sm">
                 1
