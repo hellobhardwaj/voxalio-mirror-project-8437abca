@@ -2,16 +2,16 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const integrations = [
-  { name: "Slack", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/slack.svg", color: "#E01E5A" },
-  { name: "Google Calendar", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlecalendar.svg", color: "#4285F4" },
-  { name: "Notion", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/notion.svg", color: "#000000" },
-  { name: "Microsoft", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoft.svg", color: "#00A4EF" },
-  { name: "Google Drive", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googledrive.svg", color: "#0F9D58" },
-  { name: "Trello", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/trello.svg", color: "#0079BF" },
-  { name: "Zapier", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/zapier.svg", color: "#FF4A00" },
-  { name: "Monday", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/mondaydotcom.svg", color: "#FF3D57" },
-  { name: "HubSpot", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/hubspot.svg", color: "#FF7A59" },
-  { name: "Airtable", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/airtable.svg", color: "#18BFFF" },
+  { name: "Slack", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/slack.svg" },
+  { name: "Google Calendar", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlecalendar.svg" },
+  { name: "Notion", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/notion.svg" },
+  { name: "Microsoft", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoft.svg" },
+  { name: "Google Drive", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googledrive.svg" },
+  { name: "Trello", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/trello.svg" },
+  { name: "Zapier", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/zapier.svg" },
+  { name: "Monday.com", logo: "https://cdn.simpleicons.org/mondaydotcom/FF3D57" },
+  { name: "HubSpot", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/hubspot.svg" },
+  { name: "Airtable", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/airtable.svg" },
 ];
 
 const IntegrationsSection = () => {
@@ -50,42 +50,45 @@ const IntegrationsSection = () => {
 
               {/* Center hub */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-foreground flex items-center justify-center shadow-2xl">
+                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-foreground flex items-center justify-center shadow-2xl z-10">
                   <span className="text-background font-bold text-sm md:text-base tracking-tight">Voxalio.de</span>
                 </div>
               </div>
 
-              {/* Orbiting logos */}
-              {integrations.map((item, i) => {
-                const angle = (i / integrations.length) * 360 - 90;
-                const radius = 160;
-                const x = Math.cos((angle * Math.PI) / 180) * radius;
-                const y = Math.sin((angle * Math.PI) / 180) * radius;
-                return (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.06, duration: 0.4, type: "spring" }}
-                    whileHover={{ scale: 1.2, transition: { duration: 0.2 } }}
-                    className="absolute w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-card border border-border/50 flex items-center justify-center shadow-md hover:shadow-xl hover:border-border transition-all duration-300 cursor-pointer"
-                    style={{
-                      left: `calc(50% + ${x}px - ${28}px)`,
-                      top: `calc(50% + ${y}px - ${28}px)`,
-                    }}
-                    title={item.name}
-                  >
-                    <img
-                      src={item.logo}
-                      alt={item.name}
-                      className="w-6 h-6 md:w-7 md:h-7"
-                      style={{ filter: item.color === "#000000" ? "none" : "none" }}
-                      loading="lazy"
-                    />
-                  </motion.div>
-                );
-              })}
+              {/* Orbiting logos container - rotates */}
+              <motion.div
+                className="absolute inset-0"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+              >
+                {integrations.map((item, i) => {
+                  const angle = (i / integrations.length) * 360 - 90;
+                  const radius = 160;
+                  const x = Math.cos((angle * Math.PI) / 180) * radius;
+                  const y = Math.sin((angle * Math.PI) / 180) * radius;
+                  return (
+                    <motion.div
+                      key={item.name}
+                      className="absolute w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-card border border-border/50 flex items-center justify-center shadow-md cursor-pointer"
+                      style={{
+                        left: `calc(50% + ${x}px - 28px)`,
+                        top: `calc(50% + ${y}px - 28px)`,
+                      }}
+                      title={item.name}
+                      // Counter-rotate so icons stay upright
+                      animate={{ rotate: -360 }}
+                      transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                    >
+                      <img
+                        src={item.logo}
+                        alt={item.name}
+                        className="w-6 h-6 md:w-7 md:h-7"
+                        loading="lazy"
+                      />
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
             </div>
           </motion.div>
         </div>

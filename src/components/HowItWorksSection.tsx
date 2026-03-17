@@ -1,7 +1,15 @@
-import { motion } from "framer-motion";
-import { ChevronDown, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+
+import step1Img from "@/assets/step-1-voice.png";
+import step2Img from "@/assets/step-2-tasks.png";
+import step3Img from "@/assets/step-3-phone.png";
+import step4Img from "@/assets/step-4-integrate.png";
+import step5Img from "@/assets/step-5-monitor.png";
+
+const stepImages = [step1Img, step2Img, step3Img, step4Img, step5Img];
 
 const HowItWorksSection = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -17,7 +25,6 @@ const HowItWorksSection = () => {
 
   return (
     <section className="py-28 relative" id="how-it-works">
-      {/* Subtle background accent */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-gradient-to-br from-[hsl(var(--vox-teal)/0.03)] to-[hsl(var(--vox-blue)/0.03)] rounded-full blur-3xl" />
       </div>
@@ -80,25 +87,20 @@ const HowItWorksSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-muted/20 rounded-2xl border border-border/60 p-6 min-h-[350px] flex items-center justify-center"
+            className="bg-muted/20 rounded-2xl border border-border/60 p-2 min-h-[350px] flex items-center justify-center overflow-hidden"
           >
-            <div className="w-full max-w-md bg-card rounded-xl border border-border/60 p-5 vox-shadow-xl">
-              <div className="flex gap-4 mb-4">
-                <span className="text-sm font-semibold text-foreground border-b-2 border-primary pb-1">Behaviour</span>
-                <span className="text-sm text-muted-foreground pb-1 hover:text-foreground transition-colors cursor-pointer">Technical</span>
-              </div>
-              <div className="space-y-1">
-                {["Essentials", "Answer Questions", "Transfer Calls", "Send Email", "Custom Prompts", "Send SMS", "Book Appointments", "Webhooks"].map((item, i) => (
-                  <div key={item} className="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-muted/50 text-sm transition-colors duration-200 cursor-pointer group">
-                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">{item}</span>
-                    {i > 1 && i < 7 && (
-                      <span className="w-5 h-5 rounded-full vox-gradient-bg flex items-center justify-center text-primary-foreground text-[10px]">✓</span>
-                    )}
-                    {i <= 1 && <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />}
-                  </div>
-                ))}
-              </div>
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={openIndex >= 0 && openIndex < stepImages.length ? openIndex : 0}
+                src={stepImages[openIndex >= 0 && openIndex < stepImages.length ? openIndex : 0]}
+                alt={steps[openIndex >= 0 && openIndex < steps.length ? openIndex : 0]?.title || "Step"}
+                className="w-full h-auto rounded-xl object-cover"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+              />
+            </AnimatePresence>
           </motion.div>
         </div>
       </div>
@@ -106,7 +108,6 @@ const HowItWorksSection = () => {
   );
 };
 
-// Simple wrapper for animated content visibility
 const AnimatePresenceWrapper = ({ isOpen, children }: { isOpen: boolean; children: React.ReactNode }) => {
   if (!isOpen) return null;
   return (

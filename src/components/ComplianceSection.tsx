@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import heroOrb from "@/assets/hero-orb.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ComplianceSection = () => {
@@ -27,7 +26,68 @@ const ComplianceSection = () => {
             transition={{ duration: 0.6 }}
             className="flex justify-center"
           >
-            <img src={heroOrb} alt="AI Compliance" className="w-64 h-64 object-contain drop-shadow-2xl" />
+            {/* Animated dynamic orb */}
+            <div className="relative w-64 h-64">
+              {/* Outer rotating glow ring */}
+              <motion.div
+                className="absolute inset-0 rounded-full"
+                style={{
+                  background: "conic-gradient(from 0deg, hsl(175 65% 50% / 0.3), hsl(200 80% 50% / 0.1), hsl(175 65% 50% / 0), hsl(175 65% 50% / 0.3))",
+                }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              />
+
+              {/* Pulsing middle ring */}
+              <motion.div
+                className="absolute inset-4 rounded-full"
+                style={{
+                  background: "radial-gradient(circle, hsl(175 65% 50% / 0.15), hsl(200 80% 50% / 0.05))",
+                  boxShadow: "0 0 60px hsl(175 65% 50% / 0.2), inset 0 0 40px hsl(175 65% 50% / 0.1)",
+                }}
+                animate={{ scale: [1, 1.05, 1], opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              />
+
+              {/* Core orb */}
+              <motion.div
+                className="absolute inset-8 rounded-full overflow-hidden"
+                animate={{ scale: [1, 1.03, 1] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div
+                  className="w-full h-full rounded-full"
+                  style={{
+                    background: "radial-gradient(circle at 35% 35%, hsl(175 65% 60%), hsl(190 70% 40%), hsl(210 60% 25%))",
+                    boxShadow: "0 0 80px hsl(175 65% 50% / 0.4), inset 0 0 30px hsl(175 65% 50% / 0.2)",
+                  }}
+                />
+              </motion.div>
+
+              {/* Floating particles */}
+              {[...Array(6)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-1.5 h-1.5 rounded-full bg-[hsl(175,65%,50%)]"
+                  style={{
+                    left: `${30 + Math.cos((i / 6) * Math.PI * 2) * 45}%`,
+                    top: `${30 + Math.sin((i / 6) * Math.PI * 2) * 45}%`,
+                  }}
+                  animate={{
+                    y: [0, -10, 0, 10, 0],
+                    x: [0, 5, 0, -5, 0],
+                    opacity: [0.3, 0.8, 0.3],
+                    scale: [0.8, 1.2, 0.8],
+                  }}
+                  transition={{
+                    duration: 3 + i * 0.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: i * 0.4,
+                  }}
+                />
+              ))}
+            </div>
           </motion.div>
 
           <motion.div

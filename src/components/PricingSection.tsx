@@ -285,7 +285,7 @@ const PricingSection = () => {
                     {plan.cta}
                   </button>
 
-                  <div className="mt-6">
+                  <div className="mt-6 flex-1">
                     <p className="text-xs font-semibold text-white/60 uppercase tracking-wider mb-3">
                       {lang === "de" ? "Enthalten" : "Includes"}
                     </p>
