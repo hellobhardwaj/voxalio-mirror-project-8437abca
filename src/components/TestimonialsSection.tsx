@@ -182,16 +182,11 @@ const TestimonialsSection = () => {
                   {getQuote(current)}
                 </p>
                 <div className="mt-8 flex items-center gap-4">
-                  <div className="flex -space-x-2">
-                    {testimonials[current].initials.map((initials) => (
-                      <div
-                        key={initials}
-                        className="w-10 h-10 rounded-full bg-white/[0.08] border-2 border-[hsl(var(--vox-dark))] flex items-center justify-center text-xs font-semibold text-white/50"
-                      >
-                        {initials}
-                      </div>
-                    ))}
-                  </div>
+                  <img
+                    src={testimonials[current].photo}
+                    alt="testimonial author"
+                    className="w-12 h-12 rounded-full object-cover border-2 border-white/10"
+                  />
                   <div>
                     <p className="font-medium text-[13px] text-white/60 tracking-normal">
                       {getAuthor(current)}
