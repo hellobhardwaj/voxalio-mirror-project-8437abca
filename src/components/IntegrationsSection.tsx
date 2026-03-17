@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const integrations = [
   { name: "Slack", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/slack.svg" },
@@ -16,6 +17,9 @@ const integrations = [
 
 const IntegrationsSection = () => {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
+  const radius = isMobile ? 115 : 160;
+  const iconSize = isMobile ? 20 : 28;
 
   return (
     <section className="py-28 relative overflow-hidden" id="integrations">
@@ -42,16 +46,16 @@ const IntegrationsSection = () => {
             transition={{ duration: 0.6 }}
             className="relative flex items-center justify-center"
           >
-            <div className="relative w-[340px] h-[340px] md:w-[400px] md:h-[400px]">
+            <div className="relative w-[290px] h-[290px] md:w-[400px] md:h-[400px]">
               {/* Outer orbit ring */}
               <div className="absolute inset-0 rounded-full border border-dashed border-border/40" />
               {/* Inner orbit ring */}
-              <div className="absolute inset-12 rounded-full border border-dashed border-border/30" />
+              <div className="absolute inset-8 md:inset-12 rounded-full border border-dashed border-border/30" />
 
               {/* Center hub */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-foreground flex items-center justify-center shadow-2xl z-10">
-                  <span className="text-background font-bold text-sm md:text-base tracking-tight">Voxalio.de</span>
+                <div className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-foreground flex items-center justify-center shadow-2xl z-10">
+                  <span className="text-background font-bold text-xs md:text-base tracking-tight">Voxalio.de</span>
                 </div>
               </div>
 
@@ -63,26 +67,24 @@ const IntegrationsSection = () => {
               >
                 {integrations.map((item, i) => {
                   const angle = (i / integrations.length) * 360 - 90;
-                  const radius = 160;
                   const x = Math.cos((angle * Math.PI) / 180) * radius;
                   const y = Math.sin((angle * Math.PI) / 180) * radius;
                   return (
                     <motion.div
                       key={item.name}
-                      className="absolute w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-card border border-border/50 flex items-center justify-center shadow-md cursor-pointer"
+                      className="absolute w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-card border border-border/50 flex items-center justify-center shadow-md cursor-pointer"
                       style={{
-                        left: `calc(50% + ${x}px - 28px)`,
-                        top: `calc(50% + ${y}px - 28px)`,
+                        left: `calc(50% + ${x}px - ${iconSize}px)`,
+                        top: `calc(50% + ${y}px - ${iconSize}px)`,
                       }}
                       title={item.name}
-                      // Counter-rotate so icons stay upright
                       animate={{ rotate: -360 }}
                       transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
                     >
                       <img
                         src={item.logo}
                         alt={item.name}
-                        className="w-6 h-6 md:w-7 md:h-7"
+                        className="w-5 h-5 md:w-7 md:h-7"
                         loading="lazy"
                       />
                     </motion.div>
