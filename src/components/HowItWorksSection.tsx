@@ -30,7 +30,7 @@ const HowItWorksSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
+          <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-foreground tracking-tight">
             {t("how.title")}
           </h2>
           <p className="mt-4 vox-gradient-text font-semibold text-lg">
