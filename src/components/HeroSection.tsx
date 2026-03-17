@@ -137,14 +137,14 @@ const HeroSection = () => {
           className="mt-8 max-w-sm mx-auto"
         >
           <div className="relative rounded-2xl p-[2px] overflow-hidden vox-shadow-xl">
-            {/* Rotating rainbow border */}
+            {/* Comet arc border — single short glowing beam traveling around */}
             <div
               className="absolute inset-[-50%] animate-rainbow-spin"
               style={{
-                background: 'conic-gradient(from 0deg, hsl(210 60% 55%), hsl(270 45% 55%), hsl(310 40% 55%), hsl(150 50% 45%), hsl(185 55% 48%), hsl(210 60% 55%))',
+                background: 'conic-gradient(from 0deg, transparent 0%, transparent 65%, hsl(210 70% 60%) 78%, hsl(270 50% 60%) 85%, hsl(185 60% 50%) 92%, transparent 100%)',
               }}
             />
-            <div className="relative bg-card/95 backdrop-blur-xl rounded-[calc(1rem-1px)] p-5">
+            <div className="relative bg-card backdrop-blur-xl rounded-[calc(1rem-1px)] p-5">
               <div className="flex items-center justify-center mb-3">
                 <Phone className="w-5 h-5 text-muted-foreground" />
                 <span className="ml-2 text-sm text-muted-foreground">
