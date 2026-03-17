@@ -24,7 +24,7 @@ const VideoSection = () => {
             </div>
             <div className="flex-1 flex justify-center">
               <div className="bg-white/[0.06] rounded-lg px-4 py-1.5 text-xs text-white/40 max-w-xs w-full text-center border border-white/[0.04]">
-                app.voxalio.ai/dashboard
+                app.voxalio.de/dashboard
               </div>
             </div>
           </div>

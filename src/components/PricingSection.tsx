@@ -214,7 +214,7 @@ const PricingSection = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
           {plans.map((plan, index) => (
             <TimelineContent
               key={plan.name}

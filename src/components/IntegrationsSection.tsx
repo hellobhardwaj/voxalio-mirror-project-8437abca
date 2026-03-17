@@ -51,7 +51,7 @@ const IntegrationsSection = () => {
               {/* Center hub */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-foreground flex items-center justify-center shadow-2xl">
-                  <span className="text-background font-bold text-sm md:text-base tracking-tight">Voxalio.ai</span>
+                  <span className="text-background font-bold text-sm md:text-base tracking-tight">Voxalio.de</span>
                 </div>
               </div>
 
