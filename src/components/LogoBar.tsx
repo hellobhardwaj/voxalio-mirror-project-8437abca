@@ -25,8 +25,6 @@ const LogoBar = () => (
             ))}
           </div>
         </div>
-          </div>
-        </div>
       </motion.div>
     </div>
   </section>
