@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 import heroOrb from "@/assets/hero-orb.png";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
   const [phone, setPhone] = useState("");
+  const { t } = useLanguage();
 
   return (
     <section className="relative pt-32 pb-20 overflow-hidden">
@@ -22,7 +24,7 @@ const HeroSection = () => {
         >
           <div className="inline-flex items-center gap-2 bg-secondary rounded-full px-4 py-1.5 mb-6">
             <span className="w-2 h-2 rounded-full vox-gradient-bg" />
-            <span className="text-sm font-medium text-muted-foreground">AI Calls Made Easy</span>
+            <span className="text-sm font-medium text-muted-foreground">{t("hero.badge")}</span>
           </div>
         </motion.div>
 
@@ -32,7 +34,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight max-w-3xl mx-auto"
         >
-          Let your AI Call Assistant work for you
+          {t("hero.title")}
         </motion.h1>
 
         <motion.p
@@ -41,7 +43,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-5 text-muted-foreground text-lg"
         >
-          Test our AI in a call
+          {t("hero.subtitle")}
         </motion.p>
 
         <motion.div
@@ -68,11 +70,11 @@ const HeroSection = () => {
               type="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              placeholder="e.g. +44123456789"
+              placeholder={t("hero.placeholder")}
               className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 mb-3"
             />
             <button className="w-full py-3 rounded-lg bg-foreground text-background font-semibold text-sm hover:opacity-90 transition-opacity">
-              Get A Call
+              {t("hero.cta")}
             </button>
           </div>
         </motion.div>

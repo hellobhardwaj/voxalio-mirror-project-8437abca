@@ -1,32 +1,19 @@
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { useState } from "react";
-
-const steps = [
-  {
-    title: "Give your AI assistant a voice",
-    description: "Bring your AI call assistant to life by choosing a voice that perfectly represents your company. All our AI voices sound amazingly human.",
-  },
-  {
-    title: "Select tasks for your AI assistant",
-    description: "Define the tasks your AI call assistant will handle for you, along with your company details and covered topics.",
-  },
-  {
-    title: "Get your AI phone number",
-    description: "Your AI call assistant gets its own number directly within our platform. One click and your AI assistant is reachable 24/7.",
-  },
-  {
-    title: "Integrate your AI assistant",
-    description: "Seamlessly integrate your AI call assistant with your internal systems, such as CRM, calendars, and databases.",
-  },
-  {
-    title: "Run and monitor your AI calls",
-    description: "Once your AI assistant has all the necessary information, you can activate it instantly and monitor results in real time.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HowItWorksSection = () => {
   const [openIndex, setOpenIndex] = useState(0);
+  const { t } = useLanguage();
+
+  const steps = [
+    { title: t("how.step1.title"), description: t("how.step1.desc") },
+    { title: t("how.step2.title"), description: t("how.step2.desc") },
+    { title: t("how.step3.title"), description: t("how.step3.desc") },
+    { title: t("how.step4.title"), description: t("how.step4.desc") },
+    { title: t("how.step5.title"), description: t("how.step5.desc") },
+  ];
 
   return (
     <section className="py-24" id="how-it-works">
@@ -37,12 +24,8 @@ const HowItWorksSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Set up your AI Call Assistant
-          </h2>
-          <p className="mt-3 vox-gradient-text font-semibold">
-            100% No-Code and takes less than 10 minutes!
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">{t("how.title")}</h2>
+          <p className="mt-3 vox-gradient-text font-semibold">{t("how.subtitle")}</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -74,9 +57,7 @@ const HowItWorksSection = () => {
                     animate={{ height: "auto", opacity: 1 }}
                     className="px-5 pb-5"
                   >
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {step.description}
-                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
                   </motion.div>
                 )}
               </motion.div>
