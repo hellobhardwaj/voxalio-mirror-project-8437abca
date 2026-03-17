@@ -25,7 +25,7 @@ const LogoBar = () => {
           {[...logos, ...logos, ...logos].map((name, i) => (
             <span
               key={`${name}-${i}`}
-              className="mx-8 md:mx-14 text-white/20 hover:text-white/50 font-bold text-base tracking-[0.2em] uppercase transition-all duration-500 whitespace-nowrap cursor-default"
+              className="mx-8 md:mx-14 text-white/15 hover:text-white/40 font-medium text-[13px] tracking-[0.15em] uppercase transition-all duration-500 whitespace-nowrap cursor-default"
             >
               {name}
             </span>

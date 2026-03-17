@@ -156,7 +156,7 @@ const VideoSection = () => {
                       <div className="w-6 h-6 rounded-lg vox-gradient-bg flex items-center justify-center">
                         <MessageSquare className="w-3 h-3 text-white" />
                       </div>
-                      <p className="text-white/80 text-xs font-semibold">AI Assistant</p>
+                      <p className="text-white/75 text-[12px] font-medium tracking-[-0.01em]">AI Assistant</p>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
