@@ -44,7 +44,7 @@ const FAQSection = () => {
                   onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
                   className="w-full flex items-center justify-between py-5 text-left group"
                 >
-                  <span className="font-medium text-[15px] text-foreground pr-4 group-hover:text-primary transition-colors duration-200">{faq.q}</span>
+                  <span className="font-normal text-[15px] text-foreground pr-4 group-hover:text-primary transition-colors duration-200 tracking-[-0.01em]">{faq.q}</span>
                   <ChevronRight
                     className={`w-5 h-5 text-muted-foreground flex-shrink-0 transition-all duration-300 ${openIndex === i ? "rotate-90 text-primary" : "group-hover:text-foreground"}`}
                   />
