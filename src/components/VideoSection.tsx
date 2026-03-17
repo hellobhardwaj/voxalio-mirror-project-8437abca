@@ -53,7 +53,7 @@ const VideoSection = () => {
               ].map(({ icon: Icon, label, active }) => (
                 <div
                   key={label}
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium transition-colors ${
+                  className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-[12px] font-normal transition-colors ${
                     active
                       ? "bg-white/[0.08] text-white"
                       : "text-white/30 hover:text-white/50"
