@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const logos = ["TechCorp", "DataFlow", "CloudSync", "BrightAI", "NetWave", "SignalX", "PulseHQ"];
@@ -8,28 +7,18 @@ const LogoBar = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-10 border-t border-border">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap items-center justify-center gap-8 md:gap-12"
-        >
-          {logos.map((name) => (
-            <span key={name} className="text-muted-foreground/40 font-semibold text-sm tracking-wider uppercase">
+    <section className="py-10 border-t border-border overflow-hidden">
+      <div className="relative w-full">
+        <div className="group flex w-max animate-scroll-x hover:[animation-play-state:paused]">
+          {[...logos, ...logos, ...logos].map((name, i) => (
+            <span
+              key={`${name}-${i}`}
+              className="mx-8 md:mx-12 text-muted-foreground/30 hover:text-muted-foreground/60 font-semibold text-sm tracking-wider uppercase transition-opacity duration-300 whitespace-nowrap"
+            >
               {name}
             </span>
           ))}
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-bold text-foreground">{t("logo.customers")}</span>
-            <div className="flex">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3.5 h-3.5 fill-accent text-accent" />
-              ))}
-            </div>
-          </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
