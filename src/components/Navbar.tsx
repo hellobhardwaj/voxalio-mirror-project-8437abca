@@ -41,7 +41,7 @@ const Navbar = () => {
             <Globe className="w-3.5 h-3.5" />
             {lang === "en" ? "DE" : "EN"}
           </button>
-          <a href="#contact" className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-200">
+          <a href="#contact" className="text-[14px] font-medium text-foreground hover:text-primary transition-colors duration-200 tracking-[-0.01em]">
             {t("nav.bookDemo")}
           </a>
           <a
