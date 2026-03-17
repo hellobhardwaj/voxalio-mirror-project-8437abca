@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
+import mondayLogo from "@/assets/monday-logo.png";
 
 const integrations = [
   { name: "Slack", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/slack.svg" },
@@ -10,7 +11,7 @@ const integrations = [
   { name: "Google Drive", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googledrive.svg" },
   { name: "Trello", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/trello.svg" },
   { name: "Zapier", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/zapier.svg" },
-  { name: "Monday.com", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/mondaydotcom.svg" },
+  { name: "Monday.com", logo: mondayLogo, isRaster: true },
   { name: "HubSpot", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/hubspot.svg" },
   { name: "Airtable", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/airtable.svg" },
 ];
@@ -85,6 +86,7 @@ const IntegrationsSection = () => {
                         src={item.logo}
                         alt={item.name}
                         className="w-5 h-5 md:w-7 md:h-7"
+                        style={(item as any).isRaster ? { filter: 'grayscale(100%) contrast(1.2)', objectFit: 'contain' } : undefined}
                         loading="lazy"
                       />
                     </motion.div>
