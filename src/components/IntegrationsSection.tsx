@@ -2,16 +2,16 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const integrations = [
-  { name: "Slack", color: "#E01E5A", letter: "S" },
-  { name: "Google Calendar", color: "#4285F4", letter: "G" },
-  { name: "Notion", color: "#000000", letter: "N" },
-  { name: "Microsoft", color: "#00A4EF", letter: "M" },
-  { name: "Google Drive", color: "#0F9D58", letter: "D" },
-  { name: "Trello", color: "#0079BF", letter: "T" },
-  { name: "Zapier", color: "#FF4A00", letter: "Z" },
-  { name: "Monday", color: "#FF3D57", letter: "M" },
-  { name: "Front", color: "#394EFF", letter: "F" },
-  { name: "HubSpot", color: "#FF7A59", letter: "H" },
+  { name: "Slack", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/slack.svg", color: "#E01E5A" },
+  { name: "Google Calendar", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlecalendar.svg", color: "#4285F4" },
+  { name: "Notion", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/notion.svg", color: "#000000" },
+  { name: "Microsoft", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoft.svg", color: "#00A4EF" },
+  { name: "Google Drive", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googledrive.svg", color: "#0F9D58" },
+  { name: "Trello", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/trello.svg", color: "#0079BF" },
+  { name: "Zapier", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/zapier.svg", color: "#FF4A00" },
+  { name: "Monday", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/mondaydotcom.svg", color: "#FF3D57" },
+  { name: "HubSpot", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/hubspot.svg", color: "#FF7A59" },
+  { name: "Airtable", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/airtable.svg", color: "#18BFFF" },
 ];
 
 const IntegrationsSection = () => {
@@ -42,17 +42,23 @@ const IntegrationsSection = () => {
             transition={{ duration: 0.6 }}
             className="relative flex items-center justify-center"
           >
-            <div className="relative w-80 h-80">
-              <div className="absolute inset-0 rounded-full border border-dashed border-border/60" />
-              <div className="absolute inset-8 rounded-full border border-dashed border-border/40" />
+            <div className="relative w-[340px] h-[340px] md:w-[400px] md:h-[400px]">
+              {/* Outer orbit ring */}
+              <div className="absolute inset-0 rounded-full border border-dashed border-border/40" />
+              {/* Inner orbit ring */}
+              <div className="absolute inset-12 rounded-full border border-dashed border-border/30" />
+
+              {/* Center hub */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 rounded-full vox-gradient-bg flex items-center justify-center vox-shadow-lg">
-                  <span className="text-primary-foreground font-bold text-xs">Voxalio.ai</span>
+                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-foreground flex items-center justify-center shadow-2xl">
+                  <span className="text-background font-bold text-sm md:text-base tracking-tight">Voxalio.ai</span>
                 </div>
               </div>
+
+              {/* Orbiting logos */}
               {integrations.map((item, i) => {
                 const angle = (i / integrations.length) * 360 - 90;
-                const radius = 140;
+                const radius = 160;
                 const x = Math.cos((angle * Math.PI) / 180) * radius;
                 const y = Math.sin((angle * Math.PI) / 180) * radius;
                 return (
@@ -61,17 +67,22 @@ const IntegrationsSection = () => {
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: i * 0.04, duration: 0.3 }}
-                    whileHover={{ scale: 1.15, transition: { duration: 0.2 } }}
-                    className="absolute w-11 h-11 rounded-xl bg-card border border-border/60 flex items-center justify-center vox-shadow text-sm font-bold cursor-pointer hover:border-border hover:shadow-md transition-all duration-200"
+                    transition={{ delay: i * 0.06, duration: 0.4, type: "spring" }}
+                    whileHover={{ scale: 1.2, transition: { duration: 0.2 } }}
+                    className="absolute w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-card border border-border/50 flex items-center justify-center shadow-md hover:shadow-xl hover:border-border transition-all duration-300 cursor-pointer"
                     style={{
-                      left: `calc(50% + ${x}px - 22px)`,
-                      top: `calc(50% + ${y}px - 22px)`,
-                      color: item.color,
+                      left: `calc(50% + ${x}px - ${28}px)`,
+                      top: `calc(50% + ${y}px - ${28}px)`,
                     }}
                     title={item.name}
                   >
-                    {item.letter}
+                    <img
+                      src={item.logo}
+                      alt={item.name}
+                      className="w-6 h-6 md:w-7 md:h-7"
+                      style={{ filter: item.color === "#000000" ? "none" : "none" }}
+                      loading="lazy"
+                    />
                   </motion.div>
                 );
               })}
