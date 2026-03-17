@@ -25,7 +25,7 @@ const FAQSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold text-foreground whitespace-pre-line tracking-[-0.025em] leading-[1.15]"
+            className="text-[28px] md:text-[40px] lg:text-[46px] font-semibold text-foreground whitespace-pre-line tracking-[-0.025em] leading-[1.15]"
           >
             {t("faq.title")}
           </motion.h2>
