@@ -247,7 +247,7 @@ const PricingSection = () => {
 
                   <div className="mt-4 flex items-baseline gap-1">
                     {plan.price === 0 ? (
-                      <span className="text-4xl font-extrabold text-white tracking-tight">
+                      <span className="text-[36px] font-semibold text-white tracking-[-0.03em]">
                         {plan.priceLabel}
                       </span>
                     ) : (
