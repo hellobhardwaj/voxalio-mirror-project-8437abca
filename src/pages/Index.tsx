@@ -18,6 +18,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 
 const Index = () => (
   <div className="min-h-screen bg-background">
+    <ScrollProgress />
     <Navbar />
     <HeroSection />
     <LogoBar />
