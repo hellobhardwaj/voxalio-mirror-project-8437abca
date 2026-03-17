@@ -108,11 +108,16 @@ export default {
             backgroundPosition: "350% 50%, 350% 50%",
           },
         },
+        "scroll-x": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-33.333%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         aurora: "aurora 60s linear infinite",
+        "scroll-x": "scroll-x 25s linear infinite",
       },
     },
   },
