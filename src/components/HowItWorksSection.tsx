@@ -30,10 +30,10 @@ const HowItWorksSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
+          <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-foreground tracking-tight">
             {t("how.title")}
           </h2>
-          <p className="mt-4 vox-gradient-text font-semibold text-lg">
+          <p className="mt-4 vox-gradient-text font-medium text-[16px]">
             {t("how.subtitle")}
           </p>
         </motion.div>
@@ -101,7 +101,7 @@ const HowItWorksSection = () => {
                             <div>
                               {/* Title */}
                               <h3
-                                className={`font-semibold text-base transition-colors duration-300 ${
+                                className={`font-semibold text-[16px] transition-colors duration-300 ${
                                   isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
                                 }`}
                               >
@@ -127,7 +127,7 @@ const HowItWorksSection = () => {
                               transition={{ duration: 0.3, ease: "easeInOut" }}
                               className="overflow-hidden"
                             >
-                              <p className="text-sm text-muted-foreground leading-relaxed mt-3 pl-14">
+                              <p className="text-[15px] font-normal text-muted-foreground leading-[1.6] mt-3 pl-14">
                                 {step.description}
                               </p>
                             </motion.div>

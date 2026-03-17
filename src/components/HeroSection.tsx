@@ -98,7 +98,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] font-extrabold text-foreground leading-[1.1] max-w-3xl mx-auto tracking-tight"
+          className="text-[40px] sm:text-[48px] md:text-[56px] lg:text-[64px] font-bold text-foreground leading-[1.1] max-w-3xl mx-auto tracking-tight"
         >
           {t("hero.title")}
         </motion.h1>
@@ -107,7 +107,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-5 text-muted-foreground text-lg max-w-xl mx-auto"
+          className="mt-5 text-muted-foreground text-[18px] font-normal leading-[1.6] max-w-xl mx-auto"
         >
           {t("hero.subtitle")}
         </motion.p>

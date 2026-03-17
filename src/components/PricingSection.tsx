@@ -183,7 +183,7 @@ const PricingSection = () => {
         {/* Header */}
         <div className="text-center mb-14">
           <TimelineContent animationNum={0} timelineRef={pricingRef}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-white tracking-tight">
               <VerticalCutReveal
                 splitBy="words"
                 staggerDuration={0.08}
@@ -196,7 +196,7 @@ const PricingSection = () => {
           </TimelineContent>
 
           <TimelineContent animationNum={1} timelineRef={pricingRef}>
-            <p className="mt-4 text-white/50 max-w-xl mx-auto text-lg">
+            <p className="mt-4 text-white/50 max-w-xl mx-auto text-[16px] font-normal leading-[1.6]">
               {t("pricing.subtitle")}
             </p>
           </TimelineContent>
@@ -235,7 +235,7 @@ const PricingSection = () => {
 
                 <CardHeader className="pb-4 pt-6 px-6">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-bold text-white">
+                    <h3 className="text-[18px] font-semibold text-white">
                       {plan.name}
                     </h3>
                     {plan.popular && (
@@ -269,7 +269,7 @@ const PricingSection = () => {
                     </span>
                   </div>
 
-                  <p className="text-white/40 text-sm mt-2 leading-relaxed">
+                  <p className="text-white/40 text-[14px] font-normal mt-2 leading-[1.6]">
                     {plan.desc}
                   </p>
                 </CardHeader>

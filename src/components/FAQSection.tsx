@@ -25,7 +25,7 @@ const FAQSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground whitespace-pre-line tracking-tight"
+            className="text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-foreground whitespace-pre-line tracking-tight"
           >
             {t("faq.title")}
           </motion.h2>
@@ -44,7 +44,7 @@ const FAQSection = () => {
                   onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
                   className="w-full flex items-center justify-between py-5 text-left group"
                 >
-                  <span className="font-medium text-foreground pr-4 group-hover:text-primary transition-colors duration-200">{faq.q}</span>
+                  <span className="font-medium text-[15px] text-foreground pr-4 group-hover:text-primary transition-colors duration-200">{faq.q}</span>
                   <ChevronRight
                     className={`w-5 h-5 text-muted-foreground flex-shrink-0 transition-all duration-300 ${openIndex === i ? "rotate-90 text-primary" : "group-hover:text-foreground"}`}
                   />
@@ -56,7 +56,7 @@ const FAQSection = () => {
                     transition={{ duration: 0.3 }}
                     className="pb-5"
                   >
-                    <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                    <p className="text-[15px] font-normal text-muted-foreground leading-[1.6]">{faq.a}</p>
                   </motion.div>
                 )}
               </motion.div>

@@ -115,7 +115,7 @@ const TestimonialsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
+            <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-white leading-tight tracking-tight">
               {t("test.title")}
             </h2>
 
@@ -174,7 +174,7 @@ const TestimonialsSection = () => {
                 className="relative bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl p-8"
               >
                 <Quote className="w-10 h-10 text-[hsl(var(--vox-teal)/0.25)] mb-4" />
-                <p className="text-white/80 text-lg leading-relaxed">
+                <p className="text-white/80 text-[18px] font-normal leading-[1.6]">
                   {getQuote(current)}
                 </p>
                 <div className="mt-8 flex items-center gap-4">
@@ -189,7 +189,7 @@ const TestimonialsSection = () => {
                     ))}
                   </div>
                   <div>
-                    <p className="font-semibold text-sm text-white/70">
+                    <p className="font-semibold text-[14px] text-white/70">
                       {getAuthor(current)}
                     </p>
                   </div>
