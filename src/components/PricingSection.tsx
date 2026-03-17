@@ -201,6 +201,7 @@ const PricingSection = () => {
             </p>
           </TimelineContent>
 
+          <div className="mt-8" />
 
           <TimelineContent animationNum={3} timelineRef={pricingRef}>
             <PricingSwitch

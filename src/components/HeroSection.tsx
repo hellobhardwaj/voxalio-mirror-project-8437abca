@@ -5,13 +5,6 @@ import { useState, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 import { AuroraBackground } from "@/components/ui/aurora-background";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 const COUNTRY_CODES = [
   { code: "+49", flag: "🇩🇪", label: "DE" },
