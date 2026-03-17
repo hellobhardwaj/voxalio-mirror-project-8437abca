@@ -70,8 +70,8 @@ const VideoSection = () => {
               {/* Top bar */}
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-white text-base font-bold">Dashboard</p>
-                  <p className="text-white/30 text-xs mt-0.5">Welcome back — here's your overview</p>
+                  <p className="text-white text-[15px] font-medium tracking-[-0.015em]">Dashboard</p>
+                  <p className="text-white/25 text-[11px] font-normal mt-0.5 tracking-normal">Welcome back — here's your overview</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center">
