@@ -29,10 +29,10 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <div className="col-span-2 md:col-span-1">
-            <span className="text-lg font-bold">
+            <span className="text-base font-semibold">
               Voxalio<span className="vox-gradient-text">.de</span>
             </span>
-            <p className="mt-3 text-sm opacity-40 leading-relaxed">{t("hero.badge")}</p>
+            <p className="mt-3 text-[13px] font-normal opacity-40 leading-relaxed">{t("hero.badge")}</p>
 
             <div className="flex items-center gap-3 mt-5">
               <a href="#" className="w-9 h-9 rounded-full bg-white/[0.06] border border-white/[0.08] flex items-center justify-center hover:bg-white/[0.12] hover:border-white/[0.15] transition-all duration-200" aria-label="LinkedIn">
