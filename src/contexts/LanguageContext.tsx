@@ -13,7 +13,7 @@ const translations: Record<string, Record<Language, string>> = {
   "nav.useCases": { en: "Use Cases", de: "Anwendungsfälle" },
   "nav.testimonials": { en: "Testimonials", de: "Kundenstimmen" },
   "nav.pricing": { en: "Pricing", de: "Preise" },
-  "nav.partner": { en: "Become Partner", de: "Partner werden" },
+  "nav.partner": { en: "Contact", de: "Kontakt" },
   "nav.resources": { en: "Resources", de: "Ressourcen" },
   "nav.about": { en: "About Voxalio", de: "Über Voxalio" },
   "nav.bookDemo": { en: "Book Demo", de: "Demo buchen" },

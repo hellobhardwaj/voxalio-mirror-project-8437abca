@@ -214,7 +214,7 @@ const PricingSection = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
           {plans.map((plan, index) => (
             <TimelineContent
               key={plan.name}
@@ -223,7 +223,7 @@ const PricingSection = () => {
             >
               <Card
                 className={cn(
-                  "relative bg-white/[0.03] backdrop-blur-sm border-white/[0.08] rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1",
+                  "relative bg-white/[0.03] backdrop-blur-sm border-white/[0.08] rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 h-full flex flex-col",
                   plan.popular &&
                     "border-[hsl(var(--vox-teal)/0.4)] bg-white/[0.06] shadow-[0_0_40px_hsl(var(--vox-teal)/0.1)]"
                 )}
@@ -273,7 +273,7 @@ const PricingSection = () => {
                   </p>
                 </CardHeader>
 
-                <CardContent className="px-6 pb-6">
+                <CardContent className="px-6 pb-6 flex-1 flex flex-col">
                   <button
                     className={cn(
                       "w-full py-3 rounded-xl text-sm font-semibold transition-all duration-300",
@@ -285,7 +285,7 @@ const PricingSection = () => {
                     {plan.cta}
                   </button>
 
-                  <div className="mt-6">
+                  <div className="mt-6 flex-1">
                     <p className="text-xs font-semibold text-white/60 uppercase tracking-wider mb-3">
                       {lang === "de" ? "Enthalten" : "Includes"}
                     </p>

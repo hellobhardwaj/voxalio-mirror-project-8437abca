@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <div className="col-span-2 md:col-span-1">
             <span className="text-lg font-bold">
-              Voxalio<span className="vox-gradient-text">.ai</span>
+              Voxalio<span className="vox-gradient-text">.de</span>
             </span>
             <p className="mt-3 text-sm opacity-40 leading-relaxed">{t("hero.badge")}</p>
 
