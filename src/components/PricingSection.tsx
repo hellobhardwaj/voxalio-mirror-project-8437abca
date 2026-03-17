@@ -287,7 +287,7 @@ const PricingSection = () => {
                   </button>
 
                   <div className="mt-6 flex-1">
-                    <p className="text-xs font-semibold text-white/60 uppercase tracking-wider mb-3">
+                    <p className="text-[11px] font-medium text-white/50 uppercase tracking-[0.06em] mb-3">
                       {lang === "de" ? "Enthalten" : "Includes"}
                     </p>
                     <ul className="space-y-2.5">
