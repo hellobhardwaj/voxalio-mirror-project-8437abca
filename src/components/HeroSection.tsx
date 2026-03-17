@@ -4,6 +4,7 @@ import heroOrb from "@/assets/hero-orb.png";
 import { useState, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import {
   Select,
   SelectContent,
