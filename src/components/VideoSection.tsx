@@ -40,7 +40,7 @@ const VideoSection = () => {
                 <div className="w-8 h-8 rounded-xl vox-gradient-bg flex items-center justify-center">
                   <Phone className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-white/90 text-sm font-bold tracking-tight">Voxalio</span>
+                <span className="text-white/90 text-[13px] font-medium tracking-[-0.01em]">Voxalio</span>
               </div>
               {[
                 { icon: BarChart3, label: "Dashboard", active: true },
