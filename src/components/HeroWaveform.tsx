@@ -1,11 +1,9 @@
 import { useRef, useEffect, useCallback } from "react";
 import { Activity } from "lucide-react";
 
-const BAR_COUNT = 60;
-const CARD_W = 480;
-const CARD_H = 480;
-const CANVAS_PADDING_X = 40;
-const CANVAS_PADDING_Y = 60;
+const BAR_COUNT = 40;
+const CANVAS_PADDING_X = 20;
+const CANVAS_PADDING_Y = 16;
 
 const HeroWaveform = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -133,16 +131,16 @@ const HeroWaveform = () => {
 
   return (
     <div
-      className="w-full max-w-[480px] aspect-square rounded-[20px] flex flex-col items-center justify-between py-6 px-4 mx-auto cursor-crosshair select-none"
+      className="w-[320px] h-[180px] rounded-[16px] flex flex-col items-center justify-between py-4 px-4 mx-auto cursor-crosshair select-none"
       style={{ background: "#0a0f1e" }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
       {/* Top label */}
       <div className="flex items-center gap-2 opacity-60">
-        <Activity className="w-3.5 h-3.5 text-[#5a7fa8]" />
+        <Activity className="w-3 h-3 text-[#5a7fa8]" />
         <span
-          className="text-[11px] font-medium tracking-[0.15em] uppercase"
+          className="text-[10px] font-medium tracking-[0.15em] uppercase"
           style={{ color: "#5a7fa8" }}
         >
           Voice Core AI
@@ -152,16 +150,9 @@ const HeroWaveform = () => {
       {/* Canvas */}
       <canvas
         ref={canvasRef}
-        className="w-full flex-1 my-4"
+        className="w-full flex-1 mt-2"
         style={{ display: "block" }}
       />
-
-      {/* Bottom label */}
-      <span
-        className="text-[13px] font-bold tracking-[0.2em] uppercase text-white"
-      >
-        Live Voice Conversation
-      </span>
     </div>
   );
 };
