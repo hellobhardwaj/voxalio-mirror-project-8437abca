@@ -20,11 +20,11 @@ const Index = () => (
     <ScrollProgress />
     <Navbar />
     <HeroSection />
-    <ValuePropositionSection />
     <VideoSection />
     <div className="vox-section-divider max-w-5xl mx-auto" />
     <HowItWorksSection />
     <UseCasesSection />
+    <ValuePropositionSection />
     
     <div className="vox-section-divider max-w-5xl mx-auto" />
     <IntegrationsSection />
