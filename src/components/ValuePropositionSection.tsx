@@ -117,7 +117,7 @@ const ValuePropositionSection = () => {
               className="relative vp-phone-wrapper"
               style={{
                 width: "300px",
-                transform: "perspective(1200px) rotateY(-8deg) rotateX(3deg)",
+                maxWidth: "100%",
               }}
             >
               {/* Device frame */}
@@ -239,8 +239,8 @@ const ValuePropositionSection = () => {
       <style>{`
         @media (max-width: 768px) {
           .vp-phone-wrapper {
-            transform: none !important;
             width: 260px !important;
+            max-width: 100% !important;
           }
         }
       `}</style>

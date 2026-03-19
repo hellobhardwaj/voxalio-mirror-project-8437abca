@@ -134,7 +134,7 @@ const HeroWaveform = () => {
 
   return (
     <div
-      className="w-full max-w-[560px] h-[120px] mx-auto cursor-crosshair select-none"
+      className="w-full max-w-[560px] h-[80px] sm:h-[120px] mx-auto cursor-crosshair select-none"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
