@@ -121,7 +121,7 @@ const Pricing = ({
                 "relative flex flex-col rounded-2xl p-6 md:p-8",
                 plan.isPopular
                   ? "border border-white/20 bg-white/[0.03] shadow-[0_0_40px_rgba(255,255,255,0.04)] lg:scale-105 lg:-translate-y-2"
-                  : "border border-transparent bg-transparent"
+                  : "border border-white/10 bg-white/[0.02]"
               )}
             >
               {/* Popular badge */}
