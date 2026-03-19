@@ -25,7 +25,7 @@ const Index = () => (
     <div className="vox-section-divider max-w-5xl mx-auto" />
     <HowItWorksSection />
     <UseCasesSection />
-    <ComplianceSection />
+    
     <div className="vox-section-divider max-w-5xl mx-auto" />
     <IntegrationsSection />
     <div className="vox-section-divider max-w-5xl mx-auto" />
