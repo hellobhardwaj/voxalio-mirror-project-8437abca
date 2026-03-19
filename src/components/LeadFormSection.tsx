@@ -43,32 +43,32 @@ const LeadFormSection = () => {
 
   return (
     <section className="relative w-full" id="contact" style={{ backgroundColor: "#1e2128" }}>
-      <div className="max-w-7xl mx-auto px-6 py-20 md:py-[80px]">
-        <div className="flex flex-col md:flex-row md:items-center md:gap-12 lg:gap-20">
+      <div className="max-w-7xl mx-auto px-6 py-20 md:py-[100px] lg:py-[120px]">
+        <div className="flex flex-col md:flex-row md:items-center md:gap-16 lg:gap-24">
           {/* Left Column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="md:w-[45%] mb-10 md:mb-0"
+            className="md:w-[45%] mb-12 md:mb-0"
           >
             <h2
-              className="font-extrabold text-white leading-none tracking-tight"
-              style={{ fontSize: "clamp(48px, 5vw, 72px)" }}
+              className="font-extrabold text-white leading-[0.95] tracking-[-0.03em]"
+              style={{ fontSize: "clamp(56px, 6vw, 80px)" }}
             >
               {labels.heading}
             </h2>
 
-            <p className="mt-6 text-white/65 text-[17px] leading-[1.6] max-w-[380px]">
+            <p className="mt-8 text-white/60 text-[18px] leading-[1.7] max-w-[420px]">
               {labels.subtitle}
             </p>
 
-            <ul className="mt-6 space-y-3">
+            <ul className="mt-10 space-y-4">
               {bullets.map((item) => (
                 <li key={item} className="flex items-center gap-3">
                   <Check className="w-5 h-5 text-[#22c55e] flex-shrink-0" strokeWidth={3} />
-                  <span className="text-white text-[16px]">{item}</span>
+                  <span className="text-white text-[18px] font-medium">{item}</span>
                 </li>
               ))}
             </ul>
