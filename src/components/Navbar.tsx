@@ -8,8 +8,8 @@ const Navbar = () => {
   const { lang, setLang, t } = useLanguage();
 
   const navItems = [
+    { label: t("nav.howItWorks"), href: "#how-it-works" },
     { label: t("nav.useCases"), href: "#use-cases" },
-    { label: t("nav.testimonials"), href: "#testimonials" },
     { label: t("nav.pricing"), href: "#pricing" },
     { label: t("nav.partner"), href: "#contact" },
   ];
