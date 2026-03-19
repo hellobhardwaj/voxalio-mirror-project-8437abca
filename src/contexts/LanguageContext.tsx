@@ -10,8 +10,8 @@ interface LanguageContextType {
 
 const translations: Record<string, Record<Language, string>> = {
   // Navbar
+  "nav.howItWorks": { en: "How It Works", de: "So funktioniert's" },
   "nav.useCases": { en: "Use Cases", de: "Anwendungsfälle" },
-  "nav.testimonials": { en: "Testimonials", de: "Kundenstimmen" },
   "nav.pricing": { en: "Pricing", de: "Preise" },
   "nav.partner": { en: "Contact", de: "Kontakt" },
   "nav.resources": { en: "Resources", de: "Ressourcen" },
