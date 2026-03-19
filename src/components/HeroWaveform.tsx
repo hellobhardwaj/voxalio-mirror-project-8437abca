@@ -1,9 +1,8 @@
 import { useRef, useEffect, useCallback } from "react";
-import { Activity } from "lucide-react";
 
-const BAR_COUNT = 40;
-const CANVAS_PADDING_X = 20;
-const CANVAS_PADDING_Y = 16;
+const BAR_COUNT = 60;
+const CANVAS_PADDING_X = 10;
+const CANVAS_PADDING_Y = 4;
 
 const HeroWaveform = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -23,7 +22,6 @@ const HeroWaveform = () => {
     const w = canvas.width / dpr;
     const h = canvas.height / dpr;
 
-    // Smooth mouse interpolation
     const sm = smoothMouseRef.current;
     const m = mouseRef.current;
     const lerpSpeed = 0.08;
@@ -37,56 +35,61 @@ const HeroWaveform = () => {
     const drawW = w - CANVAS_PADDING_X * 2;
     const drawH = h - CANVAS_PADDING_Y * 2;
     const centerY = h / 2;
-    const barW = (drawW / BAR_COUNT) * 0.65;
+    const barW = (drawW / BAR_COUNT) * 0.6;
     const gap = drawW / BAR_COUNT;
 
-    // Speed modifier from mouse Y
     const speedMod = sm.inside ? 0.7 + (1 - sm.y / h) * 1.2 : 1.0;
-    // Hover boost
     const hoverBoost = sm.inside ? 1.3 : 1.0;
 
     for (let i = 0; i < BAR_COUNT; i++) {
       const x = CANVAS_PADDING_X + i * gap + gap / 2 - barW / 2;
 
-      // Unique sine-driven height per bar
+      // Natural voice-like envelope: 3 peaks
+      const pos = i / BAR_COUNT;
+      const envelope =
+        0.55 * Math.exp(-Math.pow((pos - 0.18) / 0.1, 2)) +
+        0.8 * Math.exp(-Math.pow((pos - 0.5) / 0.14, 2)) +
+        0.45 * Math.exp(-Math.pow((pos - 0.82) / 0.1, 2)) +
+        0.12;
+
       const freq1 = 0.8 + (i % 7) * 0.15;
       const freq2 = 1.2 + (i % 5) * 0.2;
       const phase1 = i * 0.4;
       const phase2 = i * 0.25 + 1.5;
-      const base =
-        0.15 +
-        0.35 * Math.abs(Math.sin(time * speedMod * freq1 + phase1)) +
-        0.2 * Math.abs(Math.sin(time * speedMod * freq2 + phase2));
+      const wave =
+        0.5 +
+        0.3 * Math.sin(time * speedMod * freq1 + phase1) +
+        0.2 * Math.sin(time * speedMod * freq2 + phase2);
 
-      // Mouse proximity boost (Gaussian bell curve)
       let proximityBoost = 0;
       if (sm.x >= 0) {
         const barCenter = CANVAS_PADDING_X + i * gap + gap / 2;
         const dist = Math.abs(sm.x - barCenter);
         const sigma = drawW * 0.12;
-        proximityBoost = 0.4 * Math.exp(-(dist * dist) / (2 * sigma * sigma));
+        proximityBoost = 0.35 * Math.exp(-(dist * dist) / (2 * sigma * sigma));
       }
 
-      const amplitude = Math.min((base + proximityBoost) * hoverBoost, 1.0);
-      const barH = amplitude * (drawH / 2) * 0.9;
+      const amplitude = Math.min((envelope * wave + proximityBoost) * hoverBoost, 1.0);
+      const barH = amplitude * (drawH / 2) * 0.92;
 
-      // Gradient: bright blue center → cyan tips
+      // Gradient: #0080ff center → #00c8ff tips
       const grad = ctx.createLinearGradient(x, centerY - barH, x, centerY + barH);
-      grad.addColorStop(0, "#00cfff");
-      grad.addColorStop(0.35, "#1d6fff");
-      grad.addColorStop(0.5, "#1d6fff");
-      grad.addColorStop(0.65, "#1d6fff");
-      grad.addColorStop(1, "#00cfff");
+      grad.addColorStop(0, "#00c8ff");
+      grad.addColorStop(0.4, "#0080ff");
+      grad.addColorStop(0.5, "#0080ff");
+      grad.addColorStop(0.6, "#0080ff");
+      grad.addColorStop(1, "#00c8ff");
 
       ctx.fillStyle = grad;
+
+      // Top bar (upward from center) with rounded top
+      const r = Math.min(barW / 2, 2.5);
       ctx.beginPath();
-      const radius = Math.min(barW / 2, 3);
-      // Top bar (upward from center)
-      roundedRect(ctx, x, centerY - barH, barW, barH, radius);
+      roundedRect(ctx, x, centerY - barH, barW, barH, r);
       ctx.fill();
-      // Bottom bar (downward from center, mirror)
+      // Bottom bar (mirrored)
       ctx.beginPath();
-      roundedRect(ctx, x, centerY, barW, barH, radius);
+      roundedRect(ctx, x, centerY, barW, barH, r);
       ctx.fill();
     }
 
@@ -131,26 +134,13 @@ const HeroWaveform = () => {
 
   return (
     <div
-      className="w-[320px] h-[180px] rounded-[16px] flex flex-col items-center justify-between py-4 px-4 mx-auto cursor-crosshair select-none"
-      style={{ background: "#0a0f1e" }}
+      className="w-full max-w-[560px] h-[120px] mx-auto cursor-crosshair select-none"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Top label */}
-      <div className="flex items-center gap-2 opacity-60">
-        <Activity className="w-3 h-3 text-[#5a7fa8]" />
-        <span
-          className="text-[10px] font-medium tracking-[0.15em] uppercase"
-          style={{ color: "#5a7fa8" }}
-        >
-          Voice Core AI
-        </span>
-      </div>
-
-      {/* Canvas */}
       <canvas
         ref={canvasRef}
-        className="w-full flex-1 mt-2"
+        className="w-full h-full"
         style={{ display: "block" }}
       />
     </div>

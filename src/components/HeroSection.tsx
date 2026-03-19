@@ -92,6 +92,16 @@ const HeroSection = () => {
             {t("hero.title")}
           </h1>
 
+          {/* Waveform accent — between headline and subtext */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6"
+          >
+            <HeroWaveform />
+          </motion.div>
+
           <p className="mt-5 text-muted-foreground text-[17px] font-normal leading-[1.7] max-w-md tracking-[-0.01em]">
             {t("hero.subtitle")}
           </p>
@@ -168,16 +178,6 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-
-          {/* Small waveform accent */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8"
-          >
-            <HeroWaveform />
-          </motion.div>
         </motion.div>
       </div>
     </section>
