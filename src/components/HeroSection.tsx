@@ -179,7 +179,6 @@ const HeroSection = () => {
             className="flex flex-col gap-10 items-center"
           >
             <HeroWaveform />
-            <HeroPhoneMockup />
           </motion.div>
         </div>
       </div>
