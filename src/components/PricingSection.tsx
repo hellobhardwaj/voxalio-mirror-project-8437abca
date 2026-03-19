@@ -12,18 +12,6 @@ import confetti from "canvas-confetti";
 import NumberFlow from "@number-flow/react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-interface PricingPlan {
-  name: string;
-  price: string;
-  yearlyPrice: string;
-  period: string;
-  features: string[];
-  description: string;
-  buttonText: string;
-  href: string;
-  isPopular: boolean;
-}
-
 const PricingSection = () => {
   const [isMonthly, setIsMonthly] = useState(true);
   const isDesktop = useMediaQuery("(min-width: 768px)");
@@ -36,7 +24,6 @@ const PricingSection = () => {
       const rect = switchRef.current.getBoundingClientRect();
       const x = rect.left + rect.width / 2;
       const y = rect.top + rect.height / 2;
-
       confetti({
         particleCount: 50,
         spread: 60,
@@ -59,7 +46,7 @@ const PricingSection = () => {
     }
   };
 
-  const plans: PricingPlan[] = [
+  const plans = [
     {
       name: t("pricing.starter"),
       price: "0",
@@ -72,12 +59,14 @@ const PricingSection = () => {
               "1 KI-Assistent",
               "E-Mail-Support",
               "Basis-Analytik",
+              "Community-Support",
             ]
           : [
               "50 minutes/month",
               "1 AI assistant",
               "Email support",
               "Basic analytics",
+              "Community support",
             ],
       description: t("pricing.starterDesc"),
       buttonText: t("pricing.getStarted"),
@@ -98,6 +87,7 @@ const PricingSection = () => {
               "Erweiterte Analytik",
               "CRM-Integrationen",
               "Benutzerdefinierte Stimmen",
+              "Team-Zusammenarbeit",
             ]
           : [
               "1,000 minutes/month",
@@ -106,6 +96,7 @@ const PricingSection = () => {
               "Advanced analytics",
               "CRM integrations",
               "Custom voices",
+              "Team collaboration",
             ],
       description: t("pricing.proDesc"),
       buttonText: t("pricing.getStarted"),
@@ -120,18 +111,22 @@ const PricingSection = () => {
       features:
         lang === "de"
           ? [
-              "Unbegrenzte Minuten",
-              "Unbegrenzte Assistenten",
-              "Dedizierter Support",
-              "Individuelle Integrationen",
+              "Alles in Professional",
+              "Individuelle Lösungen",
+              "Dedizierter Account Manager",
+              "1-Stunde Support-Reaktionszeit",
+              "SSO-Authentifizierung",
+              "Erweiterte Sicherheit",
               "SLA-Garantie",
               "On-Premise Option",
             ]
           : [
-              "Unlimited minutes",
-              "Unlimited assistants",
-              "Dedicated support",
-              "Custom integrations",
+              "Everything in Professional",
+              "Custom solutions",
+              "Dedicated account manager",
+              "1-hour support response time",
+              "SSO Authentication",
+              "Advanced security",
               "SLA guarantee",
               "On-premise option",
             ],
@@ -143,17 +138,19 @@ const PricingSection = () => {
   ];
 
   return (
-    <section className="w-full py-24" id="pricing">
+    <section className="w-full py-24 bg-[hsl(220,20%,6%)]" id="pricing">
       <div className="mx-auto max-w-7xl px-6">
+        {/* Header */}
         <div className="flex flex-col items-center gap-4 text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-5xl text-foreground">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-5xl text-white">
             {t("pricing.title")}
           </h2>
-          <p className="max-w-xl text-lg text-muted-foreground">
+          <p className="max-w-xl text-base text-white/50">
             {t("pricing.subtitle")}
           </p>
         </div>
 
+        {/* Toggle */}
         <div className="mt-8 flex items-center justify-center gap-3">
           <div className="flex items-center gap-2">
             <Switch
@@ -161,7 +158,10 @@ const PricingSection = () => {
               onCheckedChange={handleToggle}
               id="pricing-toggle"
             />
-            <Label htmlFor="pricing-toggle" className="text-muted-foreground">
+            <Label
+              htmlFor="pricing-toggle"
+              className="text-white/70 font-medium"
+            >
               {lang === "de"
                 ? "Jährliche Abrechnung (20% sparen)"
                 : "Annual billing (Save 20%)"}
@@ -169,7 +169,8 @@ const PricingSection = () => {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        {/* Cards */}
+        <div className="mt-14 grid gap-6 md:grid-cols-3 items-start">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
@@ -182,78 +183,89 @@ const PricingSection = () => {
                 ease: "easeOut",
               }}
               className={cn(
-                "relative flex flex-col rounded-2xl border bg-card p-6 shadow-sm",
-                plan.isPopular && "border-primary shadow-lg scale-[1.02]"
+                "relative flex flex-col rounded-2xl p-6 md:p-8",
+                plan.isPopular
+                  ? "border border-white/20 bg-white/[0.03] shadow-[0_0_40px_rgba(255,255,255,0.04)]"
+                  : "border border-transparent bg-transparent"
               )}
             >
+              {/* Popular badge */}
               {plan.isPopular && (
-                <div className="absolute -top-3 left-0 right-0 mx-auto w-fit rounded-full bg-primary px-3 py-1">
-                  <div className="flex items-center gap-1">
-                    <Star className="h-3.5 w-3.5 fill-primary-foreground text-primary-foreground" />
-                    <span className="text-xs font-semibold text-primary-foreground">
+                <div className="absolute -top-3.5 right-6 rounded-full bg-white/10 border border-white/20 px-3 py-1">
+                  <div className="flex items-center gap-1.5">
+                    <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+                    <span className="text-xs font-semibold text-white/90">
                       {t("pricing.popular")}
                     </span>
                   </div>
                 </div>
               )}
 
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold text-foreground">
-                  {plan.name}
-                </h3>
-                <div className="mt-3 flex items-baseline gap-1">
-                  <span className="text-4xl font-bold text-foreground">
-                    <NumberFlow
-                      value={Number(isMonthly ? plan.price : plan.yearlyPrice)}
-                      format={{ style: "currency", currency: "EUR", maximumFractionDigits: 0 }}
-                      transformTiming={{
-                        duration: 500,
-                        easing: "ease-out",
-                      }}
-                      willChange
-                    />
+              {/* Plan name */}
+              <h3 className="text-sm font-semibold tracking-widest text-white/60 uppercase">
+                {plan.name}
+              </h3>
+
+              {/* Price */}
+              <div className="mt-5 flex items-baseline gap-1">
+                <span className="text-5xl font-bold text-white tabular-nums">
+                  <NumberFlow
+                    value={Number(isMonthly ? plan.price : plan.yearlyPrice)}
+                    format={{
+                      style: "currency",
+                      currency: "EUR",
+                      maximumFractionDigits: 0,
+                    }}
+                    transformTiming={{
+                      duration: 500,
+                      easing: "ease-out",
+                    }}
+                    willChange
+                  />
+                </span>
+                {plan.price !== "0" && (
+                  <span className="text-sm text-white/40 ml-1">
+                    / {plan.period}
                   </span>
-                  {plan.price !== "0" && (
-                    <span className="text-sm text-muted-foreground">
-                      / {plan.period}
-                    </span>
-                  )}
-                </div>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  {isMonthly
-                    ? lang === "de"
-                      ? "monatlich abgerechnet"
-                      : "billed monthly"
-                    : lang === "de"
-                    ? "jährlich abgerechnet"
-                    : "billed annually"}
-                </p>
+                )}
               </div>
 
-              <div className="flex-1 space-y-3">
+              <p className="mt-2 text-xs text-primary/60">
+                {isMonthly
+                  ? lang === "de"
+                    ? "monatlich abgerechnet"
+                    : "billed monthly"
+                  : lang === "de"
+                  ? "jährlich abgerechnet"
+                  : "billed annually"}
+              </p>
+
+              {/* Features */}
+              <div className="mt-8 flex-1 space-y-3.5">
                 {plan.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-start gap-2">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                    <span className="text-sm text-muted-foreground">
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-white/50" />
+                    <span className="text-sm text-white/70 font-medium">
                       {feature}
                     </span>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-6 flex flex-col gap-3">
+              {/* CTA */}
+              <div className="mt-8 flex flex-col gap-3">
                 <a
                   href={plan.href}
                   className={cn(
-                    buttonVariants({
-                      variant: plan.isPopular ? "default" : "outline",
-                    }),
-                    "w-full"
+                    "w-full inline-flex items-center justify-center rounded-lg py-3 px-6 text-sm font-semibold transition-all duration-200",
+                    plan.isPopular
+                      ? "bg-white text-[hsl(220,20%,6%)] hover:bg-white/90"
+                      : "border border-white/20 text-white bg-transparent hover:bg-white/5"
                   )}
                 >
                   {plan.buttonText}
                 </a>
-                <p className="text-center text-xs text-muted-foreground">
+                <p className="text-center text-xs text-primary/50">
                   {plan.description}
                 </p>
               </div>
