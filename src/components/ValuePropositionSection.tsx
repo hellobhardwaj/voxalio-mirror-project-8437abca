@@ -239,8 +239,8 @@ const ValuePropositionSection = () => {
       <style>{`
         @media (max-width: 768px) {
           .vp-phone-wrapper {
-            transform: none !important;
             width: 260px !important;
+            max-width: 100% !important;
           }
         }
       `}</style>
