@@ -4,7 +4,7 @@ import ValuePropositionSection from "@/components/ValuePropositionSection";
 import VideoSection from "@/components/VideoSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import UseCasesSection from "@/components/UseCasesSection";
-import ComplianceSection from "@/components/ComplianceSection";
+
 import IntegrationsSection from "@/components/IntegrationsSection";
 import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
@@ -25,7 +25,7 @@ const Index = () => (
     <div className="vox-section-divider max-w-5xl mx-auto" />
     <HowItWorksSection />
     <UseCasesSection />
-    <ComplianceSection />
+    
     <div className="vox-section-divider max-w-5xl mx-auto" />
     <IntegrationsSection />
     <div className="vox-section-divider max-w-5xl mx-auto" />
