@@ -114,7 +114,7 @@ const ValuePropositionSection = () => {
           {/* RIGHT — iPhone 14 Pro */}
           <div className="flex justify-center md:justify-end">
             <div
-              className="relative"
+              className="relative vp-phone-wrapper"
               style={{
                 width: "300px",
                 transform: "perspective(1200px) rotateY(-8deg) rotateX(3deg)",
