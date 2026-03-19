@@ -1,11 +1,9 @@
 import { useRef, useEffect, useCallback } from "react";
 import { Activity } from "lucide-react";
 
-const BAR_COUNT = 60;
-const CARD_W = 480;
-const CARD_H = 480;
-const CANVAS_PADDING_X = 40;
-const CANVAS_PADDING_Y = 60;
+const BAR_COUNT = 40;
+const CANVAS_PADDING_X = 20;
+const CANVAS_PADDING_Y = 16;
 
 const HeroWaveform = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
