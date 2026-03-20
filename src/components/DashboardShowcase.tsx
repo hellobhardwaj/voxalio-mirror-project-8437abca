@@ -102,7 +102,7 @@ const DashboardShowcase = () => {
   useEffect(() => {
     if (activeTab !== "dashboard") return;
     setVisibleMsgs(0);
-    const timers: NodeJS.Timeout[] = [];
+    const timers: ReturnType<typeof setTimeout>[] = [];
     chatMessages.forEach((_, i) => {
       timers.push(setTimeout(() => setVisibleMsgs(i + 1), 600 + i * 700));
     });
