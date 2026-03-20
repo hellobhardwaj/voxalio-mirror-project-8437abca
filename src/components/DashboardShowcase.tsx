@@ -328,7 +328,7 @@ const DashboardView = ({ visibleMsgs, barsVisible }: { visibleMsgs: number; bars
                 style={{
                   height: `${h}%`,
                   borderRadius: 3,
-                  background: `linear-gradient(to top, ${T.teal}, rgba(0,212,170,0.3))`,
+                  background: `linear-gradient(to top, ${T.teal}, rgba(37,99,235,0.3))`,
                   transform: barsVisible ? undefined : "scaleY(0)",
                   transformOrigin: "bottom",
                   animationDelay: `${i * 30}ms`,
