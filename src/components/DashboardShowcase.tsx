@@ -132,7 +132,7 @@ const DashboardShowcase = () => {
       onMouseMove={handleMouse}
       className="relative py-20 md:py-24 overflow-hidden"
       style={{
-        background: `radial-gradient(circle at ${mouse.x}% ${mouse.y}%, rgba(0,212,170,0.04) 0%, transparent 50%), radial-gradient(ellipse at 50% 40%, ${T.tealGlow} 0%, transparent 70%), ${T.navy}`,
+        background: `radial-gradient(circle at ${mouse.x}% ${mouse.y}%, rgba(37,99,235,0.04) 0%, transparent 50%), radial-gradient(ellipse at 50% 40%, ${T.tealGlow} 0%, transparent 70%), ${T.navy}`,
       }}
     >
       <div className="max-w-[1100px] mx-auto px-4 md:px-6 relative">
