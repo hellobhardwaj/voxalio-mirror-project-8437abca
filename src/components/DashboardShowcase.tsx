@@ -352,8 +352,8 @@ const DashboardView = ({ visibleMsgs, barsVisible }: { visibleMsgs: number; bars
             <p className="ds-font-body text-[12px] font-medium" style={{ color: T.textPrimary }}>AI Assistant</p>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full ds-pulse" style={{ background: "#28c840" }} />
-            <span className="text-[10px]" style={{ color: "#28c840" }}>Live</span>
+            <span className="w-2 h-2 rounded-full ds-pulse" style={{ background: "#2563eb" }} />
+            <span className="text-[10px]" style={{ color: "#2563eb" }}>Live</span>
           </div>
         </div>
         <div className="flex-1 flex flex-col gap-2.5 text-[11px] overflow-hidden ds-font-body">
