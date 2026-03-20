@@ -366,7 +366,7 @@ const DashboardView = ({ visibleMsgs, barsVisible }: { visibleMsgs: number; bars
               className={`rounded-xl p-3 max-w-[88%] ${m.from === "user" ? "self-end" : ""}`}
               style={
                 m.from === "user"
-                  ? { background: T.tealDim, color: T.textPrimary, border: `1px solid rgba(0,212,170,0.2)` }
+                  ? { background: T.tealDim, color: T.textPrimary, border: `1px solid rgba(37,99,235,0.2)` }
                   : { background: "rgba(255,255,255,0.05)", color: T.textSecondary }
               }
             >
