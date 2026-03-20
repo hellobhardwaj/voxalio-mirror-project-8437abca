@@ -261,7 +261,7 @@ const DashboardView = ({ visibleMsgs, barsVisible }: { visibleMsgs: number; bars
         <IconBtn><Search className="w-3.5 h-3.5" style={{ color: T.textMuted }} /></IconBtn>
         <div className="relative">
           <IconBtn><Bell className="w-3.5 h-3.5" style={{ color: T.textMuted }} /></IconBtn>
-          <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full" style={{ background: "#28c840" }} />
+          <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full" style={{ background: "#2563eb" }} />
         </div>
         <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-[10px] font-bold ml-1" style={{ background: T.teal }}>V</div>
       </div>
