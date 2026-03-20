@@ -145,7 +145,7 @@ const DashboardShowcase = () => {
           <div
             className="absolute -inset-[1px] rounded-2xl ds-border-glow pointer-events-none z-0"
             style={{
-              background: `linear-gradient(135deg, ${T.teal}40, transparent 40%, transparent 60%, ${T.teal}30)`,
+            background: `linear-gradient(135deg, ${T.teal}66, transparent 40%, transparent 60%, ${T.teal}4d)`,
             }}
           />
 
