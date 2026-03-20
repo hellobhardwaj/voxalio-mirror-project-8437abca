@@ -311,7 +311,7 @@ const DashboardView = ({ visibleMsgs, barsVisible }: { visibleMsgs: number; bars
                 className="text-[10px] px-2.5 py-1 rounded-lg font-medium ds-font-body cursor-pointer"
                 style={
                   i === 1
-                    ? { background: T.tealDim, color: T.teal, border: `1px solid rgba(0,212,170,0.25)` }
+                    ? { background: T.tealDim, color: T.teal, border: `1px solid rgba(37,99,235,0.25)` }
                     : { color: T.textMuted }
                 }
               >
