@@ -12,9 +12,9 @@ const T = {
   navyMid: "#111827",
   navyCard: "#141c2e",
   navyBorder: "#1e2d4a",
-  teal: "#00d4aa",
-  tealDim: "rgba(0,212,170,0.15)",
-  tealGlow: "rgba(0,212,170,0.06)",
+  teal: "#2563eb",
+  tealDim: "rgba(37,99,235,0.15)",
+  tealGlow: "rgba(37,99,235,0.06)",
   gold: "#f0b429",
   textPrimary: "#e8edf5",
   textSecondary: "#7a8faa",
@@ -132,7 +132,7 @@ const DashboardShowcase = () => {
       onMouseMove={handleMouse}
       className="relative py-20 md:py-24 overflow-hidden"
       style={{
-        background: `radial-gradient(circle at ${mouse.x}% ${mouse.y}%, rgba(0,212,170,0.04) 0%, transparent 50%), radial-gradient(ellipse at 50% 40%, ${T.tealGlow} 0%, transparent 70%), ${T.navy}`,
+        background: `radial-gradient(circle at ${mouse.x}% ${mouse.y}%, rgba(37,99,235,0.04) 0%, transparent 50%), radial-gradient(ellipse at 50% 40%, ${T.tealGlow} 0%, transparent 70%), ${T.navy}`,
       }}
     >
       <div className="max-w-[1100px] mx-auto px-4 md:px-6 relative">
@@ -145,7 +145,7 @@ const DashboardShowcase = () => {
           <div
             className="absolute -inset-[1px] rounded-2xl ds-border-glow pointer-events-none z-0"
             style={{
-              background: `linear-gradient(135deg, ${T.teal}40, transparent 40%, transparent 60%, ${T.teal}30)`,
+            background: `linear-gradient(135deg, ${T.teal}66, transparent 40%, transparent 60%, ${T.teal}4d)`,
             }}
           />
 
@@ -155,7 +155,7 @@ const DashboardShowcase = () => {
               <div className="flex gap-1.5">
                 <span className="w-3 h-3 rounded-full" style={{ background: "#ff5f57" }} />
                 <span className="w-3 h-3 rounded-full" style={{ background: "#febc2e" }} />
-                <span className="w-3 h-3 rounded-full" style={{ background: "#28c840" }} />
+                <span className="w-3 h-3 rounded-full" style={{ background: "#28c840" }} /> {/* macOS green dot — keep */}
               </div>
               <div className="flex-1 flex justify-center">
                 <div
@@ -261,7 +261,7 @@ const DashboardView = ({ visibleMsgs, barsVisible }: { visibleMsgs: number; bars
         <IconBtn><Search className="w-3.5 h-3.5" style={{ color: T.textMuted }} /></IconBtn>
         <div className="relative">
           <IconBtn><Bell className="w-3.5 h-3.5" style={{ color: T.textMuted }} /></IconBtn>
-          <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full" style={{ background: "#28c840" }} />
+          <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full" style={{ background: "#2563eb" }} />
         </div>
         <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-[10px] font-bold ml-1" style={{ background: T.teal }}>V</div>
       </div>
@@ -311,7 +311,7 @@ const DashboardView = ({ visibleMsgs, barsVisible }: { visibleMsgs: number; bars
                 className="text-[10px] px-2.5 py-1 rounded-lg font-medium ds-font-body cursor-pointer"
                 style={
                   i === 1
-                    ? { background: T.tealDim, color: T.teal, border: `1px solid rgba(0,212,170,0.25)` }
+                    ? { background: T.tealDim, color: T.teal, border: `1px solid rgba(37,99,235,0.25)` }
                     : { color: T.textMuted }
                 }
               >
@@ -328,7 +328,7 @@ const DashboardView = ({ visibleMsgs, barsVisible }: { visibleMsgs: number; bars
                 style={{
                   height: `${h}%`,
                   borderRadius: 3,
-                  background: `linear-gradient(to top, ${T.teal}, rgba(0,212,170,0.3))`,
+                  background: `linear-gradient(to top, ${T.teal}, rgba(37,99,235,0.3))`,
                   transform: barsVisible ? undefined : "scaleY(0)",
                   transformOrigin: "bottom",
                   animationDelay: `${i * 30}ms`,
@@ -352,8 +352,8 @@ const DashboardView = ({ visibleMsgs, barsVisible }: { visibleMsgs: number; bars
             <p className="ds-font-body text-[12px] font-medium" style={{ color: T.textPrimary }}>AI Assistant</p>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full ds-pulse" style={{ background: "#28c840" }} />
-            <span className="text-[10px]" style={{ color: "#28c840" }}>Live</span>
+            <span className="w-2 h-2 rounded-full ds-pulse" style={{ background: "#2563eb" }} />
+            <span className="text-[10px]" style={{ color: "#2563eb" }}>Live</span>
           </div>
         </div>
         <div className="flex-1 flex flex-col gap-2.5 text-[11px] overflow-hidden ds-font-body">
@@ -366,7 +366,7 @@ const DashboardView = ({ visibleMsgs, barsVisible }: { visibleMsgs: number; bars
               className={`rounded-xl p-3 max-w-[88%] ${m.from === "user" ? "self-end" : ""}`}
               style={
                 m.from === "user"
-                  ? { background: T.tealDim, color: T.textPrimary, border: `1px solid rgba(0,212,170,0.2)` }
+                  ? { background: T.tealDim, color: T.textPrimary, border: `1px solid rgba(37,99,235,0.2)` }
                   : { background: "rgba(255,255,255,0.05)", color: T.textSecondary }
               }
             >
