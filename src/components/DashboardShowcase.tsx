@@ -155,7 +155,7 @@ const DashboardShowcase = () => {
               <div className="flex gap-1.5">
                 <span className="w-3 h-3 rounded-full" style={{ background: "#ff5f57" }} />
                 <span className="w-3 h-3 rounded-full" style={{ background: "#febc2e" }} />
-                <span className="w-3 h-3 rounded-full" style={{ background: "#28c840" }} />
+                <span className="w-3 h-3 rounded-full" style={{ background: "#28c840" }} /> {/* macOS green dot — keep */}
               </div>
               <div className="flex-1 flex justify-center">
                 <div
