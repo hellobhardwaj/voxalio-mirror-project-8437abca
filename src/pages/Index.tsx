@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ValuePropositionSection from "@/components/ValuePropositionSection";
-import VideoSection from "@/components/VideoSection";
+import DashboardShowcase from "@/components/DashboardShowcase";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import UseCasesSection from "@/components/UseCasesSection";
 
@@ -20,7 +20,7 @@ const Index = () => (
     <ScrollProgress />
     <Navbar />
     <HeroSection />
-    <VideoSection />
+    <DashboardShowcase />
     <div className="vox-section-divider max-w-5xl mx-auto" />
     <HowItWorksSection />
     <UseCasesSection />
