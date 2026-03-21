@@ -63,14 +63,14 @@ const ValuePropositionSection = () => {
   ];
 
   return (
-    <section style={{ background: "var(--bg-dark)" }} className="w-full py-20 md:py-32">
+    <section style={{ background: "var(--bg-dark)" }} className="w-full py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <span className="section-label">See It In Action</span>
           <h2 className="font-display font-bold text-[var(--text-primary)] text-[var(--text-2xl)] md:text-[var(--text-3xl)] leading-[1.1] mt-3">
@@ -78,7 +78,7 @@ const ValuePropositionSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-[45%_55%] gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-center max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ const ValuePropositionSection = () => {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-start"
           >
-            <p className="text-[var(--text-secondary)] text-[var(--text-md)] leading-[1.7] mb-10 max-w-[420px]">
+            <p className="text-[var(--text-secondary)] text-[var(--text-md)] leading-[1.7] mb-8 max-w-[420px]">
               Voxalio AI answers instantly, captures leads, and handles inquiries 24/7. Empower your business with an always-on front desk that feels authentically human.
             </p>
             <a
@@ -95,7 +95,7 @@ const ValuePropositionSection = () => {
             >
               Start Your Free 14-Day Trial
             </a>
-            <span className="text-[var(--text-sm)] text-[var(--text-secondary)] mt-4 w-full max-w-[420px] text-center">No credit card required.</span>
+            <span className="text-[var(--text-sm)] text-[var(--text-secondary)] mt-3 w-full max-w-[420px] text-center">No credit card required.</span>
           </motion.div>
 
           <motion.div
@@ -143,9 +143,9 @@ const ValuePropositionSection = () => {
                       <span className="text-[10px] text-[var(--text-secondary)]">End</span>
                     </div>
                   </div>
-                  <div ref={transcriptRef} className="mx-4 mb-3 px-3 py-3 overflow-y-auto" style={{ height: "160px", scrollbarWidth: "thin" }}>
+                  <div ref={transcriptRef} className="mx-4 mb-3 px-3 py-2 overflow-y-auto" style={{ height: "130px", scrollbarWidth: "thin" }}>
                     {displayedText.map((line, i) => (
-                      <p key={i} className="text-[var(--text-xs)] leading-[1.5] mb-3">
+                      <p key={i} className="text-[var(--text-xs)] leading-[1.45] mb-1.5">
                         <span className="font-bold" style={{ color: line.labelColor }}>{line.label}</span>{" "}
                         <span className="text-[var(--text-secondary)]">{line.text}</span>
                         {i === displayedText.length - 1 && line.text.length < TRANSCRIPT[i]?.text.length && (
