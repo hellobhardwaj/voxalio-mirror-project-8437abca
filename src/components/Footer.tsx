@@ -47,21 +47,6 @@ const Footer = () => {
         }}
       />
 
-      {/* Large faded VOXALIO watermark */}
-      <div
-        className="absolute bottom-4 right-0 pointer-events-none select-none"
-        style={{
-          fontFamily: "'Space Grotesk', sans-serif",
-          fontSize: "clamp(120px, 15vw, 280px)",
-          fontWeight: 800,
-          color: "rgba(255,255,255,0.04)",
-          lineHeight: 1,
-          letterSpacing: "-0.04em",
-          whiteSpace: "nowrap",
-        }}
-      >
-        VOXALIO
-      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
