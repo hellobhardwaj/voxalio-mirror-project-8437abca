@@ -34,9 +34,36 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#0f172a]">
+    <footer className="relative bg-[#0f172a] overflow-hidden">
+      {/* Top gradient line */}
       <div className="h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
-      <div className="max-w-7xl mx-auto px-6 py-16">
+
+      {/* Blue abstract glow - bottom left */}
+      <div
+        className="absolute bottom-0 left-0 w-[500px] h-[400px] pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse at 30% 80%, rgba(37,99,235,0.15), transparent 70%)",
+          filter: "blur(80px)",
+        }}
+      />
+
+      {/* Large faded VOXALIO watermark */}
+      <div
+        className="absolute bottom-4 right-0 pointer-events-none select-none"
+        style={{
+          fontFamily: "'Space Grotesk', sans-serif",
+          fontSize: "clamp(120px, 15vw, 280px)",
+          fontWeight: 800,
+          color: "rgba(255,255,255,0.04)",
+          lineHeight: 1,
+          letterSpacing: "-0.04em",
+          whiteSpace: "nowrap",
+        }}
+      >
+        VOXALIO
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
@@ -44,7 +71,7 @@ const Footer = () => {
               <img src={voxalioIcon} alt="Voxalio" className="w-7 h-7 rounded-md object-contain" />
               <span className="font-display font-bold text-white text-base">Voxalio</span>
             </div>
-            <p className="text-[14px] text-white/50 mb-6">
+            <p className="text-[14px] text-[#94a3b8] mb-6">
               {lang === "de" ? "KI-Sprachagenten — Made in Germany" : "AI Voice Agents — Made in Germany"}
             </p>
 
@@ -53,10 +80,10 @@ const Footer = () => {
                 <a
                   key={i}
                   href="#"
-                  className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 bg-white/[0.06] border border-white/[0.08] hover:bg-white/[0.12]"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200 bg-white/[0.08] hover:bg-[#2563eb] group"
                   aria-label={Icon.displayName}
                 >
-                  <Icon className="w-4 h-4 text-white/50 hover:text-white transition-colors" />
+                  <Icon className="w-4 h-4 text-white/60 group-hover:text-white transition-colors" />
                 </a>
               ))}
             </div>
@@ -65,7 +92,7 @@ const Footer = () => {
               href="https://www.optimis-ai.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[11px] text-white/30 hover:text-blue-400 transition-all"
+              className="inline-flex items-center gap-2 text-[11px] text-white/30 hover:text-[#2563eb] transition-all"
             >
               {t("footer.powered")}
             </a>
@@ -74,13 +101,19 @@ const Footer = () => {
           {/* Link columns */}
           {columns.map((col) => (
             <div key={col.title}>
-              <h4 className="font-display font-semibold text-[11px] mb-4 text-white/40 uppercase tracking-[0.06em]">
+              <h4
+                className="font-display font-semibold mb-4 text-white uppercase"
+                style={{ fontSize: "13px", letterSpacing: "0.1em" }}
+              >
                 {col.title}
               </h4>
               <ul className="space-y-3">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-[14px] text-white/50 hover:text-blue-400 transition-colors duration-200">
+                    <a
+                      href={link.href}
+                      className="text-[14px] text-[#94a3b8] hover:text-white transition-colors duration-200"
+                    >
                       {link.label}
                     </a>
                   </li>
@@ -90,10 +123,13 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Bottom */}
-        <div className="mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/[0.08]">
-          <p className="text-[12px] text-white/40">{t("footer.rights")}</p>
-          <p className="text-[11px] text-white/25">{t("footer.disclosure")}</p>
+        {/* Bottom bar */}
+        <div
+          className="mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+        >
+          <p className="text-[12px] text-[#4a5568]">{t("footer.rights")}</p>
+          <p className="text-[11px] text-[#4a5568]">{t("footer.disclosure")}</p>
         </div>
       </div>
     </footer>
