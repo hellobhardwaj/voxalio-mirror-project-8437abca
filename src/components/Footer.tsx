@@ -34,19 +34,18 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-[#0f172a] overflow-hidden">
-      {/* Top gradient line */}
-      <div className="h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+    <footer className="relative bg-white overflow-hidden">
+      {/* Top border */}
+      <div className="h-px bg-border" />
 
-      {/* Blue abstract glow - bottom left */}
+      {/* Subtle blue glow - bottom left */}
       <div
-        className="absolute bottom-0 left-0 w-[500px] h-[400px] pointer-events-none"
+        className="absolute bottom-0 left-0 w-[400px] h-[300px] pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse at 30% 80%, rgba(37,99,235,0.15), transparent 70%)",
-          filter: "blur(80px)",
+          background: "radial-gradient(ellipse at 30% 80%, rgba(37,99,235,0.06), transparent 70%)",
+          filter: "blur(60px)",
         }}
       />
-
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
@@ -54,9 +53,9 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <img src={voxalioIcon} alt="Voxalio" className="w-7 h-7 rounded-md object-contain" />
-              <span className="font-display font-bold text-white text-base">Voxalio</span>
+              <span className="font-display font-bold text-foreground text-base">Voxalio</span>
             </div>
-            <p className="text-[14px] text-[#94a3b8] mb-6">
+            <p className="text-sm text-muted-foreground mb-6">
               {lang === "de" ? "KI-Sprachagenten — Made in Germany" : "AI Voice Agents — Made in Germany"}
             </p>
 
@@ -65,10 +64,10 @@ const Footer = () => {
                 <a
                   key={i}
                   href="#"
-                  className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200 bg-white/[0.08] hover:bg-[#2563eb] group"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200 bg-secondary border border-border hover:bg-primary hover:border-primary group"
                   aria-label={Icon.displayName}
                 >
-                  <Icon className="w-4 h-4 text-white/60 group-hover:text-white transition-colors" />
+                  <Icon className="w-4 h-4 text-muted-foreground group-hover:text-primary-foreground transition-colors" />
                 </a>
               ))}
             </div>
@@ -77,7 +76,7 @@ const Footer = () => {
               href="https://www.optimis-ai.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[11px] text-white/30 hover:text-[#2563eb] transition-all"
+              className="inline-flex items-center gap-2 text-[11px] text-muted-foreground/60 hover:text-primary transition-all"
             >
               {t("footer.powered")}
             </a>
@@ -87,7 +86,7 @@ const Footer = () => {
           {columns.map((col) => (
             <div key={col.title}>
               <h4
-                className="font-display font-semibold mb-4 text-white uppercase"
+                className="font-display font-semibold mb-4 text-foreground uppercase"
                 style={{ fontSize: "13px", letterSpacing: "0.1em" }}
               >
                 {col.title}
@@ -97,7 +96,7 @@ const Footer = () => {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-[14px] text-[#94a3b8] hover:text-white transition-colors duration-200"
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
                     >
                       {link.label}
                     </a>
@@ -109,12 +108,9 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div
-          className="mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
-        >
-          <p className="text-[12px] text-[#4a5568]">{t("footer.rights")}</p>
-          <p className="text-[11px] text-[#4a5568]">{t("footer.disclosure")}</p>
+        <div className="mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border">
+          <p className="text-xs text-muted-foreground">{t("footer.rights")}</p>
+          <p className="text-[11px] text-muted-foreground/60">{t("footer.disclosure")}</p>
         </div>
       </div>
     </footer>
