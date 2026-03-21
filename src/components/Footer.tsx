@@ -1,5 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Instagram, Facebook, Twitter } from "lucide-react";
+import voxalioIcon from "@/assets/voxalio-icon.png";
 
 const Footer = () => {
   const { t, lang } = useLanguage();
