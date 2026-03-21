@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PlayCircle } from "lucide-react";
 import HeroWaveform from "@/components/HeroWaveform";
+import MagicRings from "@/components/MagicRings";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
