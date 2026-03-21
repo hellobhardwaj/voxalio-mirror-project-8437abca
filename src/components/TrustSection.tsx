@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Shield, Cpu, Search } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Aurora from "@/components/Aurora";
 
 const TrustSection = () => {
   const { lang } = useLanguage();
@@ -18,8 +19,18 @@ const TrustSection = () => {
       ];
 
   return (
-    <section className="py-24 md:py-32" style={{ background: "var(--bg-mid)" }}>
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "var(--bg-mid)" }}>
+      {/* Aurora background */}
+      <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
+        <Aurora
+          colorStops={["#7c3aed", "#a855f7", "#2563eb"]}
+          blend={0.6}
+          amplitude={1.2}
+          speed={0.8}
+        />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
