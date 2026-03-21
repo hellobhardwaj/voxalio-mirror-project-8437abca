@@ -16,8 +16,7 @@ const UseCasesSection = () => {
 
   return (
     <section className="vox-section-dark py-28 relative overflow-hidden" id="use-cases">
-      {/* Subtle glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[hsl(var(--vox-teal)/0.06)] to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[rgba(37,99,235,0.06)] to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12 mb-20">
@@ -35,8 +34,8 @@ const UseCasesSection = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            href="#start"
-            className="vox-gradient-bg text-primary-foreground px-7 py-3 rounded-full text-[14px] font-medium hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-px self-start tracking-[-0.01em]"
+            href="#contact"
+            className="bg-[#2563eb] text-white px-7 py-3 rounded-full text-[14px] font-medium hover:bg-[#1d4ed8] hover:shadow-lg transition-all duration-300 hover:-translate-y-px self-start tracking-[-0.01em]"
           >
             {t("uc.signup")}
           </motion.a>

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { ChevronDown, Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import voxalioLogo from "@/assets/voxalio-logo.jpeg";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -17,8 +18,8 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 vox-glass border-b border-border/50">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="/" className="text-[16px] font-medium tracking-[-0.02em] text-foreground">
-          Voxalio<span className="vox-gradient-text">.de</span>
+        <a href="/" className="flex items-center gap-2">
+          <img src={voxalioLogo} alt="Voxalio" className="h-8 w-auto object-contain" />
         </a>
 
         <div className="hidden lg:flex items-center gap-0.5">
@@ -36,19 +37,16 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={() => setLang(lang === "en" ? "de" : "en")}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border text-xs font-medium text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all duration-200"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border text-xs font-medium text-muted-foreground hover:text-foreground hover:border-[#2563eb]/30 transition-all duration-200"
           >
             <Globe className="w-3.5 h-3.5" />
             {lang === "en" ? "DE" : "EN"}
           </button>
-          <a href="#contact" className="text-[14px] font-medium text-foreground hover:text-primary transition-colors duration-200 tracking-[-0.01em]">
-            {t("nav.bookDemo")}
-          </a>
           <a
-            href="#contact"
-            className="vox-gradient-bg text-primary-foreground px-5 py-2 rounded-full text-[14px] font-medium hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-px tracking-[-0.01em]"
+            href="#booking"
+            className="bg-[#2563eb] text-white px-5 py-2 rounded-full text-[14px] font-medium hover:bg-[#1d4ed8] transition-all duration-300 hover:-translate-y-px tracking-[-0.01em]"
           >
-            {t("nav.startNow")}
+            {t("nav.bookDemo")}
           </a>
         </div>
 
@@ -90,11 +88,11 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="#contact"
-                className="vox-gradient-bg text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold text-center mt-3"
+                href="#booking"
+                className="bg-[#2563eb] text-white px-5 py-2.5 rounded-full text-sm font-semibold text-center mt-3"
                 onClick={() => setMobileOpen(false)}
               >
-                {t("nav.startNow")}
+                {t("nav.bookDemo")}
               </a>
             </div>
           </motion.div>

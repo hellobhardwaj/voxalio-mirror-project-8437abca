@@ -18,8 +18,8 @@ const ThankYou = () => {
           className="max-w-md w-full text-center"
         >
           <div className="flex justify-center mb-6">
-            <div className="w-20 h-20 rounded-full vox-gradient-soft-bg flex items-center justify-center">
-              <CheckCircle className="w-10 h-10 text-primary" />
+            <div className="w-20 h-20 rounded-full bg-[rgba(37,99,235,0.1)] flex items-center justify-center">
+              <CheckCircle className="w-10 h-10 text-[#2563eb]" />
             </div>
           </div>
           <h1 className="text-3xl font-bold text-foreground mb-3">
@@ -30,7 +30,7 @@ const ThankYou = () => {
           </p>
           <a
             href="/"
-            className="inline-block vox-gradient-bg text-primary-foreground px-8 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
+            className="inline-block bg-[#2563eb] text-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-[#1d4ed8] transition-all"
           >
             {t("thankyou.back")}
           </a>

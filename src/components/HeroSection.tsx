@@ -82,7 +82,7 @@ const HeroSection = () => {
           className="flex flex-col items-center"
         >
           <div className="inline-flex items-center gap-2 bg-secondary/80 rounded-full px-4 py-1.5 mb-6 border border-border/50">
-            <span className="w-2 h-2 rounded-full vox-gradient-bg animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#2563eb] animate-pulse" />
             <span className="text-[13px] font-normal text-muted-foreground tracking-normal">
               {t("hero.badge")}
             </span>
@@ -92,7 +92,7 @@ const HeroSection = () => {
             {t("hero.title")}
           </h1>
 
-          {/* Waveform accent — between headline and subtext */}
+          {/* Waveform accent */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,18 +102,18 @@ const HeroSection = () => {
             <HeroWaveform />
           </motion.div>
 
-          <p className="mt-5 text-muted-foreground text-[17px] font-normal leading-[1.7] max-w-md tracking-[-0.01em]">
+          <p className="mt-5 text-muted-foreground text-[17px] font-normal leading-[1.7] max-w-lg tracking-[-0.01em]">
             {t("hero.subtitle")}
           </p>
 
           {/* CTA Card */}
           <div className="mt-8 w-full max-w-sm">
-            <div className="relative rounded-2xl p-[2px] overflow-hidden vox-shadow-xl">
+            <div className="relative rounded-2xl p-[2px] overflow-hidden shadow-xl">
               <div
                 className="absolute inset-[-50%] animate-rainbow-spin"
                 style={{
                   background:
-                    "conic-gradient(from 0deg, transparent 0%, transparent 65%, hsl(210 70% 60%) 78%, hsl(270 50% 60%) 85%, hsl(185 60% 50%) 92%, transparent 100%)",
+                    "conic-gradient(from 0deg, transparent 0%, transparent 65%, #2563eb 78%, #3b82f6 85%, #60a5fa 92%, transparent 100%)",
                 }}
               />
               <div className="relative bg-card backdrop-blur-xl rounded-[calc(1rem-1px)] p-5">
@@ -134,7 +134,7 @@ const HeroSection = () => {
                     }}
                     placeholder={lang === "de" ? "z.B. +4917612345678" : "e.g. +4917612345678"}
                     disabled={loading}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 disabled:opacity-50 transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#2563eb]/30 disabled:opacity-50 transition-all duration-200"
                   />
                 </div>
 
@@ -154,7 +154,7 @@ const HeroSection = () => {
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
-                      className="flex items-center gap-2 text-primary text-sm mb-3 justify-center"
+                      className="flex items-center gap-2 text-[#2563eb] text-sm mb-3 justify-center"
                     >
                       <CheckCircle className="w-4 h-4" />
                       <span>
@@ -167,7 +167,7 @@ const HeroSection = () => {
                 <button
                   onClick={handleSubmit}
                   disabled={loading || !phone.trim()}
-                  className="w-full py-3 rounded-lg bg-foreground text-background font-medium text-[14px] hover:opacity-90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg tracking-[-0.01em]"
+                  className="w-full py-3 rounded-lg bg-[#2563eb] text-white font-medium text-[14px] hover:bg-[#1d4ed8] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg tracking-[-0.01em]"
                 >
                   {loading
                     ? lang === "de"

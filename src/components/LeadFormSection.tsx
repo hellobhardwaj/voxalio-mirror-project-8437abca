@@ -67,7 +67,7 @@ const LeadFormSection = () => {
             <ul className="mt-10 space-y-4">
               {bullets.map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-[#22c55e] flex-shrink-0" strokeWidth={3} />
+                  <Check className="w-5 h-5 text-[#2563eb] flex-shrink-0" strokeWidth={3} />
                   <span className="text-white text-[18px] font-medium">{item}</span>
                 </li>
               ))}
@@ -87,72 +87,28 @@ const LeadFormSection = () => {
               style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.3)" }}
             >
               <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Full Name */}
                 <div>
-                  <label className="block text-[#0f172a] text-sm font-medium mb-2">
-                    {labels.name}
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[#0f172a] transition-colors"
-                  />
+                  <label className="block text-[#0f172a] text-sm font-medium mb-2">{labels.name}</label>
+                  <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[#0f172a] transition-colors" />
                 </div>
-
-                {/* Work Email */}
                 <div>
-                  <label className="block text-[#0f172a] text-sm font-medium mb-2">
-                    {labels.email}
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[#0f172a] transition-colors"
-                  />
+                  <label className="block text-[#0f172a] text-sm font-medium mb-2">{labels.email}</label>
+                  <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[#0f172a] transition-colors" />
                 </div>
-
-                {/* Company Name */}
                 <div>
-                  <label className="block text-[#0f172a] text-sm font-medium mb-2">
-                    {labels.company}
-                  </label>
-                  <input
-                    type="text"
-                    value={form.company}
-                    onChange={(e) => setForm({ ...form, company: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[#0f172a] transition-colors"
-                  />
+                  <label className="block text-[#0f172a] text-sm font-medium mb-2">{labels.company}</label>
+                  <input type="text" value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[#0f172a] transition-colors" />
                 </div>
-
-                {/* Message */}
                 <div>
-                  <label className="block text-[#0f172a] text-sm font-medium mb-2">
-                    {labels.message}
-                  </label>
-                  <textarea
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[#0f172a] transition-colors resize-vertical"
-                    style={{ height: "140px" }}
-                  />
+                  <label className="block text-[#0f172a] text-sm font-medium mb-2">{labels.message}</label>
+                  <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[#0f172a] transition-colors resize-vertical" style={{ height: "140px" }} />
                 </div>
-
-                {/* Submit */}
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full py-4 rounded-[10px] text-white font-semibold text-[16px] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  style={{ backgroundColor: "#0f172a" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1e293b")}
-                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0f172a")}
+                  className="w-full py-4 rounded-[10px] text-white font-semibold text-[16px] transition-colors disabled:opacity-50 disabled:cursor-not-allowed bg-[#2563eb] hover:bg-[#1d4ed8]"
                 >
-                  {submitting
-                    ? (lang === "de" ? "Wird gesendet..." : "Sending...")
-                    : labels.submit}
+                  {submitting ? (lang === "de" ? "Wird gesendet..." : "Sending...") : labels.submit}
                 </button>
               </form>
             </div>

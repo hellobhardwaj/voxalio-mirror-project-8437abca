@@ -14,6 +14,7 @@ const FAQSection = () => {
     { q: t("faq.q4"), a: t("faq.a4") },
     { q: t("faq.q5"), a: t("faq.a5") },
     { q: t("faq.q6"), a: t("faq.a6") },
+    { q: t("faq.q7"), a: t("faq.a7") },
   ];
 
   return (
@@ -44,9 +45,9 @@ const FAQSection = () => {
                   onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
                   className="w-full flex items-center justify-between py-5 text-left group"
                 >
-                  <span className="font-normal text-[15px] text-foreground pr-4 group-hover:text-primary transition-colors duration-200 tracking-[-0.01em]">{faq.q}</span>
+                  <span className="font-normal text-[15px] text-foreground pr-4 group-hover:text-[#2563eb] transition-colors duration-200 tracking-[-0.01em]">{faq.q}</span>
                   <ChevronRight
-                    className={`w-5 h-5 text-muted-foreground flex-shrink-0 transition-all duration-300 ${openIndex === i ? "rotate-90 text-primary" : "group-hover:text-foreground"}`}
+                    className={`w-5 h-5 text-muted-foreground flex-shrink-0 transition-all duration-300 ${openIndex === i ? "rotate-90 text-[#2563eb]" : "group-hover:text-foreground"}`}
                   />
                 </button>
                 {openIndex === i && (
