@@ -25,6 +25,10 @@
   --cyan: #0ea5e9;
   --gold: #f59e0b;
 
+  /* Mapped aliases (previously teal in dark theme) */
+  --vox-teal: 217 91% 60%;
+  --vox-blue: 217 91% 60%;
+
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #2563eb, #3b82f6);
   --gradient-text: linear-gradient(135deg, #2563eb, #1d4ed8);

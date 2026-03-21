@@ -13,10 +13,11 @@ const VideoSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative rounded-2xl overflow-hidden border border-border/60 vox-shadow-xl"
+          className="relative rounded-2xl overflow-hidden border border-border/60"
+          style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.08)" }}
         >
           {/* Browser chrome */}
-          <div className="bg-[hsl(220,20%,11%)] border-b border-white/5 px-4 py-3 flex items-center gap-2">
+          <div className="bg-[#1e293b] border-b border-white/5 px-4 py-3 flex items-center gap-2">
             <div className="flex gap-1.5">
               <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
               <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
@@ -29,13 +30,13 @@ const VideoSection = () => {
             </div>
           </div>
 
-          {/* Dashboard UI */}
-          <div className="relative bg-[hsl(220,20%,8%)] min-h-[520px] md:min-h-[600px] flex">
+          {/* Dashboard UI - intentionally dark themed dashboard preview */}
+          <div className="relative bg-[#0f172a] min-h-[520px] md:min-h-[600px] flex">
             {/* Subtle glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[hsl(var(--vox-teal)/0.06)] rounded-full blur-[150px] pointer-events-none" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[rgba(37,99,235,0.06)] rounded-full blur-[150px] pointer-events-none" />
 
             {/* Sidebar */}
-            <div className="hidden md:flex flex-col w-56 bg-[hsl(220,20%,10%)] border-r border-white/[0.04] p-5 gap-1">
+            <div className="hidden md:flex flex-col w-56 bg-[#0f172a] border-r border-white/[0.06] p-5 gap-1">
               <div className="flex items-center gap-2.5 mb-8">
                 <div className="w-8 h-8 rounded-xl vox-gradient-bg flex items-center justify-center">
                   <Phone className="w-4 h-4 text-white" />
@@ -79,7 +80,7 @@ const VideoSection = () => {
                   </div>
                   <div className="w-8 h-8 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center relative">
                     <Bell className="w-3.5 h-3.5 text-white/40" />
-                    <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[hsl(var(--vox-teal))]" />
+                    <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#2563eb]" />
                   </div>
                   <div className="w-8 h-8 rounded-full vox-gradient-bg flex items-center justify-center text-white text-[10px] font-bold ml-1">
                     V
@@ -105,8 +106,8 @@ const VideoSection = () => {
                     </div>
                     <p className="text-white text-[18px] font-medium tracking-[-0.02em]">{stat.value}</p>
                     <div className="flex items-center gap-1 mt-1">
-                      <ArrowUpRight className="w-3 h-3 text-[hsl(var(--vox-teal))]" />
-                      <p className="text-[hsl(var(--vox-teal))] text-[11px] font-medium">{stat.change}</p>
+                      <ArrowUpRight className="w-3 h-3 text-[#3b82f6]" />
+                      <p className="text-[#3b82f6] text-[11px] font-medium">{stat.change}</p>
                     </div>
                   </div>
                 ))}
@@ -127,7 +128,7 @@ const VideoSection = () => {
                           key={period}
                           className={`text-[10px] px-2.5 py-1 rounded-lg font-medium ${
                             i === 1
-                              ? "bg-[hsl(var(--vox-teal)/0.15)] text-[hsl(var(--vox-teal))] border border-[hsl(var(--vox-teal)/0.2)]"
+                              ? "bg-[rgba(37,99,235,0.15)] text-[#3b82f6] border border-[rgba(37,99,235,0.2)]"
                               : "text-white/25 hover:text-white/40"
                           }`}
                         >
@@ -141,7 +142,7 @@ const VideoSection = () => {
                     {[40, 55, 35, 70, 60, 80, 45, 65, 75, 50, 85, 90, 55, 70, 60, 78, 82, 68, 72, 88, 62, 74, 80, 56].map((h, i) => (
                       <div key={i} className="flex-1 flex flex-col justify-end">
                         <div
-                          className="rounded-sm bg-gradient-to-t from-[hsl(var(--vox-teal)/0.5)] to-[hsl(var(--vox-blue)/0.3)] hover:from-[hsl(var(--vox-teal)/0.7)] hover:to-[hsl(var(--vox-blue)/0.5)] transition-all duration-300"
+                          className="rounded-sm bg-gradient-to-t from-[rgba(37,99,235,0.5)] to-[rgba(59,130,246,0.3)] hover:from-[rgba(37,99,235,0.7)] hover:to-[rgba(59,130,246,0.5)] transition-all duration-300"
                           style={{ height: `${h}%` }}
                         />
                       </div>
@@ -167,13 +168,13 @@ const VideoSection = () => {
                     <div className="bg-white/[0.05] rounded-xl p-3 text-white/50 max-w-[88%]">
                       Hello! I've handled 847 calls today. 94% resolved without escalation.
                     </div>
-                    <div className="bg-[hsl(var(--vox-teal)/0.12)] rounded-xl p-3 text-white/70 max-w-[88%] self-end border border-[hsl(var(--vox-teal)/0.15)]">
+                    <div className="bg-[rgba(37,99,235,0.12)] rounded-xl p-3 text-white/70 max-w-[88%] self-end border border-[rgba(37,99,235,0.15)]">
                       Show me today's missed calls
                     </div>
                     <div className="bg-white/[0.05] rounded-xl p-3 text-white/50 max-w-[88%]">
                       3 missed calls today. 2 have been scheduled for callback. 1 left a voicemail.
                     </div>
-                    <div className="bg-[hsl(var(--vox-teal)/0.12)] rounded-xl p-3 text-white/70 max-w-[88%] self-end border border-[hsl(var(--vox-teal)/0.15)]">
+                    <div className="bg-[rgba(37,99,235,0.12)] rounded-xl p-3 text-white/70 max-w-[88%] self-end border border-[rgba(37,99,235,0.15)]">
                       Schedule callbacks for the remaining one
                     </div>
                     <div className="bg-white/[0.05] rounded-xl p-3 text-white/50 max-w-[88%]">
