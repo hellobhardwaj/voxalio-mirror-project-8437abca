@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PlayCircle } from "lucide-react";
 import HeroWaveform from "@/components/HeroWaveform";
+import MagicRings from "@/components/MagicRings";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
@@ -124,9 +125,35 @@ const HeroSection = () => {
 
   return (
     <section ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden" style={{ background: "var(--bg-dark)" }}>
+      {/* MagicRings WebGL background */}
+      <div className="absolute inset-0 z-0 pointer-events-none" style={{ opacity: 0.5 }}>
+        <MagicRings
+          color="#7c3aed"
+          colorTwo="#2563eb"
+          ringCount={6}
+          speed={0.6}
+          attenuation={10}
+          lineThickness={2}
+          baseRadius={0.35}
+          radiusStep={0.1}
+          scaleRate={0.1}
+          opacity={1}
+          blur={0}
+          noiseAmount={0.05}
+          rotation={0}
+          ringGap={1.5}
+          fadeIn={0.7}
+          fadeOut={0.6}
+          followMouse
+          mouseInfluence={0.15}
+          hoverScale={1.1}
+          parallax={0.03}
+        />
+      </div>
+
       {/* Purple radial glow with parallax */}
       <motion.div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[80vh] pointer-events-none"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[80vh] pointer-events-none z-[1]"
         style={{
           background: "radial-gradient(ellipse 100% 50% at 50% -5%, rgba(124,58,237,0.2) 0%, transparent 65%)",
           y: reduced ? 0 : glowY,
@@ -134,30 +161,11 @@ const HeroSection = () => {
       />
 
       {/* Aurora blobs */}
-      <div className="absolute top-[10%] left-[15%] w-[400px] h-[300px] rounded-full pointer-events-none opacity-[0.12]" style={{ background: "rgba(124,58,237,0.4)", filter: "blur(80px)", animation: reduced ? "none" : "aurora1 20s ease-in-out infinite" }} />
-      <div className="absolute top-[20%] right-[10%] w-[500px] h-[400px] rounded-full pointer-events-none opacity-[0.08]" style={{ background: "rgba(37,99,235,0.4)", filter: "blur(80px)", animation: reduced ? "none" : "aurora2 25s ease-in-out infinite" }} />
-      <div className="absolute bottom-[10%] left-[30%] w-[350px] h-[350px] rounded-full pointer-events-none opacity-[0.1]" style={{ background: "rgba(168,85,247,0.3)", filter: "blur(80px)", animation: reduced ? "none" : "aurora3 30s ease-in-out infinite" }} />
+      <div className="absolute top-[10%] left-[15%] w-[400px] h-[300px] rounded-full pointer-events-none opacity-[0.08] z-[1]" style={{ background: "rgba(124,58,237,0.4)", filter: "blur(80px)", animation: reduced ? "none" : "aurora1 20s ease-in-out infinite" }} />
+      <div className="absolute top-[20%] right-[10%] w-[500px] h-[400px] rounded-full pointer-events-none opacity-[0.05] z-[1]" style={{ background: "rgba(37,99,235,0.4)", filter: "blur(80px)", animation: reduced ? "none" : "aurora2 25s ease-in-out infinite" }} />
 
       {/* Dot grid */}
-      <div className="absolute inset-0 dot-grid" />
-
-      {/* Floating particles rising */}
-      {!reduced && particles.map((p) => (
-        <div
-          key={p.id}
-          className="absolute rounded-full pointer-events-none"
-          style={{
-            width: p.size,
-            height: p.size,
-            background: `${p.color}${p.opacity})`,
-            left: `${p.left}%`,
-            bottom: `-${p.size}px`,
-            animation: `particle-rise ${p.duration}s linear infinite`,
-            animationDelay: `${p.delay}s`,
-            willChange: "transform, opacity",
-          }}
-        />
-      ))}
+      <div className="absolute inset-0 dot-grid z-[1]" />
 
       <div className="max-w-4xl mx-auto px-6 w-full relative z-10 text-center flex flex-col items-center" style={{ paddingTop: "clamp(140px, 16vh, 200px)", paddingBottom: "clamp(80px, 10vh, 120px)" }}>
         {/* Badge */}
