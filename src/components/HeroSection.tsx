@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { PlayCircle } from "lucide-react";
 import HeroWaveform from "@/components/HeroWaveform";
 import MagicRings from "@/components/MagicRings";
+import DotGrid from "@/components/DotGrid";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
@@ -125,8 +126,21 @@ const HeroSection = () => {
 
   return (
     <section ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden" style={{ background: "var(--bg-dark)" }}>
+      {/* DotGrid interactive background */}
+      <div className="absolute inset-0 z-0 pointer-events-auto" style={{ opacity: 0.35 }}>
+        <DotGrid
+          dotSize={3}
+          gap={28}
+          baseColor="#7c3aed"
+          activeColor="#a855f7"
+          proximity={120}
+          shockRadius={200}
+          shockStrength={4}
+        />
+      </div>
+
       {/* MagicRings WebGL background */}
-      <div className="absolute inset-0 z-0 pointer-events-none" style={{ opacity: 0.5 }}>
+      <div className="absolute inset-0 z-[1] pointer-events-none" style={{ opacity: 0.4 }}>
         <MagicRings
           color="#7c3aed"
           colorTwo="#2563eb"
