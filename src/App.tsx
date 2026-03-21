@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AnimatePresence, motion } from "framer-motion";
 import SmoothScroll from "@/components/SmoothScroll";
+import LoadingGate from "@/components/LoadingScreen";
 import CustomCursor from "@/components/CustomCursor";
 import Index from "./pages/Index";
 import Privacy from "./pages/Privacy";
