@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { PlayCircle } from "lucide-react";
 import HeroWaveform from "@/components/HeroWaveform";
 import MagicRings from "@/components/MagicRings";
+import DotGrid from "@/components/DotGrid";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
