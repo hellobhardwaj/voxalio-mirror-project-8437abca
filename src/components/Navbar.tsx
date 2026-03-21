@@ -47,12 +47,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "var(--gradient-primary)" }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M12 18.5C15.5 18.5 18.5 15.5 18.5 12C18.5 8.5 15.5 5.5 12 5.5C8.5 5.5 5.5 8.5 5.5 12C5.5 15.5 8.5 18.5 12 18.5Z" />
-              <path d="M8 12h1.5l1-3 1.5 6 1.5-6 1 3H16" />
-            </svg>
-          </div>
+          <img src={voxalioIcon} alt="Voxalio" className="w-8 h-8 rounded-lg object-contain" />
           <span className="font-display font-bold text-[var(--text-primary)] text-lg tracking-tight">Voxalio</span>
         </a>
 
