@@ -17,17 +17,18 @@ const HowItWorksSection = () => {
 
   return (
     <section className="relative overflow-hidden" id="how-it-works" style={{ background: "var(--bg-mid)" }}>
-      <div className="absolute inset-0 z-0 opacity-75 pointer-events-auto">
-        <Particles
-          particleColors={["#2563eb", "#3b82f6", "#93c5fd"]}
-          particleCount={200}
-          particleSpread={10}
-          speed={0.1}
-          particleBaseSize={100}
-          moveParticlesOnHover
-          alphaParticles={false}
-          disableRotation={false}
-          pixelRatio={1}
+      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
+        <Prism
+          animationType="rotate"
+          timeScale={0.5}
+          height={3.5}
+          baseWidth={5.5}
+          scale={3.6}
+          hueShift={0}
+          colorFrequency={1}
+          noise={0}
+          glow={1}
+          suspendWhenOffscreen
         />
       </div>
 
