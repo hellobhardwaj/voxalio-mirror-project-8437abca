@@ -73,7 +73,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="relative overflow-hidden py-24 md:py-32" id="testimonials" style={{ background: "#0f0d1a" }}>
+    <section className="relative overflow-hidden py-24 md:py-32" id="testimonials" style={{ background: "var(--bg-mid)" }}>
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <motion.div
@@ -82,12 +82,13 @@ const TestimonialsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-display font-700 text-white text-[28px] md:text-[36px] leading-[1.15]">
+            <span className="section-label">Testimonials</span>
+            <h2 className="font-display font-bold text-[var(--text-primary)] text-[28px] md:text-[36px] leading-[1.15] mt-3">
               {t("test.title")}
             </h2>
 
             <div className="flex items-center gap-4 mt-8">
-              <button onClick={() => handleManual(-1)} className="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style={{ border: "1px solid rgba(139,92,246,0.2)", background: "rgba(124,58,237,0.08)" }} aria-label="Previous">
+              <button onClick={() => handleManual(-1)} className="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style={{ border: "1px solid var(--border-normal)", background: "rgba(124,58,237,0.08)" }} aria-label="Previous">
                 <ChevronLeft className="w-4 h-4 text-white/70" />
               </button>
               <div className="flex gap-2">
@@ -96,11 +97,11 @@ const TestimonialsSection = () => {
                     key={idx}
                     onClick={() => { setDirection(idx > current ? 1 : -1); setCurrent(idx); }}
                     className="h-2 rounded-full transition-all duration-300"
-                    style={idx === current ? { width: 32, background: "linear-gradient(135deg, #7c3aed, #2563eb)" } : { width: 8, background: "rgba(255,255,255,0.15)" }}
+                    style={idx === current ? { width: 32, background: "var(--gradient-primary)" } : { width: 8, background: "rgba(255,255,255,0.15)" }}
                   />
                 ))}
               </div>
-              <button onClick={() => handleManual(1)} className="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style={{ border: "1px solid rgba(139,92,246,0.2)", background: "rgba(124,58,237,0.08)" }} aria-label="Next">
+              <button onClick={() => handleManual(1)} className="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style={{ border: "1px solid var(--border-normal)", background: "rgba(124,58,237,0.08)" }} aria-label="Next">
                 <ChevronRight className="w-4 h-4 text-white/70" />
               </button>
             </div>
@@ -116,14 +117,14 @@ const TestimonialsSection = () => {
                 animate="center"
                 exit="exit"
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="relative rounded-[20px] p-8"
-                style={{ background: "rgba(19,17,31,0.8)", border: "1px solid rgba(139,92,246,0.12)", backdropFilter: "blur(12px)" }}
+                className="relative rounded-[var(--radius-lg)] p-8 vox-card-hover"
+                style={{ background: "var(--bg-card)", border: "1px solid var(--border-subtle)", backdropFilter: "blur(12px)" }}
               >
-                <Quote className="w-10 h-10 text-[#7c3aed]/25 mb-4" />
+                <Quote className="w-10 h-10 text-[var(--purple)]/25 mb-4" />
                 <p className="text-white/75 text-[16px] leading-[1.7]">{getQuote(current)}</p>
                 <div className="mt-8 flex items-center gap-4">
-                  <img src={testimonials[current].photo} alt="" className="w-12 h-12 rounded-full object-cover" style={{ border: "2px solid rgba(124,58,237,0.3)" }} />
-                  <p className="font-medium text-[13px] text-white/60">{getAuthor(current)}</p>
+                  <img src={testimonials[current].photo} alt="" className="w-12 h-12 rounded-full object-cover" style={{ border: "2px solid rgba(124,58,237,0.3)" }} loading="lazy" />
+                  <p className="font-medium text-[var(--text-sm)] text-white/60">{getAuthor(current)}</p>
                 </div>
               </motion.div>
             </AnimatePresence>

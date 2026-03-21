@@ -6,15 +6,15 @@ const GDPR = () => {
   const { lang } = useLanguage();
 
   return (
-    <div className="min-h-screen" style={{ background: "#0a0f1e" }}>
+    <div className="min-h-screen" style={{ background: "var(--bg-dark)" }}>
       <Navbar />
       <main className="pt-32 pb-20 max-w-3xl mx-auto px-6">
-        <h1 className="font-display font-700 text-white text-3xl mb-8">
+        <h1 className="font-display font-bold text-[var(--text-primary)] text-[var(--text-3xl)] mb-8">
           {lang === "de" ? "DSGVO-Konformität" : "GDPR Compliance"}
         </h1>
-        <div className="space-y-8 text-[#94a3b8] text-[15px] leading-[1.7]">
+        <div className="space-y-8 text-[var(--text-secondary)] text-[var(--text-base)] leading-[1.7]">
           <section>
-            <h2 className="font-display font-600 text-white text-lg mb-3">
+            <h2 className="font-display font-semibold text-[var(--text-primary)] text-lg mb-3">
               {lang === "de" ? "Datenspeicherort" : "Data Location"}
             </h2>
             <p>
@@ -24,7 +24,7 @@ const GDPR = () => {
             </p>
           </section>
           <section>
-            <h2 className="font-display font-600 text-white text-lg mb-3">
+            <h2 className="font-display font-semibold text-[var(--text-primary)] text-lg mb-3">
               {lang === "de" ? "Ihre Rechte" : "Your Rights"}
             </h2>
             <p>
@@ -34,7 +34,7 @@ const GDPR = () => {
             </p>
           </section>
           <section>
-            <h2 className="font-display font-600 text-white text-lg mb-3">
+            <h2 className="font-display font-semibold text-[var(--text-primary)] text-lg mb-3">
               {lang === "de" ? "Datenlöschung" : "Data Deletion"}
             </h2>
             <p>
@@ -44,7 +44,7 @@ const GDPR = () => {
             </p>
           </section>
           <section>
-            <h2 className="font-display font-600 text-white text-lg mb-3">
+            <h2 className="font-display font-semibold text-[var(--text-primary)] text-lg mb-3">
               {lang === "de" ? "Kontakt" : "Contact"}
             </h2>
             <p>

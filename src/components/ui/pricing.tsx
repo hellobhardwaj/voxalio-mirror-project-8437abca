@@ -26,21 +26,9 @@ interface PricingProps {
   plans: PricingPlan[];
   title: string;
   description: string;
-  popularLabel?: string;
-  annualLabel?: string;
-  monthlyBilledLabel?: string;
-  yearlyBilledLabel?: string;
 }
 
-const Pricing = ({
-  plans,
-  title,
-  description,
-  popularLabel = "Popular",
-  annualLabel = "Annual billing (Save 20%)",
-  monthlyBilledLabel = "billed monthly",
-  yearlyBilledLabel = "billed annually",
-}: PricingProps) => {
+const Pricing = ({ plans, title, description }: PricingProps) => {
   const [isMonthly, setIsMonthly] = useState(true);
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const switchRef = useRef<HTMLButtonElement>(null);
@@ -49,12 +37,10 @@ const Pricing = ({
     setIsMonthly(!checked);
     if (checked && switchRef.current) {
       const rect = switchRef.current.getBoundingClientRect();
-      const x = rect.left + rect.width / 2;
-      const y = rect.top + rect.height / 2;
       confetti({
         particleCount: 50,
         spread: 60,
-        origin: { x: x / window.innerWidth, y: y / window.innerHeight },
+        origin: { x: (rect.left + rect.width / 2) / window.innerWidth, y: (rect.top + rect.height / 2) / window.innerHeight },
         colors: ["#7c3aed", "#a855f7", "#2563eb", "#06b6d4"],
         ticks: 200,
         gravity: 1.2,
@@ -66,27 +52,28 @@ const Pricing = ({
   };
 
   return (
-    <section className="w-full py-20 md:py-32" id="pricing" style={{ backgroundColor: "#0a0812" }}>
+    <section className="w-full py-20 md:py-32" id="pricing" style={{ backgroundColor: "var(--bg-mid)" }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex flex-col items-center gap-5 text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-[-0.02em] text-white leading-tight font-display">
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="flex flex-col items-center gap-5 text-center">
+          <span className="section-label">Pricing</span>
+          <h2 className="text-[var(--text-2xl)] md:text-[var(--text-4xl)] font-extrabold tracking-[-0.02em] text-[var(--text-primary)] leading-tight font-display">
             {title}
           </h2>
-          <p className="max-w-2xl text-base sm:text-lg text-white/45 leading-relaxed">
+          <p className="max-w-2xl text-[var(--text-md)] text-[var(--text-secondary)] leading-relaxed">
             {description}
           </p>
-        </div>
+        </motion.div>
 
         <div className="mt-10 flex items-center justify-center gap-3">
-          <div className="flex items-center gap-3 rounded-full px-5 py-2.5" style={{ background: "rgba(124,58,237,0.08)", border: "1px solid rgba(139,92,246,0.15)" }}>
+          <div className="flex items-center gap-3 rounded-full px-5 py-2.5" style={{ background: "rgba(124,58,237,0.08)", border: "1px solid var(--border-subtle)" }}>
             <Switch
               ref={switchRef}
               onCheckedChange={handleToggle}
               id="pricing-toggle"
-              className="data-[state=checked]:bg-[#a855f7]"
+              className="data-[state=checked]:bg-[var(--purple-light)]"
             />
             <Label htmlFor="pricing-toggle" className="text-white/60 font-medium text-sm cursor-pointer">
-              {annualLabel}
+              Annual billing (Save 20%)
             </Label>
           </div>
         </div>
@@ -100,7 +87,7 @@ const Pricing = ({
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.12, ease: "easeOut" }}
               className={cn(
-                "relative flex flex-col rounded-[20px]",
+                "relative flex flex-col rounded-[var(--radius-lg)]",
                 plan.isPopular
                   ? "z-10 p-7 md:p-10 lg:scale-[1.04] lg:-translate-y-3"
                   : "p-6 md:p-8"
@@ -108,20 +95,20 @@ const Pricing = ({
               style={
                 plan.isPopular
                   ? {
-                      background: "linear-gradient(135deg, #7c3aed, #4f46e5)",
-                      boxShadow: "0 32px 80px rgba(124,58,237,0.4)",
+                      background: "linear-gradient(145deg, #5b21b6, #3730a3)",
+                      boxShadow: "0 0 0 1px rgba(124,58,237,0.3), 0 32px 80px rgba(124,58,237,0.35)",
                     }
                   : {
-                      background: "rgba(19,17,31,0.8)",
-                      border: "1px solid rgba(139,92,246,0.15)",
+                      background: "var(--bg-card)",
+                      border: "1px solid var(--border-subtle)",
                     }
               }
             >
               {plan.isPopular && (
-                <div className="absolute -top-3.5 right-6 rounded-full px-4 py-1.5 backdrop-blur-sm" style={{ background: "rgba(245,158,11,0.9)" }}>
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full px-4 py-1.5" style={{ background: "linear-gradient(135deg, #f59e0b, #d97706)" }}>
                   <div className="flex items-center gap-1.5">
                     <Star className="h-3.5 w-3.5 fill-white text-white" />
-                    <span className="text-xs font-bold text-white tracking-wide">{popularLabel}</span>
+                    <span className="text-xs font-bold text-white tracking-wide">Popular</span>
                   </div>
                 </div>
               )}
@@ -144,17 +131,17 @@ const Pricing = ({
                 )}
               </div>
 
-              <p className="mt-2.5 text-xs font-medium tracking-wide" style={{ color: plan.isPopular ? "rgba(255,255,255,0.6)" : "rgba(168,85,247,0.5)" }}>
-                {isMonthly ? monthlyBilledLabel : yearlyBilledLabel}
+              <p className="mt-2.5 text-xs font-medium tracking-wide" style={{ color: plan.isPopular ? "rgba(255,255,255,0.6)" : "var(--purple-light)" }}>
+                {isMonthly ? "billed monthly" : "billed annually"}
               </p>
 
-              <div className="mt-6 md:mt-8 h-px" style={{ background: plan.isPopular ? "rgba(255,255,255,0.2)" : "rgba(139,92,246,0.12)" }} />
+              <div className="mt-6 md:mt-8 h-px" style={{ background: plan.isPopular ? "rgba(255,255,255,0.2)" : "var(--border-subtle)" }} />
 
               <div className="mt-6 md:mt-8 flex-1 space-y-3.5 md:space-y-4">
                 {plan.features.map((feature, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full" style={{ background: plan.isPopular ? "rgba(255,255,255,0.2)" : "rgba(124,58,237,0.15)" }}>
-                      <Check className="h-3 w-3" style={{ color: plan.isPopular ? "white" : "#a855f7" }} />
+                      <Check className="h-3 w-3" style={{ color: plan.isPopular ? "white" : "var(--purple-light)" }} />
                     </div>
                     <span className="text-sm font-medium leading-snug" style={{ color: plan.isPopular ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.65)" }}>
                       {feature}
@@ -169,10 +156,10 @@ const Pricing = ({
                   className={cn(
                     "w-full inline-flex items-center justify-center rounded-xl py-3.5 px-6 text-sm font-semibold transition-all duration-200",
                     plan.isPopular
-                      ? "bg-white text-[#7c3aed] hover:bg-white/90 shadow-[0_4px_20px_rgba(255,255,255,0.15)]"
-                      : "text-white/80 hover:border-[rgba(139,92,246,0.4)] vox-btn-glow"
+                      ? "bg-white text-[var(--purple)] hover:bg-white/90 shadow-[0_4px_20px_rgba(255,255,255,0.15)]"
+                      : "text-white/80 hover:border-[var(--border-bright)] vox-btn-glow"
                   )}
-                  style={!plan.isPopular ? { border: "1px solid rgba(139,92,246,0.2)", background: "rgba(124,58,237,0.08)" } : undefined}
+                  style={!plan.isPopular ? { border: "1px solid var(--border-normal)", background: "rgba(124,58,237,0.08)" } : undefined}
                 >
                   {plan.buttonText}
                 </a>

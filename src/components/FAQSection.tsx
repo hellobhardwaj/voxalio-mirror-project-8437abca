@@ -18,7 +18,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32" id="faq" style={{ background: "#0f0d1a" }}>
+    <section className="py-24 md:py-32" id="faq" style={{ background: "var(--bg-dark)" }}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-16">
           {/* Left */}
@@ -28,17 +28,18 @@ const FAQSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-display font-700 text-white text-[32px] md:text-[48px] leading-[1.1]">
+            <span className="section-label">FAQ</span>
+            <h2 className="font-display font-bold text-[var(--text-primary)] text-[var(--text-2xl)] md:text-[var(--text-3xl)] leading-[1.1] mt-3">
               {lang === "de" ? "Alles, was Sie wissen möchten" : "Everything you want to know"}
             </h2>
-            <p className="text-muted-foreground text-[16px] mt-6 leading-[1.7]">
+            <p className="text-[var(--text-secondary)] text-[var(--text-md)] mt-6 leading-[1.7]">
               {lang === "de"
                 ? "Finden Sie nicht, was Sie suchen? Buchen Sie eine Demo und wir beantworten alles live."
                 : "Can't find what you're looking for? Book a demo and we'll answer everything live."}
             </p>
             <a
               href="#booking"
-              className="inline-block mt-8 px-6 py-3 rounded-[10px] text-white font-display font-600 text-[14px] transition-all vox-gradient-bg vox-btn-glow"
+              className="inline-block mt-8 px-6 py-3 rounded-[10px] text-white font-display font-semibold text-[14px] transition-all vox-gradient-bg vox-btn-glow"
             >
               {lang === "de" ? "Demo buchen" : "Book a Demo"}
             </a>
@@ -46,43 +47,51 @@ const FAQSection = () => {
 
           {/* Right — Accordion */}
           <div>
-            {faqs.map((faq, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.04, duration: 0.3 }}
-                style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
-              >
-                <button
-                  onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
-                  className="w-full flex items-center justify-between py-5 text-left group"
+            {faqs.map((faq, i) => {
+              const isOpen = openIndex === i;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.04, duration: 0.3 }}
+                  style={{
+                    borderBottom: "1px solid rgba(255,255,255,0.05)",
+                    borderLeft: isOpen ? "3px solid var(--purple)" : "3px solid transparent",
+                    transition: "border-left-color 0.3s ease",
+                  }}
                 >
-                  <span className={`font-display font-600 text-[16px] pr-4 transition-colors ${openIndex === i ? "text-[#a855f7]" : "text-white/80 group-hover:text-[#a855f7]"}`}>
-                    {faq.q}
-                  </span>
-                  {openIndex === i ? (
-                    <X className="w-5 h-5 text-[#a855f7] flex-shrink-0 transition-transform" />
-                  ) : (
-                    <Plus className="w-5 h-5 text-muted-foreground flex-shrink-0 group-hover:text-[#a855f7] transition-colors" />
-                  )}
-                </button>
-                <AnimatePresence>
-                  {openIndex === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
+                  <button
+                    onClick={() => setOpenIndex(isOpen ? -1 : i)}
+                    className="w-full flex items-center justify-between py-5 px-2 text-left group"
+                  >
+                    <span className={`font-display font-semibold text-[16px] pr-4 transition-colors ${isOpen ? "text-[var(--purple-light)]" : "text-white/80 group-hover:text-[var(--purple-light)]"}`}>
+                      {faq.q}
+                    </span>
+                    <div
+                      className="flex-shrink-0 transition-transform duration-300"
+                      style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}
                     >
-                      <p className="pb-5 text-[15px] text-muted-foreground leading-[1.7]">{faq.a}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
+                      <Plus className={`w-5 h-5 transition-colors ${isOpen ? "text-[var(--purple-light)]" : "text-[var(--text-muted)] group-hover:text-[var(--purple-light)]"}`} />
+                    </div>
+                  </button>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <p className="pb-5 px-2 text-[14px] text-[var(--text-secondary)] leading-[1.7]">{faq.a}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
