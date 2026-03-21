@@ -41,9 +41,9 @@ const HowItWorksSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="md:col-span-4 relative overflow-hidden rounded-[20px] p-8 md:p-10 min-h-[220px] group cursor-default
-              bg-[linear-gradient(135deg,hsl(var(--vox-teal)),hsl(200_70%_48%),hsl(var(--vox-blue)))]
-              shadow-[0_8px_30px_-8px_hsl(var(--vox-teal)/0.3)]
-              hover:shadow-[0_16px_48px_-12px_hsl(var(--vox-teal)/0.4)] transition-shadow duration-500"
+              bg-[linear-gradient(135deg,#2563eb,#3b82f6,#1d4ed8)]
+              shadow-[0_8px_30px_-8px_rgba(37,99,235,0.3)]
+              hover:shadow-[0_16px_48px_-12px_rgba(37,99,235,0.4)] transition-shadow duration-500"
           >
             {/* Background decorative icon */}
             {(() => { const Icon = steps[0].icon; return <Icon className="absolute -bottom-4 -right-4 w-40 h-40 text-primary-foreground/[0.08]" />; })()}
@@ -103,7 +103,7 @@ const BentoTile = ({ step, index, delay, className = "" }: BentoTileProps) => {
       <Icon className="absolute -bottom-3 -right-3 w-28 h-28 text-foreground/[0.04] transition-colors duration-500 group-hover:text-foreground/[0.07]" />
       <div className="relative z-10 flex flex-col h-full justify-between">
         <span className="w-9 h-9 rounded-xl flex items-center justify-center text-[12px] font-medium bg-card text-muted-foreground border border-border/60 shadow-sm
-          group-hover:vox-gradient-bg group-hover:text-primary-foreground group-hover:border-transparent transition-all duration-500">
+          group-hover:bg-[#2563eb] group-hover:text-white group-hover:border-transparent transition-all duration-500">
           {index + 1}
         </span>
         <div className="mt-5">

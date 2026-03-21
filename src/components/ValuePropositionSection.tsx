@@ -88,7 +88,6 @@ const ValuePropositionSection = () => {
         <div className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-[45%_55%] gap-12 items-center min-h-[500px]">
           {/* LEFT */}
           <div className="flex flex-col items-start">
-            <span className="text-[18px] font-bold text-[#0f172a] mb-5 italic">Voxalio</span>
             <h2
               className="font-extrabold text-[#0f172a] leading-[1.1] mb-6"
               style={{ fontSize: "clamp(36px, 5vw, 52px)" }}
@@ -102,12 +101,13 @@ const ValuePropositionSection = () => {
             <p className="text-[#4a5568] text-[16px] leading-[1.7] mb-10 max-w-[420px]">
               Voxalio AI answers instantly, captures leads, and handles inquiries 24/7. Empower your business with an always-on front desk that feels authentically human.
             </p>
-            <button
-              className="w-full max-w-[420px] rounded-full font-semibold text-white text-[16px] transition-all hover:opacity-90 hover:shadow-lg"
-              style={{ background: "#1a3a6b", padding: "18px 36px" }}
+            <a
+              href="#contact"
+              className="w-full max-w-[420px] rounded-full font-semibold text-white text-[16px] transition-all hover:bg-[#1d4ed8] hover:shadow-lg bg-[#2563eb] text-center block"
+              style={{ padding: "18px 36px" }}
             >
               Start Your Free 14-Day Trial
-            </button>
+            </a>
             <span className="text-[13px] text-[#94a3b8] mt-4 w-full max-w-[420px] text-center">No credit card required.</span>
           </div>
 
@@ -115,12 +115,8 @@ const ValuePropositionSection = () => {
           <div className="flex justify-center md:justify-end">
             <div
               className="relative vp-phone-wrapper"
-              style={{
-                width: "300px",
-                maxWidth: "100%",
-              }}
+              style={{ width: "300px", maxWidth: "100%" }}
             >
-              {/* Device frame */}
               <div
                 className="relative rounded-[50px] overflow-hidden"
                 style={{
@@ -129,39 +125,28 @@ const ValuePropositionSection = () => {
                   boxShadow: "0 60px 120px rgba(0,0,0,0.25), 0 20px 40px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.1)",
                 }}
               >
-                {/* Side buttons — left */}
                 <div className="absolute -left-[3px] top-[100px] w-[3px] h-[28px] rounded-l-sm" style={{ background: "#2c2c2e" }} />
                 <div className="absolute -left-[3px] top-[145px] w-[3px] h-[50px] rounded-l-sm" style={{ background: "#2c2c2e" }} />
                 <div className="absolute -left-[3px] top-[205px] w-[3px] h-[50px] rounded-l-sm" style={{ background: "#2c2c2e" }} />
-                {/* Side button — right */}
                 <div className="absolute -right-[3px] top-[155px] w-[3px] h-[65px] rounded-r-sm" style={{ background: "#2c2c2e" }} />
 
-                {/* Screen */}
                 <div className="relative rounded-[46px] overflow-hidden bg-white">
-                  {/* Dynamic Island */}
                   <div className="relative flex justify-center pt-3 pb-1">
-                    <div
-                      className="w-[90px] h-[26px] rounded-full bg-black"
-                      style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.15)" }}
-                    />
+                    <div className="w-[90px] h-[26px] rounded-full bg-black" style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.15)" }} />
                   </div>
 
-                  {/* Status bar */}
                   <div className="flex items-center justify-between px-7 pb-2">
                     <span className="text-[11px] text-[#1c1c1e] font-semibold">9:41</span>
                     <div className="flex gap-1.5 items-center">
-                      {/* Signal bars */}
                       <svg width="16" height="10" viewBox="0 0 16 10" className="opacity-80">
                         <rect x="0" y="7" width="3" height="3" rx="0.5" fill="#1c1c1e"/>
                         <rect x="4" y="5" width="3" height="5" rx="0.5" fill="#1c1c1e"/>
                         <rect x="8" y="3" width="3" height="7" rx="0.5" fill="#1c1c1e"/>
                         <rect x="12" y="0" width="3" height="10" rx="0.5" fill="#1c1c1e"/>
                       </svg>
-                      {/* WiFi */}
                       <svg width="13" height="10" viewBox="0 0 13 10" className="opacity-80">
                         <path d="M6.5 9a1 1 0 110 .01M3.5 7a4.5 4.5 0 016 0M1 4.5a7.5 7.5 0 0111 0" stroke="#1c1c1e" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
                       </svg>
-                      {/* Battery */}
                       <div className="flex items-center gap-0.5">
                         <div className="w-[20px] h-[9px] rounded-[2px] border border-[#1c1c1e]/80 flex items-center p-[1px]">
                           <div className="w-full h-full rounded-[1px] bg-[#1c1c1e]" />
@@ -171,19 +156,14 @@ const ValuePropositionSection = () => {
                     </div>
                   </div>
 
-                  {/* Call UI */}
                   <div className="flex flex-col items-center pt-4 pb-3">
-                    <div
-                      className="w-[72px] h-[72px] rounded-full flex items-center justify-center mb-3"
-                      style={{ background: "#e8f0f8" }}
-                    >
+                    <div className="w-[72px] h-[72px] rounded-full flex items-center justify-center mb-3" style={{ background: "#e8f0f8" }}>
                       <Headphones className="w-8 h-8 text-[#0f172a]" />
                     </div>
                     <span className="text-[18px] font-bold text-[#0f172a]">Voxalio AI</span>
                     <span className="text-[13px] text-[#94a3b8] mt-0.5">{fmtTime(timer)}</span>
                   </div>
 
-                  {/* Controls */}
                   <div className="flex justify-center gap-5 px-5 pb-4">
                     {controlBtns.map((b) => (
                       <div key={b.label} className="flex flex-col items-center gap-1">
@@ -201,21 +181,14 @@ const ValuePropositionSection = () => {
                     </div>
                   </div>
 
-                  {/* Transcript */}
                   <div
                     ref={transcriptRef}
                     className="mx-4 mb-3 px-3 py-3 overflow-y-auto"
-                    style={{
-                      height: "180px",
-                      scrollbarWidth: "thin",
-                      scrollbarColor: "#cbd5e1 transparent",
-                    }}
+                    style={{ height: "180px", scrollbarWidth: "thin", scrollbarColor: "#cbd5e1 transparent" }}
                   >
                     {displayedText.map((line, i) => (
                       <p key={i} className="text-[12px] leading-[1.5] mb-3">
-                        <span className="font-bold" style={{ color: line.labelColor }}>
-                          {line.label}
-                        </span>{" "}
+                        <span className="font-bold" style={{ color: line.labelColor }}>{line.label}</span>{" "}
                         <span className="text-[#334155]">{line.text}</span>
                         {i === displayedText.length - 1 && line.text.length < TRANSCRIPT[i]?.text.length && (
                           <span className="inline-block w-[2px] h-3 bg-[#0f172a] ml-0.5 align-text-bottom animate-pulse" />
@@ -224,7 +197,6 @@ const ValuePropositionSection = () => {
                     ))}
                   </div>
 
-                  {/* Home indicator */}
                   <div className="flex justify-center pb-3">
                     <div className="w-[100px] h-[4px] rounded-full bg-[#1c1c1e]/20" />
                   </div>
@@ -235,7 +207,6 @@ const ValuePropositionSection = () => {
         </div>
       </div>
 
-      {/* Mobile responsive overrides */}
       <style>{`
         @media (max-width: 768px) {
           .vp-phone-wrapper {
