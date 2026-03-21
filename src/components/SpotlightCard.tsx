@@ -26,7 +26,7 @@ const SpotlightCard = ({ children, className = "", style }: SpotlightCardProps) 
       className={className}
       style={{
         ...style,
-        backgroundImage: `radial-gradient(circle at ${pos.x}% ${pos.y}%, rgba(124,58,237,0.12), transparent 60%)`,
+        backgroundImage: `radial-gradient(circle at ${pos.x}% ${pos.y}%, rgba(37,99,235,0.12), transparent 60%)`,
       }}
     >
       {children}
