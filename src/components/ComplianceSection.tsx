@@ -14,7 +14,7 @@ const ComplianceSection = () => {
   return (
     <section className="py-28 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-gradient-to-l from-[hsl(var(--vox-teal)/0.04)] to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-gradient-to-l from-[rgba(37,99,235,0.04)] to-transparent rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -32,7 +32,7 @@ const ComplianceSection = () => {
               <motion.div
                 className="absolute inset-0 rounded-full"
                 style={{
-                  background: "conic-gradient(from 0deg, hsl(175 65% 50% / 0.3), hsl(200 80% 50% / 0.1), hsl(175 65% 50% / 0), hsl(175 65% 50% / 0.3))",
+                  background: "conic-gradient(from 0deg, rgba(37,99,235,0.3), rgba(59,130,246,0.1), rgba(37,99,235,0), rgba(37,99,235,0.3))",
                 }}
                 animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
@@ -42,8 +42,8 @@ const ComplianceSection = () => {
               <motion.div
                 className="absolute inset-4 rounded-full"
                 style={{
-                  background: "radial-gradient(circle, hsl(175 65% 50% / 0.15), hsl(200 80% 50% / 0.05))",
-                  boxShadow: "0 0 60px hsl(175 65% 50% / 0.2), inset 0 0 40px hsl(175 65% 50% / 0.1)",
+                  background: "radial-gradient(circle, rgba(37,99,235,0.15), rgba(59,130,246,0.05))",
+                  boxShadow: "0 0 60px rgba(37,99,235,0.2), inset 0 0 40px rgba(37,99,235,0.1)",
                 }}
                 animate={{ scale: [1, 1.05, 1], opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -58,8 +58,8 @@ const ComplianceSection = () => {
                 <div
                   className="w-full h-full rounded-full"
                   style={{
-                    background: "radial-gradient(circle at 35% 35%, hsl(175 65% 60%), hsl(190 70% 40%), hsl(210 60% 25%))",
-                    boxShadow: "0 0 80px hsl(175 65% 50% / 0.4), inset 0 0 30px hsl(175 65% 50% / 0.2)",
+                    background: "radial-gradient(circle at 35% 35%, #3b82f6, #2563eb, #1d4ed8)",
+                    boxShadow: "0 0 80px rgba(37,99,235,0.4), inset 0 0 30px rgba(37,99,235,0.2)",
                   }}
                 />
               </motion.div>
@@ -68,7 +68,7 @@ const ComplianceSection = () => {
               {[...Array(6)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-1.5 h-1.5 rounded-full bg-[hsl(175,65%,50%)]"
+                  className="absolute w-1.5 h-1.5 rounded-full bg-[#2563eb]"
                   style={{
                     left: `${30 + Math.cos((i / 6) * Math.PI * 2) * 45}%`,
                     top: `${30 + Math.sin((i / 6) * Math.PI * 2) * 45}%`,
