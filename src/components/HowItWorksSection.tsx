@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
 import { Mic, ListChecks, Phone, Plug, BarChart3 } from "lucide-react";
+import GridDistortion from "@/components/GridDistortion";
 
 const HowItWorksSection = () => {
   const { t } = useLanguage();
@@ -18,8 +19,18 @@ const HowItWorksSection = () => {
   const previewLabels = ["Voice Selection", "Task Configuration", "Phone Setup", "CRM Integration", "Analytics Dashboard"];
 
   return (
-    <section className="py-24 md:py-32" id="how-it-works" style={{ background: "var(--bg-mid)" }}>
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-24 md:py-32 relative overflow-hidden" id="how-it-works" style={{ background: "var(--bg-mid)" }}>
+      {/* GridDistortion background */}
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-auto">
+        <GridDistortion
+          imageSrc="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=1920&q=80"
+          grid={12}
+          mouse={0.12}
+          strength={0.12}
+          relaxation={0.92}
+        />
+      </div>
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-16">
           <span className="section-label">Simple Setup</span>
           <h2 className="font-display font-bold text-[var(--text-primary)] text-[var(--text-2xl)] md:text-[var(--text-3xl)] leading-[1.1] mt-3">
