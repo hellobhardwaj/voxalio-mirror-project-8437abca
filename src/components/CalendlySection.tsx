@@ -29,7 +29,7 @@ const CalendlySection = () => {
           style={{ border: "1px solid var(--border-subtle)", boxShadow: "var(--shadow-card)", background: "var(--bg-card)" }}
         >
           <iframe
-            src="https://calendly.com/voxalio/demo"
+            src="https://calendly.com/optimis-ai-info/30min"
             title="Book a demo"
             className="w-full border-0"
             style={{ minHeight: 660 }}
