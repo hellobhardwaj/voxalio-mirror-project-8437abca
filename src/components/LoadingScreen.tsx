@@ -11,7 +11,6 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
     const tick = () => {
       const elapsed = Date.now() - start;
       const p = Math.min(elapsed / duration, 1);
-      // ease-out cubic
       setProgress(1 - Math.pow(1 - p, 3));
       if (p < 1) requestAnimationFrame(tick);
       else setTimeout(onComplete, 300);
@@ -22,11 +21,11 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   return (
     <motion.div
       className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden"
-      style={{ background: "#07050f" }}
+      style={{ background: "#ffffff" }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
     >
-      {/* Ambient purple glow */}
+      {/* Ambient blue glow */}
       <div
         className="absolute pointer-events-none"
         style={{
@@ -35,7 +34,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          background: "radial-gradient(circle, rgba(124,58,237,0.12) 0%, rgba(37,99,235,0.05) 40%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(37,99,235,0.08) 0%, rgba(59,130,246,0.03) 40%, transparent 70%)",
         }}
       />
 
@@ -50,13 +49,13 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
           x: "-50%",
           y: "-50%",
           borderRadius: "50%",
-          border: "1px solid rgba(124,58,237,0.15)",
+          border: "1px solid rgba(37,99,235,0.1)",
         }}
         animate={{ rotate: 360 }}
         transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
       />
 
-      {/* Second ring — counter-rotate */}
+      {/* Second ring */}
       <motion.div
         className="absolute pointer-events-none"
         style={{
@@ -67,13 +66,13 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
           x: "-50%",
           y: "-50%",
           borderRadius: "50%",
-          border: "1px solid rgba(124,58,237,0.08)",
+          border: "1px solid rgba(37,99,235,0.06)",
         }}
         animate={{ rotate: -360 }}
         transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
       />
 
-      {/* Arc accent on ring */}
+      {/* Arc accent */}
       <motion.div
         className="absolute pointer-events-none"
         style={{
@@ -85,8 +84,8 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
           y: "-50%",
           borderRadius: "50%",
           border: "2px solid transparent",
-          borderTopColor: "#7c3aed",
-          borderRightColor: "rgba(124,58,237,0.3)",
+          borderTopColor: "#2563eb",
+          borderRightColor: "rgba(37,99,235,0.3)",
         }}
         animate={{ rotate: 360 }}
         transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
@@ -94,7 +93,6 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
 
       {/* Content */}
       <div className="flex flex-col items-center gap-8 relative z-10">
-        {/* Logo */}
         <motion.div
           className="relative"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -104,13 +102,12 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
           <motion.img
             src={voxalioLogo}
             alt="Voxalio"
-            className="h-12 w-auto relative z-10 drop-shadow-[0_0_20px_rgba(124,58,237,0.4)]"
+            className="h-12 w-auto relative z-10 drop-shadow-[0_0_20px_rgba(37,99,235,0.2)]"
             animate={{ opacity: [0.85, 1, 0.85] }}
             transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
           />
         </motion.div>
 
-        {/* Circular progress ring */}
         <motion.div
           className="relative"
           style={{ width: 48, height: 48 }}
@@ -119,14 +116,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
           transition={{ delay: 0.4, duration: 0.5 }}
         >
           <svg width="48" height="48" viewBox="0 0 48 48" className="rotate-[-90deg]">
-            {/* Track */}
-            <circle
-              cx="24" cy="24" r="20"
-              fill="none"
-              stroke="rgba(124,58,237,0.1)"
-              strokeWidth="2"
-            />
-            {/* Progress */}
+            <circle cx="24" cy="24" r="20" fill="none" stroke="rgba(37,99,235,0.1)" strokeWidth="2" />
             <motion.circle
               cx="24" cy="24" r="20"
               fill="none"
@@ -138,19 +128,18 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
             />
             <defs>
               <linearGradient id="progressGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#7c3aed" />
-                <stop offset="100%" stopColor="#2563eb" />
+                <stop offset="0%" stopColor="#2563eb" />
+                <stop offset="100%" stopColor="#3b82f6" />
               </linearGradient>
             </defs>
           </svg>
-          {/* Percentage */}
           <span
             className="absolute inset-0 flex items-center justify-center"
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
               fontSize: 11,
               fontWeight: 600,
-              color: "rgba(168,85,247,0.7)",
+              color: "rgba(37,99,235,0.6)",
               letterSpacing: "-0.02em",
             }}
           >
@@ -160,7 +149,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
 
         <motion.p
           className="text-[11px] tracking-[0.2em] uppercase"
-          style={{ color: "rgba(148,163,184,0.35)", fontFamily: "'DM Sans', sans-serif" }}
+          style={{ color: "rgba(100,116,139,0.5)", fontFamily: "'DM Sans', sans-serif" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}

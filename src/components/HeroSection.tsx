@@ -16,21 +16,9 @@ const fadeUp = {
   }),
 };
 
-const particles = Array.from({ length: 25 }, (_, i) => ({
-  id: i,
-  size: 2 + Math.random() * 2,
-  left: 5 + Math.random() * 90,
-  startTop: 100 + Math.random() * 20,
-  duration: 8 + Math.random() * 12,
-  delay: Math.random() * 10,
-  opacity: 0.3 + Math.random() * 0.3,
-  color: Math.random() > 0.5 ? "rgba(124,58,237," : "rgba(255,255,255,",
-}));
-
 // Typewriter effect for "Always."
 const TypewriterWord = ({ word, className }: { word: string; className: string }) => {
   const [display, setDisplay] = useState("");
-  const [typing, setTyping] = useState(true);
   const reduced = useReducedMotion();
 
   useEffect(() => {
@@ -44,8 +32,7 @@ const TypewriterWord = ({ word, className }: { word: string; className: string }
         idx++;
         setDisplay(word.slice(0, idx));
         if (idx >= word.length) {
-          setTyping(false);
-          timeout = setTimeout(() => { isDeleting = true; setTyping(true); tick(); }, 2000);
+          timeout = setTimeout(() => { isDeleting = true; tick(); }, 2000);
           return;
         }
         timeout = setTimeout(tick, 120);
@@ -68,7 +55,7 @@ const TypewriterWord = ({ word, className }: { word: string; className: string }
   return (
     <span className={className}>
       {display}
-      <span className="inline-block w-[3px] h-[0.85em] ml-1 align-text-bottom animate-pulse" style={{ background: "var(--purple-light)" }} />
+      <span className="inline-block w-[3px] h-[0.85em] ml-1 align-text-bottom animate-pulse" style={{ background: "var(--purple)" }} />
     </span>
   );
 };
@@ -131,8 +118,8 @@ const HeroSection = () => {
         <DotGrid
           dotSize={2}
           gap={24}
-          baseColor="#7c3aed"
-          activeColor="#c084fc"
+          baseColor="#93c5fd"
+          activeColor="#2563eb"
           proximity={160}
           shockRadius={280}
           shockStrength={6}
@@ -140,10 +127,10 @@ const HeroSection = () => {
       </div>
 
       {/* MagicRings WebGL background */}
-      <div className="absolute inset-0 z-[1] pointer-events-none" style={{ opacity: 0.4 }}>
+      <div className="absolute inset-0 z-[1] pointer-events-none" style={{ opacity: 0.35 }}>
         <MagicRings
-          color="#7c3aed"
-          colorTwo="#2563eb"
+          color="#2563eb"
+          colorTwo="#60a5fa"
           ringCount={6}
           speed={0.6}
           attenuation={10}
@@ -165,18 +152,18 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* Purple radial glow with parallax */}
+      {/* Blue radial glow with parallax */}
       <motion.div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[80vh] pointer-events-none z-[1]"
         style={{
-          background: "radial-gradient(ellipse 100% 50% at 50% -5%, rgba(124,58,237,0.2) 0%, transparent 65%)",
+          background: "radial-gradient(ellipse 100% 50% at 50% -5%, rgba(37,99,235,0.08) 0%, transparent 65%)",
           y: reduced ? 0 : glowY,
         }}
       />
 
       {/* Aurora blobs */}
-      <div className="absolute top-[10%] left-[15%] w-[400px] h-[300px] rounded-full pointer-events-none opacity-[0.08] z-[1]" style={{ background: "rgba(124,58,237,0.4)", filter: "blur(80px)", animation: reduced ? "none" : "aurora1 20s ease-in-out infinite" }} />
-      <div className="absolute top-[20%] right-[10%] w-[500px] h-[400px] rounded-full pointer-events-none opacity-[0.05] z-[1]" style={{ background: "rgba(37,99,235,0.4)", filter: "blur(80px)", animation: reduced ? "none" : "aurora2 25s ease-in-out infinite" }} />
+      <div className="absolute top-[10%] left-[15%] w-[400px] h-[300px] rounded-full pointer-events-none opacity-[0.06] z-[1]" style={{ background: "rgba(37,99,235,0.3)", filter: "blur(80px)", animation: reduced ? "none" : "aurora1 20s ease-in-out infinite" }} />
+      <div className="absolute top-[20%] right-[10%] w-[500px] h-[400px] rounded-full pointer-events-none opacity-[0.04] z-[1]" style={{ background: "rgba(59,130,246,0.3)", filter: "blur(80px)", animation: reduced ? "none" : "aurora2 25s ease-in-out infinite" }} />
 
       {/* Dot grid */}
       <div className="absolute inset-0 dot-grid z-[1]" />
@@ -184,10 +171,10 @@ const HeroSection = () => {
       <div className="max-w-4xl mx-auto px-6 w-full relative z-10 text-center flex flex-col items-center" style={{ paddingTop: "clamp(140px, 16vh, 200px)", paddingBottom: "clamp(80px, 10vh, 120px)" }}>
         {/* Badge */}
         <motion.div custom={0} initial="hidden" animate="visible" variants={fadeUp} className="mb-10">
-          <div className="relative inline-flex items-center gap-2 rounded-full px-4 py-1.5 overflow-hidden" style={{ background: "rgba(124,58,237,0.15)", border: "1px solid rgba(124,58,237,0.4)" }}>
+          <div className="relative inline-flex items-center gap-2 rounded-full px-4 py-1.5 overflow-hidden" style={{ background: "rgba(37,99,235,0.08)", border: "1px solid rgba(37,99,235,0.25)" }}>
             <div className="absolute inset-0 vox-shimmer" />
-            <span className="relative w-2 h-2 rounded-full bg-[var(--purple-light)] animate-pulse" />
-            <span className="relative text-[13px] text-[var(--purple-light)]">{t("hero.badge")}</span>
+            <span className="relative w-2 h-2 rounded-full bg-[var(--purple)] animate-pulse" />
+            <span className="relative text-[13px] text-[var(--purple)]">{t("hero.badge")}</span>
           </div>
         </motion.div>
 
@@ -252,8 +239,8 @@ const HeroSection = () => {
           </MagneticButton>
           <MagneticButton
             href="#booking"
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-[10px] text-white font-medium text-[15px] transition-all duration-200 hover:border-[rgba(124,58,237,0.5)] hover:bg-[rgba(124,58,237,0.08)]"
-            style={{ border: "1px solid rgba(255,255,255,0.12)", background: "rgba(255,255,255,0.04)" }}
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-[10px] text-[var(--text-primary)] font-medium text-[15px] transition-all duration-200 hover:border-[rgba(37,99,235,0.4)] hover:bg-[rgba(37,99,235,0.04)]"
+            style={{ border: "1px solid #e2e8f0", background: "white" }}
           >
             <PlayCircle className="w-5 h-5" />
             {lang === "de" ? "Demo ansehen" : "Watch Demo"}
@@ -283,14 +270,13 @@ const HeroSection = () => {
             <div
               className="max-w-[700px] mx-auto rounded-[var(--radius-lg)] px-8 py-8 md:px-12 md:py-10"
               style={{
-                background: "var(--bg-card)",
-                border: "1px solid var(--border-normal)",
-                backdropFilter: "blur(20px)",
-                boxShadow: "0 0 80px rgba(124,58,237,0.1)",
+                background: "white",
+                border: "1px solid #e2e8f0",
+                boxShadow: "0 0 80px rgba(37,99,235,0.06)",
               }}
             >
-              <span className="flex items-center justify-center gap-2 mb-4 text-[var(--text-xs)] text-[var(--purple-light)] uppercase tracking-[0.15em] font-medium">
-                <span className="w-2 h-2 rounded-full bg-[var(--purple-light)] animate-pulse" />
+              <span className="flex items-center justify-center gap-2 mb-4 text-[var(--text-xs)] text-[var(--purple)] uppercase tracking-[0.15em] font-medium">
+                <span className="w-2 h-2 rounded-full bg-[var(--purple)] animate-pulse" />
                 {lang === "de" ? "LIVE SPRACHGESPRÄCH" : "LIVE VOICE CONVERSATION"}
               </span>
               <HeroWaveform />

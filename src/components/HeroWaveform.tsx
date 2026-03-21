@@ -70,13 +70,13 @@ const HeroWaveform = () => {
       const amplitude = Math.min((envelope * wave + proximityBoost) * hoverBoost, 1.0);
       const barH = amplitude * (drawH / 2) * 0.92;
 
-      // Purple gradient
+      // Blue gradient
       const grad = ctx.createLinearGradient(x, centerY - barH, x, centerY + barH);
-      grad.addColorStop(0, "#06b6d4");
-      grad.addColorStop(0.4, "#7c3aed");
-      grad.addColorStop(0.5, "#7c3aed");
-      grad.addColorStop(0.6, "#7c3aed");
-      grad.addColorStop(1, "#06b6d4");
+      grad.addColorStop(0, "#0ea5e9");
+      grad.addColorStop(0.4, "#2563eb");
+      grad.addColorStop(0.5, "#2563eb");
+      grad.addColorStop(0.6, "#2563eb");
+      grad.addColorStop(1, "#0ea5e9");
 
       ctx.fillStyle = grad;
 

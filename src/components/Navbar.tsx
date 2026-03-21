@@ -37,9 +37,9 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
         height: 64,
-        background: scrolled ? "rgba(10,8,18,0.9)" : "transparent",
+        background: scrolled ? "rgba(255,255,255,0.95)" : "transparent",
         backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(139,92,246,0.12)" : "1px solid transparent",
+        borderBottom: scrolled ? "1px solid #e2e8f0" : "1px solid transparent",
         transform: hidden ? "translateY(-100%)" : "translateY(0)",
       }}
     >
@@ -61,7 +61,7 @@ const Navbar = () => {
             <a
               key={item.label}
               href={item.href}
-              className="relative text-[14px] text-[var(--text-secondary)] hover:text-white transition-colors duration-200 group"
+              className="relative text-[14px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 group"
             >
               {item.label}
               <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[var(--purple)] opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
@@ -73,16 +73,16 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={() => setLang(lang === "en" ? "de" : "en")}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-[var(--text-secondary)] hover:text-white transition-all duration-200"
-            style={{ border: "1px solid var(--border-white)" }}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all duration-200"
+            style={{ border: "1px solid #e2e8f0" }}
           >
             <Globe className="w-3.5 h-3.5" />
             {lang === "en" ? "DE" : "EN"}
           </button>
           <a
             href="#booking"
-            className="px-5 py-2 rounded-lg text-white text-sm font-medium transition-all duration-200 hover:border-[rgba(124,58,237,0.5)]"
-            style={{ border: "1px solid rgba(255,255,255,0.15)" }}
+            className="px-5 py-2 rounded-lg text-[var(--text-primary)] text-sm font-medium transition-all duration-200 hover:border-[rgba(37,99,235,0.4)]"
+            style={{ border: "1px solid #e2e8f0" }}
           >
             {t("nav.bookDemo")}
           </a>
@@ -99,12 +99,12 @@ const Navbar = () => {
           <button
             onClick={() => setLang(lang === "en" ? "de" : "en")}
             className="flex items-center gap-1 px-2 py-1 rounded text-xs font-medium text-[var(--text-secondary)]"
-            style={{ border: "1px solid var(--border-white)" }}
+            style={{ border: "1px solid #e2e8f0" }}
           >
             <Globe className="w-3.5 h-3.5" />
             {lang === "en" ? "DE" : "EN"}
           </button>
-          <button className="text-white p-1" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button className="text-[var(--text-primary)] p-1" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -118,14 +118,14 @@ const Navbar = () => {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
             className="lg:hidden overflow-hidden"
-            style={{ background: "rgba(10,8,18,0.95)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(139,92,246,0.12)" }}
+            style={{ background: "rgba(255,255,255,0.98)", backdropFilter: "blur(20px)", borderBottom: "1px solid #e2e8f0" }}
           >
             <div className="px-6 py-4 flex flex-col gap-1">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="py-3 px-3 text-sm font-medium text-[var(--text-secondary)] hover:text-white rounded-lg hover:bg-white/[0.05] transition-colors"
+                  className="py-3 px-3 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-lg hover:bg-[rgba(37,99,235,0.04)] transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
@@ -133,7 +133,7 @@ const Navbar = () => {
               ))}
               <a
                 href="#booking"
-                className="py-3 px-3 text-sm font-medium text-[var(--text-secondary)] hover:text-white rounded-lg hover:bg-white/[0.05] transition-colors"
+                className="py-3 px-3 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-lg hover:bg-[rgba(37,99,235,0.04)] transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 {t("nav.bookDemo")}
