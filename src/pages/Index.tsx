@@ -9,7 +9,7 @@ import DashboardHeader from "@/components/DashboardHeader";
 import DashboardShowcase from "@/components/DashboardShowcase";
 import IntegrationsSection from "@/components/IntegrationsSection";
 import PricingSection from "@/components/PricingSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
+
 import FAQSection from "@/components/FAQSection";
 import LeadFormSection from "@/components/LeadFormSection";
 import CalendlySection from "@/components/CalendlySection";
