@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
 import { Mic, ListChecks, Phone, Plug, BarChart3 } from "lucide-react";
-import GridDistortion from "@/components/GridDistortion";
+import ShapeGrid from "@/components/ShapeGrid";
 
 const HowItWorksSection = () => {
   const { t } = useLanguage();
