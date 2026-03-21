@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import mondayLogo from "@/assets/monday-logo.png";
+import ShapeGrid from "@/components/ShapeGrid";
 
 const integrations = [
   { name: "Slack", logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/slack.svg" },
@@ -24,6 +25,18 @@ const IntegrationsSection = () => {
 
   return (
     <section className="py-24 md:py-32 relative overflow-hidden" id="integrations" style={{ background: "var(--bg-dark)" }}>
+      <div className="absolute inset-0 z-0 opacity-25 pointer-events-none">
+        <ShapeGrid
+          speed={0.3}
+          squareSize={45}
+          direction="diagonal"
+          borderColor="rgba(139, 92, 246, 0.12)"
+          hoverFillColor="rgba(124, 58, 237, 0.15)"
+          shape="square"
+          hoverTrailAmount={5}
+        />
+      </div>
+
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
