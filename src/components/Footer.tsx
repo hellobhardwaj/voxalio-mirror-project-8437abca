@@ -1,6 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Instagram, Facebook, Twitter } from "lucide-react";
 import voxalioIcon from "@/assets/voxalio-icon.png";
+import footerWave from "@/assets/footer-wave.png";
 
 const Footer = () => {
   const { t, lang } = useLanguage();
@@ -34,18 +35,44 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-white overflow-hidden">
-      {/* Top border */}
-      <div className="h-px bg-border" />
+    <footer className="relative overflow-hidden" style={{ background: "linear-gradient(180deg, #f0f4ff 0%, #e8efff 100%)" }}>
+      {/* Top gradient line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-      {/* Subtle blue glow - bottom left */}
+      {/* Blue wave image - bottom left */}
+      <div className="absolute bottom-0 left-0 w-[320px] md:w-[420px] pointer-events-none select-none z-0">
+        <img
+          src={footerWave}
+          alt=""
+          className="w-full h-auto opacity-80"
+          style={{ filter: "drop-shadow(0 0 40px rgba(37,99,235,0.2))" }}
+        />
+      </div>
+
+      {/* Subtle blue glow overlay */}
       <div
-        className="absolute bottom-0 left-0 w-[400px] h-[300px] pointer-events-none"
+        className="absolute bottom-0 left-0 w-[500px] h-[350px] pointer-events-none z-0"
         style={{
-          background: "radial-gradient(ellipse at 30% 80%, rgba(37,99,235,0.06), transparent 70%)",
+          background: "radial-gradient(ellipse at 20% 90%, rgba(37,99,235,0.08), transparent 70%)",
           filter: "blur(60px)",
         }}
       />
+
+      {/* Large faded watermark */}
+      <div
+        className="absolute bottom-6 right-6 pointer-events-none select-none z-0"
+        style={{
+          fontFamily: "'Space Grotesk', sans-serif",
+          fontSize: "clamp(100px, 12vw, 220px)",
+          fontWeight: 800,
+          color: "rgba(37,99,235,0.04)",
+          lineHeight: 1,
+          letterSpacing: "-0.04em",
+          whiteSpace: "nowrap",
+        }}
+      >
+        VOXALIO
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
@@ -64,7 +91,7 @@ const Footer = () => {
                 <a
                   key={i}
                   href="#"
-                  className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200 bg-secondary border border-border hover:bg-primary hover:border-primary group"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200 bg-white border border-border hover:bg-primary hover:border-primary group shadow-sm"
                   aria-label={Icon.displayName}
                 >
                   <Icon className="w-4 h-4 text-muted-foreground group-hover:text-primary-foreground transition-colors" />
@@ -108,7 +135,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border">
+        <div className="mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-primary/10">
           <p className="text-xs text-muted-foreground">{t("footer.rights")}</p>
           <p className="text-[11px] text-muted-foreground/60">{t("footer.disclosure")}</p>
         </div>
