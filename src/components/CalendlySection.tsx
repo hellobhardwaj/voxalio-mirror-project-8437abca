@@ -1,11 +1,39 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Calendar, Loader2 } from "lucide-react";
 
+const CALENDLY_URL = "https://calendly.com/optimis-ai-info/30min";
+
 const CalendlySection = () => {
   const { t } = useLanguage();
   const [loaded, setLoaded] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Load Calendly widget script
+    const existing = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+    if (!existing) {
+      const script = document.createElement("script");
+      script.src = "https://assets.calendly.com/assets/external/widget.js";
+      script.async = true;
+      document.head.appendChild(script);
+    }
+
+    // Detect when Calendly iframe appears
+    const observer = new MutationObserver(() => {
+      if (containerRef.current?.querySelector("iframe")) {
+        setLoaded(true);
+        observer.disconnect();
+      }
+    });
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current, { childList: true, subtree: true });
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="py-24 md:py-32 relative overflow-hidden" id="booking" style={{ background: "var(--bg-dark)" }}>
@@ -35,7 +63,7 @@ const CalendlySection = () => {
           style={{ border: "1px solid rgba(139,92,246,0.15)", boxShadow: "0 0 40px rgba(124,58,237,0.08)", background: "#0a0812" }}
         >
           {!loaded && (
-            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4" style={{ background: "#0a0812" }}>
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4" style={{ background: "#0a0812", minHeight: 700 }}>
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: "rgba(124,58,237,0.12)" }}>
                 <Calendar className="w-7 h-7 text-purple-400" />
               </div>
@@ -51,13 +79,11 @@ const CalendlySection = () => {
             </div>
           )}
 
-          <iframe
-            src="https://calendly.com/optimis-ai-info/30min?background_color=0a0812&text_color=e2e0ea&primary_color=7c3aed"
-            title="Book a demo"
-            className="w-full border-0"
-            style={{ minHeight: 700, opacity: loaded ? 1 : 0, transition: "opacity 0.4s ease" }}
-            loading="lazy"
-            onLoad={() => setLoaded(true)}
+          <div
+            ref={containerRef}
+            className="calendly-inline-widget"
+            data-url={`${CALENDLY_URL}?background_color=0a0812&text_color=e2e0ea&primary_color=7c3aed`}
+            style={{ minWidth: 320, height: 700, opacity: loaded ? 1 : 0, transition: "opacity 0.4s ease" }}
           />
         </motion.div>
       </div>
