@@ -1,18 +1,45 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+const particles = Array.from({ length: 6 }, (_, i) => ({
+  id: i,
+  size: 2 + Math.random() * 2,
+  left: 15 + Math.random() * 70,
+  top: 15 + Math.random() * 70,
+  duration: 6 + Math.random() * 6,
+  delay: Math.random() * 3,
+  opacity: 0.15 + Math.random() * 0.15,
+}));
+
 const CTASection = () => {
   const { lang } = useLanguage();
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "#0a0812" }}>
-      {/* Purple glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[160px] pointer-events-none" style={{ background: "rgba(124, 58, 237, 0.12)" }} />
+    <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "var(--bg-darkest)" }}>
+      {/* Large purple glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(124,58,237,0.12), transparent)" }} />
 
       {/* Decorative blurred circles */}
       <div className="absolute top-20 left-[10%] w-48 h-48 rounded-full pointer-events-none" style={{ background: "rgba(124,58,237,0.08)", filter: "blur(80px)" }} />
       <div className="absolute bottom-20 right-[10%] w-64 h-64 rounded-full pointer-events-none" style={{ background: "rgba(37,99,235,0.06)", filter: "blur(80px)" }} />
       <div className="absolute top-1/3 right-[20%] w-32 h-32 rounded-full pointer-events-none" style={{ background: "rgba(168,85,247,0.1)", filter: "blur(80px)" }} />
+
+      {/* Floating particles */}
+      {particles.map((p) => (
+        <div
+          key={p.id}
+          className="absolute rounded-full pointer-events-none"
+          style={{
+            width: p.size,
+            height: p.size,
+            background: `rgba(168, 85, 247, ${p.opacity})`,
+            left: `${p.left}%`,
+            top: `${p.top}%`,
+            animation: `float-slow ${p.duration}s ease-in-out infinite`,
+            animationDelay: `${p.delay}s`,
+          }}
+        />
+      ))}
 
       <div className="relative z-10 max-w-[700px] mx-auto px-6 text-center">
         <motion.h2
@@ -20,19 +47,19 @@ const CTASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-display font-800 text-white text-[36px] md:text-[56px] leading-[1.1]"
+          className="font-display font-extrabold text-[var(--text-primary)] text-[36px] md:text-[56px] leading-[1.1]"
         >
           {lang === "de" ? (
             <>
               Ihre Telefone klingeln.
               <br />
-              Nimmt <span className="vox-gradient-text">jemand</span> ab?
+              Nimmt <span className="gradient-text">jemand</span> ab?
             </>
           ) : (
             <>
               Your phones are ringing.
               <br />
-              Is <span className="vox-gradient-text">anyone</span> answering?
+              Is <span className="gradient-text">anyone</span> answering?
             </>
           )}
         </motion.h2>
@@ -42,7 +69,7 @@ const CTASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-8 text-[18px] text-muted-foreground leading-[1.7]"
+          className="mt-8 text-[18px] text-[var(--text-secondary)] leading-[1.7]"
         >
           {lang === "de"
             ? "Voxalio nimmt jeden Anruf entgegen, qualifiziert jeden Lead und bucht jeden Termin — 24/7, ohne eine einzige Person einzustellen."
@@ -58,11 +85,11 @@ const CTASection = () => {
         >
           <a
             href="#contact"
-            className="inline-block px-9 py-4 rounded-[10px] text-white font-display font-600 text-[16px] transition-all duration-200 vox-gradient-bg vox-btn-glow"
+            className="inline-block px-9 py-4 rounded-[10px] text-white font-display font-semibold text-[16px] transition-all duration-200 vox-gradient-bg vox-btn-glow"
           >
             {lang === "de" ? "Kostenlos starten — in 10 Minuten" : "Start Free — It Takes 10 Minutes"}
           </a>
-          <p className="mt-4 text-[13px] text-[#4a5568]">
+          <p className="mt-4 text-[var(--text-sm)] text-[var(--text-muted)]">
             {lang === "de"
               ? "Keine Kreditkarte · Kein Entwickler · Keine Verpflichtung"
               : "No credit card · No developer · No commitment"}

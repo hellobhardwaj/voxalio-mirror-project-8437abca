@@ -43,9 +43,9 @@ const StatsBar = () => {
       ref={ref}
       className="w-full"
       style={{
-        background: "rgba(124,58,237,0.08)",
-        borderTop: "1px solid rgba(124,58,237,0.15)",
-        borderBottom: "1px solid rgba(124,58,237,0.15)",
+        background: "var(--bg-mid)",
+        borderTop: "1px solid var(--border-subtle)",
+        borderBottom: "1px solid var(--border-subtle)",
       }}
     >
       <div className="max-w-5xl mx-auto px-6 py-12">
@@ -59,12 +59,12 @@ const StatsBar = () => {
               className={`text-center ${i < 3 ? "md:border-r" : ""}`}
               style={{ borderColor: "rgba(255,255,255,0.05)" }}
             >
-              <div className="font-display font-700 text-[36px] md:text-[52px] leading-none vox-gradient-text">
+              <div className="font-display font-bold text-[36px] md:text-[var(--text-4xl)] leading-none gradient-text" style={{ willChange: "transform" }}>
                 {stat.prefix || ""}
                 {useCountUp(stat.value, 1500, inView)}
                 {stat.suffix}
               </div>
-              <div className="text-[14px] text-[#64748b] mt-2">{stat.label}</div>
+              <div className="text-[var(--text-sm)] text-[#64748b] mt-2">{stat.label}</div>
             </motion.div>
           ))}
         </div>

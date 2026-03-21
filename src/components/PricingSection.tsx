@@ -118,18 +118,7 @@ const PricingSection = () => {
           ? "Starten Sie kostenlos. Skalieren Sie nach Bedarf. Bis zu 95% günstiger als die Konkurrenz."
           : "Start free. Scale as you grow. Up to 95% cheaper than competitors."
       }
-      popularLabel={lang === "de" ? "Beliebt" : "Popular"}
-      annualLabel={
-        lang === "de"
-          ? "Jährliche Abrechnung (20% sparen)"
-          : "Annual billing (Save 20%)"
-      }
-      monthlyBilledLabel={
-        lang === "de" ? "monatlich abgerechnet" : "billed monthly"
-      }
-      yearlyBilledLabel={
-        lang === "de" ? "jährlich abgerechnet" : "billed annually"
-      }
+    
     />
   );
 };

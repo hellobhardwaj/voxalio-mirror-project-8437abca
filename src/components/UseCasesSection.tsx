@@ -2,11 +2,6 @@ import { motion } from "framer-motion";
 import { Phone, FileText, Headphones, CheckCircle, Calendar, Layers } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
 const UseCasesSection = () => {
   const { t } = useLanguage();
 
@@ -20,16 +15,14 @@ const UseCasesSection = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden" id="use-cases" style={{ background: "#0f0d1a" }}>
+    <section className="py-24 md:py-32 relative overflow-hidden" id="use-cases" style={{ background: "var(--bg-dark)" }}>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-16">
-          <span className="text-[#a855f7] text-[12px] uppercase tracking-[0.12em] font-medium">
-            Built for every business
-          </span>
-          <h2 className="font-display font-700 text-white text-[32px] md:text-[48px] leading-[1.1] mt-3">
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-16">
+          <span className="section-label">Built for every business</span>
+          <h2 className="font-display font-bold text-[var(--text-primary)] text-[var(--text-2xl)] md:text-[var(--text-3xl)] leading-[1.1] mt-3">
             {t("uc.title")}
           </h2>
-          <p className="text-muted-foreground text-[16px] mt-4 max-w-lg">
+          <p className="text-[var(--text-secondary)] text-[var(--text-md)] mt-4 max-w-lg leading-[1.7]">
             {t("uc.desc")}
           </p>
         </motion.div>
@@ -44,29 +37,30 @@ const UseCasesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.07 }}
-                className={`group rounded-[20px] p-8 transition-all duration-300 vox-card-hover ${uc.span}`}
+                className={`group rounded-[var(--radius-lg)] p-8 vox-card-hover ${uc.span}`}
                 style={{
                   background: uc.highlight
                     ? "linear-gradient(135deg, rgba(124,58,237,0.3), rgba(37,99,235,0.2))"
                     : uc.featured
                     ? "linear-gradient(135deg, rgba(124,58,237,0.2), rgba(37,99,235,0.1))"
-                    : "rgba(19,17,31,0.8)",
+                    : "var(--bg-card)",
                   border: uc.highlight || uc.featured
                     ? "1px solid rgba(124,58,237,0.3)"
-                    : "1px solid rgba(139,92,246,0.12)",
+                    : "1px solid var(--border-subtle)",
                   backdropFilter: "blur(12px)",
+                  willChange: "transform",
                 }}
               >
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                  style={{ background: "linear-gradient(135deg, #7c3aed, #2563eb)" }}
+                  className="w-[44px] h-[44px] rounded-[10px] flex items-center justify-center mb-5"
+                  style={{ background: "linear-gradient(135deg, rgba(124,58,237,0.2), rgba(37,99,235,0.2))", border: "1px solid var(--border-normal)" }}
                 >
-                  <Icon className="w-6 h-6 text-white" />
+                  <Icon className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="font-display font-600 text-[18px] mb-3 text-white">
+                <h3 className="font-display font-semibold text-[18px] mb-3 text-[var(--text-primary)]">
                   {uc.title}
                 </h3>
-                <p className="text-[14px] leading-[1.7] text-muted-foreground">
+                <p className="text-[14px] leading-[1.6] text-[var(--text-secondary)]">
                   {uc.description}
                 </p>
               </motion.div>

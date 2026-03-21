@@ -17,9 +17,16 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollProgress from "@/components/ScrollProgress";
+import { motion } from "framer-motion";
 
 const Index = () => (
-  <div className="min-h-screen" style={{ background: "#0a0812" }}>
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.3 }}
+    className="min-h-screen"
+    style={{ background: "var(--bg-dark)" }}
+  >
     <ScrollProgress />
     <Navbar />
     <HeroSection />
@@ -28,7 +35,7 @@ const Index = () => (
     <HowItWorksSection />
     <UseCasesSection />
     <TrustSection />
-    <div style={{ background: "#0f0d1a" }} className="py-24 md:py-32">
+    <div style={{ background: "var(--bg-dark)" }} className="py-24 md:py-32">
       <DashboardHeader />
       <DashboardShowcase />
     </div>
@@ -41,7 +48,7 @@ const Index = () => (
     <CTASection />
     <Footer />
     <CookieBanner />
-  </div>
+  </motion.div>
 );
 
 export default Index;

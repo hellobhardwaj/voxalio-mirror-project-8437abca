@@ -2,11 +2,6 @@ import { motion } from "framer-motion";
 import { Shield, Cpu, Search } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
 const TrustSection = () => {
   const { lang } = useLanguage();
 
@@ -23,19 +18,22 @@ const TrustSection = () => {
       ];
 
   return (
-    <section className="py-24 md:py-32" style={{ background: "#0a0812" }}>
+    <section className="py-24 md:py-32" style={{ background: "var(--bg-mid)" }}>
       <div className="max-w-6xl mx-auto px-6">
-        <motion.h2
-          initial="hidden"
-          whileInView="visible"
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          variants={fadeUp}
-          className="font-display font-700 text-[32px] md:text-[42px] leading-[1.1] text-center mb-16 vox-gradient-text"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          {lang === "de"
-            ? "Gebaut für Deutschland. Vertraut in ganz Europa."
-            : "Built for Germany. Trusted across Europe."}
-        </motion.h2>
+          <span className="section-label">Security & Compliance</span>
+          <h2 className="font-display font-bold text-[var(--text-2xl)] md:text-[var(--text-3xl)] leading-[1.1] mt-3 gradient-text">
+            {lang === "de"
+              ? "Gebaut für Deutschland. Vertraut in ganz Europa."
+              : "Built for Germany. Trusted across Europe."}
+          </h2>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {cards.map((card, i) => {
@@ -47,17 +45,18 @@ const TrustSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-[20px] p-8 vox-card-hover"
+                className="rounded-[var(--radius-lg)] p-8 vox-card-hover"
                 style={{
-                  background: "rgba(19,17,31,0.6)",
-                  border: "1px solid rgba(139,92,246,0.12)",
+                  background: "var(--bg-card)",
+                  border: "1px solid var(--border-subtle)",
+                  willChange: "transform",
                 }}
               >
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ background: "linear-gradient(135deg, #7c3aed, #2563eb)" }}>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ background: "var(--gradient-primary)" }}>
                   <Icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-display font-600 text-[18px] text-white mb-3">{card.title}</h3>
-                <p className="text-[15px] text-muted-foreground leading-[1.7]">{card.desc}</p>
+                <h3 className="font-display font-semibold text-[18px] text-[var(--text-primary)] mb-3">{card.title}</h3>
+                <p className="text-[14px] text-[var(--text-secondary)] leading-[1.6]">{card.desc}</p>
               </motion.div>
             );
           })}
