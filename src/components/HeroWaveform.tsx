@@ -38,8 +38,8 @@ const HeroWaveform = () => {
     const barW = (drawW / BAR_COUNT) * 0.6;
     const gap = drawW / BAR_COUNT;
 
-    const speedMod = sm.inside ? 0.7 + (1 - sm.y / h) * 1.2 : 1.0;
-    const hoverBoost = sm.inside ? 1.3 : 1.0;
+    const speedMod = 1.0;
+    const hoverBoost = sm.inside ? 1.15 : 1.0;
 
     for (let i = 0; i < BAR_COUNT; i++) {
       const x = CANVAS_PADDING_X + i * gap + gap / 2 - barW / 2;

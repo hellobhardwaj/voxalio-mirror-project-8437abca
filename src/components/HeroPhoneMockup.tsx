@@ -60,14 +60,14 @@ const HeroPhoneMockup = () => {
           <p className="text-[9px] uppercase tracking-[0.1em] text-muted-foreground mb-2 font-medium">
             Live Transcript
           </p>
-          <div className="space-y-0.5">
+          <div className="space-y-0">
             {TRANSCRIPT_LINES.slice(0, visibleLines).map((line, i) => (
               <motion.p
                 key={i}
                 initial={{ opacity: 0, x: 4 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3 }}
-                className="text-[11px] text-foreground/80 leading-relaxed"
+                className="text-[11px] text-foreground/80 leading-tight"
               >
                 {line}
                 {i === visibleLines - 1 && (
