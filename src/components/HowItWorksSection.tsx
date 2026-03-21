@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
 import { Mic, ListChecks, Phone, Plug, BarChart3 } from "lucide-react";
-import ShapeGrid from "@/components/ShapeGrid";
+import Particles from "@/components/Particles";
 
 const HowItWorksSection = () => {
   const { t } = useLanguage();
