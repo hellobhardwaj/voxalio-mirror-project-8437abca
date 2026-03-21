@@ -25,15 +25,15 @@ const IntegrationsSection = () => {
 
   return (
     <section className="py-24 md:py-32 relative overflow-hidden" id="integrations" style={{ background: "var(--bg-dark)" }}>
-      <div className="absolute inset-0 z-0 opacity-50 pointer-events-none">
+      <div className="absolute inset-0 z-0 opacity-75">
         <ShapeGrid
           speed={0.3}
           squareSize={45}
           direction="diagonal"
-          borderColor="rgba(139, 92, 246, 0.12)"
-          hoverFillColor="rgba(124, 58, 237, 0.15)"
+          borderColor="rgba(139, 92, 246, 0.15)"
+          hoverFillColor="rgba(124, 58, 237, 0.25)"
           shape="square"
-          hoverTrailAmount={5}
+          hoverTrailAmount={8}
         />
       </div>
 
