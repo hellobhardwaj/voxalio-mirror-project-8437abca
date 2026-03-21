@@ -33,7 +33,7 @@ const FAQSection = () => {
           pixelRatio={1}
         />
       </div>
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-16">
           {/* Left */}
           <motion.div
