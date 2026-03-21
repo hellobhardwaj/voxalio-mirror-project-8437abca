@@ -20,14 +20,15 @@ const HowItWorksSection = () => {
 
   return (
     <section className="py-24 md:py-32 relative overflow-hidden" id="how-it-works" style={{ background: "var(--bg-mid)" }}>
-      {/* GridDistortion background */}
-      <div className="absolute inset-0 z-0 opacity-10 pointer-events-auto">
-        <GridDistortion
-          imageSrc="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=1920&q=80"
-          grid={12}
-          mouse={0.12}
-          strength={0.12}
-          relaxation={0.92}
+      <div className="absolute inset-0 z-0 opacity-75 pointer-events-auto">
+        <ShapeGrid
+          speed={0.3}
+          squareSize={50}
+          direction="diagonal"
+          borderColor="#cbd5e1"
+          hoverFillColor="#2563eb"
+          shape="square"
+          hoverTrailAmount={5}
         />
       </div>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
