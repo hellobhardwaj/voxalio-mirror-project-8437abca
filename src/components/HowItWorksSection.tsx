@@ -30,7 +30,7 @@ const HowItWorksSection = () => {
           relaxation={0.92}
         />
       </div>
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-16">
           <span className="section-label">Simple Setup</span>
           <h2 className="font-display font-bold text-[var(--text-primary)] text-[var(--text-2xl)] md:text-[var(--text-3xl)] leading-[1.1] mt-3">
