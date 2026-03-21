@@ -67,7 +67,7 @@ const HeroPhoneMockup = () => {
                 initial={{ opacity: 0, x: 4 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3 }}
-                className="text-[11px] text-foreground/80 leading-relaxed"
+                className="text-[11px] text-foreground/80 leading-tight"
               >
                 {line}
                 {i === visibleLines - 1 && (

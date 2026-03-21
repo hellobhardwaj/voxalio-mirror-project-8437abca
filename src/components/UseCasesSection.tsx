@@ -61,10 +61,10 @@ const BentoCard = ({ uc, featured = false }: { uc: { icon: any; title: string; d
       className="group rounded-[var(--radius-lg)] p-8 h-full vox-card-hover relative overflow-hidden"
       style={{
         background: featured
-          ? "linear-gradient(135deg, rgba(37,99,235,0.08), rgba(59,130,246,0.04))"
+          ? "linear-gradient(135deg, rgba(37,99,235,0.1), rgba(59,130,246,0.05))"
           : "white",
         border: featured
-          ? "1px solid rgba(37,99,235,0.2)"
+          ? "1px solid rgba(37,99,235,0.25)"
           : "1px solid #e2e8f0",
         minHeight: featured ? "180px" : "160px",
       }}

@@ -48,14 +48,12 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <LoadingGate>
           <CustomCursor />
           <SmoothScroll>
             <BrowserRouter>
               <AnimatedRoutes />
             </BrowserRouter>
           </SmoothScroll>
-        </LoadingGate>
       </TooltipProvider>
     </LanguageProvider>
   </QueryClientProvider>
