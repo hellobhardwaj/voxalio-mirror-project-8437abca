@@ -1,5 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Instagram, Facebook, Twitter } from "lucide-react";
+import voxalioIcon from "@/assets/voxalio-icon.png";
 
 const Footer = () => {
   const { t, lang } = useLanguage();
@@ -42,12 +43,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: "var(--gradient-primary)" }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round">
-                  <path d="M12 18.5C15.5 18.5 18.5 15.5 18.5 12C18.5 8.5 15.5 5.5 12 5.5C8.5 5.5 5.5 8.5 5.5 12C5.5 15.5 8.5 18.5 12 18.5Z" />
-                  <path d="M8 12h1.5l1-3 1.5 6 1.5-6 1 3H16" />
-                </svg>
-              </div>
+              <img src={voxalioIcon} alt="Voxalio" className="w-7 h-7 rounded-md object-contain" />
               <span className="font-display font-bold text-[var(--text-primary)] text-base">Voxalio</span>
             </div>
             <p className="text-[14px] text-[var(--text-muted)] mb-6">
