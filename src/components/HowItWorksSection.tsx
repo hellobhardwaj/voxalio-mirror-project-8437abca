@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
 import { Mic, ListChecks, Phone, Plug, BarChart3 } from "lucide-react";
-import ShapeGrid from "@/components/ShapeGrid";
+import Particles from "@/components/Particles";
 
 const HowItWorksSection = () => {
   const { t } = useLanguage();
@@ -20,15 +20,17 @@ const HowItWorksSection = () => {
 
   return (
     <section className="py-24 md:py-32 relative overflow-hidden" id="how-it-works" style={{ background: "var(--bg-mid)" }}>
-      <div className="absolute inset-0 z-0 opacity-75 pointer-events-auto">
-        <ShapeGrid
-          speed={0.3}
-          squareSize={50}
-          direction="diagonal"
-          borderColor="#cbd5e1"
-          hoverFillColor="#2563eb"
-          shape="square"
-          hoverTrailAmount={5}
+      <div className="absolute inset-0 z-0 opacity-75 pointer-events-none">
+        <Particles
+          particleColors={["#2563eb", "#3b82f6", "#93c5fd"]}
+          particleCount={200}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          moveParticlesOnHover
+          alphaParticles={false}
+          disableRotation={false}
+          pixelRatio={1}
         />
       </div>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
