@@ -61,7 +61,7 @@ const StatsBar = () => {
             >
               <div className="font-display font-bold text-[36px] md:text-[var(--text-4xl)] leading-none gradient-text" style={{ willChange: "transform" }}>
                 {stat.prefix || ""}
-                {useCountUp(stat.value, 1500, inView)}
+                {useCountUp(stat.value, 2000, inView)}
                 {stat.suffix}
               </div>
               <div className="text-[var(--text-sm)] text-[#64748b] mt-2">{stat.label}</div>
