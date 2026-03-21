@@ -2,64 +2,70 @@ import { motion } from "framer-motion";
 import { Phone, FileText, Headphones, CheckCircle, Calendar, Layers } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
 const UseCasesSection = () => {
   const { t } = useLanguage();
 
   const useCases = [
-    { icon: Phone, title: t("uc.frontDesk"), description: t("uc.frontDeskDesc") },
-    { icon: FileText, title: t("uc.transcription"), description: t("uc.transcriptionDesc") },
-    { icon: Headphones, title: t("uc.customerService"), description: t("uc.customerServiceDesc") },
-    { icon: CheckCircle, title: t("uc.orderProcessing"), description: t("uc.orderProcessingDesc") },
-    { icon: Calendar, title: t("uc.appointments"), description: t("uc.appointmentsDesc") },
-    { icon: Layers, title: t("uc.more"), description: t("uc.moreDesc") },
+    { icon: Phone, title: t("uc.frontDesk"), description: t("uc.frontDeskDesc"), span: "md:col-span-2 md:row-span-2" },
+    { icon: FileText, title: t("uc.transcription"), description: t("uc.transcriptionDesc"), span: "" },
+    { icon: Headphones, title: t("uc.customerService"), description: t("uc.customerServiceDesc"), span: "" },
+    { icon: CheckCircle, title: t("uc.orderProcessing"), description: t("uc.orderProcessingDesc"), span: "" },
+    { icon: Calendar, title: t("uc.appointments"), description: t("uc.appointmentsDesc"), span: "" },
+    { icon: Layers, title: t("uc.more"), description: t("uc.moreDesc"), span: "", highlight: true },
   ];
 
   return (
-    <section className="vox-section-dark py-28 relative overflow-hidden" id="use-cases">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[rgba(37,99,235,0.06)] to-transparent rounded-full blur-3xl pointer-events-none" />
+    <section className="py-24 md:py-32 relative overflow-hidden" id="use-cases" style={{ background: "#0a0f1e" }}>
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        {/* Header */}
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-16">
+          <span className="text-[#2563eb] text-[12px] uppercase tracking-[0.12em] font-medium">
+            Built for every business
+          </span>
+          <h2 className="font-display font-700 text-white text-[32px] md:text-[48px] leading-[1.1] mt-3">
+            {t("uc.title")}
+          </h2>
+          <p className="text-[#94a3b8] text-[16px] mt-4 max-w-lg">
+            {t("uc.desc")}
+          </p>
+        </motion.div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12 mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="max-w-xl"
-          >
-            <h2 className="text-[26px] md:text-[30px] lg:text-[34px] font-semibold tracking-[-0.025em] leading-[1.15]">{t("uc.title")}</h2>
-            <p className="mt-5 text-[15px] font-normal leading-[1.7] opacity-55 tracking-[-0.01em]">{t("uc.desc")}</p>
-          </motion.div>
-          <motion.a
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            href="#contact"
-            className="bg-[#2563eb] text-white px-7 py-3 rounded-full text-[14px] font-medium hover:bg-[#1d4ed8] hover:shadow-lg transition-all duration-300 hover:-translate-y-px self-start tracking-[-0.01em]"
-          >
-            {t("uc.signup")}
-          </motion.a>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
-          {useCases.map((uc, i) => (
-            <motion.div
-              key={uc.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.06, duration: 0.4 }}
-              className="group"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center group-hover:bg-white/[0.1] group-hover:border-white/[0.15] transition-all duration-300">
-                  <uc.icon className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" />
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {useCases.map((uc, i) => {
+            const Icon = uc.icon;
+            return (
+              <motion.div
+                key={uc.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.07 }}
+                className={`group rounded-2xl p-8 border transition-all duration-300 hover:-translate-y-1 ${uc.span} ${
+                  uc.highlight
+                    ? "bg-[#2563eb] border-[#2563eb] hover:border-[#3b82f6]"
+                    : "bg-[#141c2e] border-white/[0.06] hover:border-white/[0.12]"
+                }`}
+              >
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
+                  uc.highlight ? "bg-white/20" : "bg-white/[0.06]"
+                }`}>
+                  <Icon className={`w-6 h-6 ${uc.highlight ? "text-white" : "text-[#2563eb]"}`} />
                 </div>
-                <h3 className="font-medium text-[16px] text-white/90 tracking-[-0.015em]">{uc.title}</h3>
-              </div>
-              <p className="text-[14px] font-normal opacity-45 leading-[1.7] group-hover:opacity-65 transition-opacity duration-300 tracking-[-0.01em]">{uc.description}</p>
-            </motion.div>
-          ))}
+                <h3 className={`font-display font-600 text-[18px] mb-3 ${uc.highlight ? "text-white" : "text-white"}`}>
+                  {uc.title}
+                </h3>
+                <p className={`text-[14px] leading-[1.7] ${uc.highlight ? "text-white/70" : "text-[#94a3b8]"}`}>
+                  {uc.description}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,71 +1,86 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Instagram, Facebook, Twitter } from "lucide-react";
-import voxalioLogo from "@/assets/voxalio-logo.jpeg";
 
 const Footer = () => {
   const { t, lang } = useLanguage();
 
-  const footerLinks = {
-    [lang === "de" ? "Navigation" : "Navigation"]: [
-      { label: lang === "de" ? "So funktioniert's" : "How It Works", href: "#how-it-works" },
-      { label: lang === "de" ? "Anwendungsfälle" : "Use Cases", href: "#use-cases" },
-      { label: lang === "de" ? "Preise" : "Pricing", href: "#pricing" },
-      { label: lang === "de" ? "Kontakt" : "Contact", href: "#contact" },
-    ],
-    [lang === "de" ? "Produkt" : "Product"]: [
-      { label: lang === "de" ? "KI-Anrufassistent" : "AI Call Assistant", href: "#how-it-works" },
-      { label: lang === "de" ? "Integrationen" : "Integrations", href: "#integrations" },
-      { label: lang === "de" ? "Demo buchen" : "Book a Demo", href: "#booking" },
-      { label: "FAQ", href: "#faq" },
-    ],
-    [lang === "de" ? "Rechtliches" : "Legal"]: [
-      { label: lang === "de" ? "Datenschutzerklärung" : "Privacy Policy", href: "/privacy" },
-      { label: lang === "de" ? "KI-Offenlegung" : "AI Disclosure", href: "/ai-disclosure" },
-      { label: lang === "de" ? "DSGVO" : "GDPR", href: "/privacy" },
-    ],
-  };
+  const columns = [
+    {
+      title: lang === "de" ? "Navigation" : "Navigation",
+      links: [
+        { label: lang === "de" ? "Anwendungsfälle" : "Use Cases", href: "#use-cases" },
+        { label: lang === "de" ? "Kundenstimmen" : "Testimonials", href: "#testimonials" },
+        { label: lang === "de" ? "Preise" : "Pricing", href: "#pricing" },
+        { label: lang === "de" ? "Kontakt" : "Contact", href: "#contact" },
+      ],
+    },
+    {
+      title: lang === "de" ? "Produkt" : "Product",
+      links: [
+        { label: lang === "de" ? "KI-Anrufassistent" : "AI Call Assistant", href: "#how-it-works" },
+        { label: lang === "de" ? "Integrationen" : "Integrations", href: "#integrations" },
+        { label: lang === "de" ? "Demo buchen" : "Book a Demo", href: "#booking" },
+        { label: "FAQ", href: "#faq" },
+      ],
+    },
+    {
+      title: lang === "de" ? "Rechtliches" : "Legal",
+      links: [
+        { label: lang === "de" ? "Datenschutzerklärung" : "Privacy Policy", href: "/privacy" },
+        { label: lang === "de" ? "KI-Offenlegung" : "AI Disclosure", href: "/ai-disclosure" },
+        { label: "GDPR", href: "/gdpr" },
+      ],
+    },
+  ];
 
   return (
-    <footer className="vox-section-dark py-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <footer style={{ background: "#060910" }}>
+      <div className="border-t border-white/[0.06]" />
+      <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+          {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <a href="/">
-              <img src={voxalioLogo} alt="Voxalio" className="h-8 w-auto object-contain brightness-0 invert" />
-            </a>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-7 h-7 rounded-md bg-[#2563eb] flex items-center justify-center">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round">
+                  <path d="M12 18.5C15.5 18.5 18.5 15.5 18.5 12C18.5 8.5 15.5 5.5 12 5.5C8.5 5.5 5.5 8.5 5.5 12C5.5 15.5 8.5 18.5 12 18.5Z" />
+                  <path d="M8 12h1.5l1-3 1.5 6 1.5-6 1 3H16" />
+                </svg>
+              </div>
+              <span className="font-display font-700 text-white text-base">Voxalio</span>
+            </div>
+            <p className="text-[14px] text-[#64748b] mb-6">
+              {lang === "de" ? "KI-Sprachagenten — Made in Germany" : "AI Voice Agents — Made in Germany"}
+            </p>
 
-            <div className="flex items-center gap-3 mt-5">
-              <a href="#" className="w-9 h-9 rounded-full bg-white/[0.06] border border-white/[0.08] flex items-center justify-center hover:bg-white/[0.12] hover:border-white/[0.15] transition-all duration-200" aria-label="Instagram">
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white/[0.06] border border-white/[0.08] flex items-center justify-center hover:bg-white/[0.12] hover:border-white/[0.15] transition-all duration-200" aria-label="Facebook">
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white/[0.06] border border-white/[0.08] flex items-center justify-center hover:bg-white/[0.12] hover:border-white/[0.15] transition-all duration-200" aria-label="Twitter">
-                <Twitter className="w-4 h-4" />
-              </a>
+            <div className="flex items-center gap-3 mb-6">
+              {[Instagram, Facebook, Twitter].map((Icon, i) => (
+                <a key={i} href="#" className="w-9 h-9 rounded-full bg-white/[0.04] border border-white/[0.06] flex items-center justify-center hover:bg-white/[0.08] transition-all" aria-label={Icon.displayName}>
+                  <Icon className="w-4 h-4 text-[#64748b] hover:text-white transition-colors" />
+                </a>
+              ))}
             </div>
 
             <a
               href="https://www.optimis-ai.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 text-[11px] font-normal opacity-25 tracking-normal hover:opacity-50 transition-opacity"
+              className="inline-flex items-center gap-2 text-[11px] text-[#64748b]/50 hover:text-[#64748b] transition-colors"
             >
               {t("footer.powered")}
             </a>
           </div>
 
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h4 className="font-medium text-[12px] mb-4 text-white/70 uppercase tracking-[0.04em]">{title}</h4>
-              <ul className="space-y-2.5">
-                {links.map((link) => (
+          {/* Link columns */}
+          {columns.map((col) => (
+            <div key={col.title}>
+              <h4 className="font-display font-600 text-[12px] mb-4 text-white/50 uppercase tracking-[0.06em]">
+                {col.title}
+              </h4>
+              <ul className="space-y-3">
+                {col.links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-[13px] font-normal opacity-35 hover:opacity-75 transition-all duration-200 hover:translate-x-0.5 inline-block tracking-normal"
-                    >
+                    <a href={link.href} className="text-[14px] text-[#64748b] hover:text-white transition-colors duration-200">
                       {link.label}
                     </a>
                   </li>
@@ -75,9 +90,10 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="mt-14 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[12px] font-normal opacity-30 tracking-normal">{t("footer.rights")}</p>
-          <p className="text-[11px] font-normal opacity-20 tracking-normal">{t("footer.disclosure")}</p>
+        {/* Bottom */}
+        <div className="mt-14 pt-8 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-[12px] text-[#64748b]/50">{t("footer.rights")}</p>
+          <p className="text-[11px] text-[#64748b]/30">{t("footer.disclosure")}</p>
         </div>
       </div>
     </footer>

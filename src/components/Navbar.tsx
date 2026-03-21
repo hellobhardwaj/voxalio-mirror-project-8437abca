@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import voxalioLogo from "@/assets/voxalio-logo.jpeg";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -16,52 +15,65 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 vox-glass border-b border-border/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 vox-glass border-b border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        {/* Logo */}
         <a href="/" className="flex items-center gap-2">
-          <img src={voxalioLogo} alt="Voxalio" className="h-8 w-auto object-contain" />
+          <div className="w-8 h-8 rounded-lg bg-[#2563eb] flex items-center justify-center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round">
+              <path d="M12 18.5C15.5 18.5 18.5 15.5 18.5 12C18.5 8.5 15.5 5.5 12 5.5C8.5 5.5 5.5 8.5 5.5 12C5.5 15.5 8.5 18.5 12 18.5Z" />
+              <path d="M8 12h1.5l1-3 1.5 6 1.5-6 1 3H16" />
+            </svg>
+          </div>
+          <span className="font-display font-700 text-white text-lg tracking-tight">Voxalio</span>
         </a>
 
-        <div className="hidden lg:flex items-center gap-0.5">
+        {/* Desktop nav */}
+        <div className="hidden lg:flex items-center gap-1">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="px-3.5 py-2 text-[14px] font-normal text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center gap-1 rounded-lg hover:bg-muted/50 tracking-[-0.01em]"
+              className="px-4 py-2 text-sm text-[#94a3b8] hover:text-white transition-colors duration-200 rounded-lg"
             >
               {item.label}
             </a>
           ))}
         </div>
 
+        {/* Desktop buttons */}
         <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={() => setLang(lang === "en" ? "de" : "en")}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border text-xs font-medium text-muted-foreground hover:text-foreground hover:border-[#2563eb]/30 transition-all duration-200"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/[0.1] text-xs font-medium text-[#94a3b8] hover:text-white hover:border-white/[0.2] transition-all duration-200"
           >
             <Globe className="w-3.5 h-3.5" />
             {lang === "en" ? "DE" : "EN"}
           </button>
           <a
             href="#booking"
-            className="bg-[#2563eb] text-white px-5 py-2 rounded-full text-[14px] font-medium hover:bg-[#1d4ed8] transition-all duration-300 hover:-translate-y-px tracking-[-0.01em]"
+            className="px-5 py-2 rounded-lg border border-white/[0.15] text-white text-sm font-medium hover:bg-white/[0.05] transition-all duration-200"
           >
             {t("nav.bookDemo")}
           </a>
+          <a
+            href="#contact"
+            className="px-5 py-2 rounded-lg bg-[#2563eb] text-white text-sm font-medium hover:bg-[#1d4ed8] transition-all duration-200"
+          >
+            {t("nav.startNow")}
+          </a>
         </div>
 
+        {/* Mobile */}
         <div className="flex items-center gap-2 lg:hidden">
           <button
             onClick={() => setLang(lang === "en" ? "de" : "en")}
-            className="flex items-center gap-1 px-2 py-1 rounded border border-border text-xs font-medium text-muted-foreground"
+            className="flex items-center gap-1 px-2 py-1 rounded border border-white/[0.1] text-xs font-medium text-[#94a3b8]"
           >
             <Globe className="w-3.5 h-3.5" />
             {lang === "en" ? "DE" : "EN"}
           </button>
-          <button
-            className="text-foreground"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
+          <button className="text-white" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -74,14 +86,14 @@ const Navbar = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
+            className="lg:hidden bg-[#0a0f1e]/95 backdrop-blur-xl border-b border-white/[0.06] overflow-hidden"
           >
             <div className="px-6 py-4 flex flex-col gap-1">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="py-2.5 px-3 text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted/50 transition-colors"
+                  className="py-2.5 px-3 text-sm font-medium text-[#94a3b8] hover:text-white rounded-lg hover:bg-white/[0.05] transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
@@ -89,10 +101,17 @@ const Navbar = () => {
               ))}
               <a
                 href="#booking"
-                className="bg-[#2563eb] text-white px-5 py-2.5 rounded-full text-sm font-semibold text-center mt-3"
+                className="py-2.5 px-3 text-sm font-medium text-[#94a3b8] hover:text-white rounded-lg hover:bg-white/[0.05] transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 {t("nav.bookDemo")}
+              </a>
+              <a
+                href="#contact"
+                className="bg-[#2563eb] text-white px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-3"
+                onClick={() => setMobileOpen(false)}
+              >
+                {t("nav.startNow")}
               </a>
             </div>
           </motion.div>

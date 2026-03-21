@@ -5,90 +5,40 @@ import Footer from "@/components/Footer";
 const Privacy = () => {
   const { lang } = useLanguage();
 
+  const sections = lang === "de"
+    ? [
+        { title: "1. Verantwortlicher", content: "Voxalio — Powered by Optimis AI\nKontakt: datenschutz@voxalio.de" },
+        { title: "2. Erhobene Daten", content: "Wir erheben personenbezogene Daten nur, wenn Sie diese freiwillig bereitstellen, z.B. über unser Kontaktformular (Name, E-Mail, Telefon, Unternehmen) oder bei Nutzung unserer KI-Anruffunktion (Telefonnummer)." },
+        { title: "3. Zweck der Datenverarbeitung", content: "Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage, zur Erbringung unserer Dienste und zur Verbesserung unserer KI-Dienste verwendet." },
+        { title: "4. Datenspeicherung", content: "Alle Daten werden auf Servern in Nürnberg, Deutschland gespeichert und unterliegen den EU-Datenschutzvorschriften (DSGVO). Daten werden maximal 24 Monate nach letzter Aktivität aufbewahrt." },
+        { title: "5. KI-Offenlegung", content: 'Unser KI-Anrufassistent identifiziert sich zu Beginn jedes Anrufs: "Hallo, ich bin ein KI-Assistent für Voxalio."' },
+        { title: "6. Cookies", content: "Wir verwenden essentielle Cookies für die Website-Funktionalität. Sie können der Verwendung über unser Cookie-Banner zustimmen oder sie ablehnen." },
+        { title: "7. Ihre Rechte", content: "Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten. Kontaktieren Sie uns unter datenschutz@voxalio.de." },
+      ]
+    : [
+        { title: "1. Data Controller", content: "Voxalio — Powered by Optimis AI\nContact: privacy@voxalio.de" },
+        { title: "2. Data We Collect", content: "We collect personal data only when you voluntarily provide it, e.g. via our contact form (name, email, phone, company) or when using our AI call feature (phone number)." },
+        { title: "3. Purpose of Processing", content: "Your data is used solely to process your inquiry, provide our services, and improve our AI services." },
+        { title: "4. Data Storage & Retention", content: "All data is stored on servers in Nuremberg, Germany and is subject to EU data protection regulations (GDPR). Data is retained for a maximum of 24 months after last activity." },
+        { title: "5. AI Disclosure", content: 'Our AI call assistant identifies itself at the beginning of every call: "Hello, I am an AI assistant for Voxalio."' },
+        { title: "6. Cookies", content: "We use essential cookies for website functionality. You can accept or decline their use via our cookie banner." },
+        { title: "7. Your Rights", content: "You have the right to access, rectify, delete, and restrict the processing of your personal data. Contact us at privacy@voxalio.de." },
+      ];
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ background: "#0a0f1e" }}>
       <Navbar />
       <main className="pt-32 pb-20 max-w-3xl mx-auto px-6">
-        <h1 className="text-3xl font-bold text-foreground mb-8">
+        <h1 className="font-display font-700 text-white text-3xl mb-8">
           {lang === "de" ? "Datenschutzerklärung" : "Privacy Policy"}
         </h1>
-
-        <div className="prose prose-sm max-w-none text-muted-foreground space-y-6">
-          <section>
-            <h2 className="text-lg font-semibold text-foreground">
-              {lang === "de" ? "1. Verantwortlicher" : "1. Data Controller"}
-            </h2>
-            <p>
-              Voxalio — Powered by Optimis AI<br />
-              {lang === "de" ? "Kontakt: datenschutz@voxalio.de" : "Contact: privacy@voxalio.de"}
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-foreground">
-              {lang === "de" ? "2. Erhobene Daten" : "2. Data We Collect"}
-            </h2>
-            <p>
-              {lang === "de"
-                ? "Wir erheben personenbezogene Daten nur, wenn Sie diese freiwillig bereitstellen, z.B. über unser Kontaktformular (Name, E-Mail, Telefon, Unternehmen) oder bei Nutzung unserer KI-Anruffunktion (Telefonnummer)."
-                : "We collect personal data only when you voluntarily provide it, e.g. via our contact form (name, email, phone, company) or when using our AI call feature (phone number)."}
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-foreground">
-              {lang === "de" ? "3. Zweck der Datenverarbeitung" : "3. Purpose of Processing"}
-            </h2>
-            <p>
-              {lang === "de"
-                ? "Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage, zur Erbringung unserer Dienste und zur Verbesserung unserer KI-Dienste verwendet."
-                : "Your data is used solely to process your inquiry, provide our services, and improve our AI services."}
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-foreground">
-              {lang === "de" ? "4. Datenspeicherung" : "4. Data Storage"}
-            </h2>
-            <p>
-              {lang === "de"
-                ? "Alle Daten werden auf Servern in Deutschland gespeichert und unterliegen den EU-Datenschutzvorschriften (DSGVO)."
-                : "All data is stored on servers located in Germany and is subject to EU data protection regulations (GDPR)."}
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-foreground">
-              {lang === "de" ? "5. KI-Offenlegung" : "5. AI Disclosure"}
-            </h2>
-            <p>
-              {lang === "de"
-                ? "Unser KI-Anrufassistent identifiziert sich zu Beginn jedes Anrufs: \"Hallo, ich bin ein KI-Assistent für Voxalio.\""
-                : "Our AI call assistant identifies itself at the beginning of every call: \"Hello, I am an AI assistant for Voxalio.\""}
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-foreground">
-              {lang === "de" ? "6. Cookies" : "6. Cookies"}
-            </h2>
-            <p>
-              {lang === "de"
-                ? "Wir verwenden essentielle Cookies für die Website-Funktionalität. Sie können der Verwendung über unser Cookie-Banner zustimmen oder sie ablehnen."
-                : "We use essential cookies for website functionality. You can accept or decline their use via our cookie banner."}
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-foreground">
-              {lang === "de" ? "7. Ihre Rechte" : "7. Your Rights"}
-            </h2>
-            <p>
-              {lang === "de"
-                ? "Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten. Kontaktieren Sie uns unter datenschutz@voxalio.de."
-                : "You have the right to access, rectify, delete, and restrict the processing of your personal data. Contact us at privacy@voxalio.de."}
-            </p>
-          </section>
+        <div className="space-y-8">
+          {sections.map((s) => (
+            <section key={s.title}>
+              <h2 className="font-display font-600 text-white text-lg mb-3">{s.title}</h2>
+              <p className="text-[#94a3b8] text-[15px] leading-[1.7] whitespace-pre-line">{s.content}</p>
+            </section>
+          ))}
         </div>
       </main>
       <Footer />

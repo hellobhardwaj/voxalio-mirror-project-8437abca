@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 const ScrollProgress = () => {
@@ -7,7 +6,7 @@ const ScrollProgress = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1 vox-gradient-bg z-[60] origin-left"
+      className="fixed top-0 left-0 right-0 h-1 bg-[#2563eb] z-[60] origin-left"
       style={{ scaleX }}
     />
   );
