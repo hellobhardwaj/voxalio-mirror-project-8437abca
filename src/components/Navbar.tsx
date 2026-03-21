@@ -15,11 +15,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 vox-glass border-b border-white/[0.06]">
+    <nav className="fixed top-0 left-0 right-0 z-50 vox-glass border-b" style={{ borderColor: "rgba(139,92,246,0.12)", height: 64 }}>
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-[#2563eb] flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #7c3aed, #2563eb)" }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round">
               <path d="M12 18.5C15.5 18.5 18.5 15.5 18.5 12C18.5 8.5 15.5 5.5 12 5.5C8.5 5.5 5.5 8.5 5.5 12C5.5 15.5 8.5 18.5 12 18.5Z" />
               <path d="M8 12h1.5l1-3 1.5 6 1.5-6 1 3H16" />
@@ -34,9 +34,10 @@ const Navbar = () => {
             <a
               key={item.label}
               href={item.href}
-              className="px-4 py-2 text-sm text-[#94a3b8] hover:text-white transition-colors duration-200 rounded-lg"
+              className="relative px-4 py-2 text-sm text-muted-foreground hover:text-white transition-colors duration-200 rounded-lg group"
             >
               {item.label}
+              <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </a>
           ))}
         </div>
@@ -45,7 +46,7 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={() => setLang(lang === "en" ? "de" : "en")}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/[0.1] text-xs font-medium text-[#94a3b8] hover:text-white hover:border-white/[0.2] transition-all duration-200"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/[0.1] text-xs font-medium text-muted-foreground hover:text-white hover:border-white/[0.2] transition-all duration-200"
           >
             <Globe className="w-3.5 h-3.5" />
             {lang === "en" ? "DE" : "EN"}
@@ -58,7 +59,7 @@ const Navbar = () => {
           </a>
           <a
             href="#contact"
-            className="px-5 py-2 rounded-lg bg-[#2563eb] text-white text-sm font-medium hover:bg-[#1d4ed8] transition-all duration-200"
+            className="px-5 py-2 rounded-lg text-white text-sm font-medium transition-all duration-200 vox-gradient-bg vox-btn-glow"
           >
             {t("nav.startNow")}
           </a>
@@ -68,7 +69,7 @@ const Navbar = () => {
         <div className="flex items-center gap-2 lg:hidden">
           <button
             onClick={() => setLang(lang === "en" ? "de" : "en")}
-            className="flex items-center gap-1 px-2 py-1 rounded border border-white/[0.1] text-xs font-medium text-[#94a3b8]"
+            className="flex items-center gap-1 px-2 py-1 rounded border border-white/[0.1] text-xs font-medium text-muted-foreground"
           >
             <Globe className="w-3.5 h-3.5" />
             {lang === "en" ? "DE" : "EN"}
@@ -86,14 +87,15 @@ const Navbar = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden bg-[#0a0f1e]/95 backdrop-blur-xl border-b border-white/[0.06] overflow-hidden"
+            className="lg:hidden overflow-hidden border-b"
+            style={{ background: "rgba(10,8,18,0.95)", backdropFilter: "blur(20px)", borderColor: "rgba(139,92,246,0.12)" }}
           >
             <div className="px-6 py-4 flex flex-col gap-1">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="py-2.5 px-3 text-sm font-medium text-[#94a3b8] hover:text-white rounded-lg hover:bg-white/[0.05] transition-colors"
+                  className="py-2.5 px-3 text-sm font-medium text-muted-foreground hover:text-white rounded-lg hover:bg-white/[0.05] transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
@@ -101,14 +103,14 @@ const Navbar = () => {
               ))}
               <a
                 href="#booking"
-                className="py-2.5 px-3 text-sm font-medium text-[#94a3b8] hover:text-white rounded-lg hover:bg-white/[0.05] transition-colors"
+                className="py-2.5 px-3 text-sm font-medium text-muted-foreground hover:text-white rounded-lg hover:bg-white/[0.05] transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 {t("nav.bookDemo")}
               </a>
               <a
                 href="#contact"
-                className="bg-[#2563eb] text-white px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-3"
+                className="vox-gradient-bg text-white px-5 py-2.5 rounded-lg text-sm font-semibold text-center mt-3"
                 onClick={() => setMobileOpen(false)}
               >
                 {t("nav.startNow")}

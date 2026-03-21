@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@400;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,35 +6,35 @@
 
 @layer base {
   :root {
-    --background: 210 20% 99%;
-    --foreground: 220 25% 10%;
-    --card: 0 0% 100%;
-    --card-foreground: 220 25% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 10%;
-    --primary: 224 76% 48%;
+    --background: 260 30% 4%;
+    --foreground: 240 20% 98%;
+    --card: 260 25% 8%;
+    --card-foreground: 240 20% 98%;
+    --popover: 260 25% 8%;
+    --popover-foreground: 240 20% 98%;
+    --primary: 263 70% 55%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 200 40% 95%;
-    --secondary-foreground: 220 25% 10%;
-    --muted: 210 15% 96%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 224 76% 48%;
+    --secondary: 260 25% 12%;
+    --secondary-foreground: 240 20% 98%;
+    --muted: 260 20% 14%;
+    --muted-foreground: 215 16% 62%;
+    --accent: 263 70% 55%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 220 15% 91%;
-    --input: 220 15% 91%;
-    --ring: 224 76% 48%;
+    --border: 263 50% 20%;
+    --input: 263 50% 20%;
+    --ring: 263 70% 55%;
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-background: 260 30% 5%;
+    --sidebar-foreground: 240 5.3% 80%;
+    --sidebar-primary: 263 70% 55%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 260 25% 12%;
+    --sidebar-accent-foreground: 240 5.9% 90%;
+    --sidebar-border: 263 50% 15%;
+    --sidebar-ring: 263 70% 55%;
   }
 }
 
@@ -50,6 +50,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     line-height: 1.7;
+    overflow-x: hidden;
   }
 
   html {
@@ -58,8 +59,8 @@
   }
 
   ::selection {
-    background: rgba(37, 99, 235, 0.15);
-    color: hsl(220 25% 10%);
+    background: rgba(124, 58, 237, 0.25);
+    color: #f8f8ff;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -69,28 +70,76 @@
 }
 
 @layer utilities {
-  /* Section backgrounds */
   .vox-section-dark {
-    background-color: #0a0f1e;
-    color: #ffffff;
+    background-color: #0a0812;
+    color: #f8f8ff;
   }
 
-  /* Glass navbar */
   .vox-glass {
-    background: rgba(10, 15, 30, 0.8);
+    background: rgba(10, 8, 18, 0.85);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
   }
 
-  /* Section divider */
   .vox-section-divider {
-    background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
+    background: linear-gradient(90deg, transparent, rgba(124,58,237,0.15), transparent);
     height: 1px;
   }
 
-  /* Dot grid pattern */
   .dot-grid {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
     background-size: 24px 24px;
+  }
+
+  .vox-gradient-bg {
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+  }
+
+  .vox-gradient-text {
+    background: linear-gradient(135deg, #a855f7, #2563eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .vox-card {
+    background: rgba(19, 17, 31, 0.8);
+    border: 1px solid rgba(139, 92, 246, 0.12);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+  }
+
+  .vox-card-hover {
+    transition: all 0.3s ease;
+  }
+  .vox-card-hover:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.15);
+  }
+
+  .vox-btn-glow:hover {
+    box-shadow: 0 8px 32px rgba(124, 58, 237, 0.5);
+    transform: scale(1.02);
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  .vox-shimmer {
+    background: linear-gradient(90deg, transparent 0%, rgba(168,85,247,0.15) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .vox-float {
+    animation: float-slow 6s ease-in-out infinite;
   }
 }

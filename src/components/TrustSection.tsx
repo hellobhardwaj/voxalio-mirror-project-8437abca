@@ -23,14 +23,14 @@ const TrustSection = () => {
       ];
 
   return (
-    <section className="py-24 md:py-32" style={{ background: "#f8fafc" }}>
+    <section className="py-24 md:py-32" style={{ background: "#0a0812" }}>
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeUp}
-          className="font-display font-700 text-[#0f172a] text-[32px] md:text-[42px] leading-[1.1] text-center mb-16"
+          className="font-display font-700 text-[32px] md:text-[42px] leading-[1.1] text-center mb-16 vox-gradient-text"
         >
           {lang === "de"
             ? "Gebaut für Deutschland. Vertraut in ganz Europa."
@@ -47,13 +47,17 @@ const TrustSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-8 border border-[#e2e8f0] hover:shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-all duration-300"
+                className="rounded-[20px] p-8 vox-card-hover"
+                style={{
+                  background: "rgba(19,17,31,0.6)",
+                  border: "1px solid rgba(139,92,246,0.12)",
+                }}
               >
-                <div className="w-12 h-12 rounded-xl bg-[#2563eb]/10 flex items-center justify-center mb-6">
-                  <Icon className="w-6 h-6 text-[#2563eb]" />
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ background: "linear-gradient(135deg, #7c3aed, #2563eb)" }}>
+                  <Icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-display font-600 text-[18px] text-[#0f172a] mb-3">{card.title}</h3>
-                <p className="text-[15px] text-[#64748b] leading-[1.7]">{card.desc}</p>
+                <h3 className="font-display font-600 text-[18px] text-white mb-3">{card.title}</h3>
+                <p className="text-[15px] text-muted-foreground leading-[1.7]">{card.desc}</p>
               </motion.div>
             );
           })}

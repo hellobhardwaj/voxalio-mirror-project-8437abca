@@ -8,18 +8,18 @@ import {
 
 /* ── design tokens ── */
 const T = {
-  navy: "#0a0f1e",
-  navyMid: "#111827",
-  navyCard: "#141c2e",
-  navyBorder: "#1e2d4a",
-  teal: "#2563eb",
-  tealDim: "rgba(37,99,235,0.15)",
-  tealGlow: "rgba(37,99,235,0.06)",
+  navy: "#0a0812",
+  navyMid: "#0f0d1a",
+  navyCard: "#13111f",
+  navyBorder: "rgba(139,92,246,0.15)",
+  accent: "#7c3aed",
+  accentDim: "rgba(124,58,237,0.15)",
+  accentGlow: "rgba(124,58,237,0.06)",
   gold: "#f0b429",
-  textPrimary: "#e8edf5",
-  textSecondary: "#7a8faa",
-  textMuted: "#3a4a62",
-  chrome: "#0d1117",
+  textPrimary: "#f8f8ff",
+  textSecondary: "#94a3b8",
+  textMuted: "#4a5568",
+  chrome: "#0d0b17",
 };
 
 const sidebarItems = [
@@ -58,19 +58,17 @@ const conversations = [
 ];
 
 const floatingCards = [
-  { label: "RESOLVED", value: "94.2%", sub: "+3.1% this month", color: T.teal, pos: "top-[-28px] left-[-32px]" },
-  { label: "ACTIVE AGENTS", value: "24", sub: "+2 today", color: T.teal, pos: "bottom-[120px] left-[-40px]" },
-  { label: "TOTAL CALLS", value: "12,847", sub: "+12.5% vs last month", color: T.teal, pos: "bottom-[60px] right-[-36px]" },
+  { label: "RESOLVED", value: "94.2%", sub: "+3.1% this month", pos: "top-[-28px] left-[-32px]" },
+  { label: "ACTIVE AGENTS", value: "24", sub: "+2 today", pos: "bottom-[120px] left-[-40px]" },
+  { label: "TOTAL CALLS", value: "12,847", sub: "+12.5% vs last month", pos: "bottom-[60px] right-[-36px]" },
 ];
 
-/* ── keyframes injected once ── */
 const STYLE_ID = "dashboard-showcase-styles";
 const injectStyles = () => {
   if (document.getElementById(STYLE_ID)) return;
   const s = document.createElement("style");
   s.id = STYLE_ID;
   s.textContent = `
-    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
     @keyframes ds-float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
     @keyframes ds-float2{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
     @keyframes ds-border-glow{0%,100%{opacity:.4}50%{opacity:.8}}
@@ -88,7 +86,6 @@ const injectStyles = () => {
   document.head.appendChild(s);
 };
 
-/* ── Component ── */
 const DashboardShowcase = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [visibleMsgs, setVisibleMsgs] = useState(0);
@@ -98,7 +95,6 @@ const DashboardShowcase = () => {
 
   useEffect(() => { injectStyles(); }, []);
 
-  /* stagger chat messages */
   useEffect(() => {
     if (activeTab !== "dashboard") return;
     setVisibleMsgs(0);
@@ -109,14 +105,12 @@ const DashboardShowcase = () => {
     return () => timers.forEach(clearTimeout);
   }, [activeTab]);
 
-  /* bar animation trigger */
   useEffect(() => {
     if (activeTab !== "dashboard") { setBarsVisible(false); return; }
     const t = setTimeout(() => setBarsVisible(true), 300);
     return () => clearTimeout(t);
   }, [activeTab]);
 
-  /* cursor spotlight */
   const handleMouse = useCallback((e: React.MouseEvent) => {
     const rect = sectionRef.current?.getBoundingClientRect();
     if (!rect) return;
@@ -132,47 +126,31 @@ const DashboardShowcase = () => {
       onMouseMove={handleMouse}
       className="relative py-20 md:py-24 overflow-hidden"
       style={{
-        background: `radial-gradient(circle at ${mouse.x}% ${mouse.y}%, rgba(37,99,235,0.04) 0%, transparent 50%), radial-gradient(ellipse at 50% 40%, ${T.tealGlow} 0%, transparent 70%), ${T.navy}`,
+        background: `radial-gradient(circle at ${mouse.x}% ${mouse.y}%, rgba(124,58,237,0.04) 0%, transparent 50%), radial-gradient(ellipse 60% 40% at 50% 50%, ${T.accentGlow} 0%, transparent 70%), ${T.navyMid}`,
       }}
     >
       <div className="max-w-[1100px] mx-auto px-4 md:px-6 relative">
-        {/* ── Outer window frame ── */}
-        <div
-          className="relative rounded-2xl overflow-visible"
-          style={{ boxShadow: "0 40px 120px rgba(0,0,0,0.6)" }}
-        >
-          {/* Glowing border */}
-          <div
-            className="absolute -inset-[1px] rounded-2xl ds-border-glow pointer-events-none z-0"
-            style={{
-            background: `linear-gradient(135deg, ${T.teal}66, transparent 40%, transparent 60%, ${T.teal}4d)`,
-            }}
-          />
+        <div className="relative rounded-2xl overflow-visible" style={{ boxShadow: "0 40px 120px rgba(0,0,0,0.6)" }}>
+          <div className="absolute -inset-[1px] rounded-2xl ds-border-glow pointer-events-none z-0" style={{ background: `linear-gradient(135deg, ${T.accent}66, transparent 40%, transparent 60%, ${T.accent}4d)` }} />
 
           <div className="relative z-10 rounded-2xl overflow-hidden" style={{ background: T.chrome }}>
-            {/* ── macOS chrome bar ── */}
-            <div className="flex items-center px-4 py-3 border-b" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
+            <div className="flex items-center px-4 py-3 border-b" style={{ borderColor: "rgba(139,92,246,0.08)" }}>
               <div className="flex gap-1.5">
                 <span className="w-3 h-3 rounded-full" style={{ background: "#ff5f57" }} />
                 <span className="w-3 h-3 rounded-full" style={{ background: "#febc2e" }} />
-                <span className="w-3 h-3 rounded-full" style={{ background: "#28c840" }} /> {/* macOS green dot — keep */}
+                <span className="w-3 h-3 rounded-full" style={{ background: "#28c840" }} />
               </div>
               <div className="flex-1 flex justify-center">
-                <div
-                  className="ds-font-body rounded-lg px-4 py-1.5 text-xs max-w-xs w-full text-center"
-                  style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.4)", border: "1px solid rgba(255,255,255,0.04)" }}
-                >
+                <div className="ds-font-body rounded-lg px-4 py-1.5 text-xs max-w-xs w-full text-center" style={{ background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.3)", border: "1px solid rgba(139,92,246,0.08)" }}>
                   app.voxalio.de/dashboard
                 </div>
               </div>
             </div>
 
-            {/* ── Dashboard body ── */}
             <div className="flex min-h-[520px] md:min-h-[600px]" style={{ background: T.navy }}>
-              {/* Sidebar — hidden on mobile */}
-              <div className="hidden md:flex flex-col w-56 p-5 gap-1 border-r" style={{ background: T.chrome, borderColor: "rgba(255,255,255,0.04)" }}>
+              <div className="hidden md:flex flex-col w-56 p-5 gap-1 border-r" style={{ background: T.chrome, borderColor: "rgba(139,92,246,0.08)" }}>
                 <div className="flex items-center gap-2.5 mb-8">
-                  <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: T.teal }}>
+                  <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(135deg, #7c3aed, #2563eb)" }}>
                     <Phone className="w-4 h-4 text-white" />
                   </div>
                   <span className="ds-font-heading text-[13px] font-semibold" style={{ color: T.textPrimary }}>Voxalio</span>
@@ -183,8 +161,8 @@ const DashboardShowcase = () => {
                     onClick={() => setActiveTab(id === "dashboard" || id === "conversations" ? id : "dashboard")}
                     className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[12px] font-normal transition-colors w-full text-left ds-font-body"
                     style={{
-                      background: activeTab === id ? T.tealDim : "transparent",
-                      color: activeTab === id ? T.teal : T.textMuted,
+                      background: activeTab === id ? T.accentDim : "transparent",
+                      color: activeTab === id ? T.accent : T.textMuted,
                     }}
                   >
                     <Icon className="w-4 h-4" />
@@ -193,15 +171,10 @@ const DashboardShowcase = () => {
                 ))}
               </div>
 
-              {/* Main content */}
               <div className="flex-1 p-5 md:p-8 flex flex-col gap-5 relative">
                 <AnimatePresence mode="wait">
                   {activeTab === "dashboard" ? (
-                    <DashboardView
-                      key="dashboard"
-                      visibleMsgs={visibleMsgs}
-                      barsVisible={barsVisible}
-                    />
+                    <DashboardView key="dashboard" visibleMsgs={visibleMsgs} barsVisible={barsVisible} />
                   ) : (
                     <ConversationsView key="conversations" />
                   )}
@@ -210,27 +183,15 @@ const DashboardShowcase = () => {
             </div>
           </div>
 
-          {/* ── Floating breakout cards (desktop only) ── */}
           <div className="hidden lg:block">
             {floatingCards.map((card, i) => (
-              <div
-                key={card.label}
-                className={`absolute ${card.pos} ${i === 0 ? "ds-float-1" : i === 1 ? "ds-float-2" : "ds-float-3"} z-20`}
-              >
-                <div
-                  className="rounded-xl px-5 py-4 ds-font-body"
-                  style={{
-                    background: "rgba(20,28,46,0.95)",
-                    border: `1px solid ${T.navyBorder}`,
-                    boxShadow: "0 16px 48px rgba(0,0,0,0.5)",
-                    backdropFilter: "blur(12px)",
-                  }}
-                >
+              <div key={card.label} className={`absolute ${card.pos} ${i === 0 ? "ds-float-1" : i === 1 ? "ds-float-2" : "ds-float-3"} z-20`}>
+                <div className="rounded-xl px-5 py-4 ds-font-body" style={{ background: "rgba(19,17,31,0.95)", border: `1px solid ${T.navyBorder}`, boxShadow: "0 16px 48px rgba(0,0,0,0.5)", backdropFilter: "blur(12px)" }}>
                   <p className="text-[10px] font-medium tracking-wider mb-1" style={{ color: T.textMuted }}>{card.label}</p>
                   <p className="ds-font-heading text-xl font-bold" style={{ color: T.textPrimary }}>{card.value}</p>
                   <div className="flex items-center gap-1 mt-1">
-                    <ArrowUpRight className="w-3 h-3" style={{ color: T.teal }} />
-                    <span className="text-[11px]" style={{ color: T.teal }}>{card.sub}</span>
+                    <ArrowUpRight className="w-3 h-3" style={{ color: T.accent }} />
+                    <span className="text-[11px]" style={{ color: T.accent }}>{card.sub}</span>
                   </div>
                 </div>
               </div>
@@ -242,16 +203,8 @@ const DashboardShowcase = () => {
   );
 };
 
-/* ── Dashboard sub-view ── */
 const DashboardView = ({ visibleMsgs, barsVisible }: { visibleMsgs: number; barsVisible: boolean }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 8 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -8 }}
-    transition={{ duration: 0.3 }}
-    className="flex flex-col gap-5 flex-1"
-  >
-    {/* Top bar */}
+  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.3 }} className="flex flex-col gap-5 flex-1">
     <div className="flex items-center justify-between">
       <div>
         <p className="ds-font-heading text-[15px] font-semibold" style={{ color: T.textPrimary }}>Dashboard</p>
@@ -261,44 +214,30 @@ const DashboardView = ({ visibleMsgs, barsVisible }: { visibleMsgs: number; bars
         <IconBtn><Search className="w-3.5 h-3.5" style={{ color: T.textMuted }} /></IconBtn>
         <div className="relative">
           <IconBtn><Bell className="w-3.5 h-3.5" style={{ color: T.textMuted }} /></IconBtn>
-          <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full" style={{ background: "#2563eb" }} />
+          <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full" style={{ background: T.accent }} />
         </div>
-        <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-[10px] font-bold ml-1" style={{ background: T.teal }}>V</div>
+        <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-[10px] font-bold ml-1" style={{ background: "linear-gradient(135deg, #7c3aed, #2563eb)" }}>V</div>
       </div>
     </div>
 
-    {/* Stats */}
     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
       {stats.map((s) => (
-        <div
-          key={s.label}
-          className="rounded-xl p-4 transition-colors duration-300 hover:brightness-110"
-          style={{ background: T.navyCard, border: `1px solid ${T.navyBorder}` }}
-        >
+        <div key={s.label} className="rounded-xl p-4 transition-colors duration-300 hover:brightness-110" style={{ background: T.navyCard, border: `1px solid ${T.navyBorder}` }}>
           <div className="flex items-center justify-between mb-2">
             <p className="ds-font-body text-[11px] font-medium" style={{ color: T.textSecondary }}>{s.label}</p>
             <s.icon className="w-3.5 h-3.5" style={{ color: T.textMuted }} />
           </div>
           <p className="ds-font-heading text-[18px] font-bold tracking-tight" style={{ color: T.textPrimary }}>{s.value}</p>
           <div className="flex items-center gap-1 mt-1">
-            {s.up ? (
-              <ArrowUpRight className="w-3 h-3" style={{ color: T.teal }} />
-            ) : (
-              <ArrowDownRight className="w-3 h-3" style={{ color: "#ef4444" }} />
-            )}
-            <p className="text-[11px] font-medium" style={{ color: s.up ? T.teal : "#ef4444" }}>{s.change}</p>
+            {s.up ? <ArrowUpRight className="w-3 h-3" style={{ color: T.accent }} /> : <ArrowDownRight className="w-3 h-3" style={{ color: "#ef4444" }} />}
+            <p className="text-[11px] font-medium" style={{ color: s.up ? T.accent : "#ef4444" }}>{s.change}</p>
           </div>
         </div>
       ))}
     </div>
 
-    {/* Bottom row */}
     <div className="flex-1 grid grid-cols-1 md:grid-cols-5 gap-4 min-h-0">
-      {/* Chart */}
-      <div
-        className="md:col-span-3 rounded-xl p-5 flex flex-col"
-        style={{ background: T.navyCard, border: `1px solid ${T.navyBorder}` }}
-      >
+      <div className="md:col-span-3 rounded-xl p-5 flex flex-col" style={{ background: T.navyCard, border: `1px solid ${T.navyBorder}` }}>
         <div className="flex items-center justify-between mb-4">
           <div>
             <p className="ds-font-body text-[13px] font-medium" style={{ color: T.textPrimary }}>Call Volume</p>
@@ -306,15 +245,7 @@ const DashboardView = ({ visibleMsgs, barsVisible }: { visibleMsgs: number; bars
           </div>
           <div className="flex gap-1">
             {["7D", "30D", "90D"].map((p, i) => (
-              <span
-                key={p}
-                className="text-[10px] px-2.5 py-1 rounded-lg font-medium ds-font-body cursor-pointer"
-                style={
-                  i === 1
-                    ? { background: T.tealDim, color: T.teal, border: `1px solid rgba(37,99,235,0.25)` }
-                    : { color: T.textMuted }
-                }
-              >
+              <span key={p} className="text-[10px] px-2.5 py-1 rounded-lg font-medium ds-font-body cursor-pointer" style={i === 1 ? { background: T.accentDim, color: T.accent, border: `1px solid rgba(124,58,237,0.25)` } : { color: T.textMuted }}>
                 {p}
               </span>
             ))}
@@ -323,53 +254,28 @@ const DashboardView = ({ visibleMsgs, barsVisible }: { visibleMsgs: number; bars
         <div className="flex-1 flex items-end gap-[3px] min-h-[120px]">
           {barHeights.map((h, i) => (
             <div key={i} className="flex-1 flex flex-col justify-end h-full">
-              <div
-                className={barsVisible ? "ds-bar-grow" : ""}
-                style={{
-                  height: `${h}%`,
-                  borderRadius: 3,
-                  background: `linear-gradient(to top, ${T.teal}, rgba(37,99,235,0.3))`,
-                  transform: barsVisible ? undefined : "scaleY(0)",
-                  transformOrigin: "bottom",
-                  animationDelay: `${i * 30}ms`,
-                }}
-              />
+              <div className={barsVisible ? "ds-bar-grow" : ""} style={{ height: `${h}%`, borderRadius: 3, background: `linear-gradient(to top, ${T.accent}, rgba(124,58,237,0.3))`, transform: barsVisible ? undefined : "scaleY(0)", transformOrigin: "bottom", animationDelay: `${i * 30}ms` }} />
             </div>
           ))}
         </div>
       </div>
 
-      {/* AI Chat */}
-      <div
-        className="md:col-span-2 rounded-xl p-5 flex flex-col"
-        style={{ background: T.navyCard, border: `1px solid ${T.navyBorder}` }}
-      >
+      <div className="md:col-span-2 rounded-xl p-5 flex flex-col" style={{ background: T.navyCard, border: `1px solid ${T.navyBorder}` }}>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2.5">
-            <div className="w-6 h-6 rounded-lg flex items-center justify-center" style={{ background: T.teal }}>
+            <div className="w-6 h-6 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #7c3aed, #2563eb)" }}>
               <MessageSquare className="w-3 h-3 text-white" />
             </div>
             <p className="ds-font-body text-[12px] font-medium" style={{ color: T.textPrimary }}>AI Assistant</p>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full ds-pulse" style={{ background: "#2563eb" }} />
-            <span className="text-[10px]" style={{ color: "#2563eb" }}>Live</span>
+            <span className="w-2 h-2 rounded-full ds-pulse" style={{ background: T.accent }} />
+            <span className="text-[10px]" style={{ color: T.accent }}>Live</span>
           </div>
         </div>
         <div className="flex-1 flex flex-col gap-2.5 text-[11px] overflow-hidden ds-font-body">
           {chatMessages.slice(0, visibleMsgs).map((m, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35 }}
-              className={`rounded-xl p-3 max-w-[88%] ${m.from === "user" ? "self-end" : ""}`}
-              style={
-                m.from === "user"
-                  ? { background: T.tealDim, color: T.textPrimary, border: `1px solid rgba(37,99,235,0.2)` }
-                  : { background: "rgba(255,255,255,0.05)", color: T.textSecondary }
-              }
-            >
+            <motion.div key={i} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className={`rounded-xl p-3 max-w-[88%] ${m.from === "user" ? "self-end" : ""}`} style={m.from === "user" ? { background: T.accentDim, color: T.textPrimary, border: `1px solid rgba(124,58,237,0.2)` } : { background: "rgba(255,255,255,0.04)", color: T.textSecondary }}>
               {m.text}
             </motion.div>
           ))}
@@ -379,44 +285,22 @@ const DashboardView = ({ visibleMsgs, barsVisible }: { visibleMsgs: number; bars
   </motion.div>
 );
 
-/* ── Conversations sub-view ── */
 const ConversationsView = () => (
-  <motion.div
-    initial={{ opacity: 0, y: 8 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -8 }}
-    transition={{ duration: 0.3 }}
-    className="flex flex-col gap-4 flex-1"
-  >
+  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.3 }} className="flex flex-col gap-4 flex-1">
     <div>
       <p className="ds-font-heading text-[15px] font-semibold" style={{ color: T.textPrimary }}>Conversations</p>
       <p className="ds-font-body text-[11px] mt-0.5" style={{ color: T.textMuted }}>Recent call transcripts and statuses</p>
     </div>
     <div className="flex flex-col gap-2">
       {conversations.map((c, i) => (
-        <motion.div
-          key={c.name}
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: i * 0.08 }}
-          className="rounded-xl p-4 ds-font-body cursor-pointer transition-colors duration-200"
-          style={{ background: T.navyCard, border: `1px solid ${T.navyBorder}` }}
-          onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(20,28,46,0.8)")}
-          onMouseLeave={(e) => (e.currentTarget.style.background = T.navyCard)}
-        >
+        <motion.div key={c.name} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }} className="rounded-xl p-4 ds-font-body cursor-pointer transition-colors duration-200" style={{ background: T.navyCard, border: `1px solid ${T.navyBorder}` }}>
           <div className="flex items-center justify-between mb-1.5">
             <div className="flex items-center gap-2">
               <p className="text-[13px] font-medium" style={{ color: T.textPrimary }}>{c.name}</p>
               <span className="text-[10px]" style={{ color: T.textMuted }}>{c.number}</span>
             </div>
             <div className="flex items-center gap-3">
-              <span
-                className="text-[10px] px-2 py-0.5 rounded-full font-medium flex items-center gap-1"
-                style={{
-                  background: c.status === "resolved" ? T.tealDim : "rgba(240,180,41,0.15)",
-                  color: c.status === "resolved" ? T.teal : T.gold,
-                }}
-              >
+              <span className="text-[10px] px-2 py-0.5 rounded-full font-medium flex items-center gap-1" style={{ background: c.status === "resolved" ? T.accentDim : "rgba(240,180,41,0.15)", color: c.status === "resolved" ? T.accent : T.gold }}>
                 {c.status === "resolved" ? <CheckCircle2 className="w-3 h-3" /> : <AlertTriangle className="w-3 h-3" />}
                 {c.status === "resolved" ? "Resolved" : "Escalated"}
               </span>
@@ -431,12 +315,8 @@ const ConversationsView = () => (
   </motion.div>
 );
 
-/* ── Small helper ── */
 const IconBtn = ({ children }: { children: React.ReactNode }) => (
-  <div
-    className="w-8 h-8 rounded-xl flex items-center justify-center"
-    style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}
-  >
+  <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(139,92,246,0.1)" }}>
     {children}
   </div>
 );

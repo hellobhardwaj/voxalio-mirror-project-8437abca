@@ -23,7 +23,7 @@ const IntegrationsSection = () => {
   const iconSize = isMobile ? 20 : 28;
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden bg-white" id="integrations">
+    <section className="py-24 md:py-32 relative overflow-hidden" id="integrations" style={{ background: "#0a0812" }}>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -32,8 +32,8 @@ const IntegrationsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-display font-700 text-[#0f172a] text-[28px] md:text-[36px] leading-[1.1]">{t("int.title")}</h2>
-            <p className="mt-5 text-[17px] text-[#64748b] leading-[1.7]">{t("int.desc")}</p>
+            <h2 className="font-display font-700 text-white text-[28px] md:text-[36px] leading-[1.1]">{t("int.title")}</h2>
+            <p className="mt-5 text-[17px] text-muted-foreground leading-[1.7]">{t("int.desc")}</p>
           </motion.div>
 
           <motion.div
@@ -44,11 +44,11 @@ const IntegrationsSection = () => {
             className="relative flex items-center justify-center"
           >
             <div className="relative w-[290px] h-[290px] md:w-[400px] md:h-[400px]">
-              <div className="absolute inset-0 rounded-full border border-dashed border-[#e2e8f0]" />
-              <div className="absolute inset-8 md:inset-12 rounded-full border border-dashed border-[#e2e8f0]/60" />
+              <div className="absolute inset-0 rounded-full" style={{ border: "1px dashed rgba(139,92,246,0.2)" }} />
+              <div className="absolute inset-8 md:inset-12 rounded-full" style={{ border: "1px dashed rgba(139,92,246,0.12)" }} />
 
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-[#0f172a] flex items-center justify-center shadow-2xl z-10">
+                <div className="w-20 h-20 md:w-28 md:h-28 rounded-full flex items-center justify-center shadow-2xl z-10" style={{ background: "linear-gradient(135deg, #7c3aed, #2563eb)" }}>
                   <span className="text-white font-display font-700 text-xs md:text-base">Voxalio</span>
                 </div>
               </div>
@@ -61,8 +61,13 @@ const IntegrationsSection = () => {
                   return (
                     <motion.div
                       key={item.name}
-                      className="absolute w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-white border border-[#e2e8f0] flex items-center justify-center shadow-sm"
-                      style={{ left: `calc(50% + ${x}px - ${iconSize}px)`, top: `calc(50% + ${y}px - ${iconSize}px)` }}
+                      className="absolute w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center shadow-sm"
+                      style={{
+                        left: `calc(50% + ${x}px - ${iconSize}px)`,
+                        top: `calc(50% + ${y}px - ${iconSize}px)`,
+                        background: "rgba(19,17,31,0.8)",
+                        border: "1px solid rgba(139,92,246,0.15)",
+                      }}
                       title={item.name}
                       animate={{ rotate: -360 }}
                       transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
@@ -71,7 +76,7 @@ const IntegrationsSection = () => {
                         src={item.logo}
                         alt={item.name}
                         className="w-5 h-5 md:w-7 md:h-7"
-                        style={(item as any).isRaster ? { filter: "grayscale(100%) contrast(1.2)", objectFit: "contain" } : undefined}
+                        style={(item as any).isRaster ? { filter: "grayscale(100%) contrast(1.2)", objectFit: "contain" } : { filter: "invert(0.7)" }}
                         loading="lazy"
                       />
                     </motion.div>

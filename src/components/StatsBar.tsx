@@ -39,8 +39,16 @@ const StatsBar = () => {
       ];
 
   return (
-    <section ref={ref} className="w-full" style={{ background: "#111827" }}>
-      <div className="max-w-5xl mx-auto px-6 py-10">
+    <section
+      ref={ref}
+      className="w-full"
+      style={{
+        background: "rgba(124,58,237,0.08)",
+        borderTop: "1px solid rgba(124,58,237,0.15)",
+        borderBottom: "1px solid rgba(124,58,237,0.15)",
+      }}
+    >
+      <div className="max-w-5xl mx-auto px-6 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
             <motion.div
@@ -48,14 +56,15 @@ const StatsBar = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`text-center ${i < 3 ? "md:border-r md:border-white/[0.06]" : ""}`}
+              className={`text-center ${i < 3 ? "md:border-r" : ""}`}
+              style={{ borderColor: "rgba(255,255,255,0.05)" }}
             >
-              <div className="font-display font-700 text-white text-[36px] md:text-[48px] leading-none">
+              <div className="font-display font-700 text-[36px] md:text-[52px] leading-none vox-gradient-text">
                 {stat.prefix || ""}
                 {useCountUp(stat.value, 1500, inView)}
                 {stat.suffix}
               </div>
-              <div className="text-[13px] text-[#64748b] mt-2">{stat.label}</div>
+              <div className="text-[14px] text-[#64748b] mt-2">{stat.label}</div>
             </motion.div>
           ))}
         </div>

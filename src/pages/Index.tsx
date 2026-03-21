@@ -19,7 +19,7 @@ import CookieBanner from "@/components/CookieBanner";
 import ScrollProgress from "@/components/ScrollProgress";
 
 const Index = () => (
-  <div className="min-h-screen">
+  <div className="min-h-screen" style={{ background: "#0a0812" }}>
     <ScrollProgress />
     <Navbar />
     <HeroSection />
@@ -28,7 +28,7 @@ const Index = () => (
     <HowItWorksSection />
     <UseCasesSection />
     <TrustSection />
-    <div style={{ background: "#0a0f1e" }} className="py-24 md:py-32">
+    <div style={{ background: "#0f0d1a" }} className="py-24 md:py-32">
       <DashboardHeader />
       <DashboardShowcase />
     </div>

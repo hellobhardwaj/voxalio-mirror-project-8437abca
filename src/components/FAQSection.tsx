@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -18,7 +18,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-white" id="faq">
+    <section className="py-24 md:py-32" id="faq" style={{ background: "#0f0d1a" }}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-16">
           {/* Left */}
@@ -28,17 +28,17 @@ const FAQSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-display font-700 text-[#0f172a] text-[32px] md:text-[48px] leading-[1.1]">
+            <h2 className="font-display font-700 text-white text-[32px] md:text-[48px] leading-[1.1]">
               {lang === "de" ? "Alles, was Sie wissen möchten" : "Everything you want to know"}
             </h2>
-            <p className="text-[#64748b] text-[16px] mt-6 leading-[1.7]">
+            <p className="text-muted-foreground text-[16px] mt-6 leading-[1.7]">
               {lang === "de"
                 ? "Finden Sie nicht, was Sie suchen? Buchen Sie eine Demo und wir beantworten alles live."
                 : "Can't find what you're looking for? Book a demo and we'll answer everything live."}
             </p>
             <a
               href="#booking"
-              className="inline-block mt-8 px-6 py-3 rounded-lg bg-[#2563eb] text-white font-display font-600 text-[14px] hover:bg-[#1d4ed8] transition-all"
+              className="inline-block mt-8 px-6 py-3 rounded-[10px] text-white font-display font-600 text-[14px] transition-all vox-gradient-bg vox-btn-glow"
             >
               {lang === "de" ? "Demo buchen" : "Book a Demo"}
             </a>
@@ -53,19 +53,19 @@ const FAQSection = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04, duration: 0.3 }}
-                className="border-b border-[#e2e8f0]"
+                style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
                   className="w-full flex items-center justify-between py-5 text-left group"
                 >
-                  <span className="font-display font-600 text-[16px] text-[#0f172a] pr-4 group-hover:text-[#2563eb] transition-colors">
+                  <span className={`font-display font-600 text-[16px] pr-4 transition-colors ${openIndex === i ? "text-[#a855f7]" : "text-white/80 group-hover:text-[#a855f7]"}`}>
                     {faq.q}
                   </span>
                   {openIndex === i ? (
-                    <Minus className="w-5 h-5 text-[#2563eb] flex-shrink-0" />
+                    <X className="w-5 h-5 text-[#a855f7] flex-shrink-0 transition-transform" />
                   ) : (
-                    <Plus className="w-5 h-5 text-[#94a3b8] flex-shrink-0 group-hover:text-[#2563eb] transition-colors" />
+                    <Plus className="w-5 h-5 text-muted-foreground flex-shrink-0 group-hover:text-[#a855f7] transition-colors" />
                   )}
                 </button>
                 <AnimatePresence>
@@ -77,7 +77,7 @@ const FAQSection = () => {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <p className="pb-5 text-[15px] text-[#64748b] leading-[1.7]">{faq.a}</p>
+                      <p className="pb-5 text-[15px] text-muted-foreground leading-[1.7]">{faq.a}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

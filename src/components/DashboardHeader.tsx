@@ -12,7 +12,7 @@ const DashboardHeader = () => {
       transition={{ duration: 0.6 }}
       className="text-center mb-12"
     >
-      <span className="text-[#2563eb] text-[12px] uppercase tracking-[0.12em] font-medium">
+      <span className="text-[#a855f7] text-[12px] uppercase tracking-[0.12em] font-medium">
         {lang === "de" ? "Echtzeit-Intelligenz" : "Real-time Intelligence"}
       </span>
       <h2 className="font-display font-700 text-white text-[32px] md:text-[42px] leading-[1.1] mt-3">
@@ -20,7 +20,7 @@ const DashboardHeader = () => {
           ? "Jeder Anruf erfasst. Jede Erkenntnis sichtbar."
           : "Every call tracked. Every insight visible."}
       </h2>
-      <p className="text-[#94a3b8] text-[16px] mt-4 max-w-lg mx-auto">
+      <p className="text-muted-foreground text-[16px] mt-4 max-w-lg mx-auto">
         {lang === "de"
           ? "Vollständige Transparenz über jeden Anruf, jeden Agenten und jedes Ergebnis."
           : "Complete transparency over every call, every agent, and every outcome."}
