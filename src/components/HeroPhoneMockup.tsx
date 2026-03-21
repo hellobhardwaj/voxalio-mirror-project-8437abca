@@ -60,7 +60,7 @@ const HeroPhoneMockup = () => {
           <p className="text-[9px] uppercase tracking-[0.1em] text-muted-foreground mb-2 font-medium">
             Live Transcript
           </p>
-          <div className="space-y-0.5">
+          <div className="space-y-0">
             {TRANSCRIPT_LINES.slice(0, visibleLines).map((line, i) => (
               <motion.p
                 key={i}
