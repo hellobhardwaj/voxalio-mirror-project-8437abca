@@ -19,11 +19,11 @@ const TrustSection = () => {
       ];
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "var(--bg-mid)" }}>
+    <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "var(--bg-dark)" }}>
       {/* Aurora background */}
-      <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <Aurora
-          colorStops={["#7c3aed", "#a855f7", "#2563eb"]}
+          colorStops={["#2563eb", "#60a5fa", "#3b82f6"]}
           blend={0.6}
           amplitude={1.2}
           speed={0.8}
@@ -58,8 +58,8 @@ const TrustSection = () => {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="rounded-[var(--radius-lg)] p-8 vox-card-hover"
                 style={{
-                  background: "var(--bg-card)",
-                  border: "1px solid var(--border-subtle)",
+                  background: "white",
+                  border: "1px solid #e2e8f0",
                   willChange: "transform",
                 }}
               >

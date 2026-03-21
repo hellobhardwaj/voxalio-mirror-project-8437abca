@@ -24,14 +24,14 @@ const IntegrationsSection = () => {
   const iconSize = isMobile ? 20 : 28;
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden" id="integrations" style={{ background: "var(--bg-dark)" }}>
-      <div className="absolute inset-0 z-0 opacity-75">
+    <section className="py-24 md:py-32 relative overflow-hidden" id="integrations" style={{ background: "var(--bg-mid)" }}>
+      <div className="absolute inset-0 z-0 opacity-50">
         <ShapeGrid
           speed={0.3}
           squareSize={45}
           direction="diagonal"
-          borderColor="rgba(139, 92, 246, 0.15)"
-          hoverFillColor="rgba(124, 58, 237, 0.25)"
+          borderColor="rgba(37, 99, 235, 0.08)"
+          hoverFillColor="rgba(37, 99, 235, 0.1)"
           shape="square"
           hoverTrailAmount={8}
         />
@@ -58,8 +58,8 @@ const IntegrationsSection = () => {
             className="relative flex items-center justify-center"
           >
             <div className="relative w-[290px] h-[290px] md:w-[400px] md:h-[400px]">
-              <div className="absolute inset-0 rounded-full" style={{ border: "1px dashed var(--border-normal)" }} />
-              <div className="absolute inset-8 md:inset-12 rounded-full" style={{ border: "1px dashed var(--border-subtle)" }} />
+              <div className="absolute inset-0 rounded-full" style={{ border: "1px dashed rgba(37,99,235,0.2)" }} />
+              <div className="absolute inset-8 md:inset-12 rounded-full" style={{ border: "1px dashed rgba(37,99,235,0.1)" }} />
 
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-20 h-20 md:w-28 md:h-28 rounded-full flex items-center justify-center shadow-2xl z-10" style={{ background: "var(--gradient-primary)" }}>
@@ -79,8 +79,8 @@ const IntegrationsSection = () => {
                       style={{
                         left: `calc(50% + ${x}px - ${iconSize}px)`,
                         top: `calc(50% + ${y}px - ${iconSize}px)`,
-                        background: "var(--bg-card)",
-                        border: "1px solid var(--border-subtle)",
+                        background: "white",
+                        border: "1px solid #e2e8f0",
                       }}
                       title={item.name}
                       animate={{ rotate: -360 }}
@@ -90,7 +90,7 @@ const IntegrationsSection = () => {
                         src={item.logo}
                         alt={item.name}
                         className="w-5 h-5 md:w-7 md:h-7"
-                        style={(item as any).isRaster ? { filter: "grayscale(100%) contrast(1.2)", objectFit: "contain" } : { filter: "invert(0.7)" }}
+                        style={(item as any).isRaster ? { filter: "grayscale(100%) contrast(1.2)", objectFit: "contain" } : { filter: "brightness(0.4)" }}
                         loading="lazy"
                       />
                     </motion.div>

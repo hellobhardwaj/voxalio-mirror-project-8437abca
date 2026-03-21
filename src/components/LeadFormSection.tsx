@@ -39,15 +39,13 @@ const LeadFormSection = () => {
     : { name: "Full Name", email: "Work Email", company: "Company Name", message: "Message", submit: "Send Message", heading: "Let's", subtitle: "Book a demo or just say hello — we'll get back within 24 hours." };
 
   return (
-    <section className="relative w-full" id="contact" style={{ backgroundColor: "var(--bg-mid)" }}>
+    <section className="relative w-full" id="contact" style={{ backgroundColor: "var(--bg-dark)" }}>
       {/* Decorative blurred circles */}
-      <div className="absolute top-20 left-[10%] w-48 h-48 rounded-full pointer-events-none" style={{ background: "rgba(124,58,237,0.08)", filter: "blur(60px)" }} />
-      <div className="absolute bottom-20 right-[15%] w-64 h-64 rounded-full pointer-events-none" style={{ background: "rgba(37,99,235,0.06)", filter: "blur(60px)" }} />
-      <div className="absolute top-1/3 right-[25%] w-32 h-32 rounded-full pointer-events-none" style={{ background: "rgba(168,85,247,0.1)", filter: "blur(60px)" }} />
+      <div className="absolute top-20 left-[10%] w-48 h-48 rounded-full pointer-events-none" style={{ background: "rgba(37,99,235,0.05)", filter: "blur(60px)" }} />
+      <div className="absolute bottom-20 right-[15%] w-64 h-64 rounded-full pointer-events-none" style={{ background: "rgba(59,130,246,0.04)", filter: "blur(60px)" }} />
 
       <div className="max-w-7xl mx-auto px-6 py-20 md:py-24 lg:py-32 relative z-10">
         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-24">
-          {/* Left */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -58,18 +56,17 @@ const LeadFormSection = () => {
             <h2 className="font-display font-extrabold text-[var(--text-primary)] leading-[0.95]" style={{ fontSize: "clamp(48px, 5.5vw, 72px)" }}>
               {labels.heading} <span className="gradient-text">talk.</span>
             </h2>
-            <p className="mt-8 text-white/60 text-[var(--text-md)] leading-[1.7] max-w-[400px]">{labels.subtitle}</p>
+            <p className="mt-8 text-[var(--text-secondary)] text-[var(--text-md)] leading-[1.7] max-w-[400px]">{labels.subtitle}</p>
             <ul className="mt-10 space-y-4">
               {bullets.map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-[var(--purple-light)] flex-shrink-0" strokeWidth={3} />
-                  <span className="text-white text-[16px] font-medium">{item}</span>
+                  <Check className="w-5 h-5 text-[var(--purple)] flex-shrink-0" strokeWidth={3} />
+                  <span className="text-[var(--text-primary)] text-[16px] font-medium">{item}</span>
                 </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Right — Form */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -77,7 +74,7 @@ const LeadFormSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:w-[55%]"
           >
-            <div className="bg-white rounded-[var(--radius-lg)] p-8 lg:p-12" style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.3)" }}>
+            <div className="bg-white rounded-[var(--radius-lg)] p-8 lg:p-12" style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.08)", border: "1px solid #e2e8f0" }}>
               <form onSubmit={handleSubmit} className="space-y-5">
                 {[
                   { key: "name", type: "text", label: labels.name },
@@ -91,7 +88,7 @@ const LeadFormSection = () => {
                       required={field.key !== "company"}
                       value={form[field.key as keyof typeof form]}
                       onChange={(e) => setForm({ ...form, [field.key]: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[var(--purple)] focus:shadow-[0_0_0_3px_rgba(124,58,237,0.15)] transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[var(--purple)] focus:shadow-[0_0_0_3px_rgba(37,99,235,0.1)] transition-all"
                     />
                   </div>
                 ))}
@@ -100,7 +97,7 @@ const LeadFormSection = () => {
                   <textarea
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[var(--purple)] focus:shadow-[0_0_0_3px_rgba(124,58,237,0.15)] transition-all resize-vertical"
+                    className="w-full px-4 py-3 rounded-xl bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[var(--purple)] focus:shadow-[0_0_0_3px_rgba(37,99,235,0.1)] transition-all resize-vertical"
                     style={{ height: "140px" }}
                   />
                 </div>

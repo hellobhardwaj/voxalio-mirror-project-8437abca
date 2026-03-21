@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { Mic, Grid3X3, Volume2, PhoneOff, Headphones } from "lucide-react";
 
 const TRANSCRIPT = [
-  { label: "[AI] Voxalio:", labelColor: "#a855f7", text: "Hi! Thanks for calling Apex Dynamics. How can I help you today?" },
-  { label: "[Caller] Client:", labelColor: "#f8f8ff", text: "Hi, I'm interested in your marketing services. Can you tell me more about your packages?" },
-  { label: "[AI] Voxalio:", labelColor: "#a855f7", text: "Of course! We offer three main tiers: Starter, Growth, and Premium. The Growth package is our most popular for businesses looking to scale quickly. What specific goals do you have?" },
+  { label: "[AI] Voxalio:", labelColor: "#2563eb", text: "Hi! Thanks for calling Apex Dynamics. How can I help you today?" },
+  { label: "[Caller] Client:", labelColor: "#0f172a", text: "Hi, I'm interested in your marketing services. Can you tell me more about your packages?" },
+  { label: "[AI] Voxalio:", labelColor: "#2563eb", text: "Of course! We offer three main tiers: Starter, Growth, and Premium. The Growth package is our most popular for businesses looking to scale quickly. What specific goals do you have?" },
 ];
 
 const CHAR_SPEED = 35;
@@ -107,31 +107,31 @@ const ValuePropositionSection = () => {
           >
             <div className="relative iphone-float" style={{ width: "280px", maxWidth: "100%" }}>
               {/* Gradient border wrap */}
-              <div className="rounded-[46px] p-[2px]" style={{ background: "linear-gradient(145deg, #7c3aed 0%, #1c1c2e 40%, #2563eb 100%)" }}>
-                <div className="relative rounded-[44px] overflow-hidden" style={{ background: "var(--bg-card)", boxShadow: "var(--shadow-purple-lg)" }}>
+              <div className="rounded-[46px] p-[2px]" style={{ background: "linear-gradient(145deg, #2563eb 0%, #e2e8f0 40%, #3b82f6 100%)" }}>
+                <div className="relative rounded-[44px] overflow-hidden" style={{ background: "white", boxShadow: "var(--shadow-purple-lg)" }}>
                   <div className="relative flex justify-center pt-3 pb-1">
-                    <div className="w-[90px] h-[26px] rounded-full bg-black" />
+                    <div className="w-[90px] h-[26px] rounded-full bg-[#0f172a]" />
                   </div>
                   <div className="flex items-center justify-between px-7 pb-2">
-                    <span className="text-[11px] text-white/60 font-semibold">9:41</span>
+                    <span className="text-[11px] text-[var(--text-muted)] font-semibold">9:41</span>
                     <div className="flex gap-1.5 items-center">
-                      <div className="w-[20px] h-[9px] rounded-[2px] border border-white/40 flex items-center p-[1px]">
-                        <div className="w-full h-full rounded-[1px] bg-white/60" />
+                      <div className="w-[20px] h-[9px] rounded-[2px] border border-[var(--text-muted)] flex items-center p-[1px]">
+                        <div className="w-full h-full rounded-[1px] bg-[var(--text-muted)]" />
                       </div>
                     </div>
                   </div>
                   <div className="flex flex-col items-center pt-4 pb-3">
-                    <div className="w-[64px] h-[64px] rounded-full flex items-center justify-center mb-3" style={{ background: "rgba(124,58,237,0.15)" }}>
-                      <Headphones className="w-7 h-7 text-[var(--purple-light)]" />
+                    <div className="w-[64px] h-[64px] rounded-full flex items-center justify-center mb-3" style={{ background: "rgba(37,99,235,0.1)" }}>
+                      <Headphones className="w-7 h-7 text-[var(--purple)]" />
                     </div>
-                    <span className="text-[17px] font-bold text-white">Voxalio AI</span>
+                    <span className="text-[17px] font-bold text-[var(--text-primary)]">Voxalio AI</span>
                     <span className="text-[var(--text-sm)] text-[var(--text-secondary)] mt-0.5">{fmtTime(timer)}</span>
                   </div>
                   <div className="flex justify-center gap-4 px-5 pb-4">
                     {controlBtns.map((b) => (
                       <div key={b.label} className="flex flex-col items-center gap-1">
-                        <div className="w-[44px] h-[44px] rounded-xl flex items-center justify-center" style={{ background: "rgba(255,255,255,0.06)" }}>
-                          <b.icon className="w-[18px] h-[18px] text-white/50" />
+                        <div className="w-[44px] h-[44px] rounded-xl flex items-center justify-center" style={{ background: "rgba(37,99,235,0.06)" }}>
+                          <b.icon className="w-[18px] h-[18px] text-[var(--text-muted)]" />
                         </div>
                         <span className="text-[10px] text-[var(--text-secondary)]">{b.label}</span>
                       </div>
@@ -147,15 +147,15 @@ const ValuePropositionSection = () => {
                     {displayedText.map((line, i) => (
                       <p key={i} className="text-[var(--text-xs)] leading-[1.5] mb-3">
                         <span className="font-bold" style={{ color: line.labelColor }}>{line.label}</span>{" "}
-                        <span className="text-white/70">{line.text}</span>
+                        <span className="text-[var(--text-secondary)]">{line.text}</span>
                         {i === displayedText.length - 1 && line.text.length < TRANSCRIPT[i]?.text.length && (
-                          <span className="inline-block w-[2px] h-3 bg-[var(--purple-light)] ml-0.5 align-text-bottom animate-pulse" />
+                          <span className="inline-block w-[2px] h-3 bg-[var(--purple)] ml-0.5 align-text-bottom animate-pulse" />
                         )}
                       </p>
                     ))}
                   </div>
                   <div className="flex justify-center pb-3">
-                    <div className="w-[100px] h-[4px] rounded-full bg-white/20" />
+                    <div className="w-[100px] h-[4px] rounded-full bg-[#e2e8f0]" />
                   </div>
                 </div>
               </div>

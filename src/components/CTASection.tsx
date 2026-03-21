@@ -15,14 +15,13 @@ const CTASection = () => {
   const { lang } = useLanguage();
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "var(--bg-darkest)" }}>
-      {/* Large purple glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(124,58,237,0.12), transparent)" }} />
+    <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "var(--bg-mid)" }}>
+      {/* Large blue glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(37,99,235,0.06), transparent)" }} />
 
       {/* Decorative blurred circles */}
-      <div className="absolute top-20 left-[10%] w-48 h-48 rounded-full pointer-events-none" style={{ background: "rgba(124,58,237,0.08)", filter: "blur(80px)" }} />
-      <div className="absolute bottom-20 right-[10%] w-64 h-64 rounded-full pointer-events-none" style={{ background: "rgba(37,99,235,0.06)", filter: "blur(80px)" }} />
-      <div className="absolute top-1/3 right-[20%] w-32 h-32 rounded-full pointer-events-none" style={{ background: "rgba(168,85,247,0.1)", filter: "blur(80px)" }} />
+      <div className="absolute top-20 left-[10%] w-48 h-48 rounded-full pointer-events-none" style={{ background: "rgba(37,99,235,0.04)", filter: "blur(80px)" }} />
+      <div className="absolute bottom-20 right-[10%] w-64 h-64 rounded-full pointer-events-none" style={{ background: "rgba(59,130,246,0.04)", filter: "blur(80px)" }} />
 
       {/* Floating particles */}
       {particles.map((p) => (
@@ -32,7 +31,7 @@ const CTASection = () => {
           style={{
             width: p.size,
             height: p.size,
-            background: `rgba(168, 85, 247, ${p.opacity})`,
+            background: `rgba(37, 99, 235, ${p.opacity})`,
             left: `${p.left}%`,
             top: `${p.top}%`,
             animation: `float-slow ${p.duration}s ease-in-out infinite`,

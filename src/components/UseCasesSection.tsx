@@ -18,7 +18,7 @@ const UseCasesSection = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden" id="use-cases" style={{ background: "var(--bg-dark)" }}>
+    <section className="py-24 md:py-32 relative overflow-hidden" id="use-cases" style={{ background: "var(--bg-mid)" }}>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-16 text-center">
           <span className="section-label">Built for every business</span>
@@ -31,48 +31,20 @@ const UseCasesSection = () => {
         </motion.div>
 
         <div className="flex flex-col gap-5">
-          {/* Row 1: Featured full-width card */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <TiltCard3D>
-              <BentoCard uc={useCases[0]} featured />
-            </TiltCard3D>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+            <TiltCard3D><BentoCard uc={useCases[0]} featured /></TiltCard3D>
           </motion.div>
-
-          {/* Row 2: Two equal cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {useCases.slice(1, 3).map((uc, i) => (
-              <motion.div
-                key={uc.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.07 }}
-              >
-                <TiltCard3D>
-                  <BentoCard uc={uc} />
-                </TiltCard3D>
+              <motion.div key={uc.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.07 }}>
+                <TiltCard3D><BentoCard uc={uc} /></TiltCard3D>
               </motion.div>
             ))}
           </div>
-
-          {/* Row 3: Three equal cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {useCases.slice(3).map((uc, i) => (
-              <motion.div
-                key={uc.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.07 }}
-              >
-                <TiltCard3D>
-                  <BentoCard uc={uc} />
-                </TiltCard3D>
+              <motion.div key={uc.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.07 }}>
+                <TiltCard3D><BentoCard uc={uc} /></TiltCard3D>
               </motion.div>
             ))}
           </div>
@@ -89,27 +61,22 @@ const BentoCard = ({ uc, featured = false }: { uc: { icon: any; title: string; d
       className="group rounded-[var(--radius-lg)] p-8 h-full vox-card-hover relative overflow-hidden"
       style={{
         background: featured
-          ? "linear-gradient(135deg, rgba(124,58,237,0.25), rgba(37,99,235,0.15))"
-          : "var(--bg-card)",
+          ? "linear-gradient(135deg, rgba(37,99,235,0.08), rgba(59,130,246,0.04))"
+          : "white",
         border: featured
-          ? "1px solid rgba(124,58,237,0.3)"
-          : "1px solid var(--border-subtle)",
-        backdropFilter: "blur(12px)",
+          ? "1px solid rgba(37,99,235,0.2)"
+          : "1px solid #e2e8f0",
         minHeight: featured ? "180px" : "160px",
       }}
     >
       <div
         className="w-[44px] h-[44px] rounded-[10px] flex items-center justify-center mb-5"
-        style={{ background: "linear-gradient(135deg, rgba(124,58,237,0.2), rgba(37,99,235,0.2))", border: "1px solid var(--border-normal)" }}
+        style={{ background: "linear-gradient(135deg, rgba(37,99,235,0.12), rgba(59,130,246,0.12))", border: "1px solid rgba(37,99,235,0.15)" }}
       >
-        <Icon className="w-5 h-5 text-white" />
+        <Icon className="w-5 h-5 text-[var(--purple)]" />
       </div>
-      <h3 className="font-display font-semibold text-[18px] mb-3 text-[var(--text-primary)]">
-        {uc.title}
-      </h3>
-      <p className="text-[14px] leading-[1.6] text-[var(--text-secondary)]">
-        {uc.description}
-      </p>
+      <h3 className="font-display font-semibold text-[18px] mb-3 text-[var(--text-primary)]">{uc.title}</h3>
+      <p className="text-[14px] leading-[1.6] text-[var(--text-secondary)]">{uc.description}</p>
     </SpotlightCard>
   );
 };

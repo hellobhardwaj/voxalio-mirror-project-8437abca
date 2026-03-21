@@ -21,7 +21,7 @@ const HowItWorksSection = () => {
   return (
     <section className="py-24 md:py-32 relative overflow-hidden" id="how-it-works" style={{ background: "var(--bg-mid)" }}>
       {/* GridDistortion background */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-auto">
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-auto">
         <GridDistortion
           imageSrc="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=1920&q=80"
           grid={12}
@@ -55,19 +55,19 @@ const HowItWorksSection = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.08 }}
                     onClick={() => setActive(i)}
-                    className={`relative w-full text-left pl-12 pr-4 py-4 rounded-xl transition-all duration-300 ${isActive ? "bg-white/[0.03]" : "hover:bg-white/[0.02]"}`}
+                    className={`relative w-full text-left pl-12 pr-4 py-4 rounded-xl transition-all duration-300 ${isActive ? "bg-[rgba(37,99,235,0.04)]" : "hover:bg-[rgba(37,99,235,0.02)]"}`}
                   >
                     <div
                       className="absolute left-0 top-4 w-9 h-9 rounded-full flex items-center justify-center text-[var(--text-sm)] font-display font-semibold transition-all duration-300 z-10"
                       style={
                         isActive
-                          ? { background: "var(--gradient-primary)", color: "white", boxShadow: "0 0 0 6px rgba(124,58,237,0.15), 0 0 20px rgba(124,58,237,0.4)" }
-                          : { background: "var(--bg-card)", border: "1px solid var(--border-normal)", color: "var(--text-muted)" }
+                          ? { background: "var(--gradient-primary)", color: "white", boxShadow: "0 0 0 6px rgba(37,99,235,0.1), 0 0 20px rgba(37,99,235,0.2)" }
+                          : { background: "white", border: "1px solid #e2e8f0", color: "var(--text-muted)" }
                       }
                     >
                       {i + 1}
                     </div>
-                    <h3 className={`font-display font-semibold text-[16px] transition-colors duration-300 ${isActive ? "text-[var(--purple-light)]" : "text-white/80"}`}>
+                    <h3 className={`font-display font-semibold text-[16px] transition-colors duration-300 ${isActive ? "text-[var(--purple)]" : "text-[var(--text-primary)]"}`}>
                       {step.title}
                     </h3>
                     {isActive && (

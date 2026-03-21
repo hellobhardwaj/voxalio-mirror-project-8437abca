@@ -33,18 +33,18 @@ const CookieBanner = () => {
           exit={{ y: 100, opacity: 0 }}
           className="fixed bottom-0 left-0 right-0 z-[100] p-4"
         >
-          <div className="max-w-4xl mx-auto rounded-[var(--radius-lg)] p-5 flex flex-col sm:flex-row items-center gap-4" style={{ background: "rgba(19,17,31,0.95)", border: "1px solid var(--border-subtle)", backdropFilter: "blur(20px)", boxShadow: "0 -8px 40px rgba(0,0,0,0.3)" }}>
+          <div className="max-w-4xl mx-auto rounded-[var(--radius-lg)] p-5 flex flex-col sm:flex-row items-center gap-4" style={{ background: "rgba(255,255,255,0.98)", border: "1px solid #e2e8f0", backdropFilter: "blur(20px)", boxShadow: "0 -8px 40px rgba(0,0,0,0.08)" }}>
             <p className="text-sm text-[var(--text-secondary)] flex-1">
               {t("cookie.text")}{" "}
-              <a href="/privacy" className="underline text-[var(--purple-light)] hover:opacity-80">
+              <a href="/privacy" className="underline text-[var(--purple)] hover:opacity-80">
                 {t("cookie.privacy")}
               </a>
             </p>
             <div className="flex gap-2 flex-shrink-0">
               <button
                 onClick={handleDecline}
-                className="px-5 py-2 rounded-xl text-sm font-medium text-white/70 transition-all duration-200 hover:border-[var(--border-bright)]"
-                style={{ border: "1px solid var(--border-normal)", background: "rgba(124,58,237,0.08)" }}
+                className="px-5 py-2 rounded-xl text-sm font-medium text-[var(--text-secondary)] transition-all duration-200 hover:border-[rgba(37,99,235,0.3)]"
+                style={{ border: "1px solid #e2e8f0", background: "rgba(37,99,235,0.04)" }}
               >
                 {t("cookie.decline")}
               </button>
