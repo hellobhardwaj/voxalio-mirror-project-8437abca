@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,47 +8,24 @@
   :root {
     --background: 210 20% 99%;
     --foreground: 220 25% 10%;
-
     --card: 0 0% 100%;
     --card-foreground: 220 25% 10%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 220 25% 10%;
-
-    --primary: 175 65% 40%;
+    --primary: 224 76% 48%;
     --primary-foreground: 0 0% 100%;
-
     --secondary: 200 40% 95%;
     --secondary-foreground: 220 25% 10%;
-
     --muted: 210 15% 96%;
-    --muted-foreground: 220 10% 46%;
-
-    --accent: 190 70% 45%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 224 76% 48%;
     --accent-foreground: 0 0% 100%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 220 15% 91%;
     --input: 220 15% 91%;
-    --ring: 175 65% 40%;
-
+    --ring: 224 76% 48%;
     --radius: 0.75rem;
-
-    /* Voxalio custom tokens */
-    --vox-teal: 175 65% 40%;
-    --vox-cyan: 190 70% 45%;
-    --vox-blue: 210 75% 50%;
-    --vox-dark: 220 25% 8%;
-    --vox-dark-surface: 220 20% 12%;
-    --vox-light: 210 20% 98%;
-    --vox-gradient: linear-gradient(135deg, hsl(175 65% 40%), hsl(200 70% 48%), hsl(210 75% 50%));
-    --vox-gradient-soft: linear-gradient(135deg, hsl(175 65% 40% / 0.06), hsl(210 75% 50% / 0.06));
-    --vox-gradient-glow: linear-gradient(135deg, hsl(175 65% 55% / 0.25), hsl(210 75% 60% / 0.25));
-    --vox-shadow: 0 2px 20px hsl(175 65% 40% / 0.08);
-    --vox-shadow-lg: 0 16px 48px hsl(175 65% 40% / 0.12);
-    --vox-shadow-xl: 0 24px 64px hsl(220 25% 10% / 0.08), 0 8px 24px hsl(175 65% 40% / 0.06);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -67,101 +44,53 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     text-rendering: optimizeLegibility;
-    letter-spacing: -0.011em;
+    line-height: 1.7;
   }
 
-  /* Premium smooth scrolling */
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
   }
 
-  /* Better selection color */
   ::selection {
-    background: hsl(175 65% 40% / 0.15);
+    background: rgba(37, 99, 235, 0.15);
     color: hsl(220 25% 10%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Syne', sans-serif;
+    letter-spacing: -0.03em;
   }
 }
 
 @layer utilities {
-  .vox-gradient-text {
-    background: var(--vox-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .vox-gradient-bg {
-    background: var(--vox-gradient);
-  }
-
-  .vox-gradient-soft-bg {
-    background: var(--vox-gradient-soft);
-  }
-
+  /* Section backgrounds */
   .vox-section-dark {
-    background-color: hsl(var(--vox-dark));
-    color: hsl(0 0% 95%);
+    background-color: #0a0f1e;
+    color: #ffffff;
   }
 
-  .vox-section-dark-surface {
-    background-color: hsl(var(--vox-dark-surface));
-  }
-
-  .vox-shadow {
-    box-shadow: var(--vox-shadow);
-  }
-
-  .vox-shadow-lg {
-    box-shadow: var(--vox-shadow-lg);
-  }
-
-  .vox-shadow-xl {
-    box-shadow: var(--vox-shadow-xl);
-  }
-
-  /* Premium noise texture overlay */
-  .vox-noise {
-    position: relative;
-  }
-  .vox-noise::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0.015;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* Rainbow border spin */
-  @keyframes rainbow-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  .animate-rainbow-spin {
-    animation: rainbow-spin 4.5s linear infinite;
-    /* Scale up so rotation corners don't reveal gaps */
-    transform-origin: center;
-    scale: 1.5;
-  }
-
-  /* Premium glass effect */
+  /* Glass navbar */
   .vox-glass {
-    background: hsl(0 0% 100% / 0.7);
+    background: rgba(10, 15, 30, 0.8);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
   }
 
-  /* Section divider gradient */
+  /* Section divider */
   .vox-section-divider {
     background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
     height: 1px;
+  }
+
+  /* Dot grid pattern */
+  .dot-grid {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 }

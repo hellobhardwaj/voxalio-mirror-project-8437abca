@@ -1,184 +1,131 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { Phone, CheckCircle } from "lucide-react";
-import { useState, useRef } from "react";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { supabase } from "@/integrations/supabase/client";
 import HeroWaveform from "@/components/HeroWaveform";
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] },
+  }),
+};
+
 const HeroSection = () => {
-  const [phone, setPhone] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
-  const submittingRef = useRef(false);
   const { t, lang } = useLanguage();
 
-  const cleanPhone = (raw: string) => raw.replace(/[\s\-\(\)]/g, "");
-
-  const buildE164 = (): string => {
-    const cleaned = cleanPhone(phone);
-    if (cleaned.startsWith("+")) return cleaned;
-    return `+49${cleaned.replace(/^0+/, "")}`;
-  };
-
-  const validate = (e164: string): boolean => {
-    if (!e164.startsWith("+")) return false;
-    const digits = e164.slice(1);
-    if (digits.length < 10 || digits.length > 15) return false;
-    if (!/^\d+$/.test(digits)) return false;
-    return true;
-  };
-
-  const handleSubmit = async () => {
-    if (submittingRef.current) return;
-    setError("");
-    setSuccess(false);
-
-    const e164 = buildE164();
-
-    if (!validate(e164)) {
-      setError(
-        lang === "de"
-          ? "Bitte geben Sie eine gültige Telefonnummer mit Landesvorwahl ein"
-          : "Please enter a valid phone number with country code"
-      );
-      return;
-    }
-
-    submittingRef.current = true;
-    setLoading(true);
-
-    try {
-      const { data, error: fnError } = await supabase.functions.invoke("trigger-call", {
-        body: { phone: e164 },
-      });
-
-      if (fnError) throw fnError;
-      if (data?.error) throw new Error(data.error);
-
-      setSuccess(true);
-      setPhone("");
-      setTimeout(() => setSuccess(false), 5000);
-    } catch (err) {
-      console.error("Call trigger failed:", err);
-      setError(
-        lang === "de"
-          ? "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
-          : "Something went wrong. Please try again."
-      );
-    } finally {
-      setLoading(false);
-      submittingRef.current = false;
-    }
-  };
+  const trustItems = lang === "de"
+    ? ["✓ Einrichtung in 10 Minuten", "✓ DSGVO-konform", "✓ Gehostet in Deutschland"]
+    : ["✓ Setup in 10 minutes", "✓ GDPR Compliant", "✓ Hosted in Germany"];
 
   return (
-    <section className="pt-28 pb-20 md:pt-36 md:pb-28 bg-[hsl(220_40%_98%)]">
-      <div className="max-w-2xl mx-auto px-6 flex flex-col items-center text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col items-center"
-        >
-          <div className="inline-flex items-center gap-2 bg-secondary/80 rounded-full px-4 py-1.5 mb-6 border border-border/50">
-            <span className="w-2 h-2 rounded-full bg-[#2563eb] animate-pulse" />
-            <span className="text-[13px] font-normal text-muted-foreground tracking-normal">
-              {t("hero.badge")}
-            </span>
+    <section className="min-h-screen flex items-center relative overflow-hidden" style={{ background: "#0a0f1e" }}>
+      {/* Dot grid */}
+      <div className="absolute inset-0 dot-grid" />
+
+      <div className="max-w-7xl mx-auto px-6 w-full py-32 md:py-0">
+        <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-16 items-center">
+          {/* Left */}
+          <div className="flex flex-col items-start">
+            <motion.div
+              custom={0}
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8 border border-[rgba(37,99,235,0.3)]"
+              style={{ background: "rgba(37,99,235,0.15)" }}
+            >
+              <span className="w-2 h-2 rounded-full bg-[#2563eb] animate-pulse" />
+              <span className="text-[13px] text-[#94a3b8]">{t("hero.badge")}</span>
+            </motion.div>
+
+            <motion.h1
+              custom={1}
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+              className="font-display font-800 text-white leading-[1.05] tracking-[-0.03em]"
+              style={{ fontSize: "clamp(40px, 5.5vw, 68px)" }}
+            >
+              {lang === "de" ? (
+                <>
+                  Ihre Telefone klingeln.
+                  <br />
+                  Voxalio antwortet.
+                  <br />
+                  <span className="text-[#2563eb]">Immer.</span>
+                </>
+              ) : (
+                <>
+                  Your phones ring.
+                  <br />
+                  Voxalio answers.
+                  <br />
+                  <span className="text-[#2563eb]">Always.</span>
+                </>
+              )}
+            </motion.h1>
+
+            <motion.p
+              custom={2}
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+              className="mt-8 text-[17px] text-[#94a3b8] leading-[1.7] max-w-[480px]"
+            >
+              {t("hero.subtitle")}
+            </motion.p>
+
+            <motion.div
+              custom={3}
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+              className="flex flex-col sm:flex-row gap-4 mt-10 w-full sm:w-auto"
+            >
+              <a
+                href="#contact"
+                className="px-7 py-3.5 rounded-lg bg-[#2563eb] text-white font-display font-600 text-[15px] hover:bg-[#1d4ed8] transition-all duration-200 text-center"
+              >
+                {t("cta.button")}
+              </a>
+              <a
+                href="#booking"
+                className="px-7 py-3.5 rounded-lg border border-white/[0.15] text-white font-display font-600 text-[15px] hover:bg-white/[0.05] transition-all duration-200 text-center"
+              >
+                {t("nav.bookDemo")}
+              </a>
+            </motion.div>
+
+            <motion.div
+              custom={4}
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+              className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-8 text-[13px] text-[#64748b]"
+            >
+              {trustItems.map((item, i) => (
+                <span key={i}>
+                  {item}
+                  {i < trustItems.length - 1 && <span className="ml-4">·</span>}
+                </span>
+              ))}
+            </motion.div>
           </div>
 
-          <h1 className="text-[32px] sm:text-[40px] md:text-[48px] font-semibold text-foreground leading-[1.08] tracking-[-0.03em]">
-            {t("hero.title")}
-          </h1>
-
-          {/* Waveform accent */}
+          {/* Right — Waveform */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex flex-col items-center"
           >
             <HeroWaveform />
+            <span className="mt-4 text-[11px] text-[#2563eb] uppercase tracking-[0.15em] font-medium">
+              {lang === "de" ? "LIVE SPRACHGESPRÄCH" : "LIVE VOICE CONVERSATION"}
+            </span>
           </motion.div>
-
-          <p className="mt-5 text-muted-foreground text-[17px] font-normal leading-[1.7] max-w-lg tracking-[-0.01em]">
-            {t("hero.subtitle")}
-          </p>
-
-          {/* CTA Card */}
-          <div className="mt-8 w-full max-w-sm">
-            <div className="relative rounded-2xl p-[2px] overflow-hidden shadow-xl">
-              <div
-                className="absolute inset-[-50%] animate-rainbow-spin"
-                style={{
-                  background:
-                    "conic-gradient(from 0deg, transparent 0%, transparent 65%, #2563eb 78%, #3b82f6 85%, #60a5fa 92%, transparent 100%)",
-                }}
-              />
-              <div className="relative bg-card backdrop-blur-xl rounded-[calc(1rem-1px)] p-5">
-                <div className="flex items-center justify-center mb-3">
-                  <Phone className="w-5 h-5 text-muted-foreground" />
-                  <span className="ml-2 text-sm text-muted-foreground">
-                    {lang === "de" ? "Telefonnummer eingeben" : "Enter your phone number"}
-                  </span>
-                </div>
-
-                <div className="mb-3">
-                  <input
-                    type="tel"
-                    value={phone}
-                    onChange={(e) => {
-                      setPhone(e.target.value);
-                      setError("");
-                    }}
-                    placeholder={lang === "de" ? "z.B. +4917612345678" : "e.g. +4917612345678"}
-                    disabled={loading}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#2563eb]/30 disabled:opacity-50 transition-all duration-200"
-                  />
-                </div>
-
-                <AnimatePresence>
-                  {error && (
-                    <motion.p
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="text-destructive text-xs mb-3 text-left"
-                    >
-                      {error}
-                    </motion.p>
-                  )}
-                  {success && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="flex items-center gap-2 text-[#2563eb] text-sm mb-3 justify-center"
-                    >
-                      <CheckCircle className="w-4 h-4" />
-                      <span>
-                        📞 {lang === "de" ? "Wir rufen Sie jetzt an..." : "Calling you now..."}
-                      </span>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                <button
-                  onClick={handleSubmit}
-                  disabled={loading || !phone.trim()}
-                  className="w-full py-3 rounded-lg bg-[#2563eb] text-white font-medium text-[14px] hover:bg-[#1d4ed8] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg tracking-[-0.01em]"
-                >
-                  {loading
-                    ? lang === "de"
-                      ? "Wird angerufen..."
-                      : "Calling..."
-                    : t("hero.cta")}
-                </button>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

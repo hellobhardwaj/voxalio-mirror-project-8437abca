@@ -1,12 +1,15 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import StatsBar from "@/components/StatsBar";
 import ValuePropositionSection from "@/components/ValuePropositionSection";
-import DashboardShowcase from "@/components/DashboardShowcase";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import UseCasesSection from "@/components/UseCasesSection";
-
+import TrustSection from "@/components/TrustSection";
+import DashboardHeader from "@/components/DashboardHeader";
+import DashboardShowcase from "@/components/DashboardShowcase";
 import IntegrationsSection from "@/components/IntegrationsSection";
 import PricingSection from "@/components/PricingSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
 import LeadFormSection from "@/components/LeadFormSection";
 import CalendlySection from "@/components/CalendlySection";
@@ -16,20 +19,22 @@ import CookieBanner from "@/components/CookieBanner";
 import ScrollProgress from "@/components/ScrollProgress";
 
 const Index = () => (
-  <div className="min-h-screen bg-background">
+  <div className="min-h-screen">
     <ScrollProgress />
     <Navbar />
     <HeroSection />
-    <DashboardShowcase />
-    <div className="vox-section-divider max-w-5xl mx-auto" />
+    <StatsBar />
+    <ValuePropositionSection />
     <HowItWorksSection />
     <UseCasesSection />
-    <ValuePropositionSection />
-    
-    <div className="vox-section-divider max-w-5xl mx-auto" />
+    <TrustSection />
+    <div style={{ background: "#0a0f1e" }} className="py-24 md:py-32">
+      <DashboardHeader />
+      <DashboardShowcase />
+    </div>
     <IntegrationsSection />
-    <div className="vox-section-divider max-w-5xl mx-auto" />
     <PricingSection />
+    <TestimonialsSection />
     <FAQSection />
     <LeadFormSection />
     <CalendlySection />
