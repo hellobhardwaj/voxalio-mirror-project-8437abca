@@ -20,7 +20,7 @@ const FAQSection = () => {
 
   return (
     <section className="py-24 md:py-32 relative overflow-hidden" id="faq" style={{ background: "var(--bg-dark)" }}>
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
+      <div className="absolute inset-0 z-0 opacity-75">
         <Particles
           particleColors={["#7c3aed", "#a855f7", "#2563eb"]}
           particleCount={150}
