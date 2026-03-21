@@ -143,9 +143,9 @@ const ValuePropositionSection = () => {
                       <span className="text-[10px] text-[var(--text-secondary)]">End</span>
                     </div>
                   </div>
-                  <div ref={transcriptRef} className="mx-4 mb-3 px-3 py-3 overflow-y-auto" style={{ height: "160px", scrollbarWidth: "thin" }}>
+                  <div ref={transcriptRef} className="mx-4 mb-3 px-3 py-2 overflow-y-auto" style={{ height: "130px", scrollbarWidth: "thin" }}>
                     {displayedText.map((line, i) => (
-                      <p key={i} className="text-[var(--text-xs)] leading-[1.5] mb-3">
+                      <p key={i} className="text-[var(--text-xs)] leading-[1.45] mb-1.5">
                         <span className="font-bold" style={{ color: line.labelColor }}>{line.label}</span>{" "}
                         <span className="text-[var(--text-secondary)]">{line.text}</span>
                         {i === displayedText.length - 1 && line.text.length < TRANSCRIPT[i]?.text.length && (
