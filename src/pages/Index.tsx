@@ -34,7 +34,7 @@ const Index = () => (
     </div>
     <IntegrationsSection />
     <PricingSection />
-    <TestimonialsSection />
+    
     <FAQSection />
     <LeadFormSection />
     <CalendlySection />

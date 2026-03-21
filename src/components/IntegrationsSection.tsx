@@ -25,7 +25,7 @@ const IntegrationsSection = () => {
 
   return (
     <section className="py-24 md:py-32 relative overflow-hidden" id="integrations" style={{ background: "var(--bg-dark)" }}>
-      <div className="absolute inset-0 z-0 opacity-25 pointer-events-none">
+      <div className="absolute inset-0 z-0 opacity-50 pointer-events-none">
         <ShapeGrid
           speed={0.3}
           squareSize={45}
