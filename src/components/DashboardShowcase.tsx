@@ -74,7 +74,7 @@ const injectStyles = () => {
     @keyframes ds-border-glow{0%,100%{opacity:.4}50%{opacity:.8}}
     @keyframes ds-bar-grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
     @keyframes ds-pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
-    .ds-font-heading{font-family:'Syne',sans-serif}
+    .ds-font-heading{font-family:'Space Grotesk',sans-serif}
     .ds-font-body{font-family:'DM Sans',sans-serif}
     .ds-float-1{animation:ds-float1 4s ease-in-out infinite}
     .ds-float-2{animation:ds-float2 4.5s ease-in-out infinite}
