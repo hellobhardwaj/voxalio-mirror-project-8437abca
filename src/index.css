@@ -277,6 +277,61 @@
     animation: float-slow 6s ease-in-out infinite;
   }
 
+  /* Particle rising animation */
+  @keyframes particle-rise {
+    0% { transform: translateY(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-110vh); opacity: 0; }
+  }
+
+  /* Aurora animations */
+  @keyframes aurora1 {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(50px, -30px); }
+    66% { transform: translate(-30px, 20px); }
+  }
+  @keyframes aurora2 {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(-40px, 40px); }
+    66% { transform: translate(60px, -20px); }
+  }
+  @keyframes aurora3 {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(30px, 50px); }
+    66% { transform: translate(-50px, -30px); }
+  }
+
+  /* Border beam animation */
+  @keyframes border-beam-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .border-beam::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(124,58,237,0.4) 300deg, rgba(37,99,235,0.4) 330deg, transparent 360deg);
+    animation: border-beam-rotate 3s linear infinite;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    padding: 1px;
+  }
+
+  /* iPhone float animation */
+  @keyframes iphone-float {
+    0%, 100% { transform: translateY(-8px) rotateY(-3deg); }
+    50% { transform: translateY(0px) rotateY(3deg); }
+  }
+
+  .iphone-float {
+    animation: iphone-float 4s ease-in-out infinite;
+    perspective: 800px;
+  }
+
   /* Section label pill */
   .section-label {
     display: inline-flex;
@@ -292,5 +347,14 @@
     letter-spacing: 0.12em;
     font-weight: 500;
     margin-bottom: 16px;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }

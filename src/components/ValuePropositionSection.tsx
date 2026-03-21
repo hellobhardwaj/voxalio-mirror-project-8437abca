@@ -105,7 +105,7 @@ const ValuePropositionSection = () => {
             transition={{ duration: 0.6 }}
             className="flex justify-center md:justify-end"
           >
-            <div className="relative" style={{ width: "280px", maxWidth: "100%" }}>
+            <div className="relative iphone-float" style={{ width: "280px", maxWidth: "100%" }}>
               {/* Gradient border wrap */}
               <div className="rounded-[46px] p-[2px]" style={{ background: "linear-gradient(145deg, #7c3aed 0%, #1c1c2e 40%, #2563eb 100%)" }}>
                 <div className="relative rounded-[44px] overflow-hidden" style={{ background: "var(--bg-card)", boxShadow: "var(--shadow-purple-lg)" }}>

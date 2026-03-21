@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { Phone, FileText, Headphones, CheckCircle, Calendar, Layers } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SpotlightCard from "@/components/SpotlightCard";
+import { useRef, useCallback } from "react";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 const UseCasesSection = () => {
   const { t } = useLanguage();
@@ -37,38 +40,71 @@ const UseCasesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.07 }}
-                className={`group rounded-[var(--radius-lg)] p-8 vox-card-hover ${uc.span}`}
-                style={{
-                  background: uc.highlight
-                    ? "linear-gradient(135deg, rgba(124,58,237,0.3), rgba(37,99,235,0.2))"
-                    : uc.featured
-                    ? "linear-gradient(135deg, rgba(124,58,237,0.2), rgba(37,99,235,0.1))"
-                    : "var(--bg-card)",
-                  border: uc.highlight || uc.featured
-                    ? "1px solid rgba(124,58,237,0.3)"
-                    : "1px solid var(--border-subtle)",
-                  backdropFilter: "blur(12px)",
-                  willChange: "transform",
-                }}
+                className={uc.span}
               >
-                <div
-                  className="w-[44px] h-[44px] rounded-[10px] flex items-center justify-center mb-5"
-                  style={{ background: "linear-gradient(135deg, rgba(124,58,237,0.2), rgba(37,99,235,0.2))", border: "1px solid var(--border-normal)" }}
-                >
-                  <Icon className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="font-display font-semibold text-[18px] mb-3 text-[var(--text-primary)]">
-                  {uc.title}
-                </h3>
-                <p className="text-[14px] leading-[1.6] text-[var(--text-secondary)]">
-                  {uc.description}
-                </p>
+                <TiltCard3D>
+                  <SpotlightCard
+                    className={`group rounded-[var(--radius-lg)] p-8 h-full vox-card-hover relative overflow-hidden`}
+                    style={{
+                      background: uc.highlight
+                        ? "linear-gradient(135deg, rgba(124,58,237,0.3), rgba(37,99,235,0.2))"
+                        : uc.featured
+                        ? "linear-gradient(135deg, rgba(124,58,237,0.2), rgba(37,99,235,0.1))"
+                        : "var(--bg-card)",
+                      border: uc.highlight || uc.featured
+                        ? "1px solid rgba(124,58,237,0.3)"
+                        : "1px solid var(--border-subtle)",
+                      backdropFilter: "blur(12px)",
+                      willChange: "transform",
+                    }}
+                  >
+                    {/* Border beam */}
+                    <div className="absolute inset-0 rounded-[var(--radius-lg)] pointer-events-none overflow-hidden">
+                      <div className="absolute inset-[-1px] rounded-[var(--radius-lg)] border-beam" />
+                    </div>
+                    <div
+                      className="w-[44px] h-[44px] rounded-[10px] flex items-center justify-center mb-5 relative z-10"
+                      style={{ background: "linear-gradient(135deg, rgba(124,58,237,0.2), rgba(37,99,235,0.2))", border: "1px solid var(--border-normal)" }}
+                    >
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <h3 className="font-display font-semibold text-[18px] mb-3 text-[var(--text-primary)] relative z-10">
+                      {uc.title}
+                    </h3>
+                    <p className="text-[14px] leading-[1.6] text-[var(--text-secondary)] relative z-10">
+                      {uc.description}
+                    </p>
+                  </SpotlightCard>
+                </TiltCard3D>
               </motion.div>
             );
           })}
         </div>
       </div>
     </section>
+  );
+};
+
+const TiltCard3D = ({ children }: { children: React.ReactNode }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+
+  const handleMove = useCallback((e: React.MouseEvent) => {
+    if (reduced || !ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    ref.current.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
+  }, [reduced]);
+
+  const handleLeave = useCallback(() => {
+    if (ref.current) ref.current.style.transform = "perspective(800px) rotateY(0) rotateX(0)";
+  }, []);
+
+  return (
+    <div ref={ref} onMouseMove={handleMove} onMouseLeave={handleLeave} style={{ transition: "transform 0.3s ease-out", willChange: "transform" }}>
+      {children}
+    </div>
   );
 };
 
