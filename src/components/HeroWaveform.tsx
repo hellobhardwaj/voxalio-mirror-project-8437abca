@@ -43,8 +43,6 @@ const HeroWaveform = () => {
 
     for (let i = 0; i < BAR_COUNT; i++) {
       const x = CANVAS_PADDING_X + i * gap + gap / 2 - barW / 2;
-
-      // Natural voice-like envelope: 3 peaks
       const pos = i / BAR_COUNT;
       const envelope =
         0.55 * Math.exp(-Math.pow((pos - 0.18) / 0.1, 2)) +
@@ -72,22 +70,20 @@ const HeroWaveform = () => {
       const amplitude = Math.min((envelope * wave + proximityBoost) * hoverBoost, 1.0);
       const barH = amplitude * (drawH / 2) * 0.92;
 
-      // Gradient: #0080ff center → #00c8ff tips
+      // Purple gradient
       const grad = ctx.createLinearGradient(x, centerY - barH, x, centerY + barH);
-      grad.addColorStop(0, "#00c8ff");
-      grad.addColorStop(0.4, "#0080ff");
-      grad.addColorStop(0.5, "#0080ff");
-      grad.addColorStop(0.6, "#0080ff");
-      grad.addColorStop(1, "#00c8ff");
+      grad.addColorStop(0, "#06b6d4");
+      grad.addColorStop(0.4, "#7c3aed");
+      grad.addColorStop(0.5, "#7c3aed");
+      grad.addColorStop(0.6, "#7c3aed");
+      grad.addColorStop(1, "#06b6d4");
 
       ctx.fillStyle = grad;
 
-      // Top bar (upward from center) with rounded top
       const r = Math.min(barW / 2, 2.5);
       ctx.beginPath();
       roundedRect(ctx, x, centerY - barH, barW, barH, r);
       ctx.fill();
-      // Bottom bar (mirrored)
       ctx.beginPath();
       roundedRect(ctx, x, centerY, barW, barH, r);
       ctx.fill();
@@ -134,7 +130,7 @@ const HeroWaveform = () => {
 
   return (
     <div
-      className="w-full max-w-[560px] h-[80px] sm:h-[120px] mx-auto cursor-crosshair select-none"
+      className="w-full max-w-[600px] h-[80px] sm:h-[120px] mx-auto cursor-crosshair select-none"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >

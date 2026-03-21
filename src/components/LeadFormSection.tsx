@@ -36,10 +36,10 @@ const LeadFormSection = () => {
 
   const labels = lang === "de"
     ? { name: "Vollständiger Name", email: "Geschäftliche E-Mail", company: "Firmenname", message: "Nachricht", submit: "Nachricht senden", heading: "Sprechen wir.", subtitle: "Buchen Sie eine Demo oder sagen Sie einfach Hallo — wir melden uns innerhalb von 24 Stunden." }
-    : { name: "Full Name", email: "Work Email", company: "Company Name", message: "Message", submit: "Send Message", heading: "Let's talk.", subtitle: "Book a demo or just say hello — we'll get back within 24 hours." };
+    : { name: "Full Name", email: "Work Email", company: "Company Name", message: "Message", submit: "Send Message", heading: "Let's", subtitle: "Book a demo or just say hello — we'll get back within 24 hours." };
 
   return (
-    <section className="relative w-full" id="contact" style={{ backgroundColor: "#1e2128" }}>
+    <section className="relative w-full" id="contact" style={{ backgroundColor: "#0a0812" }}>
       <div className="max-w-7xl mx-auto px-6 py-20 md:py-24 lg:py-32">
         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-24">
           {/* Left */}
@@ -51,13 +51,13 @@ const LeadFormSection = () => {
             className="lg:w-[45%] mb-12 lg:mb-0"
           >
             <h2 className="font-display font-800 text-white leading-[0.95]" style={{ fontSize: "clamp(48px, 5.5vw, 72px)" }}>
-              {labels.heading}
+              {labels.heading} <span className="vox-gradient-text">talk.</span>
             </h2>
             <p className="mt-8 text-white/60 text-[17px] leading-[1.7] max-w-[400px]">{labels.subtitle}</p>
             <ul className="mt-10 space-y-4">
               {bullets.map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-[#2563eb] flex-shrink-0" strokeWidth={3} />
+                  <Check className="w-5 h-5 text-[#a855f7] flex-shrink-0" strokeWidth={3} />
                   <span className="text-white text-[16px] font-medium">{item}</span>
                 </li>
               ))}
@@ -72,7 +72,7 @@ const LeadFormSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:w-[55%]"
           >
-            <div className="bg-white rounded-2xl p-8 lg:p-12" style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.3)" }}>
+            <div className="bg-white rounded-[20px] p-8 lg:p-12" style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.3)" }}>
               <form onSubmit={handleSubmit} className="space-y-5">
                 {[
                   { key: "name", type: "text", label: labels.name },
@@ -86,7 +86,7 @@ const LeadFormSection = () => {
                       required={field.key !== "company"}
                       value={form[field.key as keyof typeof form]}
                       onChange={(e) => setForm({ ...form, [field.key]: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[#0f172a] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[#7c3aed] transition-colors"
                     />
                   </div>
                 ))}
@@ -95,14 +95,14 @@ const LeadFormSection = () => {
                   <textarea
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[#0f172a] transition-colors resize-vertical"
+                    className="w-full px-4 py-3 rounded-xl bg-white text-[#0f172a] text-sm border-[1.5px] border-[#e2e8f0] focus:outline-none focus:border-[#7c3aed] transition-colors resize-vertical"
                     style={{ height: "140px" }}
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full py-4 rounded-[10px] text-white font-display font-600 text-[16px] transition-colors disabled:opacity-50 bg-[#0f172a] hover:bg-[#1e293b]"
+                  className="w-full py-4 rounded-xl text-white font-display font-600 text-[16px] transition-all duration-200 disabled:opacity-50 vox-gradient-bg vox-btn-glow"
                 >
                   {submitting ? (lang === "de" ? "Wird gesendet..." : "Sending...") : labels.submit}
                 </button>
