@@ -167,24 +167,6 @@ const HeroSection = () => {
       {/* Dot grid */}
       <div className="absolute inset-0 dot-grid z-[1]" />
 
-      {/* Floating particles rising */}
-      {!reduced && particles.map((p) => (
-        <div
-          key={p.id}
-          className="absolute rounded-full pointer-events-none"
-          style={{
-            width: p.size,
-            height: p.size,
-            background: `${p.color}${p.opacity})`,
-            left: `${p.left}%`,
-            bottom: `-${p.size}px`,
-            animation: `particle-rise ${p.duration}s linear infinite`,
-            animationDelay: `${p.delay}s`,
-            willChange: "transform, opacity",
-          }}
-        />
-      ))}
-
       <div className="max-w-4xl mx-auto px-6 w-full relative z-10 text-center flex flex-col items-center" style={{ paddingTop: "clamp(140px, 16vh, 200px)", paddingBottom: "clamp(80px, 10vh, 120px)" }}>
         {/* Badge */}
         <motion.div custom={0} initial="hidden" animate="visible" variants={fadeUp} className="mb-10">
