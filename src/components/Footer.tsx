@@ -26,10 +26,10 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
-              <h3 className="font-display font-bold text-foreground text-xl md:text-2xl tracking-tight">
+              <h3 className="font-display font-bold text-white text-xl md:text-2xl tracking-tight">
                 {lang === "de" ? "Newsletter abonnieren" : "Join Our Newsletter"}
               </h3>
-              <p className="text-muted-foreground text-sm mt-1">
+              <p className="text-white/60 text-sm mt-1">
                 {lang === "de" ? "Nur Updates und Angebote. Kein Spam." : "Only updates and special offers. No spams."}
               </p>
             </div>
