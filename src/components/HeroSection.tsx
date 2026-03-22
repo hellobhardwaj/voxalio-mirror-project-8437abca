@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
+import DitheringBackground from "@/components/DitheringBackground";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PlayCircle } from "lucide-react";
 import HeroWaveform from "@/components/HeroWaveform";
