@@ -128,27 +128,33 @@ const PhoneCallForm = ({ lang }: { lang: string }) => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full">
-      <div
-        className="relative rounded-2xl p-1"
-        style={{
-          background: "linear-gradient(135deg, rgba(37,99,235,0.3), rgba(96,165,250,0.2), rgba(59,130,246,0.3))",
-        }}
-      >
-        <div className="rounded-xl bg-white overflow-hidden">
-          <input
-            type="tel"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            placeholder={lang === "de" ? "z.B. +4917612345678" : "Enter phone number"}
-            className="w-full px-5 py-3.5 text-[15px] text-[#0f172a] placeholder:text-[#94a3b8] bg-transparent outline-none border-none font-body"
-          />
+      <div className="relative rounded-[16px] p-[2px] overflow-hidden" style={{ boxShadow: "0 4px 24px rgba(37,99,235,0.10)" }}>
+        {/* Animated rainbow/gradient border */}
+        <div
+          className="absolute inset-0 rounded-[16px]"
+          style={{
+            background: "conic-gradient(from var(--border-angle, 0deg), #3b82f6, #10b981, #8b5cf6, #3b82f6)",
+            animation: "spin-border 3s linear infinite",
+          }}
+        />
+        <div className="relative rounded-[14px] bg-white p-4 flex flex-col gap-3">
+          <div className="flex items-center gap-3 px-1">
+            <Phone size={18} className="text-[#94a3b8] shrink-0" />
+            <input
+              type="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder={lang === "de" ? "Telefonnummer eingeben" : "Enter phone number"}
+              className="w-full text-[15px] text-[#0f172a] placeholder:text-[#94a3b8] bg-transparent outline-none border-none font-body"
+            />
+          </div>
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3.5 text-white font-display font-semibold text-[15px] transition-opacity disabled:opacity-60"
+            className="w-full py-3.5 text-white font-display font-bold text-[15px] transition-all disabled:opacity-60 hover:opacity-90"
             style={{
               background: "#0f172a",
-              borderRadius: "0 0 12px 12px",
+              borderRadius: "10px",
             }}
           >
             {loading
@@ -157,6 +163,16 @@ const PhoneCallForm = ({ lang }: { lang: string }) => {
           </button>
         </div>
       </div>
+      <style>{`
+        @property --border-angle {
+          syntax: '<angle>';
+          initial-value: 0deg;
+          inherits: false;
+        }
+        @keyframes spin-border {
+          to { --border-angle: 360deg; }
+        }
+      `}</style>
     </form>
   );
 };
