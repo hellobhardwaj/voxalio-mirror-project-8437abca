@@ -35,7 +35,7 @@ const Footer = () => {
             </div>
             <div className="flex gap-3 flex-shrink-0">
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
                 <input
                   type="email"
                   value={email}
