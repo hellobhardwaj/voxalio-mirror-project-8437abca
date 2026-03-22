@@ -46,7 +46,7 @@ const cardsDe = [
   { title: "Anrufe bearbeitet", value: "1.000+", subtitle: "Pro Monat im Pro-Tarif" },
   { title: "Einrichtungszeit", value: "< 1 Woche", subtitle: "Kein Entwickler nötig" },
   { title: "Lösungsrate", value: "94,2%", subtitle: "Anrufe ohne menschliche Eskalation gelöst" },
-  { title: "Return on Investment", value: "Bis zu 95% günstiger als Wettbewerber", subtitle: "Voxalio bearbeitet Ihre Anrufe 24/7 zu einem Bruchteil der Kosten eines menschlichen Teams — DSGVO-konform, in Minuten einsatzbereit" },
+  { title: "Return on Investment", value: "Bis zu 95% günstiger als Wettbewerber", subtitle: "Voxalio bearbeitet Ihre Anrufe 24/7 zu einem Bruchteil der Kosten eines menschlichen Teams — DSGVO-konform, in unter einer Woche einsatzbereit" },
 ];
 
 const ROISection = () => {

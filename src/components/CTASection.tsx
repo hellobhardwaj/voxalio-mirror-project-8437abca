@@ -86,7 +86,7 @@ const CTASection = () => {
             href="#contact"
             className="inline-block px-9 py-4 rounded-[10px] text-white font-display font-semibold text-[16px] transition-all duration-200 vox-gradient-bg vox-btn-glow"
           >
-            {lang === "de" ? "Kostenlos starten — in 10 Minuten" : "Start Free — It Takes 10 Minutes"}
+            {lang === "de" ? "Kostenlos starten — in unter einer Woche" : "Start Free — Live in Under a Week"}
           </a>
           <p className="mt-4 text-[var(--text-sm)] text-[var(--text-muted)]">
             {lang === "de"
