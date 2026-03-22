@@ -51,7 +51,7 @@ const Footer = () => {
         `,
       }}
     >
-      <div className="relative z-10 px-5 pt-10 pb-0 md:px-[80px] md:pt-[60px]">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-5 pt-10 pb-0 md:px-[80px] md:pt-[60px]">
         {/* Top content */}
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 md:gap-[120px]">
           {/* Brand */}
