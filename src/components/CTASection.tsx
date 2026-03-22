@@ -15,7 +15,7 @@ const CTASection = () => {
   const { lang } = useLanguage();
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "var(--bg-mid)", borderTop: "1px solid rgba(0,0,0,0.10)" }}>
+    <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "var(--bg-mid)", borderTop: "1px solid rgba(0,0,0,0.12)" }}>
       {/* Large blue glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(37,99,235,0.06), transparent)" }} />
 

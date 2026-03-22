@@ -18,7 +18,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden" id="faq" style={{ background: "var(--bg-dark)", borderTop: "1px solid rgba(0,0,0,0.15)", borderBottom: "1px solid rgba(0,0,0,0.15)" }}>
+    <section className="py-24 md:py-32 relative overflow-hidden" id="faq" style={{ background: "var(--bg-dark)", borderTop: "1px solid rgba(0,0,0,0.12)", borderBottom: "1px solid rgba(0,0,0,0.12)" }}>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-16">
           <motion.div

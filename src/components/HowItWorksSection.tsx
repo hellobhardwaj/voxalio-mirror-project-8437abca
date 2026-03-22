@@ -56,7 +56,7 @@ const ROISection = () => {
     <section
       className="relative overflow-hidden py-24 md:py-32"
       id="how-it-works"
-      style={{ background: "var(--bg-mid)", borderTop: "1px solid rgba(0,0,0,0.10)" }}
+      style={{ background: "var(--bg-mid)", borderTop: "1px solid rgba(0,0,0,0.12)" }}
     >
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Header */}
