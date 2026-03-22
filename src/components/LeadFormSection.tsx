@@ -39,7 +39,7 @@ const LeadFormSection = () => {
     : { name: "Full Name", email: "Work Email", company: "Company Name", message: "Message", submit: "Send Message", heading: "Let's", subtitle: "Book a demo or just say hello — we'll get back within 24 hours." };
 
   return (
-    <section className="relative w-full" id="contact" style={{ backgroundColor: "var(--bg-dark)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+    <section className="relative w-full" id="contact" style={{ backgroundColor: "var(--bg-dark)", borderTop: "1px solid rgba(255,255,255,0.12)" }}>
       {/* Decorative blurred circles */}
       <div className="absolute top-20 left-[10%] w-48 h-48 rounded-full pointer-events-none" style={{ background: "rgba(37,99,235,0.05)", filter: "blur(60px)" }} />
       <div className="absolute bottom-20 right-[15%] w-64 h-64 rounded-full pointer-events-none" style={{ background: "rgba(59,130,246,0.04)", filter: "blur(60px)" }} />
