@@ -2,7 +2,16 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Mic, ListChecks, Phone, Plug, BarChart3 } from "lucide-react";
 import { AnimatedGradient } from "@/components/ui/animated-gradient-with-svg";
+import Prism from "@/components/Prism";
 import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
+
+const cardGradients = [
+  ["#dbeafe", "#bfdbfe", "#93c5fd", "#e0f2fe"],
+  ["#e0f2fe", "#c7d2fe", "#a5b4fc", "#dbeafe"],
+  ["#ede9fe", "#c7d2fe", "#bfdbfe", "#e0e7ff"],
+  ["#dbeafe", "#93c5fd", "#bfdbfe", "#e0f2fe"],
+  ["#c7d2fe", "#dbeafe", "#bfdbfe", "#a5b4fc"],
+];
 
 const HowItWorksSection = () => {
   const { t } = useLanguage();
@@ -17,11 +26,19 @@ const HowItWorksSection = () => {
 
   return (
     <section className="relative overflow-hidden" id="how-it-works" style={{ background: "var(--bg-mid)" }}>
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
-        <AnimatedGradient
-          colors={["#dbeafe", "#bfdbfe", "#93c5fd", "#e0f2fe", "#c7d2fe"]}
-          speed={8}
-          blur="heavy"
+      {/* Prism WebGL background */}
+      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
+        <Prism
+          animationType="rotate"
+          timeScale={0.5}
+          height={3.5}
+          baseWidth={5.5}
+          scale={3.6}
+          hueShift={0}
+          colorFrequency={1}
+          noise={0}
+          glow={1}
+          suspendWhenOffscreen
         />
       </div>
 
@@ -56,16 +73,23 @@ const HowItWorksSection = () => {
             return (
               <ScrollStackItem key={i}>
                 <div
-                  className="rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10"
+                  className="relative rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 overflow-hidden"
                   style={{
-                    background: "rgba(255,255,255,0.85)",
-                    backdropFilter: "blur(20px)",
                     border: "1px solid rgba(37,99,235,0.08)",
                     boxShadow: "0 8px 32px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04)",
                   }}
                 >
+                  {/* Animated gradient background per card */}
+                  <AnimatedGradient
+                    colors={cardGradients[i % cardGradients.length]}
+                    speed={10}
+                    blur="heavy"
+                  />
+                  {/* White overlay for readability */}
+                  <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-[1]" />
+
                   {/* Step number + icon */}
-                  <div className="flex items-center gap-5 shrink-0">
+                  <div className="flex items-center gap-5 shrink-0 relative z-[2]">
                     <div
                       className="w-12 h-12 rounded-full flex items-center justify-center text-white font-display font-bold text-lg"
                       style={{ background: `linear-gradient(135deg, ${step.accent}, #60a5fa)` }}
@@ -81,7 +105,7 @@ const HowItWorksSection = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 min-w-0">
+                  <div className="flex-1 min-w-0 relative z-[2]">
                     <h3 className="font-display font-semibold text-[18px] text-[var(--text-primary)] mb-2">
                       {step.title}
                     </h3>
@@ -96,7 +120,6 @@ const HowItWorksSection = () => {
         </ScrollStack>
       </div>
 
-      {/* Bottom padding */}
       <div className="h-24 md:h-32" />
     </section>
   );
