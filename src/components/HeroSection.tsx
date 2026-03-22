@@ -152,8 +152,6 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* Blue dithering shader background */}
-      <DitheringBackground />
 
       {/* Blue radial glow with parallax */}
       <motion.div
