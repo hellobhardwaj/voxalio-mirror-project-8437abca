@@ -52,7 +52,7 @@ const Pricing = ({ plans, title, description }: PricingProps) => {
   };
 
   return (
-    <section className="w-full py-20 md:py-32" id="pricing" style={{ backgroundColor: "var(--bg-dark)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+    <section className="w-full py-20 md:py-32" id="pricing" style={{ backgroundColor: "var(--bg-dark)", borderTop: "1px solid rgba(255,255,255,0.10)" }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="flex flex-col items-center gap-5 text-center">
           <span className="section-label">Pricing</span>

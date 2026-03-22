@@ -19,7 +19,7 @@ const TrustSection = () => {
       ];
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "var(--bg-dark)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+    <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: "var(--bg-dark)", borderTop: "1px solid rgba(255,255,255,0.10)" }}>
       {/* Aurora background */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <Aurora
