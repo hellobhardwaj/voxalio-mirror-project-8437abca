@@ -22,7 +22,7 @@ const translations: Record<string, Record<Language, string>> = {
   // Hero
   "hero.badge": { en: "AI Voice Agents for Germany", de: "KI-Sprachagenten für Deutschland" },
   "hero.title": { en: "Never miss a call. Your AI answers — always.", de: "Kein Anruf geht verloren. Ihre KI antwortet — immer." },
-  "hero.subtitle": { en: "Voxalio handles inbound and outbound calls with human-like AI agents — 24/7, GDPR-compliant, ready in minutes.", de: "Voxalio übernimmt ein- und ausgehende Anrufe mit menschlich klingenden KI-Agenten — 24/7, DSGVO-konform, in Minuten einsatzbereit." },
+  "hero.subtitle": { en: "Voxalio handles inbound and outbound calls with human-like AI agents — 24/7, GDPR-compliant, ready in under a week.", de: "Voxalio übernimmt ein- und ausgehende Anrufe mit menschlich klingenden KI-Agenten — 24/7, DSGVO-konform, in unter einer Woche einsatzbereit." },
   "hero.placeholder": { en: "e.g. +44123456789", de: "z.B. +4917612345678" },
   "hero.cta": { en: "Get A Call", de: "Anruf erhalten" },
 

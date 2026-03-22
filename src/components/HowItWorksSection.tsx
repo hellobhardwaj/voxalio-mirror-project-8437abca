@@ -35,7 +35,7 @@ const cards = [
     title: "Return on Investment",
     value: "Up to 95% cheaper than competitors",
     subtitle:
-      "Voxalio handles your calls 24/7 at a fraction of the cost of a human team — GDPR compliant, ready in minutes",
+      "Voxalio handles your calls 24/7 at a fraction of the cost of a human team — GDPR compliant, ready in under a week",
     colors: ["#2563eb", "#60A5FA", "#3B82F6"],
     colSpan: "md:col-span-3",
   },
