@@ -12,8 +12,8 @@ const DashboardHeader = () => {
       transition={{ duration: 0.6 }}
       className="text-center mb-12"
     >
-      <span className="section-label">Real-time Intelligence</span>
-      <h2 className="font-display font-bold text-[var(--text-primary)] text-[var(--text-2xl)] md:text-[var(--text-3xl)] leading-[1.1] mt-3">
+      <span className="inline-flex items-center rounded-full px-4 py-1.5 text-xs font-medium uppercase tracking-[0.12em] bg-white/90 backdrop-blur-sm text-primary border border-primary/20 shadow-sm mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>Real-time Intelligence</span>
+      <h2 className="font-display font-bold text-[var(--text-primary)] text-[var(--text-2xl)] md:text-[var(--text-3xl)] leading-[1.1] mt-2">
         {lang === "de"
           ? "Jeder Anruf erfasst. Jede Erkenntnis sichtbar."
           : "Every call tracked. Every insight visible."}
