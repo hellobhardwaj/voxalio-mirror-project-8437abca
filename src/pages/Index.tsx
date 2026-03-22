@@ -28,7 +28,8 @@ const Index = () => (
     <HowItWorksSection />
     <UseCasesSection />
     <TrustSection />
-    <div style={{ background: "var(--bg-mid)" }} className="py-24 md:py-32">
+    <div style={{ background: "var(--bg-mid)" }} className="relative py-24 md:py-32 overflow-hidden">
+      <DitheringBackground />
       <DashboardHeader />
       <DashboardShowcase />
     </div>
