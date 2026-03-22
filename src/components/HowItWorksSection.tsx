@@ -219,20 +219,40 @@ const ROICalculator = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                  className="relative rounded-2xl p-6 overflow-hidden flex flex-col group"
+                  whileHover={{ 
+                    scale: 1.04, 
+                    y: -6,
+                    transition: { duration: 0.25, ease: "easeOut" }
+                  }}
+                  whileTap={{ scale: 0.97, transition: { duration: 0.1 } }}
+                  className="relative rounded-2xl p-6 overflow-hidden flex flex-col group cursor-pointer select-none"
                   style={{
                     border: `1px solid ${card.highlight ? "rgba(5,150,105,0.12)" : "rgba(37,99,235,0.08)"}`,
                     boxShadow: "0 4px 24px rgba(0,0,0,0.03)",
                     minHeight: "180px",
+                    transition: "box-shadow 0.3s ease, border-color 0.3s ease",
                   }}
+                  onHoverStart={() => {}}
+                  onHoverEnd={() => {}}
                 >
                   <AnimatedGradient colors={resultGradients[i]} speed={10} blur="heavy" />
-                  <div className="absolute inset-0 bg-white/35 z-[1]" />
+                  <div className="absolute inset-0 bg-white/35 z-[1] transition-all duration-300 group-hover:bg-white/20" />
+                  
+                  {/* Hover glow ring */}
+                  <div 
+                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[1] pointer-events-none"
+                    style={{
+                      boxShadow: card.highlight 
+                        ? "inset 0 0 30px rgba(5,150,105,0.08), 0 8px 40px rgba(5,150,105,0.12)"
+                        : "inset 0 0 30px rgba(37,99,235,0.08), 0 8px 40px rgba(37,99,235,0.12)",
+                      border: `1px solid ${card.highlight ? "rgba(5,150,105,0.25)" : "rgba(37,99,235,0.2)"}`,
+                    }}
+                  />
 
                   <div className="relative z-[2] flex flex-col h-full justify-between">
                     <div className="flex items-center gap-2.5">
                       <div
-                        className="w-8 h-8 rounded-xl flex items-center justify-center"
+                        className="w-8 h-8 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
                         style={{
                           background: card.highlight
                             ? "linear-gradient(135deg, #059669, #10b981)"
@@ -244,7 +264,7 @@ const ROICalculator = () => {
                       >
                         <Icon className="w-3.5 h-3.5 text-white" strokeWidth={2} />
                       </div>
-                      <span className="text-[12px] font-medium text-[var(--text-secondary)]">
+                      <span className="text-[12px] font-medium text-[var(--text-secondary)] transition-colors duration-300 group-hover:text-[var(--text-primary)]">
                         {card.label}
                       </span>
                     </div>
@@ -254,7 +274,7 @@ const ROICalculator = () => {
                         initial={{ opacity: 0.6, y: 4 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="font-display font-extrabold text-[28px] md:text-[34px] tracking-[-0.03em]"
+                        className="font-display font-extrabold text-[28px] md:text-[34px] tracking-[-0.03em] transition-all duration-300 group-hover:tracking-[-0.02em]"
                         style={{ color: card.accent }}
                       >
                         {card.value}
