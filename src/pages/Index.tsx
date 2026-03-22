@@ -27,7 +27,7 @@ const Index = () => (
     <StatsBar />
     <ValuePropositionSection />
     <HowItWorksSection />
-    <UseCasesSection />
+    
     <TrustSection />
     <div className="relative py-8 md:py-12 overflow-hidden" style={{ background: "var(--bg-dark)" }}>
       <DashboardHeader />
