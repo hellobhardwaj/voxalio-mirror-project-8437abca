@@ -21,7 +21,7 @@ const UseCasesSection = () => {
     <section className="py-24 md:py-32 relative overflow-hidden" id="use-cases" style={{ background: "var(--bg-mid)" }}>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-16 text-center">
-          <span className="section-label">Built for every business</span>
+          
           <h2 className="font-display font-bold text-[var(--text-primary)] text-[var(--text-2xl)] md:text-[var(--text-3xl)] leading-[1.1] mt-3">
             {t("uc.title")}
           </h2>
