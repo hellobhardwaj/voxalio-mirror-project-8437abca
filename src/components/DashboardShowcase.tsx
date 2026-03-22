@@ -196,7 +196,7 @@ const DashboardShowcase = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
