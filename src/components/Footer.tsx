@@ -56,9 +56,9 @@ const Footer = () => {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <img src={voxalioIcon} alt="Voxalio" className="w-6 h-6 rounded-md object-contain" />
-                <span className="font-display font-bold text-foreground text-sm tracking-tight">Voxalio</span>
+                <span className="font-display font-bold text-white text-sm tracking-tight">Voxalio</span>
               </div>
-              <p className="text-xs text-muted-foreground">{t("footer.rights")}</p>
+              <p className="text-xs text-white/50">{t("footer.rights")}</p>
             </div>
           </div>
         </motion.div>
