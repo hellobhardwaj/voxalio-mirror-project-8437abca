@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
+import DitheringBackground from "@/components/DitheringBackground";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PlayCircle } from "lucide-react";
 import HeroWaveform from "@/components/HeroWaveform";
@@ -151,6 +152,9 @@ const HeroSection = () => {
           parallax={0.03}
         />
       </div>
+
+      {/* Blue dithering shader background */}
+      <DitheringBackground />
 
       {/* Blue radial glow with parallax */}
       <motion.div
