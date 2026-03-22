@@ -221,27 +221,23 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Bottom bar — same grid alignment as content above */}
-          <div
-            className="mt-10 grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 md:gap-[100px]"
-            style={{
-              borderTop: "1px solid rgba(255,255,255,0.06)",
-              padding: "20px 0",
-            }}
-          >
-            <p className="text-[#4a5568] text-[12px] font-body md:pl-[200px]">
-              {lang === "de" ? "© 2026 Voxalio. Alle Rechte vorbehalten." : "© 2026 Voxalio. All rights reserved."}
-            </p>
-            <div className="hidden md:block" />
-            <div className="hidden md:block" />
-            <p className="text-[#4a5568] text-[12px] font-body md:text-right">
-              {lang === "de"
-                ? 'KI-Hinweis: "Hallo, ich bin ein KI-Assistent für Voxalio."'
-                : 'AI Disclosure: "Hello, I am an AI assistant for Voxalio."'}
-            </p>
-          </div>
         </div>
       </footer>
+
+      {/* Bottom bar — outside the card, on the plain background */}
+      <div
+        className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 px-6 md:px-[60px]"
+        style={{ padding: "16px 24px", paddingTop: "20px" }}
+      >
+        <p className="text-[#4a5568] text-[12px] font-body whitespace-nowrap">
+          {lang === "de" ? "© 2026 Voxalio. Alle Rechte vorbehalten." : "© 2026 Voxalio. All rights reserved."}
+        </p>
+        <p className="text-[#4a5568] text-[12px] font-body whitespace-nowrap">
+          {lang === "de"
+            ? 'KI-Hinweis: "Hallo, ich bin ein KI-Assistent für Voxalio."'
+            : 'AI Disclosure: "Hello, I am an AI assistant for Voxalio."'}
+        </p>
+      </div>
     </div>
   );
 };
