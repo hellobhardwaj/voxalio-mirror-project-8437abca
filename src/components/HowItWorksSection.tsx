@@ -59,7 +59,7 @@ const HowItWorksSection = () => {
         </motion.div>
 
         {/* Bento grid layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-5">
           {/* Row 1: large card + small card */}
           {steps.slice(0, 2).map((step, i) => {
             const Icon = step.icon;
