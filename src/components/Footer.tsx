@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
 
           {/* Divider + bottom bar inside newsletter card */}
-          <div className="mt-8 pt-6" style={{ borderTop: "1px solid hsl(var(--border))" }}>
+          <div className="mt-8 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <img src={voxalioIcon} alt="Voxalio" className="w-6 h-6 rounded-md object-contain" />
