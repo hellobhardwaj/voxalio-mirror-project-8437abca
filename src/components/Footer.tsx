@@ -21,8 +21,8 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="rounded-2xl p-8 md:p-10 border border-border/60 shadow-sm"
-          style={{ background: "hsl(var(--background) / 0.85)", backdropFilter: "blur(20px)" }}
+          className="rounded-2xl p-8 md:p-10 border border-white/10 shadow-sm"
+          style={{ background: "rgba(255,255,255,0.05)", backdropFilter: "blur(20px)" }}
         >
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
