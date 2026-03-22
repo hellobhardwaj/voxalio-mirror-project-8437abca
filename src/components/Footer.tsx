@@ -116,7 +116,7 @@ const Footer = () => {
               </a>
             ))}
           </div>
-          <p className="text-xs text-muted-foreground">{t("footer.rights")}</p>
+          <p className="text-xs text-white/50">{t("footer.rights")}</p>
         </div>
       </div>
     </footer>
