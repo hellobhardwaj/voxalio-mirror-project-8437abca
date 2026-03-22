@@ -29,12 +29,9 @@ const Index = () => (
     <HowItWorksSection />
     <UseCasesSection />
     <TrustSection />
-    <div className="relative py-8 md:py-12 overflow-hidden" style={{ background: "transparent" }}>
-      <DitheringBackground />
-      <div className="relative z-10">
-        <DashboardHeader />
-        <DashboardShowcase />
-      </div>
+    <div className="relative py-8 md:py-12 overflow-hidden" style={{ background: "var(--bg-dark)" }}>
+      <DashboardHeader />
+      <DashboardShowcase />
     </div>
     <IntegrationsSection />
     <PricingSection />
