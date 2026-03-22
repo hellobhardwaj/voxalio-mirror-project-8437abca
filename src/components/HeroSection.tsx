@@ -1,11 +1,13 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { PlayCircle } from "lucide-react";
+import { PlayCircle, Phone } from "lucide-react";
 import HeroWaveform from "@/components/HeroWaveform";
 import MagicRings from "@/components/MagicRings";
 import DotGrid from "@/components/DotGrid";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -94,6 +96,68 @@ const MagneticButton = ({ children, className, style, href }: { children: React.
     >
       {children}
     </a>
+  );
+};
+
+// Phone call form
+const PhoneCallForm = ({ lang }: { lang: string }) => {
+  const [phone, setPhone] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const cleaned = phone.trim();
+    if (!cleaned || !/^\+\d{10,15}$/.test(cleaned)) {
+      toast.error(lang === "de" ? "Bitte geben Sie eine gültige Telefonnummer im E.164-Format ein (z.B. +4917612345678)" : "Please enter a valid phone number in E.164 format (e.g. +44123456789)");
+      return;
+    }
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("trigger-call", {
+        body: { phone: cleaned },
+      });
+      if (error) throw error;
+      toast.success(lang === "de" ? "Anruf wird eingeleitet!" : "Call is being initiated!");
+      setPhone("");
+    } catch (err: any) {
+      toast.error(lang === "de" ? "Anruf fehlgeschlagen. Bitte versuchen Sie es erneut." : "Failed to initiate call. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="w-full">
+      <div
+        className="relative rounded-2xl p-1"
+        style={{
+          background: "linear-gradient(135deg, rgba(37,99,235,0.3), rgba(96,165,250,0.2), rgba(59,130,246,0.3))",
+        }}
+      >
+        <div className="rounded-xl bg-white overflow-hidden">
+          <input
+            type="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder={lang === "de" ? "z.B. +4917612345678" : "Enter phone number"}
+            className="w-full px-5 py-3.5 text-[15px] text-[#0f172a] placeholder:text-[#94a3b8] bg-transparent outline-none border-none font-body"
+          />
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full py-3.5 text-white font-display font-semibold text-[15px] transition-opacity disabled:opacity-60"
+            style={{
+              background: "#0f172a",
+              borderRadius: "0 0 12px 12px",
+            }}
+          >
+            {loading
+              ? (lang === "de" ? "Wird verbunden..." : "Connecting...")
+              : (lang === "de" ? "Anruf erhalten" : "Get A Call")}
+          </button>
+        </div>
+      </div>
+    </form>
   );
 };
 
@@ -223,29 +287,16 @@ const HeroSection = () => {
           </motion.p>
         </motion.div>
 
-        {/* Magnetic Buttons */}
+        {/* Phone input + Get A Call */}
         <motion.div
           custom={3}
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="flex flex-col sm:flex-row items-center gap-4"
+          className="w-full max-w-[420px]"
           style={{ marginTop: "var(--space-6)" }}
         >
-          <MagneticButton
-            href="#contact"
-            className="inline-flex items-center justify-center px-7 py-3.5 rounded-[10px] text-white font-display font-semibold text-[15px] vox-gradient-bg vox-btn-glow"
-          >
-            {t("cta.button")}
-          </MagneticButton>
-          <MagneticButton
-            href="#booking"
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-[10px] text-[var(--text-primary)] font-medium text-[15px] transition-all duration-200 hover:border-[rgba(37,99,235,0.4)] hover:bg-[rgba(37,99,235,0.04)]"
-            style={{ border: "1px solid #e2e8f0", background: "white" }}
-          >
-            <PlayCircle className="w-5 h-5" />
-            {lang === "de" ? "Demo ansehen" : "Watch Demo"}
-          </MagneticButton>
+          <PhoneCallForm lang={lang} />
         </motion.div>
 
         {/* Trust strip */}
