@@ -129,12 +129,12 @@ const PhoneCallForm = ({ lang }: { lang: string }) => {
   return (
     <form onSubmit={handleSubmit} className="w-full">
       <div className="relative rounded-[16px] p-[2px] overflow-hidden" style={{ boxShadow: "0 4px 24px rgba(37,99,235,0.10)" }}>
-        {/* Animated rainbow/gradient border */}
+        {/* Animated sweeping arc border */}
         <div
           className="absolute inset-0 rounded-[16px]"
           style={{
-            background: "conic-gradient(from var(--border-angle, 0deg), #3b82f6, #10b981, #8b5cf6, #3b82f6)",
-            animation: "spin-border 3s linear infinite",
+            background: "conic-gradient(from var(--hero-arc, 0deg), transparent 0deg, transparent 270deg, #06b6d4 280deg, #2563eb 300deg, #a855f7 320deg, transparent 330deg)",
+            animation: "hero-arc-spin 3s linear infinite",
           }}
         />
         <div className="relative rounded-[14px] bg-white p-4 flex flex-col gap-3">
@@ -163,16 +163,6 @@ const PhoneCallForm = ({ lang }: { lang: string }) => {
           </button>
         </div>
       </div>
-      <style>{`
-        @property --border-angle {
-          syntax: '<angle>';
-          initial-value: 0deg;
-          inherits: false;
-        }
-        @keyframes spin-border {
-          to { --border-angle: 360deg; }
-        }
-      `}</style>
     </form>
   );
 };
