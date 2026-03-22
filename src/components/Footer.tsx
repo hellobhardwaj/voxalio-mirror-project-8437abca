@@ -2,6 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Instagram, Facebook, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 import voxalioIcon from "@/assets/voxalio-icon.png";
+import GradientBlinds from "@/components/GradientBlinds";
 
 const Footer = () => {
   const { lang } = useLanguage();
@@ -51,37 +52,28 @@ const Footer = () => {
         `,
       }}
     >
-      {/* Diagonal gradient stripes - bottom left */}
+      {/* WebGL Gradient Blinds - bottom left */}
       <div
-        className="absolute bottom-0 left-0 w-[500px] h-[320px] z-0 pointer-events-none"
+        className="absolute bottom-0 left-0 w-[550px] h-[350px] z-0 pointer-events-none"
         style={{
-          maskImage: "linear-gradient(to right, rgba(0,0,0,0.95) 0%, transparent 100%), linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 85%)",
-          WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,0.95) 0%, transparent 100%), linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 85%)",
-          maskComposite: "intersect",
-          WebkitMaskComposite: "source-in",
+          maskImage: "radial-gradient(ellipse 90% 90% at 0% 100%, black 30%, transparent 70%)",
+          WebkitMaskImage: "radial-gradient(ellipse 90% 90% at 0% 100%, black 30%, transparent 70%)",
         }}
       >
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute"
-            style={{
-              width: "60px",
-              height: "400px",
-              bottom: "-40px",
-              left: `${i * 52 - 30}px`,
-              transform: "rotate(-25deg)",
-              transformOrigin: "bottom left",
-              background: `linear-gradient(180deg, 
-                transparent 0%, 
-                ${i % 3 === 0 ? "rgba(37,99,235,0.7)" : i % 3 === 1 ? "rgba(29,78,216,0.65)" : "rgba(59,130,246,0.55)"} 35%, 
-                ${i % 3 === 0 ? "rgba(37,99,235,0.9)" : i % 3 === 1 ? "rgba(29,78,216,0.85)" : "rgba(59,130,246,0.8)"} 60%, 
-                ${i % 3 === 0 ? "rgba(37,99,235,0.6)" : i % 3 === 1 ? "rgba(29,78,216,0.5)" : "rgba(59,130,246,0.45)"} 100%
-              )`,
-              filter: "blur(1px)",
-            }}
-          />
-        ))}
+        <GradientBlinds
+          gradientColors={['#1e3a8a', '#2563eb', '#1d4ed8', '#3b82f6']}
+          angle={0}
+          noise={0.3}
+          blindCount={12}
+          blindMinWidth={50}
+          spotlightRadius={0.5}
+          spotlightSoftness={1}
+          spotlightOpacity={1}
+          mouseDampening={0.15}
+          distortAmount={0}
+          shineDirection="left"
+          mixBlendMode="lighten"
+        />
       </div>
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-5 pt-10 pb-0 md:px-[80px] md:pt-[60px]">
