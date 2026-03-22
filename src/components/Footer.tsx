@@ -155,8 +155,8 @@ const Footer = () => {
         {/* Content */}
         <div className="relative z-10 px-6 pt-10 pb-0 md:px-[60px] md:pt-12">
           <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 md:gap-[100px]">
-            {/* Brand */}
-            <div>
+            {/* Brand — offset right on desktop to clear ribbons */}
+            <div className="md:pl-[200px]">
               <div className="flex items-center gap-2.5">
                 <img src={voxalioIcon} alt="Voxalio" className="w-7 h-7 rounded-lg object-contain" />
                 <span className="font-display font-bold text-white text-[16px] tracking-tight">Voxalio</span>
@@ -221,12 +221,15 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+        </div>
 
-          {/* Bottom bar */}
+        {/* Bottom bar — full width divider */}
+        <div className="relative z-10 px-6 md:px-[60px]">
           <div
-            className="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
+            className="flex flex-col md:flex-row md:items-center md:justify-between gap-3"
             style={{
-              borderTop: "1px solid rgba(255,255,255,0.05)",
+              borderTop: "1px solid rgba(255,255,255,0.06)",
+              marginTop: "40px",
               padding: "20px 0",
             }}
           >
