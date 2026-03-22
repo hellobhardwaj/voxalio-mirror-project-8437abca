@@ -31,8 +31,8 @@ const LeadFormSection = () => {
   };
 
   const bullets = lang === "de"
-    ? ["Keine Verpflichtung", "14 Tage kostenlos testen", "Einrichtung in 10 Min"]
-    : ["No commitment", "Free 14-day trial", "Setup in 10 min"];
+    ? ["Keine Verpflichtung", "14 Tage kostenlos testen", "Einrichtung in unter einer Woche"]
+    : ["No commitment", "Free 14-day trial", "Setup in under a week"];
 
   const labels = lang === "de"
     ? { name: "Vollständiger Name", email: "Geschäftliche E-Mail", company: "Firmenname", message: "Nachricht", submit: "Nachricht senden", heading: "Sprechen wir.", subtitle: "Buchen Sie eine Demo oder sagen Sie einfach Hallo — wir melden uns innerhalb von 24 Stunden." }

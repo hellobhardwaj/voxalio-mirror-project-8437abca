@@ -22,7 +22,7 @@ const translations: Record<string, Record<Language, string>> = {
   // Hero
   "hero.badge": { en: "AI Voice Agents for Germany", de: "KI-Sprachagenten für Deutschland" },
   "hero.title": { en: "Never miss a call. Your AI answers — always.", de: "Kein Anruf geht verloren. Ihre KI antwortet — immer." },
-  "hero.subtitle": { en: "Voxalio handles inbound and outbound calls with human-like AI agents — 24/7, GDPR-compliant, ready in minutes.", de: "Voxalio übernimmt ein- und ausgehende Anrufe mit menschlich klingenden KI-Agenten — 24/7, DSGVO-konform, in Minuten einsatzbereit." },
+  "hero.subtitle": { en: "Voxalio handles inbound and outbound calls with human-like AI agents — 24/7, GDPR-compliant, ready in under a week.", de: "Voxalio übernimmt ein- und ausgehende Anrufe mit menschlich klingenden KI-Agenten — 24/7, DSGVO-konform, in unter einer Woche einsatzbereit." },
   "hero.placeholder": { en: "e.g. +44123456789", de: "z.B. +4917612345678" },
   "hero.cta": { en: "Get A Call", de: "Anruf erhalten" },
 
@@ -92,7 +92,7 @@ const translations: Record<string, Record<Language, string>> = {
   "faq.q4": { en: "Can Voxalio make outbound calls as well?", de: "Kann Voxalio auch ausgehende Anrufe tätigen?" },
   "faq.a4": { en: "Absolutely. Voxalio handles both inbound and outbound calls. Use it for appointment reminders, follow-ups, lead qualification, surveys, and more — all at scale with real-time monitoring.", de: "Absolut. Voxalio übernimmt sowohl eingehende als auch ausgehende Anrufe. Nutzen Sie es für Terminbestätigungen, Follow-ups, Lead-Qualifizierung und mehr." },
   "faq.q5": { en: "How long does it take to set up Voxalio?", de: "Wie lange dauert die Einrichtung von Voxalio?" },
-  "faq.a5": { en: "Most customers go live in under 10 minutes. Our no-code platform walks you through voice selection, task configuration, and phone number setup — no developers required.", de: "Die meisten Kunden gehen in unter 10 Minuten live. Unsere No-Code-Plattform führt Sie durch Stimmauswahl, Aufgabenkonfiguration und Telefonnummern-Setup." },
+  "faq.a5": { en: "Most customers go live in under a week. Our no-code platform walks you through voice selection, task configuration, and phone number setup — no developers required.", de: "Die meisten Kunden gehen in unter einer Woche live. Unsere No-Code-Plattform führt Sie durch Stimmauswahl, Aufgabenkonfiguration und Telefonnummern-Setup." },
   "faq.q6": { en: "What happens when the AI cannot answer a question?", de: "Was passiert, wenn die KI eine Frage nicht beantworten kann?" },
   "faq.a6": { en: "When Voxalio encounters a question beyond its training, it seamlessly escalates the call to a human agent or takes a detailed message. You define the escalation rules — ensuring nothing falls through the cracks.", de: "Wenn Voxalio auf eine Frage stößt, die es nicht beantworten kann, eskaliert es den Anruf nahtlos an einen menschlichen Agenten oder nimmt eine detaillierte Nachricht auf." },
   "faq.q7": { en: "Can I try Voxalio before buying?", de: "Kann ich Voxalio vor dem Kauf testen?" },

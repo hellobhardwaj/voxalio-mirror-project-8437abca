@@ -108,8 +108,8 @@ const HeroSection = () => {
   const glowY = useTransform(scrollY, [0, 600], [0, 200]);
 
   const trustItems = lang === "de"
-    ? ["✓ Einrichtung in 10 Minuten", "✓ DSGVO-konform", "✓ Gehostet in Deutschland"]
-    : ["✓ Setup in 10 minutes", "✓ GDPR Compliant", "✓ Hosted in Germany"];
+    ? ["✓ Einrichtung in unter einer Woche", "✓ DSGVO-konform", "✓ Gehostet in Deutschland"]
+    : ["✓ Setup in under a week", "✓ GDPR Compliant", "✓ Hosted in Germany"];
 
   return (
     <section ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden" style={{ background: "var(--bg-dark)" }}>

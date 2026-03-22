@@ -19,7 +19,7 @@ const cards = [
   },
   {
     title: "Setup Time",
-    value: "< 10 min",
+    value: "< 1 week",
     subtitle: "No developer needed",
     colors: ["#F59E0B", "#A78BFA", "#FCD34D"],
     colSpan: "",
@@ -35,7 +35,7 @@ const cards = [
     title: "Return on Investment",
     value: "Up to 95% cheaper than competitors",
     subtitle:
-      "Voxalio handles your calls 24/7 at a fraction of the cost of a human team — GDPR compliant, ready in minutes",
+      "Voxalio handles your calls 24/7 at a fraction of the cost of a human team — GDPR compliant, ready in under a week",
     colors: ["#2563eb", "#60A5FA", "#3B82F6"],
     colSpan: "md:col-span-3",
   },
@@ -44,9 +44,9 @@ const cards = [
 const cardsDe = [
   { title: "Monatliche Kosteneinsparung", value: "€3.840", subtitle: "im Vergleich zu einer Vollzeit-Rezeptionistin" },
   { title: "Anrufe bearbeitet", value: "1.000+", subtitle: "Pro Monat im Pro-Tarif" },
-  { title: "Einrichtungszeit", value: "< 10 Min.", subtitle: "Kein Entwickler nötig" },
+  { title: "Einrichtungszeit", value: "< 1 Woche", subtitle: "Kein Entwickler nötig" },
   { title: "Lösungsrate", value: "94,2%", subtitle: "Anrufe ohne menschliche Eskalation gelöst" },
-  { title: "Return on Investment", value: "Bis zu 95% günstiger als Wettbewerber", subtitle: "Voxalio bearbeitet Ihre Anrufe 24/7 zu einem Bruchteil der Kosten eines menschlichen Teams — DSGVO-konform, in Minuten einsatzbereit" },
+  { title: "Return on Investment", value: "Bis zu 95% günstiger als Wettbewerber", subtitle: "Voxalio bearbeitet Ihre Anrufe 24/7 zu einem Bruchteil der Kosten eines menschlichen Teams — DSGVO-konform, in unter einer Woche einsatzbereit" },
 ];
 
 const ROISection = () => {
