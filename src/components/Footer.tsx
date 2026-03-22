@@ -69,8 +69,8 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="rounded-2xl p-10 md:p-14 border border-border/60 shadow-sm text-center"
-          style={{ background: "hsl(var(--background) / 0.85)", backdropFilter: "blur(20px)" }}
+          className="rounded-2xl p-10 md:p-14 border border-white/10 shadow-sm text-center"
+          style={{ background: "rgba(255,255,255,0.05)", backdropFilter: "blur(20px)" }}
         >
           <img src={voxalioIcon} alt="Voxalio" className="w-10 h-10 rounded-lg object-contain mx-auto mb-5" />
           <h3 className="font-display font-bold text-foreground text-2xl md:text-3xl tracking-tight">
