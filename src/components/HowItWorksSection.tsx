@@ -59,7 +59,7 @@ const HowItWorksSection = () => {
         </motion.div>
 
         {/* Bento grid layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-5">
           {/* Row 1: large card + small card */}
           {steps.slice(0, 2).map((step, i) => {
             const Icon = step.icon;
@@ -70,7 +70,7 @@ const HowItWorksSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`relative rounded-2xl p-8 overflow-hidden ${i === 0 ? "md:col-span-2" : "md:col-span-1"}`}
+                className={`relative rounded-2xl p-8 overflow-hidden ${i === 0 ? "md:col-span-4" : "md:col-span-2"}`}
                 style={{
                   border: "1px solid rgba(37,99,235,0.08)",
                   boxShadow: "0 4px 24px rgba(0,0,0,0.04)",
@@ -111,7 +111,7 @@ const HowItWorksSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="relative rounded-2xl p-8 overflow-hidden md:col-span-1 first:md:col-span-1 [&:nth-child(1)]:md:col-span-1"
+                className="relative rounded-2xl p-8 overflow-hidden md:col-span-3"
                 style={{
                   border: "1px solid rgba(37,99,235,0.08)",
                   boxShadow: "0 4px 24px rgba(0,0,0,0.04)",
@@ -151,7 +151,7 @@ const HowItWorksSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="relative rounded-2xl p-8 overflow-hidden md:col-span-3"
+                className="relative rounded-2xl p-8 overflow-hidden md:col-span-6"
                 style={{
                   border: "1px solid rgba(37,99,235,0.08)",
                   boxShadow: "0 4px 24px rgba(0,0,0,0.04)",
