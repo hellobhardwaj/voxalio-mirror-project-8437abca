@@ -225,29 +225,16 @@ const HeroSection = () => {
           </motion.p>
         </motion.div>
 
-        {/* Magnetic Buttons */}
+        {/* Phone input + Get A Call */}
         <motion.div
           custom={3}
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="flex flex-col sm:flex-row items-center gap-4"
+          className="w-full max-w-[420px]"
           style={{ marginTop: "var(--space-6)" }}
         >
-          <MagneticButton
-            href="#contact"
-            className="inline-flex items-center justify-center px-7 py-3.5 rounded-[10px] text-white font-display font-semibold text-[15px] vox-gradient-bg vox-btn-glow"
-          >
-            {t("cta.button")}
-          </MagneticButton>
-          <MagneticButton
-            href="#booking"
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-[10px] text-[var(--text-primary)] font-medium text-[15px] transition-all duration-200 hover:border-[rgba(37,99,235,0.4)] hover:bg-[rgba(37,99,235,0.04)]"
-            style={{ border: "1px solid #e2e8f0", background: "white" }}
-          >
-            <PlayCircle className="w-5 h-5" />
-            {lang === "de" ? "Demo ansehen" : "Watch Demo"}
-          </MagneticButton>
+          <PhoneCallForm lang={lang} />
         </motion.div>
 
         {/* Trust strip */}
