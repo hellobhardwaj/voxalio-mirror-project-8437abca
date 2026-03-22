@@ -42,15 +42,14 @@ const Footer = () => {
   const linkClass = "text-[#94a3b8] text-[13.5px] font-body font-normal hover:text-white transition-colors duration-200";
 
   return (
-    <div className="px-4 pb-4 md:px-6 md:pb-6" style={{ background: "#050810" }}>
+    <div className="px-4 pb-4 md:px-6 md:pb-6 pt-6 md:pt-8" style={{ background: "#050810" }}>
       <footer
-        className="relative overflow-hidden rounded-3xl"
+        className="relative overflow-hidden rounded-[20px] md:rounded-[24px]"
         style={{
-          background: "linear-gradient(180deg, #0c1525 0%, #080e1c 100%)",
-          borderTop: "1px solid rgba(37,99,235,0.25)",
-          border: "1px solid rgba(255,255,255,0.06)",
-          borderTopColor: "rgba(37,99,235,0.25)",
-          boxShadow: "0 -1px 60px rgba(37,99,235,0.12), 0 4px 30px rgba(0,0,0,0.3)",
+          background: "linear-gradient(180deg, #101c32 0%, #0a1222 100%)",
+          border: "1px solid rgba(255,255,255,0.08)",
+          borderTopColor: "rgba(37,99,235,0.3)",
+          boxShadow: "0 -2px 80px rgba(37,99,235,0.10), 0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04)",
         }}
       >
         {/* 3D twisted ribbon shapes - bottom left */}
