@@ -2,6 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Instagram, Facebook, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 import voxalioIcon from "@/assets/voxalio-icon.png";
+import GradientBlinds from "@/components/GradientBlinds";
 
 const Footer = () => {
   const { lang } = useLanguage();
