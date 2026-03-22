@@ -7,6 +7,7 @@ import UseCasesSection from "@/components/UseCasesSection";
 import TrustSection from "@/components/TrustSection";
 import DashboardHeader from "@/components/DashboardHeader";
 import DashboardShowcase from "@/components/DashboardShowcase";
+import DitheringBackground from "@/components/DitheringBackground";
 import IntegrationsSection from "@/components/IntegrationsSection";
 import PricingSection from "@/components/PricingSection";
 
