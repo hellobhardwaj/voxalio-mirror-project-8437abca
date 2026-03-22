@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Mic, ListChecks, Phone, Plug, BarChart3 } from "lucide-react";
-import Prism from "@/components/Prism";
+import { AnimatedGradient } from "@/components/ui/animated-gradient-with-svg";
 import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 
 const HowItWorksSection = () => {
@@ -17,18 +17,11 @@ const HowItWorksSection = () => {
 
   return (
     <section className="relative overflow-hidden" id="how-it-works" style={{ background: "var(--bg-mid)" }}>
-      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
-        <Prism
-          animationType="rotate"
-          timeScale={0.5}
-          height={3.5}
-          baseWidth={5.5}
-          scale={3.6}
-          hueShift={0}
-          colorFrequency={1}
-          noise={0}
-          glow={1}
-          suspendWhenOffscreen
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
+        <AnimatedGradient
+          colors={["#dbeafe", "#bfdbfe", "#93c5fd", "#e0f2fe", "#c7d2fe"]}
+          speed={8}
+          blur="heavy"
         />
       </div>
 
