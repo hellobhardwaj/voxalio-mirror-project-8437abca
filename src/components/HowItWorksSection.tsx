@@ -19,7 +19,7 @@ const cards = [
   },
   {
     title: "Setup Time",
-    value: "< 10 min",
+    value: "< 1 week",
     subtitle: "No developer needed",
     colors: ["#F59E0B", "#A78BFA", "#FCD34D"],
     colSpan: "",
