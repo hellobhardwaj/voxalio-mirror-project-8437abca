@@ -2,7 +2,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Instagram, Facebook, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 import voxalioIcon from "@/assets/voxalio-icon.png";
-import GradientBlinds from "@/components/GradientBlinds";
 
 const Footer = () => {
   const { lang } = useLanguage();
@@ -40,106 +39,113 @@ const Footer = () => {
   ];
 
   const headingClass = "font-body font-semibold text-white text-[11px] uppercase tracking-[0.12em] mb-5";
-  const linkClass = "text-[#94a3b8] text-[14px] font-body font-normal hover:text-white transition-colors duration-200";
+  const linkClass = "text-[#94a3b8] text-[13.5px] font-body font-normal hover:text-white transition-colors duration-200";
 
   return (
-    <div className="px-4 pb-4 md:px-6 md:pb-6" style={{ background: "#080c14" }}>
+    <div className="px-4 pb-4 md:px-6 md:pb-6" style={{ background: "#050810" }}>
       <footer
         className="relative overflow-hidden rounded-2xl"
         style={{
-          background: "#0a1628",
-          boxShadow: "0 -1px 40px rgba(37,99,235,0.15)",
-          borderTop: "1px solid rgba(37,99,235,0.25)",
+          background: "linear-gradient(180deg, #0c1525 0%, #080e1c 100%)",
+          borderTop: "1px solid rgba(37,99,235,0.2)",
+          boxShadow: "0 -1px 50px rgba(37,99,235,0.1)",
         }}
       >
-        {/* 3D curved shapes - bottom left */}
-        <div className="absolute bottom-0 left-0 w-[500px] h-[350px] z-0 pointer-events-none">
-          {/* Large arc 1 */}
-          <div
-            className="absolute"
-            style={{
-              width: "320px",
-              height: "320px",
-              bottom: "-80px",
-              left: "-60px",
-              borderRadius: "50%",
-              background: "linear-gradient(135deg, #1d4ed8 0%, #0c2461 40%, #060d1f 100%)",
-              boxShadow: "inset -20px -10px 40px rgba(37,99,235,0.4), 0 0 60px rgba(37,99,235,0.15)",
-            }}
-          />
-          {/* Large arc 2 */}
-          <div
-            className="absolute"
-            style={{
-              width: "280px",
-              height: "280px",
-              bottom: "-120px",
-              left: "80px",
-              borderRadius: "50%",
-              background: "linear-gradient(160deg, #2563eb 0%, #1e3a8a 30%, #0a1628 80%)",
-              boxShadow: "inset -15px -8px 30px rgba(59,130,246,0.3), 0 0 40px rgba(37,99,235,0.1)",
-            }}
-          />
-          {/* Arc 3 - smaller highlight */}
-          <div
-            className="absolute"
-            style={{
-              width: "200px",
-              height: "200px",
-              bottom: "-60px",
-              left: "160px",
-              borderRadius: "50%",
-              background: "linear-gradient(140deg, #3b82f6 0%, #1d4ed8 25%, #0f172a 70%)",
-              boxShadow: "inset -10px -5px 20px rgba(96,165,250,0.25)",
-              opacity: 0.7,
-            }}
-          />
-          {/* Ambient glow */}
-          <div
-            className="absolute"
-            style={{
-              width: "400px",
-              height: "250px",
-              bottom: "0",
-              left: "0",
-              background: "radial-gradient(ellipse at 30% 80%, rgba(37,99,235,0.12), transparent 60%)",
-            }}
-          />
-        </div>
-
-        {/* GradientBlinds overlay for depth */}
-        <div
-          className="absolute bottom-0 left-0 w-[500px] h-[300px] z-[1] pointer-events-none opacity-30"
-          style={{
-            maskImage: "radial-gradient(ellipse 80% 90% at 0% 100%, black 20%, transparent 60%)",
-            WebkitMaskImage: "radial-gradient(ellipse 80% 90% at 0% 100%, black 20%, transparent 60%)",
-          }}
+        {/* 3D twisted ribbon shapes - bottom left */}
+        <svg
+          className="absolute bottom-0 left-0 z-0 pointer-events-none"
+          width="420"
+          height="340"
+          viewBox="0 0 420 340"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <GradientBlinds
-            gradientColors={['#1e3a8a', '#2563eb', '#1d4ed8']}
-            angle={0}
-            noise={0.2}
-            blindCount={10}
-            blindMinWidth={50}
-            spotlightRadius={0.5}
-            spotlightSoftness={1}
-            spotlightOpacity={0.8}
-            mouseDampening={0.15}
-            distortAmount={0}
-            shineDirection="left"
-            mixBlendMode="lighten"
+          <defs>
+            <linearGradient id="ribbon1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#2563eb" stopOpacity="0.9" />
+              <stop offset="40%" stopColor="#1d4ed8" stopOpacity="0.7" />
+              <stop offset="100%" stopColor="#0a1628" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="ribbon2" x1="0.2" y1="0" x2="0.8" y2="1">
+              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+              <stop offset="50%" stopColor="#1e40af" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#0a1628" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="ribbon3" x1="0" y1="0.2" x2="1" y2="0.8">
+              <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.5" />
+              <stop offset="50%" stopColor="#2563eb" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#0a1628" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="ribbonEdge1" x1="0" y1="0" x2="0.5" y2="1">
+              <stop offset="0%" stopColor="#93c5fd" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#1d4ed8" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="ribbonEdge2" x1="0.3" y1="0" x2="0.7" y2="1">
+              <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#1e3a8a" stopOpacity="0" />
+            </linearGradient>
+            <radialGradient id="glow" cx="0.15" cy="0.85" r="0.5">
+              <stop offset="0%" stopColor="#2563eb" stopOpacity="0.15" />
+              <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+
+          {/* Ambient glow */}
+          <rect width="420" height="340" fill="url(#glow)" />
+
+          {/* Ribbon 1 - large sweeping curve from bottom-left */}
+          <path
+            d="M-20,340 C-20,280 30,200 60,160 C90,120 100,100 80,60 C60,20 40,0 20,-20"
+            stroke="url(#ribbon1)"
+            strokeWidth="45"
+            fill="none"
+            strokeLinecap="round"
           />
-        </div>
+          {/* Ribbon 1 edge highlight */}
+          <path
+            d="M-20,340 C-20,280 30,200 60,160 C90,120 100,100 80,60 C60,20 40,0 20,-20"
+            stroke="url(#ribbonEdge1)"
+            strokeWidth="2"
+            fill="none"
+            strokeLinecap="round"
+          />
+
+          {/* Ribbon 2 - second curve, slightly offset */}
+          <path
+            d="M40,340 C50,300 90,240 130,190 C170,140 180,110 160,70 C140,30 120,10 100,-10"
+            stroke="url(#ribbon2)"
+            strokeWidth="40"
+            fill="none"
+            strokeLinecap="round"
+          />
+          {/* Ribbon 2 edge */}
+          <path
+            d="M40,340 C50,300 90,240 130,190 C170,140 180,110 160,70 C140,30 120,10 100,-10"
+            stroke="url(#ribbonEdge2)"
+            strokeWidth="1.5"
+            fill="none"
+            strokeLinecap="round"
+          />
+
+          {/* Ribbon 3 - thinner, forward */}
+          <path
+            d="M100,340 C120,310 160,260 200,220 C240,180 260,150 250,110 C240,70 220,40 200,10"
+            stroke="url(#ribbon3)"
+            strokeWidth="30"
+            fill="none"
+            strokeLinecap="round"
+          />
+        </svg>
 
         {/* Watermark */}
         <span
-          className="absolute z-0 pointer-events-none select-none font-display font-extrabold uppercase"
+          className="absolute z-0 pointer-events-none select-none font-display font-extrabold uppercase hidden md:block"
           style={{
-            bottom: "16px",
-            right: "24px",
-            fontSize: "80px",
-            color: "rgba(255,255,255,0.04)",
-            letterSpacing: "0.05em",
+            bottom: "20px",
+            right: "30px",
+            fontSize: "75px",
+            color: "rgba(255,255,255,0.03)",
+            letterSpacing: "0.06em",
             lineHeight: 1,
           }}
         >
@@ -152,24 +158,20 @@ const Footer = () => {
             {/* Brand */}
             <div>
               <div className="flex items-center gap-2.5">
-                <img src={voxalioIcon} alt="Voxalio" className="w-8 h-8 rounded-lg object-contain" />
-                <span className="font-display font-bold text-white text-[18px] tracking-tight">Voxalio</span>
+                <img src={voxalioIcon} alt="Voxalio" className="w-7 h-7 rounded-lg object-contain" />
+                <span className="font-display font-bold text-white text-[16px] tracking-tight">Voxalio</span>
               </div>
-              <p className="text-[#94a3b8] text-[14px] font-body mt-4">
-                {lang === "de" ? "KI-Sprachagenten — Made in Germany" : "AI Voice Agents — Made in Germany"}
+              <p className="text-[#7a8ba6] text-[13px] font-body mt-3 leading-relaxed">
+                {lang === "de" ? "KI-Sprachagenten — Made in Germany" : "Discover the future of\nAI Voice Agents"}
               </p>
-              <div className="flex items-center gap-2 mt-6">
+              <div className="flex items-center gap-2.5 mt-5">
                 {[Instagram, Facebook, Twitter].map((Icon, i) => (
                   <a
                     key={i}
                     href="#"
-                    className="w-9 h-9 rounded-lg flex items-center justify-center text-white hover:bg-[rgba(37,99,235,0.3)] hover:border-[rgba(37,99,235,0.5)] transition-all duration-200"
-                    style={{
-                      background: "rgba(255,255,255,0.08)",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                    }}
+                    className="text-[#7a8ba6] hover:text-white transition-colors duration-200"
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-[15px] h-[15px]" />
                   </a>
                 ))}
               </div>
@@ -177,7 +179,7 @@ const Footer = () => {
                 href="https://www.optimis-ai.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-6 text-[#4a5568] text-[13px] font-body hover:text-white transition-colors duration-200"
+                className="inline-block mt-5 text-[#4a5568] text-[12px] font-body hover:text-white transition-colors duration-200"
               >
                 Powered by Optimis AI
               </a>
@@ -186,7 +188,7 @@ const Footer = () => {
             {/* Navigation */}
             <div>
               <h4 className={headingClass}>Navigation</h4>
-              <ul className="flex flex-col gap-[14px]">
+              <ul className="flex flex-col gap-[12px]">
                 {navLinks.map((link) => (
                   <li key={link.label}>
                     <a href={link.href} className={linkClass}>{link.label}</a>
@@ -198,7 +200,7 @@ const Footer = () => {
             {/* Product */}
             <div>
               <h4 className={headingClass}>{lang === "de" ? "Produkt" : "Product"}</h4>
-              <ul className="flex flex-col gap-[14px]">
+              <ul className="flex flex-col gap-[12px]">
                 {productLinks.map((link) => (
                   <li key={link.label}>
                     <a href={link.href} className={linkClass}>{link.label}</a>
@@ -210,7 +212,7 @@ const Footer = () => {
             {/* Legal */}
             <div>
               <h4 className={headingClass}>{lang === "de" ? "Rechtliches" : "Legal"}</h4>
-              <ul className="flex flex-col gap-[14px]">
+              <ul className="flex flex-col gap-[12px]">
                 {legalLinks.map((link) => (
                   <li key={link.label}>
                     <Link to={link.to} className={linkClass}>{link.label}</Link>
@@ -222,16 +224,16 @@ const Footer = () => {
 
           {/* Bottom bar */}
           <div
-            className="mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
+            className="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
             style={{
               borderTop: "1px solid rgba(255,255,255,0.05)",
-              padding: "24px 0",
+              padding: "20px 0",
             }}
           >
-            <p className="text-[#4a5568] text-[13px] font-body">
+            <p className="text-[#4a5568] text-[12px] font-body">
               {lang === "de" ? "© 2026 Voxalio. Alle Rechte vorbehalten." : "© 2026 Voxalio. All rights reserved."}
             </p>
-            <p className="text-[#4a5568] text-[13px] font-body">
+            <p className="text-[#4a5568] text-[12px] font-body">
               {lang === "de"
                 ? 'KI-Hinweis: "Hallo, ich bin ein KI-Assistent für Voxalio."'
                 : 'AI Disclosure: "Hello, I am an AI assistant for Voxalio."'}
