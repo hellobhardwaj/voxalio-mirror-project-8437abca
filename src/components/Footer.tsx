@@ -109,7 +109,7 @@ const Footer = () => {
               <a
                 key={label}
                 href="#"
-                className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                className="text-white/50 hover:text-primary transition-colors duration-200"
                 aria-label={label}
               >
                 <Icon className="w-[18px] h-[18px]" />
