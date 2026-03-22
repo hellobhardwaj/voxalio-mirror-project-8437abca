@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import Particles from "@/components/Particles";
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(-1);
@@ -19,20 +18,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden" id="faq" style={{ background: "var(--bg-dark)" }}>
-      <div className="absolute inset-0 z-0 opacity-50">
-        <Particles
-          particleColors={["#2563eb", "#60a5fa", "#3b82f6"]}
-          particleCount={150}
-          particleSpread={10}
-          speed={0.08}
-          particleBaseSize={80}
-          moveParticlesOnHover
-          alphaParticles
-          disableRotation={false}
-          pixelRatio={1}
-        />
-      </div>
+    <section className="py-24 md:py-32 relative overflow-hidden" id="faq" style={{ background: "var(--bg-dark)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-16">
           <motion.div
