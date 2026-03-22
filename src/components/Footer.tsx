@@ -9,10 +9,10 @@ const Footer = () => {
   const [email, setEmail] = useState("");
 
   return (
-    <footer className="relative py-16 md:py-24 overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(217 91% 95%) 50%, hsl(199 95% 90%) 100%)" }}>
+    <footer className="relative py-16 md:py-24 overflow-hidden" style={{ background: "linear-gradient(180deg, #0a0f1e 0%, #0d1529 50%, #101b33 100%)" }}>
       {/* Gradient blobs */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60% / 0.08), transparent 70%)", filter: "blur(80px)" }} />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 95% 74% / 0.1), transparent 70%)", filter: "blur(80px)" }} />
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(37,99,235,0.15), transparent 70%)", filter: "blur(80px)" }} />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(14,165,233,0.12), transparent 70%)", filter: "blur(80px)" }} />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 space-y-6">
         {/* Newsletter Card */}
