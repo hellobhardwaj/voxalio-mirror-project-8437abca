@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Calculator, Clock, Euro, TrendingUp, Zap, ArrowRight } from "lucide-react";
+import { AnimatedGradient } from "@/components/ui/animated-gradient-with-svg";
 
 const VOXALIO_MONTHLY = 49;
 
@@ -26,9 +27,14 @@ const ROICalculator = () => {
   }, [callsPerMonth, avgDuration, hourlyCost]);
 
   const formatNum = (n: number) =>
-    n.toLocaleString(lang === "de" ? "de-DE" : "en-US", {
-      maximumFractionDigits: 0,
-    });
+    n.toLocaleString(lang === "de" ? "de-DE" : "en-US", { maximumFractionDigits: 0 });
+
+  const resultGradients = [
+    ["#dbeafe", "#bfdbfe", "#93c5fd", "#e0f2fe"],
+    ["#e0f2fe", "#c7d2fe", "#a5b4fc", "#dbeafe"],
+    ["#dbeafe", "#93c5fd", "#bfdbfe", "#e0f2fe"],
+    ["#d1fae5", "#a7f3d0", "#bbf7d0", "#d1fae5"],
+  ];
 
   const resultCards = [
     {
@@ -36,32 +42,28 @@ const ROICalculator = () => {
       label: lang === "de" ? "Stunden gespart" : "Hours saved",
       value: formatNum(results.hoursSaved),
       suffix: lang === "de" ? " Std./Mo." : " hrs/mo",
-      gradient: "from-blue-500/10 to-cyan-500/10",
-      iconBg: "from-blue-500 to-cyan-500",
+      accent: "#2563eb",
     },
     {
       icon: Euro,
       label: lang === "de" ? "Personalkosten" : "Staff cost",
       value: `€${formatNum(results.moneySaved)}`,
       suffix: lang === "de" ? "/Mo." : "/mo",
-      gradient: "from-violet-500/10 to-blue-500/10",
-      iconBg: "from-violet-500 to-blue-500",
+      accent: "#2563eb",
     },
     {
       icon: Zap,
       label: lang === "de" ? "Voxalio Kosten" : "Voxalio cost",
       value: `€${formatNum(results.voxalioCost)}`,
       suffix: lang === "de" ? "/Mo." : "/mo",
-      gradient: "from-blue-500/10 to-indigo-500/10",
-      iconBg: "from-blue-500 to-indigo-500",
+      accent: "#2563eb",
     },
     {
       icon: TrendingUp,
       label: lang === "de" ? "Netto-Ersparnis" : "Net savings",
       value: `€${formatNum(results.netSavings)}`,
       suffix: lang === "de" ? "/Mo." : "/mo",
-      gradient: "from-emerald-500/10 to-blue-500/10",
-      iconBg: "from-emerald-500 to-blue-500",
+      accent: "#059669",
       highlight: true,
     },
   ];
@@ -69,36 +71,21 @@ const ROICalculator = () => {
   const sliders = [
     {
       label: lang === "de" ? "Anrufe pro Monat" : "Calls per month",
-      value: callsPerMonth,
-      set: setCallsPerMonth,
-      min: 50,
-      max: 5000,
-      step: 50,
-      display: formatNum(callsPerMonth),
-      minLabel: "50",
-      maxLabel: "5,000",
+      value: callsPerMonth, set: setCallsPerMonth,
+      min: 50, max: 5000, step: 50,
+      display: formatNum(callsPerMonth), minLabel: "50", maxLabel: "5,000",
     },
     {
       label: lang === "de" ? "Ø Anrufdauer (Min.)" : "Avg. call duration (min)",
-      value: avgDuration,
-      set: setAvgDuration,
-      min: 1,
-      max: 30,
-      step: 1,
-      display: `${avgDuration} min`,
-      minLabel: "1",
-      maxLabel: "30",
+      value: avgDuration, set: setAvgDuration,
+      min: 1, max: 30, step: 1,
+      display: `${avgDuration} min`, minLabel: "1", maxLabel: "30",
     },
     {
       label: lang === "de" ? "Personalkosten/Std. (€)" : "Hourly staff cost (€)",
-      value: hourlyCost,
-      set: setHourlyCost,
-      min: 10,
-      max: 80,
-      step: 1,
-      display: `€${hourlyCost}`,
-      minLabel: "€10",
-      maxLabel: "€80",
+      value: hourlyCost, set: setHourlyCost,
+      min: 10, max: 80, step: 1,
+      display: `€${hourlyCost}`, minLabel: "€10", maxLabel: "€80",
     },
   ];
 
@@ -106,45 +93,21 @@ const ROICalculator = () => {
     <section
       className="relative overflow-hidden py-24 md:py-32"
       id="how-it-works"
+      style={{ background: "var(--bg-mid)" }}
     >
-      {/* Dark premium background */}
+      {/* Subtle ambient glow */}
       <div
-        className="absolute inset-0"
+        className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
-          background: "linear-gradient(180deg, #050a18 0%, #0a1628 40%, #0c1a30 70%, #060e1e 100%)",
-        }}
-      />
-
-      {/* Ambient glow orbs */}
-      <div
-        className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
       <div
-        className="absolute bottom-[-15%] right-[-5%] w-[500px] h-[500px] rounded-full pointer-events-none"
+        className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%)",
-          filter: "blur(80px)",
-        }}
-      />
-      <div
-        className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse, rgba(37,99,235,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(37,99,235,0.04) 0%, transparent 70%)",
           filter: "blur(60px)",
-        }}
-      />
-
-      {/* Grid pattern overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
         }}
       />
 
@@ -155,26 +118,17 @@ const ROICalculator = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-14 md:mb-20"
+          className="mb-14 md:mb-20"
         >
-          <span
-            className="inline-flex items-center rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.15em] mb-5"
-            style={{
-              background: "rgba(37,99,235,0.12)",
-              color: "#60a5fa",
-              border: "1px solid rgba(37,99,235,0.2)",
-            }}
-          >
-            Return on Investment
-          </span>
-          <h2 className="font-display font-extrabold text-white text-3xl md:text-5xl leading-[1.08] tracking-[-0.03em]">
+          <span className="section-label">Return on Investment</span>
+          <h2 className="font-display font-bold text-[var(--text-primary)] text-[var(--text-2xl)] md:text-[var(--text-3xl)] leading-[1.1] mt-3">
             {lang === "de" ? (
-              <>So viel spart <span style={{ color: "#3b82f6" }}>Voxalio</span> für Sie</>
+              <>So viel spart <span style={{ color: "#2563eb" }}>Voxalio</span> für Sie</>
             ) : (
-              <>See what <span style={{ color: "#3b82f6" }}>Voxalio</span> saves you</>
+              <>See what <span style={{ color: "#2563eb" }}>Voxalio</span> saves you</>
             )}
           </h2>
-          <p className="text-white/40 text-base md:text-lg mt-5 max-w-2xl mx-auto leading-[1.7] font-light">
+          <p className="text-[var(--text-secondary)] text-[var(--text-md)] mt-4 max-w-xl leading-[1.7]">
             {lang === "de"
               ? "Berechnen Sie, wie viel Zeit und Geld Ihr Unternehmen durch den Wechsel zu KI-Sprachagenten spart"
               : "Calculate how much time and money your business saves by switching to AI voice agents"}
@@ -182,41 +136,34 @@ const ROICalculator = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
-          {/* Calculator inputs — takes 2 cols */}
+          {/* Calculator inputs */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="lg:col-span-2 relative rounded-3xl p-7 md:p-8"
+            className="lg:col-span-2 relative rounded-2xl p-7 md:p-8"
             style={{
-              background: "rgba(255,255,255,0.04)",
-              backdropFilter: "blur(24px)",
-              border: "1px solid rgba(255,255,255,0.06)",
-              boxShadow: "0 20px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)",
+              background: "var(--bg-card)",
+              border: "1px solid var(--border-subtle)",
+              boxShadow: "0 8px 40px rgba(0,0,0,0.04)",
             }}
           >
-            {/* Inner glow */}
-            <div
-              className="absolute top-0 left-0 right-0 h-px"
-              style={{ background: "linear-gradient(90deg, transparent, rgba(37,99,235,0.3), transparent)" }}
-            />
-
             <div className="flex items-center gap-3 mb-8">
               <div
-                className="w-11 h-11 rounded-2xl flex items-center justify-center"
+                className="w-10 h-10 rounded-xl flex items-center justify-center"
                 style={{
                   background: "linear-gradient(135deg, #2563eb, #3b82f6)",
-                  boxShadow: "0 4px 20px rgba(37,99,235,0.4)",
+                  boxShadow: "0 4px 16px rgba(37,99,235,0.25)",
                 }}
               >
                 <Calculator className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h3 className="font-display font-bold text-white text-[15px]">
+                <h3 className="font-display font-semibold text-[15px] text-[var(--text-primary)]">
                   {lang === "de" ? "Ihre Daten" : "Your numbers"}
                 </h3>
-                <p className="text-white/30 text-[11px] mt-0.5">
+                <p className="text-[var(--text-tertiary)] text-[11px] mt-0.5">
                   {lang === "de" ? "Schieberegler anpassen" : "Adjust the sliders"}
                 </p>
               </div>
@@ -226,15 +173,15 @@ const ROICalculator = () => {
               {sliders.map((s, i) => (
                 <div key={i}>
                   <div className="flex justify-between items-center mb-3">
-                    <label className="text-[13px] font-medium text-white/60">
+                    <label className="text-[13px] font-medium text-[var(--text-secondary)]">
                       {s.label}
                     </label>
                     <span
                       className="text-sm font-bold px-3 py-1 rounded-lg"
                       style={{
-                        color: "#60a5fa",
-                        background: "rgba(37,99,235,0.1)",
-                        border: "1px solid rgba(37,99,235,0.15)",
+                        color: "#2563eb",
+                        background: "rgba(37,99,235,0.06)",
+                        border: "1px solid rgba(37,99,235,0.1)",
                       }}
                     >
                       {s.display}
@@ -247,12 +194,12 @@ const ROICalculator = () => {
                     step={s.step}
                     value={s.value}
                     onChange={(e) => s.set(Number(e.target.value))}
-                    className="w-full h-1.5 rounded-full appearance-none cursor-pointer roi-slider"
+                    className="w-full h-1.5 rounded-full appearance-none cursor-pointer"
                     style={{
-                      background: `linear-gradient(to right, #2563eb ${((s.value - s.min) / (s.max - s.min)) * 100}%, rgba(255,255,255,0.08) ${((s.value - s.min) / (s.max - s.min)) * 100}%)`,
+                      background: `linear-gradient(to right, #2563eb ${((s.value - s.min) / (s.max - s.min)) * 100}%, #e2e8f0 ${((s.value - s.min) / (s.max - s.min)) * 100}%)`,
                     }}
                   />
-                  <div className="flex justify-between text-[10px] text-white/20 mt-1.5">
+                  <div className="flex justify-between text-[10px] text-[var(--text-tertiary)] mt-1.5">
                     <span>{s.minLabel}</span>
                     <span>{s.maxLabel}</span>
                   </div>
@@ -261,7 +208,7 @@ const ROICalculator = () => {
             </div>
           </motion.div>
 
-          {/* Results grid — takes 3 cols */}
+          {/* Results grid */}
           <div className="lg:col-span-3 grid grid-cols-2 gap-4">
             {resultCards.map((card, i) => {
               const Icon = card.icon;
@@ -272,49 +219,32 @@ const ROICalculator = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                  className={`relative rounded-3xl p-6 overflow-hidden flex flex-col group transition-all duration-500 ${
-                    card.highlight ? "ring-1 ring-emerald-500/20" : ""
-                  }`}
+                  className="relative rounded-2xl p-6 overflow-hidden flex flex-col group"
                   style={{
-                    background: card.highlight
-                      ? "rgba(16, 185, 129, 0.06)"
-                      : "rgba(255,255,255,0.03)",
-                    border: `1px solid ${card.highlight ? "rgba(16,185,129,0.15)" : "rgba(255,255,255,0.06)"}`,
-                    boxShadow: card.highlight
-                      ? "0 12px 40px rgba(16,185,129,0.1), inset 0 1px 0 rgba(255,255,255,0.05)"
-                      : "0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.04)",
+                    border: `1px solid ${card.highlight ? "rgba(5,150,105,0.12)" : "rgba(37,99,235,0.08)"}`,
+                    boxShadow: "0 4px 24px rgba(0,0,0,0.03)",
                     minHeight: "180px",
                   }}
                 >
-                  {/* Top glow line */}
-                  <div
-                    className="absolute top-0 left-0 right-0 h-px"
-                    style={{
-                      background: card.highlight
-                        ? "linear-gradient(90deg, transparent, rgba(16,185,129,0.4), transparent)"
-                        : "linear-gradient(90deg, transparent, rgba(37,99,235,0.2), transparent)",
-                    }}
-                  />
-
-                  {/* Hover glow */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                    style={{
-                      background: card.highlight
-                        ? "radial-gradient(ellipse at 50% 0%, rgba(16,185,129,0.08), transparent 70%)"
-                        : "radial-gradient(ellipse at 50% 0%, rgba(37,99,235,0.06), transparent 70%)",
-                    }}
-                  />
+                  <AnimatedGradient colors={resultGradients[i]} speed={10} blur="heavy" />
+                  <div className="absolute inset-0 bg-white/35 z-[1]" />
 
                   <div className="relative z-[2] flex flex-col h-full justify-between">
                     <div className="flex items-center gap-2.5">
                       <div
-                        className={`w-8 h-8 rounded-xl bg-gradient-to-br ${card.iconBg} flex items-center justify-center`}
-                        style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.2)" }}
+                        className="w-8 h-8 rounded-xl flex items-center justify-center"
+                        style={{
+                          background: card.highlight
+                            ? "linear-gradient(135deg, #059669, #10b981)"
+                            : "linear-gradient(135deg, #2563eb, #3b82f6)",
+                          boxShadow: card.highlight
+                            ? "0 3px 10px rgba(5,150,105,0.2)"
+                            : "0 3px 10px rgba(37,99,235,0.15)",
+                        }}
                       >
                         <Icon className="w-3.5 h-3.5 text-white" strokeWidth={2} />
                       </div>
-                      <span className="text-[12px] font-medium text-white/40">
+                      <span className="text-[12px] font-medium text-[var(--text-secondary)]">
                         {card.label}
                       </span>
                     </div>
@@ -324,14 +254,13 @@ const ROICalculator = () => {
                         initial={{ opacity: 0.6, y: 4 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3 }}
-                        className={`font-display font-extrabold text-[30px] md:text-[36px] tracking-[-0.03em] ${
-                          card.highlight ? "text-emerald-400" : "text-white"
-                        }`}
+                        className="font-display font-extrabold text-[28px] md:text-[34px] tracking-[-0.03em]"
+                        style={{ color: card.accent }}
                       >
                         {card.value}
                       </motion.span>
                       {card.suffix && (
-                        <span className="text-[12px] text-white/25 ml-1.5 font-medium">
+                        <span className="text-[12px] text-[var(--text-tertiary)] ml-1.5 font-medium">
                           {card.suffix}
                         </span>
                       )}
@@ -351,20 +280,20 @@ const ROICalculator = () => {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="text-center mt-12 md:mt-16"
         >
-          <p className="text-white/30 text-sm mb-5">
+          <p className="text-[var(--text-tertiary)] text-sm mb-5">
             {lang === "de"
               ? "Basierend auf Ihren Eingaben sparen Sie jährlich"
               : "Based on your inputs, you save annually"}
-            <span className="text-white font-bold ml-2 text-base">
+            <span className="font-bold ml-2 text-base" style={{ color: "#059669" }}>
               €{formatNum(results.netSavings * 12)}
             </span>
           </p>
           <a
             href="#lead-form"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_30px_rgba(37,99,235,0.35)]"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.03]"
             style={{
               background: "linear-gradient(135deg, #2563eb, #3b82f6)",
-              boxShadow: "0 4px 20px rgba(37,99,235,0.3)",
+              boxShadow: "0 4px 20px rgba(37,99,235,0.25)",
             }}
           >
             {lang === "de" ? "Jetzt starten" : "Start saving today"}
