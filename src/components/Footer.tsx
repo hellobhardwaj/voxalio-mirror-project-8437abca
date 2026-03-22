@@ -44,11 +44,13 @@ const Footer = () => {
   return (
     <div className="px-4 pb-4 md:px-6 md:pb-6" style={{ background: "#050810" }}>
       <footer
-        className="relative overflow-hidden rounded-2xl"
+        className="relative overflow-hidden rounded-3xl"
         style={{
           background: "linear-gradient(180deg, #0c1525 0%, #080e1c 100%)",
-          borderTop: "1px solid rgba(37,99,235,0.2)",
-          boxShadow: "0 -1px 50px rgba(37,99,235,0.1)",
+          borderTop: "1px solid rgba(37,99,235,0.25)",
+          border: "1px solid rgba(255,255,255,0.06)",
+          borderTopColor: "rgba(37,99,235,0.25)",
+          boxShadow: "0 -1px 60px rgba(37,99,235,0.12), 0 4px 30px rgba(0,0,0,0.3)",
         }}
       >
         {/* 3D twisted ribbon shapes - bottom left */}
@@ -93,7 +95,7 @@ const Footer = () => {
           {/* Ambient glow */}
           <rect width="420" height="340" fill="url(#glow)" />
 
-          {/* Ribbon 1 - large sweeping curve from bottom-left */}
+          {/* Ribbon 1 */}
           <path
             d="M-20,340 C-20,280 30,200 60,160 C90,120 100,100 80,60 C60,20 40,0 20,-20"
             stroke="url(#ribbon1)"
@@ -101,7 +103,6 @@ const Footer = () => {
             fill="none"
             strokeLinecap="round"
           />
-          {/* Ribbon 1 edge highlight */}
           <path
             d="M-20,340 C-20,280 30,200 60,160 C90,120 100,100 80,60 C60,20 40,0 20,-20"
             stroke="url(#ribbonEdge1)"
@@ -110,7 +111,7 @@ const Footer = () => {
             strokeLinecap="round"
           />
 
-          {/* Ribbon 2 - second curve, slightly offset */}
+          {/* Ribbon 2 */}
           <path
             d="M40,340 C50,300 90,240 130,190 C170,140 180,110 160,70 C140,30 120,10 100,-10"
             stroke="url(#ribbon2)"
@@ -118,7 +119,6 @@ const Footer = () => {
             fill="none"
             strokeLinecap="round"
           />
-          {/* Ribbon 2 edge */}
           <path
             d="M40,340 C50,300 90,240 130,190 C170,140 180,110 160,70 C140,30 120,10 100,-10"
             stroke="url(#ribbonEdge2)"
@@ -127,7 +127,7 @@ const Footer = () => {
             strokeLinecap="round"
           />
 
-          {/* Ribbon 3 - thinner, forward */}
+          {/* Ribbon 3 */}
           <path
             d="M100,340 C120,310 160,260 200,220 C240,180 260,150 250,110 C240,70 220,40 200,10"
             stroke="url(#ribbon3)"
@@ -221,22 +221,21 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-        </div>
 
-        {/* Bottom bar — full width divider */}
-        <div className="relative z-10 px-6 md:px-[60px]">
+          {/* Bottom bar — same grid alignment as content above */}
           <div
-            className="flex flex-col md:flex-row md:items-center md:justify-between gap-3"
+            className="mt-10 grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 md:gap-[100px]"
             style={{
               borderTop: "1px solid rgba(255,255,255,0.06)",
-              marginTop: "40px",
               padding: "20px 0",
             }}
           >
-            <p className="text-[#4a5568] text-[12px] font-body">
+            <p className="text-[#4a5568] text-[12px] font-body md:pl-[200px]">
               {lang === "de" ? "© 2026 Voxalio. Alle Rechte vorbehalten." : "© 2026 Voxalio. All rights reserved."}
             </p>
-            <p className="text-[#4a5568] text-[12px] font-body">
+            <div className="hidden md:block" />
+            <div className="hidden md:block" />
+            <p className="text-[#4a5568] text-[12px] font-body md:text-right">
               {lang === "de"
                 ? 'KI-Hinweis: "Hallo, ich bin ein KI-Assistent für Voxalio."'
                 : 'AI Disclosure: "Hello, I am an AI assistant for Voxalio."'}
