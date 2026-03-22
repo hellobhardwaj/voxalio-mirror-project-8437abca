@@ -85,7 +85,7 @@ const Footer = () => {
           <div className="flex items-center justify-center gap-4 mt-8">
             <a
               href="#how-it-works"
-              className="px-6 py-3 rounded-xl border border-border text-foreground font-display font-semibold text-sm hover:bg-accent/50 transition-colors flex items-center gap-2"
+              className="px-6 py-3 rounded-xl border border-white/20 text-white font-display font-semibold text-sm hover:bg-white/10 transition-colors flex items-center gap-2"
             >
               {lang === "de" ? "Demo ansehen" : "View Demo"}
             </a>
