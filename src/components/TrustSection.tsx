@@ -72,6 +72,9 @@ const TrustSection = () => {
             );
           })}
         </div>
+
+        {/* Section divider */}
+        <div className="mt-20 md:mt-28 mx-auto max-w-3xl vox-section-divider" />
       </div>
     </section>
   );
