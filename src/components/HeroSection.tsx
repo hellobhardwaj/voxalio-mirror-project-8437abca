@@ -99,6 +99,68 @@ const MagneticButton = ({ children, className, style, href }: { children: React.
   );
 };
 
+// Phone call form
+const PhoneCallForm = ({ lang }: { lang: string }) => {
+  const [phone, setPhone] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const cleaned = phone.trim();
+    if (!cleaned || !/^\+\d{10,15}$/.test(cleaned)) {
+      toast.error(lang === "de" ? "Bitte geben Sie eine gültige Telefonnummer im E.164-Format ein (z.B. +4917612345678)" : "Please enter a valid phone number in E.164 format (e.g. +44123456789)");
+      return;
+    }
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("trigger-call", {
+        body: { phone: cleaned },
+      });
+      if (error) throw error;
+      toast.success(lang === "de" ? "Anruf wird eingeleitet!" : "Call is being initiated!");
+      setPhone("");
+    } catch (err: any) {
+      toast.error(lang === "de" ? "Anruf fehlgeschlagen. Bitte versuchen Sie es erneut." : "Failed to initiate call. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="w-full">
+      <div
+        className="relative rounded-2xl p-1"
+        style={{
+          background: "linear-gradient(135deg, rgba(37,99,235,0.3), rgba(96,165,250,0.2), rgba(59,130,246,0.3))",
+        }}
+      >
+        <div className="rounded-xl bg-white overflow-hidden">
+          <input
+            type="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder={lang === "de" ? "z.B. +4917612345678" : "Enter phone number"}
+            className="w-full px-5 py-3.5 text-[15px] text-[#0f172a] placeholder:text-[#94a3b8] bg-transparent outline-none border-none font-body"
+          />
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full py-3.5 text-white font-display font-semibold text-[15px] transition-opacity disabled:opacity-60"
+            style={{
+              background: "#0f172a",
+              borderRadius: "0 0 12px 12px",
+            }}
+          >
+            {loading
+              ? (lang === "de" ? "Wird verbunden..." : "Connecting...")
+              : (lang === "de" ? "Anruf erhalten" : "Get A Call")}
+          </button>
+        </div>
+      </div>
+    </form>
+  );
+};
+
 const HeroSection = () => {
   const { t, lang } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
