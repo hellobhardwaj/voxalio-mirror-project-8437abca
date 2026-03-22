@@ -3,7 +3,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Mic, ListChecks, Phone, Plug, BarChart3 } from "lucide-react";
 import { AnimatedGradient } from "@/components/ui/animated-gradient-with-svg";
 import Prism from "@/components/Prism";
-import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 
 const cardGradients = [
   ["#dbeafe", "#bfdbfe", "#93c5fd", "#e0f2fe"],
@@ -25,7 +24,7 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden" id="how-it-works" style={{ background: "var(--bg-mid)" }}>
+    <section className="relative overflow-hidden py-24 md:py-32" id="how-it-works" style={{ background: "var(--bg-mid)" }}>
       {/* Prism WebGL background */}
       <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
         <Prism
@@ -42,13 +41,13 @@ const HowItWorksSection = () => {
         />
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 relative z-10 pt-24 md:pt-32">
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-8"
+          className="mb-10"
         >
           <span className="section-label">Simple Setup</span>
           <h2 className="font-display font-bold text-[var(--text-primary)] text-[var(--text-2xl)] md:text-[var(--text-3xl)] leading-[1.1] mt-3">
@@ -59,68 +58,130 @@ const HowItWorksSection = () => {
           </p>
         </motion.div>
 
-        <ScrollStack
-          itemDistance={80}
-          itemScale={0.02}
-          itemStackDistance={40}
-          stackPosition="30%"
-          scaleEndPosition="15%"
-          baseScale={0.9}
-          blurAmount={2}
-        >
-          {steps.map((step, i) => {
+        {/* Bento grid layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {/* Row 1: large card + small card */}
+          {steps.slice(0, 2).map((step, i) => {
             const Icon = step.icon;
             return (
-              <ScrollStackItem key={i}>
-                <div
-                  className="relative rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 overflow-hidden"
-                  style={{
-                    border: "1px solid rgba(37,99,235,0.08)",
-                    boxShadow: "0 8px 32px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04)",
-                  }}
-                >
-                  {/* Animated gradient background per card */}
-                  <AnimatedGradient
-                    colors={cardGradients[i % cardGradients.length]}
-                    speed={10}
-                    blur="heavy"
-                  />
-                  {/* White overlay for readability */}
-                  <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-[1]" />
-
-                  {/* Step number + icon */}
-                  <div className="flex items-center gap-5 shrink-0 relative z-[2]">
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className={`relative rounded-2xl p-8 overflow-hidden ${i === 0 ? "md:col-span-2" : "md:col-span-1"}`}
+                style={{
+                  border: "1px solid rgba(37,99,235,0.08)",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.04)",
+                  minHeight: "200px",
+                }}
+              >
+                <AnimatedGradient colors={cardGradients[i]} speed={10} blur="heavy" />
+                <div className="absolute inset-0 bg-white/60 z-[1]" />
+                <div className="relative z-[2]">
+                  <div className="flex items-center gap-3 mb-4">
                     <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-display font-bold text-lg"
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-white font-display font-bold text-sm"
                       style={{ background: `linear-gradient(135deg, ${step.accent}, #60a5fa)` }}
                     >
                       {i + 1}
                     </div>
-                    <div
-                      className="w-14 h-14 rounded-xl flex items-center justify-center"
-                      style={{ background: `rgba(37,99,235,0.06)` }}
-                    >
-                      <Icon className="w-7 h-7" style={{ color: step.accent }} strokeWidth={1.5} />
-                    </div>
+                    <Icon className="w-5 h-5" style={{ color: step.accent }} strokeWidth={1.5} />
                   </div>
-
-                  {/* Content */}
-                  <div className="flex-1 min-w-0 relative z-[2]">
-                    <h3 className="font-display font-semibold text-[18px] text-[var(--text-primary)] mb-2">
-                      {step.title}
-                    </h3>
-                    <p className="text-[14px] text-[var(--text-secondary)] leading-[1.7] max-w-xl">
-                      {step.desc}
-                    </p>
-                  </div>
+                  <h3 className="font-display font-semibold text-[17px] text-[var(--text-primary)] mb-1.5">
+                    {step.title}
+                  </h3>
+                  <p className="text-[13px] text-[var(--text-secondary)] leading-[1.7] max-w-md">
+                    {step.desc}
+                  </p>
                 </div>
-              </ScrollStackItem>
+              </motion.div>
             );
           })}
-        </ScrollStack>
-      </div>
 
-      <div className="h-24 md:h-32" />
+          {/* Row 2: two equal cards */}
+          {steps.slice(2, 4).map((step, i) => {
+            const Icon = step.icon;
+            const idx = i + 2;
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="relative rounded-2xl p-8 overflow-hidden md:col-span-1 first:md:col-span-1 [&:nth-child(1)]:md:col-span-1"
+                style={{
+                  border: "1px solid rgba(37,99,235,0.08)",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.04)",
+                  minHeight: "180px",
+                }}
+              >
+                <AnimatedGradient colors={cardGradients[idx]} speed={10} blur="heavy" />
+                <div className="absolute inset-0 bg-white/60 z-[1]" />
+                <div className="relative z-[2]">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-white font-display font-bold text-sm"
+                      style={{ background: `linear-gradient(135deg, ${step.accent}, #60a5fa)` }}
+                    >
+                      {idx + 1}
+                    </div>
+                    <Icon className="w-5 h-5" style={{ color: step.accent }} strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-display font-semibold text-[17px] text-[var(--text-primary)] mb-1.5">
+                    {step.title}
+                  </h3>
+                  <p className="text-[13px] text-[var(--text-secondary)] leading-[1.7]">
+                    {step.desc}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
+
+          {/* Row 3: full-width card */}
+          {(() => {
+            const step = steps[4];
+            const Icon = step.icon;
+            return (
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="relative rounded-2xl p-8 overflow-hidden md:col-span-3"
+                style={{
+                  border: "1px solid rgba(37,99,235,0.08)",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.04)",
+                  minHeight: "180px",
+                }}
+              >
+                <AnimatedGradient colors={cardGradients[4]} speed={10} blur="heavy" />
+                <div className="absolute inset-0 bg-white/60 z-[1]" />
+                <div className="relative z-[2]">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-white font-display font-bold text-sm"
+                      style={{ background: `linear-gradient(135deg, ${step.accent}, #60a5fa)` }}
+                    >
+                      5
+                    </div>
+                    <Icon className="w-5 h-5" style={{ color: step.accent }} strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-display font-semibold text-[17px] text-[var(--text-primary)] mb-1.5">
+                    {step.title}
+                  </h3>
+                  <p className="text-[13px] text-[var(--text-secondary)] leading-[1.7] max-w-2xl">
+                    {step.desc}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })()}
+        </div>
+      </div>
     </section>
   );
 };
