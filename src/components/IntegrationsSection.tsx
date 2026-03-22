@@ -24,7 +24,7 @@ const IntegrationsSection = () => {
   const iconSize = isMobile ? 20 : 28;
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden" id="integrations" style={{ background: "var(--bg-mid)", borderTop: "1px solid rgba(0,0,0,0.06)" }}>
+    <section className="py-24 md:py-32 relative overflow-hidden" id="integrations" style={{ background: "var(--bg-mid)", borderTop: "1px solid rgba(0,0,0,0.10)" }}>
       <div className="absolute inset-0 z-0 opacity-50">
         <ShapeGrid
           speed={0.3}
