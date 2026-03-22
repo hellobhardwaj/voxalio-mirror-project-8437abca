@@ -78,7 +78,7 @@ const HowItWorksSection = () => {
                 }}
               >
                 <AnimatedGradient colors={cardGradients[i]} speed={10} blur="heavy" />
-                <div className="absolute inset-0 bg-white/60 z-[1]" />
+                <div className="absolute inset-0 bg-white/30 z-[1]" />
                 <div className="relative z-[2]">
                   <div className="flex items-center gap-3 mb-4">
                     <div
@@ -119,7 +119,7 @@ const HowItWorksSection = () => {
                 }}
               >
                 <AnimatedGradient colors={cardGradients[idx]} speed={10} blur="heavy" />
-                <div className="absolute inset-0 bg-white/60 z-[1]" />
+                <div className="absolute inset-0 bg-white/30 z-[1]" />
                 <div className="relative z-[2]">
                   <div className="flex items-center gap-3 mb-4">
                     <div
@@ -159,7 +159,7 @@ const HowItWorksSection = () => {
                 }}
               >
                 <AnimatedGradient colors={cardGradients[4]} speed={10} blur="heavy" />
-                <div className="absolute inset-0 bg-white/60 z-[1]" />
+                <div className="absolute inset-0 bg-white/30 z-[1]" />
                 <div className="relative z-[2]">
                   <div className="flex items-center gap-3 mb-4">
                     <div
