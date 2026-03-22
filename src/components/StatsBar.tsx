@@ -27,13 +27,13 @@ const StatsBar = () => {
   const stats = lang === "de"
     ? [
         { value: 94, suffix: ".2%", label: "Lösungsrate" },
-        { value: 10, suffix: " min", label: "Setup-Zeit", prefix: "< " },
+        { value: 1, suffix: " Woche", label: "Setup-Zeit", prefix: "< " },
         { value: 100, suffix: "%", label: "DSGVO-konform" },
         { value: 24, suffix: "/7", label: "Verfügbarkeit" },
       ]
     : [
         { value: 94, suffix: ".2%", label: "Resolution Rate" },
-        { value: 10, suffix: " min", label: "Setup Time", prefix: "< " },
+        { value: 1, suffix: " week", label: "Setup Time", prefix: "< " },
         { value: 100, suffix: "%", label: "GDPR Compliant" },
         { value: 24, suffix: "/7", label: "Uptime Guarantee" },
       ];
