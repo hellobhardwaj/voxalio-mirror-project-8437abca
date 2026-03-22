@@ -3,7 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import StatsBar from "@/components/StatsBar";
 import ValuePropositionSection from "@/components/ValuePropositionSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
-import UseCasesSection from "@/components/UseCasesSection";
+
 import TrustSection from "@/components/TrustSection";
 import DashboardHeader from "@/components/DashboardHeader";
 import DashboardShowcase from "@/components/DashboardShowcase";
@@ -27,7 +27,7 @@ const Index = () => (
     <StatsBar />
     <ValuePropositionSection />
     <HowItWorksSection />
-    <UseCasesSection />
+    
     <TrustSection />
     <div className="relative py-8 md:py-12 overflow-hidden" style={{ background: "var(--bg-dark)" }}>
       <DashboardHeader />
