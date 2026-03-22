@@ -151,7 +151,7 @@ const HowItWorksSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="relative rounded-2xl p-8 overflow-hidden md:col-span-3"
+                className="relative rounded-2xl p-8 overflow-hidden md:col-span-6"
                 style={{
                   border: "1px solid rgba(37,99,235,0.08)",
                   boxShadow: "0 4px 24px rgba(0,0,0,0.04)",
