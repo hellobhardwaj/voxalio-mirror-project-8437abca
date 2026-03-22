@@ -1,135 +1,122 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Instagram, Facebook, Twitter } from "lucide-react";
+import { Instagram, Facebook, Twitter, ArrowRight, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 import voxalioIcon from "@/assets/voxalio-icon.png";
+import { useState } from "react";
 
 const Footer = () => {
   const { t, lang } = useLanguage();
-
-  const columns = [
-    {
-      title: lang === "de" ? "Informationen" : "Information",
-      links: [
-        { label: lang === "de" ? "Anwendungsfälle" : "Use Cases", href: "#use-cases" },
-        { label: lang === "de" ? "Preise" : "Pricing", href: "#pricing" },
-        { label: lang === "de" ? "Kontakt" : "Contact", href: "#contact" },
-      ],
-    },
-    {
-      title: lang === "de" ? "Produkt" : "Product",
-      links: [
-        { label: lang === "de" ? "KI-Anrufassistent" : "AI Call Assistant", href: "#how-it-works" },
-        { label: lang === "de" ? "Integrationen" : "Integrations", href: "#integrations" },
-        { label: lang === "de" ? "Demo buchen" : "Book a Demo", href: "#booking" },
-        { label: "FAQ", href: "#faq" },
-      ],
-    },
-    {
-      title: lang === "de" ? "Rechtliches" : "Legal",
-      links: [
-        { label: lang === "de" ? "Datenschutzerklärung" : "Privacy Policy", href: "/privacy" },
-        { label: lang === "de" ? "KI-Offenlegung" : "AI Disclosure", href: "/ai-disclosure" },
-        { label: "GDPR", href: "/gdpr" },
-      ],
-    },
-  ];
+  const [email, setEmail] = useState("");
 
   return (
-    <footer className="relative bg-[#0a0f1a] overflow-hidden">
-      {/* Abstract wave/swirl glow — bottom left */}
-      <div
-        className="absolute bottom-0 left-0 w-[600px] h-[400px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at 20% 90%, rgba(37,99,235,0.22) 0%, rgba(20,50,120,0.12) 40%, transparent 70%)",
-          filter: "blur(40px)",
-        }}
-      />
-      {/* Secondary swirl accent */}
-      <div
-        className="absolute -bottom-10 -left-10 w-[350px] h-[300px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at 30% 80%, rgba(30,64,175,0.25) 0%, rgba(15,23,42,0.1) 60%, transparent 80%)",
-          filter: "blur(30px)",
-          borderRadius: "40% 60% 70% 30% / 40% 50% 60% 50%",
-          transform: "rotate(-15deg)",
-        }}
-      />
+    <footer className="relative py-16 md:py-24 overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(217 91% 95%) 50%, hsl(199 95% 90%) 100%)" }}>
+      {/* Gradient blobs */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60% / 0.08), transparent 70%)", filter: "blur(80px)" }} />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 95% 74% / 0.1), transparent 70%)", filter: "blur(80px)" }} />
 
-      {/* Large faded watermark */}
-      <div
-        className="absolute bottom-6 right-0 pointer-events-none select-none overflow-hidden"
-        style={{
-          fontSize: "clamp(100px, 14vw, 260px)",
-          fontWeight: 900,
-          color: "rgba(255,255,255,0.03)",
-          letterSpacing: "-0.04em",
-          lineHeight: 1,
-          fontFamily: "var(--font-display), system-ui, sans-serif",
-        }}
-      >
-        VOXALIO
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-10">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
-          {/* Brand column */}
-          <div className="col-span-2">
-            <div className="flex items-center gap-2.5 mb-3">
-              <img src={voxalioIcon} alt="Voxalio" className="w-7 h-7 rounded-md object-contain" />
-              <span className="font-display font-bold text-white text-lg tracking-tight">Voxalio</span>
+      <div className="relative z-10 max-w-5xl mx-auto px-6 space-y-6">
+        {/* Newsletter Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="rounded-2xl p-8 md:p-10 border border-border/60 shadow-sm"
+          style={{ background: "hsl(var(--background) / 0.85)", backdropFilter: "blur(20px)" }}
+        >
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <h3 className="font-display font-bold text-foreground text-xl md:text-2xl tracking-tight">
+                {lang === "de" ? "Newsletter abonnieren" : "Join Our Newsletter"}
+              </h3>
+              <p className="text-muted-foreground text-sm mt-1">
+                {lang === "de" ? "Nur Updates und Angebote. Kein Spam." : "Only updates and special offers. No spams."}
+              </p>
             </div>
-            <p className="text-[14px] text-white/50 mb-6 max-w-[220px] leading-relaxed">
-              {lang === "de" ? "Entdecken Sie die Zukunft der KI-Sprachagenten" : "Discover the future of AI Voice Agents"}
-            </p>
-
-            <div className="flex items-center gap-2.5 mb-6">
-              {[
-                { Icon: Facebook, label: "Facebook" },
-                { Icon: Twitter, label: "Twitter" },
-                { Icon: Instagram, label: "Instagram" },
-              ].map(({ Icon, label }) => (
-                <a
-                  key={label}
-                  href="#"
-                  className="text-white/40 hover:text-white transition-colors duration-200"
-                  aria-label={label}
-                >
-                  <Icon className="w-[18px] h-[18px]" />
-                </a>
-              ))}
+            <div className="flex gap-3 flex-shrink-0">
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={lang === "de" ? "E-Mail-Adresse eingeben..." : "Enter your email address..."}
+                  className="pl-10 pr-4 py-2.5 rounded-xl border border-primary/30 bg-background text-foreground text-sm w-[240px] md:w-[280px] focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-muted-foreground/60"
+                />
+              </div>
+              <button className="px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-display font-semibold text-sm flex items-center gap-2 hover:bg-primary/90 transition-colors vox-btn-glow">
+                {lang === "de" ? "Abonnieren" : "Subscribe"}
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
 
-          {/* Link columns */}
-          {columns.map((col) => (
-            <div key={col.title}>
-              <h4 className="font-display font-semibold mb-5 text-white text-[14px] tracking-wide">
-                {col.title}
-              </h4>
-              <ul className="space-y-3">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-[13px] text-white/40 hover:text-white transition-colors duration-200"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+          {/* Divider + bottom bar inside newsletter card */}
+          <div className="mt-8 pt-6" style={{ borderTop: "1px solid hsl(var(--border))" }}>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <img src={voxalioIcon} alt="Voxalio" className="w-6 h-6 rounded-md object-contain" />
+                <span className="font-display font-bold text-foreground text-sm tracking-tight">Voxalio</span>
+              </div>
+              <p className="text-xs text-muted-foreground">{t("footer.rights")}</p>
             </div>
-          ))}
-        </div>
+          </div>
+        </motion.div>
+
+        {/* CTA Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="rounded-2xl p-10 md:p-14 border border-border/60 shadow-sm text-center"
+          style={{ background: "hsl(var(--background) / 0.85)", backdropFilter: "blur(20px)" }}
+        >
+          <img src={voxalioIcon} alt="Voxalio" className="w-10 h-10 rounded-lg object-contain mx-auto mb-5" />
+          <h3 className="font-display font-bold text-foreground text-2xl md:text-3xl tracking-tight">
+            {lang === "de" ? "Starten Sie mit Voxalio." : "Get started with Voxalio today."}
+          </h3>
+          <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-md mx-auto">
+            {lang === "de"
+              ? "Automatisieren Sie Ihre Anrufe mit KI — ab sofort."
+              : "Automate your calls with AI starting now."}
+          </p>
+
+          <div className="flex items-center justify-center gap-4 mt-8">
+            <a
+              href="#how-it-works"
+              className="px-6 py-3 rounded-xl border border-border text-foreground font-display font-semibold text-sm hover:bg-accent/50 transition-colors flex items-center gap-2"
+            >
+              {lang === "de" ? "Demo ansehen" : "View Demo"}
+            </a>
+            <a
+              href="#contact"
+              className="px-6 py-3 rounded-xl bg-primary text-primary-foreground font-display font-semibold text-sm hover:bg-primary/90 transition-colors vox-btn-glow"
+            >
+              {lang === "de" ? "Jetzt starten" : "Get Started"}
+            </a>
+          </div>
+        </motion.div>
 
         {/* Bottom bar */}
-        <div
-          className="mt-14 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
-        >
-          <p className="text-[12px] text-white/25">{t("footer.rights")}</p>
-          <p className="text-[11px] text-white/25">{t("footer.disclosure")}</p>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 px-2">
+          <div className="flex items-center gap-3">
+            {[
+              { Icon: Facebook, label: "Facebook" },
+              { Icon: Twitter, label: "Twitter" },
+              { Icon: Instagram, label: "Instagram" },
+            ].map(({ Icon, label }) => (
+              <a
+                key={label}
+                href="#"
+                className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                aria-label={label}
+              >
+                <Icon className="w-[18px] h-[18px]" />
+              </a>
+            ))}
+          </div>
+          <p className="text-xs text-muted-foreground">{t("footer.rights")}</p>
         </div>
       </div>
     </footer>
