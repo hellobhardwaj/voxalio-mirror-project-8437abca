@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Mic, ListChecks, Phone, Plug, BarChart3 } from "lucide-react";
-import Prism from "@/components/Prism";
+import { AnimatedGradient } from "@/components/ui/animated-gradient-with-svg";
 import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 
 const HowItWorksSection = () => {
