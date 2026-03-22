@@ -29,7 +29,7 @@ const Index = () => (
     <HowItWorksSection />
     <UseCasesSection />
     <TrustSection />
-    <div style={{ background: "var(--bg-mid)" }} className="relative py-24 md:py-32 overflow-hidden">
+    <div className="relative py-16 md:py-24 overflow-hidden" style={{ background: "transparent" }}>
       <DitheringBackground />
       <div className="relative z-10">
         <DashboardHeader />

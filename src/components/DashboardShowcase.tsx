@@ -121,13 +121,10 @@ const DashboardShowcase = () => {
   }, []);
 
   return (
-    <section
+    <div
       ref={sectionRef}
       onMouseMove={handleMouse}
-      className="relative py-20 md:py-24 overflow-hidden"
-      style={{
-        background: `radial-gradient(circle at ${mouse.x}% ${mouse.y}%, rgba(37,99,235,0.02) 0%, transparent 50%), ${T.navyMid}`,
-      }}
+      className="relative overflow-visible"
     >
       <div className="max-w-[1100px] mx-auto px-4 md:px-6 relative">
         <div className="relative rounded-2xl overflow-visible" style={{ boxShadow: "0 40px 120px rgba(0,0,0,0.08)" }}>
