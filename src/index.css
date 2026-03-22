@@ -289,6 +289,16 @@
     100% { transform: translateY(-110vh); opacity: 0; }
   }
 
+  /* Hero phone card arc animation */
+  @property --hero-arc {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+  @keyframes hero-arc-spin {
+    to { --hero-arc: 360deg; }
+  }
+
   /* Aurora animations */
   @keyframes aurora1 {
     0%, 100% { transform: translate(0, 0); }
