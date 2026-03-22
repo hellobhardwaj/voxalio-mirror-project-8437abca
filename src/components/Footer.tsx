@@ -52,24 +52,48 @@ const Footer = () => {
         `,
       }}
     >
-      {/* WebGL Gradient Blinds - bottom left */}
+      {/* WebGL Gradient Blinds - primary bottom left */}
       <div
-        className="absolute bottom-0 left-0 w-[550px] h-[350px] z-0 pointer-events-none"
+        className="absolute bottom-0 left-0 w-[700px] h-[400px] z-0 pointer-events-none"
         style={{
-          maskImage: "radial-gradient(ellipse 90% 90% at 0% 100%, black 30%, transparent 70%)",
-          WebkitMaskImage: "radial-gradient(ellipse 90% 90% at 0% 100%, black 30%, transparent 70%)",
+          maskImage: "radial-gradient(ellipse 85% 95% at 0% 100%, black 25%, transparent 65%)",
+          WebkitMaskImage: "radial-gradient(ellipse 85% 95% at 0% 100%, black 25%, transparent 65%)",
         }}
       >
         <GradientBlinds
           gradientColors={['#1e3a8a', '#2563eb', '#1d4ed8', '#3b82f6']}
           angle={0}
           noise={0.3}
-          blindCount={12}
-          blindMinWidth={50}
-          spotlightRadius={0.5}
+          blindCount={14}
+          blindMinWidth={45}
+          spotlightRadius={0.6}
           spotlightSoftness={1}
           spotlightOpacity={1}
           mouseDampening={0.15}
+          distortAmount={0}
+          shineDirection="left"
+          mixBlendMode="lighten"
+        />
+      </div>
+
+      {/* Secondary layer - wider spread, softer */}
+      <div
+        className="absolute bottom-0 left-0 w-[900px] h-[300px] z-0 pointer-events-none opacity-40"
+        style={{
+          maskImage: "radial-gradient(ellipse 80% 90% at 5% 100%, black 15%, transparent 60%)",
+          WebkitMaskImage: "radial-gradient(ellipse 80% 90% at 5% 100%, black 15%, transparent 60%)",
+        }}
+      >
+        <GradientBlinds
+          gradientColors={['#1e40af', '#2563eb', '#60a5fa']}
+          angle={-10}
+          noise={0.2}
+          blindCount={10}
+          blindMinWidth={70}
+          spotlightRadius={0.7}
+          spotlightSoftness={1.2}
+          spotlightOpacity={0.8}
+          mouseDampening={0.2}
           distortAmount={0}
           shineDirection="left"
           mixBlendMode="lighten"
