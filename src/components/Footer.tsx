@@ -53,10 +53,10 @@ const Footer = () => {
     >
       {/* Diagonal gradient stripes - bottom left */}
       <div
-        className="absolute bottom-0 left-0 w-[420px] h-[280px] z-0 pointer-events-none"
+        className="absolute bottom-0 left-0 w-[500px] h-[320px] z-0 pointer-events-none"
         style={{
-          maskImage: "linear-gradient(to right, rgba(0,0,0,0.7) 0%, transparent 100%), linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 80%)",
-          WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,0.7) 0%, transparent 100%), linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 80%)",
+          maskImage: "linear-gradient(to right, rgba(0,0,0,0.95) 0%, transparent 100%), linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 85%)",
+          WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,0.95) 0%, transparent 100%), linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 85%)",
           maskComposite: "intersect",
           WebkitMaskComposite: "source-in",
         }}
@@ -67,16 +67,16 @@ const Footer = () => {
             className="absolute"
             style={{
               width: "60px",
-              height: "350px",
+              height: "400px",
               bottom: "-40px",
               left: `${i * 52 - 30}px`,
               transform: "rotate(-25deg)",
               transformOrigin: "bottom left",
               background: `linear-gradient(180deg, 
                 transparent 0%, 
-                ${i % 3 === 0 ? "rgba(37,99,235,0.35)" : i % 3 === 1 ? "rgba(29,78,216,0.3)" : "rgba(59,130,246,0.25)"} 40%, 
-                ${i % 3 === 0 ? "rgba(37,99,235,0.5)" : i % 3 === 1 ? "rgba(29,78,216,0.45)" : "rgba(59,130,246,0.4)"} 70%, 
-                ${i % 3 === 0 ? "rgba(37,99,235,0.3)" : i % 3 === 1 ? "rgba(29,78,216,0.25)" : "rgba(59,130,246,0.2)"} 100%
+                ${i % 3 === 0 ? "rgba(37,99,235,0.7)" : i % 3 === 1 ? "rgba(29,78,216,0.65)" : "rgba(59,130,246,0.55)"} 35%, 
+                ${i % 3 === 0 ? "rgba(37,99,235,0.9)" : i % 3 === 1 ? "rgba(29,78,216,0.85)" : "rgba(59,130,246,0.8)"} 60%, 
+                ${i % 3 === 0 ? "rgba(37,99,235,0.6)" : i % 3 === 1 ? "rgba(29,78,216,0.5)" : "rgba(59,130,246,0.45)"} 100%
               )`,
               filter: "blur(1px)",
             }}
