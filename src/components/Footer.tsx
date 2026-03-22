@@ -48,27 +48,27 @@ const Footer = () => {
         `,
       }}
     >
-      <div className="relative z-10 max-w-[1100px] mx-auto px-6 pt-14 pb-10">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-10 pt-16 pb-10">
         {/* Main content row */}
-        <div className="flex flex-col md:flex-row gap-10">
+        <div className="flex flex-col md:flex-row md:justify-between gap-12">
           {/* Left brand column */}
-          <div className="flex-shrink-0 md:w-[220px]">
-            <div className="flex items-center gap-2 mb-3">
-              <img src={voxalioIcon} alt="Voxalio" className="w-7 h-7 rounded-md object-contain" />
-              <span className="font-display font-bold text-white text-[15px] tracking-tight">Voxalio</span>
+          <div className="flex-shrink-0">
+            <div className="flex items-center gap-2.5 mb-4">
+              <img src={voxalioIcon} alt="Voxalio" className="w-8 h-8 rounded-lg object-contain" />
+              <span className="font-display font-bold text-white text-base tracking-tight">Voxalio</span>
             </div>
-            <p className="text-[rgba(255,255,255,0.4)] text-[12.5px] leading-relaxed mb-5">
+            <p className="text-[rgba(255,255,255,0.4)] text-[13px] leading-relaxed mb-6">
               {lang === "de" ? "KI-Sprachagenten — Made in Germany" : "AI Voice Agents — Made in Germany"}
             </p>
-            <div className="flex items-center gap-2 mb-5">
+            <div className="flex items-center gap-2.5 mb-6">
               {[Instagram, Facebook, Twitter].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
-                  className="w-[30px] h-[30px] rounded-full flex items-center justify-center text-[rgba(255,255,255,0.5)] hover:text-white transition-colors"
-                  style={{ background: "rgba(255,255,255,0.07)" }}
+                  className="w-[34px] h-[34px] rounded-full flex items-center justify-center text-[rgba(255,255,255,0.5)] hover:text-white transition-colors"
+                  style={{ background: "rgba(255,255,255,0.08)" }}
                 >
-                  <Icon className="w-[13px] h-[13px]" />
+                  <Icon className="w-[14px] h-[14px]" />
                 </a>
               ))}
             </div>
@@ -76,23 +76,23 @@ const Footer = () => {
               href="https://www.optimis-ai.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[rgba(255,255,255,0.25)] text-[11px] hover:text-[rgba(255,255,255,0.45)] transition-colors"
+              className="text-[rgba(255,255,255,0.25)] text-[11.5px] hover:text-[rgba(255,255,255,0.45)] transition-colors"
             >
               {t("footer.powered")}
             </a>
           </div>
 
-          {/* Right link columns — pushed right */}
-          <div className="flex flex-wrap gap-[60px] md:ml-auto">
+          {/* Right link columns */}
+          <div className="flex flex-wrap gap-[90px]">
             {/* Navigation */}
             <div>
-              <h4 className="font-display font-bold text-white text-[12px] uppercase tracking-[0.14em] mb-5">
+              <h4 className="font-display font-bold text-white text-[13px] uppercase tracking-[0.14em] mb-5">
                 Navigation
               </h4>
-              <ul className="space-y-[10px]">
+              <ul className="space-y-[14px]">
                 {navLinks.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-[rgba(255,255,255,0.45)] text-[12.5px] hover:text-[rgba(255,255,255,0.75)] transition-colors">
+                    <a href={link.href} className="text-[rgba(255,255,255,0.45)] text-[13px] hover:text-[rgba(255,255,255,0.75)] transition-colors">
                       {link.label}
                     </a>
                   </li>
@@ -102,13 +102,13 @@ const Footer = () => {
 
             {/* Product */}
             <div>
-              <h4 className="font-display font-bold text-white text-[12px] uppercase tracking-[0.14em] mb-5">
+              <h4 className="font-display font-bold text-white text-[13px] uppercase tracking-[0.14em] mb-5">
                 {lang === "de" ? "Produkt" : "Product"}
               </h4>
-              <ul className="space-y-[10px]">
+              <ul className="space-y-[14px]">
                 {productLinks.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-[rgba(255,255,255,0.45)] text-[12.5px] hover:text-[rgba(255,255,255,0.75)] transition-colors">
+                    <a href={link.href} className="text-[rgba(255,255,255,0.45)] text-[13px] hover:text-[rgba(255,255,255,0.75)] transition-colors">
                       {link.label}
                     </a>
                   </li>
@@ -118,13 +118,13 @@ const Footer = () => {
 
             {/* Legal */}
             <div>
-              <h4 className="font-display font-bold text-white text-[12px] uppercase tracking-[0.14em] mb-5">
+              <h4 className="font-display font-bold text-white text-[13px] uppercase tracking-[0.14em] mb-5">
                 {lang === "de" ? "Rechtliches" : "Legal"}
               </h4>
-              <ul className="space-y-[10px]">
+              <ul className="space-y-[14px]">
                 {legalLinks.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.to} className="text-[rgba(255,255,255,0.45)] text-[12.5px] hover:text-[rgba(255,255,255,0.75)] transition-colors">
+                    <Link to={link.to} className="text-[rgba(255,255,255,0.45)] text-[13px] hover:text-[rgba(255,255,255,0.75)] transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -136,13 +136,13 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div
-          className="mt-12 pt-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
+          className="mt-14 pt-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
           style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
         >
-          <p className="text-[rgba(255,255,255,0.25)] text-[11px]">
+          <p className="text-[rgba(255,255,255,0.25)] text-[11.5px]">
             {t("footer.rights")}
           </p>
-          <p className="text-[rgba(255,255,255,0.25)] text-[11px]">
+          <p className="text-[rgba(255,255,255,0.25)] text-[11.5px]">
             {t("footer.disclosure")}
           </p>
         </div>
