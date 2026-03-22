@@ -1,11 +1,13 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { PlayCircle } from "lucide-react";
+import { PlayCircle, Phone } from "lucide-react";
 import HeroWaveform from "@/components/HeroWaveform";
 import MagicRings from "@/components/MagicRings";
 import DotGrid from "@/components/DotGrid";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
