@@ -63,7 +63,7 @@ const ValuePropositionSection = () => {
   ];
 
   return (
-    <section style={{ background: "var(--bg-dark)" }} className="w-full py-16 md:py-24">
+    <section style={{ background: "var(--bg-dark)", borderTop: "1px solid rgba(255,255,255,0.06)" }} className="w-full py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
