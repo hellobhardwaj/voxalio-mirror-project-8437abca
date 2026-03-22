@@ -17,6 +17,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollProgress from "@/components/ScrollProgress";
+import { HeroDitheringCard } from "@/components/ui/hero-dithering-card";
 
 const Index = () => (
   <div className="min-h-screen" style={{ background: "var(--bg-dark)" }}>
@@ -31,6 +32,9 @@ const Index = () => (
     <div style={{ background: "var(--bg-mid)" }} className="py-24 md:py-32">
       <DashboardHeader />
       <DashboardShowcase />
+      <div className="mt-16 md:mt-24">
+        <HeroDitheringCard />
+      </div>
     </div>
     <IntegrationsSection />
     <PricingSection />
