@@ -73,10 +73,10 @@ const Footer = () => {
           style={{ background: "rgba(255,255,255,0.05)", backdropFilter: "blur(20px)" }}
         >
           <img src={voxalioIcon} alt="Voxalio" className="w-10 h-10 rounded-lg object-contain mx-auto mb-5" />
-          <h3 className="font-display font-bold text-foreground text-2xl md:text-3xl tracking-tight">
+          <h3 className="font-display font-bold text-white text-2xl md:text-3xl tracking-tight">
             {lang === "de" ? "Starten Sie mit Voxalio." : "Get started with Voxalio today."}
           </h3>
-          <p className="text-muted-foreground text-sm md:text-base mt-3 max-w-md mx-auto">
+          <p className="text-white/60 text-sm md:text-base mt-3 max-w-md mx-auto">
             {lang === "de"
               ? "Automatisieren Sie Ihre Anrufe mit KI — ab sofort."
               : "Automate your calls with AI starting now."}
