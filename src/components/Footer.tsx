@@ -150,11 +150,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mt-10 pt-5 border-t border-[rgba(15,23,42,0.08)]">
-          <p className="text-[#94a3b8] text-[12px] font-body whitespace-nowrap">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mt-10 pt-5 border-t border-[rgba(15,23,42,0.15)]">
+          <p className="text-[#64748b] text-[12px] font-body whitespace-nowrap">
             {lang === "de" ? "© 2026 Voxalio. Alle Rechte vorbehalten." : "© 2026 Voxalio. All rights reserved."}
           </p>
-          <p className="text-[#94a3b8] text-[12px] font-body whitespace-nowrap">
+          <p className="text-[#64748b] text-[12px] font-body whitespace-nowrap">
             {lang === "de"
               ? 'KI-Hinweis: "Hallo, ich bin ein KI-Assistent für Voxalio."'
               : 'AI Disclosure: "Hello, I am an AI assistant for Voxalio."'}
