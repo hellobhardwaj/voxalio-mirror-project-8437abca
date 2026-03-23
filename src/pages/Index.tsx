@@ -20,30 +20,57 @@ import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollProgress from "@/components/ScrollProgress";
 
-const Index = () => (
-  <div className="min-h-screen" style={{ background: "var(--bg-dark)" }}>
-    <ScrollProgress />
-    <Navbar />
-    <HeroSection />
-    <StatsBar />
-    <ValuePropositionSection />
-    <HowItWorksSection />
-    
-    <TrustSection />
-    <div className="relative py-8 md:py-12 overflow-hidden" style={{ background: "var(--bg-dark)", borderTop: "1px solid rgba(0,0,0,0.12)" }}>
-      <DashboardHeader />
-      <DashboardShowcase />
-    </div>
-    <IntegrationsSection />
-    <PricingSection />
-    
-    <FAQSection />
-    <LeadFormSection />
-    <CalendlySection />
-    <CTASection />
-    <Footer />
-    <CookieBanner />
-  </div>
+const Dithering = lazy(() =>
+  import("@paper-design/shaders-react").then((mod) => ({ default: mod.Dithering }))
 );
+
+const Index = () => {
+  const [isDashboardHovered, setIsDashboardHovered] = useState(false);
+
+  return (
+    <div className="min-h-screen" style={{ background: "var(--bg-dark)" }}>
+      <ScrollProgress />
+      <Navbar />
+      <HeroSection />
+      <StatsBar />
+      <ValuePropositionSection />
+      <HowItWorksSection />
+      
+      <TrustSection />
+      <div
+        className="relative py-8 md:py-12 overflow-hidden"
+        style={{ background: "var(--bg-dark)", borderTop: "1px solid rgba(0,0,0,0.12)" }}
+        onMouseEnter={() => setIsDashboardHovered(true)}
+        onMouseLeave={() => setIsDashboardHovered(false)}
+      >
+        {/* Dithering shader background */}
+        <div className="absolute inset-0 z-0 pointer-events-none" style={{ mixBlendMode: "multiply" }}>
+          <Suspense fallback={null}>
+            <Dithering
+              colorBack="#00000000"
+              colorFront="#2563eb"
+              speed={isDashboardHovered ? 0.6 : 0.2}
+              scale={3}
+              style={{ width: "100%", height: "100%", opacity: 0.3 }}
+            />
+          </Suspense>
+        </div>
+        <div className="relative z-[1]">
+          <DashboardHeader />
+          <DashboardShowcase />
+        </div>
+      </div>
+      <IntegrationsSection />
+      <PricingSection />
+      
+      <FAQSection />
+      <LeadFormSection />
+      <CalendlySection />
+      <CTASection />
+      <Footer />
+      <CookieBanner />
+    </div>
+  );
+};
 
 export default Index;
