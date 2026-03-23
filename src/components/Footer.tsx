@@ -51,17 +51,12 @@ const Footer = () => {
 
   return (
     <div style={{ background: "#040711" }}>
-      {/* Outer wrapper with generous padding */}
-      <div className="px-5 pb-5 pt-8 md:px-8 md:pb-8 md:pt-10 lg:px-10">
-        {/* Main footer card */}
         <footer
-          className="relative overflow-hidden rounded-[20px] md:rounded-[28px]"
+          className="relative overflow-hidden"
           style={{
             background: "linear-gradient(175deg, #0f1a2e 0%, #090f1e 60%, #070b17 100%)",
-            border: "1px solid rgba(255,255,255,0.07)",
-            borderTopColor: "rgba(37,99,235,0.25)",
-            boxShadow:
-              "0 -2px 60px rgba(37,99,235,0.08), 0 12px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)",
+            borderTop: "1px solid rgba(37,99,235,0.25)",
+            boxShadow: "0 -2px 60px rgba(37,99,235,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
           }}
         >
           {/* Dithering texture background */}
