@@ -74,51 +74,6 @@ const Footer = () => {
             </Suspense>
           </div>
 
-          {/* 3D ribbon shapes - bottom left */}
-          <svg
-            className="absolute bottom-0 left-0 z-0 pointer-events-none"
-            width="380"
-            height="320"
-            viewBox="0 0 420 340"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <defs>
-              <linearGradient id="ribbon1" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="#2563eb" stopOpacity="0.9" />
-                <stop offset="40%" stopColor="#1d4ed8" stopOpacity="0.7" />
-                <stop offset="100%" stopColor="#0a1628" stopOpacity="0" />
-              </linearGradient>
-              <linearGradient id="ribbon2" x1="0.2" y1="0" x2="0.8" y2="1">
-                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-                <stop offset="50%" stopColor="#1e40af" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#0a1628" stopOpacity="0" />
-              </linearGradient>
-              <linearGradient id="ribbon3" x1="0" y1="0.2" x2="1" y2="0.8">
-                <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.5" />
-                <stop offset="50%" stopColor="#2563eb" stopOpacity="0.4" />
-                <stop offset="100%" stopColor="#0a1628" stopOpacity="0" />
-              </linearGradient>
-              <linearGradient id="ribbonEdge1" x1="0" y1="0" x2="0.5" y2="1">
-                <stop offset="0%" stopColor="#93c5fd" stopOpacity="0.4" />
-                <stop offset="100%" stopColor="#1d4ed8" stopOpacity="0" />
-              </linearGradient>
-              <linearGradient id="ribbonEdge2" x1="0.3" y1="0" x2="0.7" y2="1">
-                <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.35" />
-                <stop offset="100%" stopColor="#1e3a8a" stopOpacity="0" />
-              </linearGradient>
-              <radialGradient id="glow" cx="0.15" cy="0.85" r="0.5">
-                <stop offset="0%" stopColor="#2563eb" stopOpacity="0.12" />
-                <stop offset="100%" stopColor="transparent" stopOpacity="0" />
-              </radialGradient>
-            </defs>
-            <rect width="420" height="340" fill="url(#glow)" />
-            <path d="M-20,340 C-20,280 30,200 60,160 C90,120 100,100 80,60 C60,20 40,0 20,-20" stroke="url(#ribbon1)" strokeWidth="45" fill="none" strokeLinecap="round" />
-            <path d="M-20,340 C-20,280 30,200 60,160 C90,120 100,100 80,60 C60,20 40,0 20,-20" stroke="url(#ribbonEdge1)" strokeWidth="2" fill="none" strokeLinecap="round" />
-            <path d="M40,340 C50,300 90,240 130,190 C170,140 180,110 160,70 C140,30 120,10 100,-10" stroke="url(#ribbon2)" strokeWidth="40" fill="none" strokeLinecap="round" />
-            <path d="M40,340 C50,300 90,240 130,190 C170,140 180,110 160,70 C140,30 120,10 100,-10" stroke="url(#ribbonEdge2)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-            <path d="M100,340 C120,310 160,260 200,220 C240,180 260,150 250,110 C240,70 220,40 200,10" stroke="url(#ribbon3)" strokeWidth="30" fill="none" strokeLinecap="round" />
-          </svg>
 
           {/* Watermark */}
           <span
@@ -139,8 +94,8 @@ const Footer = () => {
           <div className="relative z-10 px-8 pt-14 pb-12 md:px-16 md:pt-16 md:pb-14 lg:px-20">
             {/* Main grid — brand left, 3 nav columns right */}
             <div className="grid grid-cols-1 md:grid-cols-[1.8fr_1fr_1fr_1fr] gap-12 md:gap-16 lg:gap-20">
-              {/* Brand column — pushed right to clear ribbons */}
-              <div className="md:pl-[180px] lg:pl-[220px]">
+              {/* Brand column */}
+              <div>
                 <div className="flex items-center gap-3">
                   <img src={voxalioIcon} alt="Voxalio" className="w-8 h-8 rounded-lg object-contain" />
                   <span className="font-display font-bold text-white text-[17px] tracking-tight">Voxalio</span>
