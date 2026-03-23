@@ -43,8 +43,8 @@ const Footer = () => {
     { label: "GDPR", to: "/gdpr" },
   ];
 
-  const headingClass = "font-body font-semibold text-[#94a3b8] text-[11px] uppercase tracking-[0.14em] mb-6";
-  const linkClass = "text-[#475569] text-[13.5px] font-body font-normal hover:text-[#0f172a] transition-colors duration-200";
+  const headingClass = "font-body font-semibold text-[#475569] text-[11px] uppercase tracking-[0.14em] mb-6";
+  const linkClass = "text-[#334155] text-[13.5px] font-body font-normal hover:text-[#0f172a] transition-colors duration-200";
 
   return (
     <footer className="relative overflow-hidden" style={{ background: "#f8fafc", borderTop: "1px solid rgba(37,99,235,0.1)" }}>
@@ -88,7 +88,7 @@ const Footer = () => {
               <img src={voxalioIcon} alt="Voxalio" className="w-8 h-8 rounded-lg object-contain" />
               <span className="font-display font-bold text-[#0f172a] text-[17px] tracking-tight">Voxalio</span>
             </div>
-            <p className="text-[#64748b] text-[13px] font-body mt-4 leading-[1.6] whitespace-pre-line">
+            <p className="text-[#475569] text-[13px] font-body mt-4 leading-[1.6] whitespace-pre-line">
               {lang === "de" ? "KI-Sprachagenten —\nMade in Germany" : "Discover the future of\nAI Voice Agents"}
             </p>
             <div className="flex items-center gap-3 mt-6">
@@ -96,7 +96,7 @@ const Footer = () => {
                 <a
                   key={i}
                   href="#"
-                  className="flex items-center justify-center w-8 h-8 rounded-lg text-[#94a3b8] hover:text-[#2563eb] hover:bg-[rgba(37,99,235,0.06)] transition-all duration-200"
+                  className="flex items-center justify-center w-8 h-8 rounded-lg text-[#64748b] hover:text-[#2563eb] hover:bg-[rgba(37,99,235,0.06)] transition-all duration-200"
                 >
                   <Icon className="w-[14px] h-[14px]" />
                 </a>
@@ -106,7 +106,7 @@ const Footer = () => {
               href="https://www.optimis-ai.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-6 text-[#94a3b8] text-[12px] font-body hover:text-[#2563eb] transition-colors duration-200"
+              className="inline-block mt-6 text-[#64748b] text-[12px] font-body hover:text-[#2563eb] transition-colors duration-200"
             >
               Powered by Optimis AI
             </a>
@@ -150,11 +150,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mt-10 pt-5 border-t border-[rgba(15,23,42,0.08)]">
-          <p className="text-[#94a3b8] text-[12px] font-body whitespace-nowrap">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mt-10 pt-5 border-t border-[rgba(15,23,42,0.15)]">
+          <p className="text-[#64748b] text-[12px] font-body whitespace-nowrap">
             {lang === "de" ? "© 2026 Voxalio. Alle Rechte vorbehalten." : "© 2026 Voxalio. All rights reserved."}
           </p>
-          <p className="text-[#94a3b8] text-[12px] font-body whitespace-nowrap">
+          <p className="text-[#64748b] text-[12px] font-body whitespace-nowrap">
             {lang === "de"
               ? 'KI-Hinweis: "Hallo, ich bin ein KI-Assistent für Voxalio."'
               : 'AI Disclosure: "Hello, I am an AI assistant for Voxalio."'}
