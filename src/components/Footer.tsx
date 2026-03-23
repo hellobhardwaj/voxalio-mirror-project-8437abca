@@ -93,7 +93,7 @@ const Footer = () => {
       </span>
 
       {/* Card content */}
-      <div className="relative z-10 px-8 pt-14 pb-8 md:px-16 md:pt-16 md:pb-10 lg:px-20">
+      <div className="relative z-10 px-8 pt-36 pb-8 md:px-16 md:pt-40 md:pb-10 lg:px-20">
         {/* Main grid — brand left, 3 nav columns right */}
         <div className="grid grid-cols-1 md:grid-cols-[1.8fr_1fr_1fr_1fr] gap-12 md:gap-16 lg:gap-20">
           {/* Brand column */}
