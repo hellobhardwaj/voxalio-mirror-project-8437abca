@@ -67,18 +67,13 @@ const Footer = () => {
           >
             <Suspense fallback={null}>
               <Dithering
-                colorBack="#020617"
+                colorBack="#00000000"
                 colorFront="#2563eb"
-                speed={0.25}
-                scale={3}
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  opacity: 0.85,
-                }}
+                shape="warp"
+                type="4x4"
+                speed={0.2}
+                className="size-full"
+                minPixelRatio={1}
               />
             </Suspense>
           </div>
