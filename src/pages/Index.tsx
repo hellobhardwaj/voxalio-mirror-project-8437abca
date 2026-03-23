@@ -38,6 +38,7 @@ const Index = () => (
     <PricingSection />
     
     <FAQSection />
+    <DemoCallSection />
     <LeadFormSection />
     <CalendlySection />
     <CTASection />
