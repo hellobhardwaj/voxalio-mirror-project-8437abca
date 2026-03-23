@@ -43,8 +43,8 @@ const Footer = () => {
     { label: "GDPR", to: "/gdpr" },
   ];
 
-  const headingClass = "font-body font-semibold text-[rgba(255,255,255,0.45)] text-[11px] uppercase tracking-[0.14em] mb-6";
-  const linkClass = "text-[#8a9bb8] text-[13.5px] font-body font-normal hover:text-white transition-colors duration-200";
+  const headingClass = "font-body font-bold text-[rgba(255,255,255,0.55)] text-[11px] uppercase tracking-[0.14em] mb-6";
+  const linkClass = "text-[#a3b5d0] text-[13.5px] font-body font-semibold hover:text-white transition-colors duration-200";
 
   return (
     <div style={{ background: "#040711" }}>
@@ -104,7 +104,7 @@ const Footer = () => {
                   <img src={voxalioIcon} alt="Voxalio" className="w-8 h-8 rounded-lg object-contain" />
                   <span className="font-display font-bold text-white text-[17px] tracking-tight">Voxalio</span>
                 </div>
-                <p className="text-[#6b7f9e] text-[13px] font-body mt-4 leading-[1.6] whitespace-pre-line">
+                <p className="text-[#8a9bb8] text-[13px] font-body font-semibold mt-4 leading-[1.6] whitespace-pre-line">
                   {lang === "de" ? "KI-Sprachagenten —\nMade in Germany" : "Discover the future of\nAI Voice Agents"}
                 </p>
                 <div className="flex items-center gap-3 mt-6">
@@ -122,7 +122,7 @@ const Footer = () => {
                   href="https://www.optimis-ai.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-6 text-[#3d4f6a] text-[12px] font-body hover:text-[#8a9bb8] transition-colors duration-200"
+                  className="inline-block mt-6 text-[#5a6d8a] text-[12px] font-body font-semibold hover:text-[#a3b5d0] transition-colors duration-200"
                 >
                   Powered by Optimis AI
                 </a>
@@ -169,10 +169,10 @@ const Footer = () => {
 
         {/* Bottom bar — outside card, on the dark base */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 px-4 md:px-8 lg:px-10 pt-5 pb-1">
-          <p className="text-[#3d4f6a] text-[12px] font-body whitespace-nowrap">
+          <p className="text-[#5a6d8a] text-[12px] font-body font-semibold whitespace-nowrap">
             {lang === "de" ? "© 2026 Voxalio. Alle Rechte vorbehalten." : "© 2026 Voxalio. All rights reserved."}
           </p>
-          <p className="text-[#3d4f6a] text-[12px] font-body whitespace-nowrap">
+          <p className="text-[#5a6d8a] text-[12px] font-body font-semibold whitespace-nowrap">
             {lang === "de"
               ? 'KI-Hinweis: "Hallo, ich bin ein KI-Assistent für Voxalio."'
               : 'AI Disclosure: "Hello, I am an AI assistant for Voxalio."'}
