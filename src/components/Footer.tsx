@@ -43,27 +43,13 @@ const Footer = () => {
     { label: "GDPR", to: "/gdpr" },
   ];
 
-  const headingClass = "font-body font-semibold text-[rgba(255,255,255,0.65)] text-[11px] uppercase tracking-[0.14em] mb-6";
-  const linkClass = "text-[#b0c4de] text-[13.5px] font-body font-normal hover:text-white transition-colors duration-200";
+  const headingClass = "font-body font-semibold text-[#94a3b8] text-[11px] uppercase tracking-[0.14em] mb-6";
+  const linkClass = "text-[#475569] text-[13.5px] font-body font-normal hover:text-[#0f172a] transition-colors duration-200";
 
   return (
-    <footer className="relative overflow-hidden">
-      {/* Gradient transition from page background to footer */}
-      <div
-        className="absolute top-0 left-0 right-0 h-32 z-[5] pointer-events-none"
-        style={{
-          background: "linear-gradient(to bottom, var(--bg-mid) 0%, #0f1a2e 100%)",
-        }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(175deg, #0f1a2e 0%, #090f1e 60%, #070b17 100%)",
-          boxShadow: "0 -2px 60px rgba(37,99,235,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
-        }}
-      />
+    <footer className="relative overflow-hidden" style={{ background: "#f8fafc", borderTop: "1px solid rgba(37,99,235,0.1)" }}>
       {/* Dithering texture background */}
-      <div className="absolute inset-0 z-[1] pointer-events-none opacity-25">
+      <div className="absolute inset-0 z-[1] pointer-events-none opacity-15">
         <Suspense fallback={null}>
           <Dithering
             colorBack="#00000000"
@@ -84,7 +70,7 @@ const Footer = () => {
           bottom: "24px",
           right: "40px",
           fontSize: "80px",
-          color: "rgba(255,255,255,0.025)",
+          color: "rgba(37,99,235,0.04)",
           letterSpacing: "0.08em",
           lineHeight: 1,
         }}
@@ -93,16 +79,16 @@ const Footer = () => {
       </span>
 
       {/* Card content */}
-      <div className="relative z-10 px-8 pt-36 pb-8 md:px-16 md:pt-40 md:pb-10 lg:px-20">
+      <div className="relative z-10 px-8 pt-14 pb-8 md:px-16 md:pt-16 md:pb-10 lg:px-20">
         {/* Main grid — brand left, 3 nav columns right */}
         <div className="grid grid-cols-1 md:grid-cols-[1.8fr_1fr_1fr_1fr] gap-12 md:gap-16 lg:gap-20">
           {/* Brand column */}
           <div>
             <div className="flex items-center gap-3">
               <img src={voxalioIcon} alt="Voxalio" className="w-8 h-8 rounded-lg object-contain" />
-              <span className="font-display font-bold text-white text-[17px] tracking-tight">Voxalio</span>
+              <span className="font-display font-bold text-[#0f172a] text-[17px] tracking-tight">Voxalio</span>
             </div>
-            <p className="text-[#8fa4c0] text-[13px] font-body mt-4 leading-[1.6] whitespace-pre-line">
+            <p className="text-[#64748b] text-[13px] font-body mt-4 leading-[1.6] whitespace-pre-line">
               {lang === "de" ? "KI-Sprachagenten —\nMade in Germany" : "Discover the future of\nAI Voice Agents"}
             </p>
             <div className="flex items-center gap-3 mt-6">
@@ -110,7 +96,7 @@ const Footer = () => {
                 <a
                   key={i}
                   href="#"
-                  className="flex items-center justify-center w-8 h-8 rounded-lg text-[#6b7f9e] hover:text-white hover:bg-[rgba(255,255,255,0.06)] transition-all duration-200"
+                  className="flex items-center justify-center w-8 h-8 rounded-lg text-[#94a3b8] hover:text-[#2563eb] hover:bg-[rgba(37,99,235,0.06)] transition-all duration-200"
                 >
                   <Icon className="w-[14px] h-[14px]" />
                 </a>
@@ -120,7 +106,7 @@ const Footer = () => {
               href="https://www.optimis-ai.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-6 text-[#7a8da8] text-[12px] font-body hover:text-white transition-colors duration-200"
+              className="inline-block mt-6 text-[#94a3b8] text-[12px] font-body hover:text-[#2563eb] transition-colors duration-200"
             >
               Powered by Optimis AI
             </a>
@@ -164,11 +150,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mt-10 pt-5 border-t border-[rgba(255,255,255,0.15)]">
-          <p className="text-[#7a8da8] text-[12px] font-body whitespace-nowrap">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mt-10 pt-5 border-t border-[rgba(15,23,42,0.08)]">
+          <p className="text-[#94a3b8] text-[12px] font-body whitespace-nowrap">
             {lang === "de" ? "© 2026 Voxalio. Alle Rechte vorbehalten." : "© 2026 Voxalio. All rights reserved."}
           </p>
-          <p className="text-[#7a8da8] text-[12px] font-body whitespace-nowrap">
+          <p className="text-[#94a3b8] text-[12px] font-body whitespace-nowrap">
             {lang === "de"
               ? 'KI-Hinweis: "Hallo, ich bin ein KI-Assistent für Voxalio."'
               : 'AI Disclosure: "Hello, I am an AI assistant for Voxalio."'}
