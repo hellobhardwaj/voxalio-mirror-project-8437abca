@@ -63,7 +63,7 @@ const Footer = () => {
         >
           {/* Dithering texture background */}
           <div
-            className="absolute inset-0 z-[1] pointer-events-none overflow-hidden rounded-[20px] md:rounded-[28px]"
+            className="absolute inset-0 z-[1] pointer-events-none overflow-hidden rounded-[20px] md:rounded-[28px] opacity-40"
           >
             <Suspense fallback={null}>
               <Dithering
