@@ -43,8 +43,8 @@ const Footer = () => {
     { label: "GDPR", to: "/gdpr" },
   ];
 
-  const headingClass = "font-body font-semibold text-[rgba(255,255,255,0.45)] text-[11px] uppercase tracking-[0.14em] mb-6";
-  const linkClass = "text-[#8a9bb8] text-[13.5px] font-body font-normal hover:text-white transition-colors duration-200";
+  const headingClass = "font-body font-semibold text-[rgba(255,255,255,0.65)] text-[11px] uppercase tracking-[0.14em] mb-6";
+  const linkClass = "text-[#b0c4de] text-[13.5px] font-body font-normal hover:text-white transition-colors duration-200";
 
   return (
     <footer className="relative overflow-hidden">
