@@ -61,6 +61,19 @@ const Footer = () => {
               "0 -2px 60px rgba(37,99,235,0.08), 0 12px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)",
           }}
         >
+          {/* Dithering texture background */}
+          <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-[20px] md:rounded-[28px]">
+            <Suspense fallback={null}>
+              <Dithering
+                colorBack="#090f1e"
+                colorFront="#2563eb"
+                speed={0.2}
+                scale={3}
+                style={{ width: "100%", height: "100%", opacity: 0.15 }}
+              />
+            </Suspense>
+          </div>
+
           {/* 3D ribbon shapes - bottom left */}
           <svg
             className="absolute bottom-0 left-0 z-0 pointer-events-none"
