@@ -8,6 +8,9 @@ const Dithering = lazy(() =>
   import("@paper-design/shaders-react").then((mod) => ({ default: mod.Dithering }))
 );
 
+// Preload the shader module immediately
+import("@paper-design/shaders-react").catch(() => {});
+
 const Footer = () => {
   const { lang } = useLanguage();
 
@@ -48,22 +51,17 @@ const Footer = () => {
 
   return (
     <div style={{ background: "#040711" }}>
-      {/* Outer wrapper with generous padding */}
-      <div className="px-5 pb-5 pt-8 md:px-8 md:pb-8 md:pt-10 lg:px-10">
-        {/* Main footer card */}
         <footer
-          className="relative overflow-hidden rounded-[20px] md:rounded-[28px]"
+          className="relative overflow-hidden"
           style={{
             background: "linear-gradient(175deg, #0f1a2e 0%, #090f1e 60%, #070b17 100%)",
-            border: "1px solid rgba(255,255,255,0.07)",
-            borderTopColor: "rgba(37,99,235,0.25)",
-            boxShadow:
-              "0 -2px 60px rgba(37,99,235,0.08), 0 12px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)",
+            borderTop: "1px solid rgba(37,99,235,0.25)",
+            boxShadow: "0 -2px 60px rgba(37,99,235,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
           }}
         >
           {/* Dithering texture background */}
           <div
-            className="absolute inset-0 z-[1] pointer-events-none overflow-hidden rounded-[20px] md:rounded-[28px] opacity-40"
+            className="absolute inset-0 z-[1] pointer-events-none overflow-hidden opacity-40"
           >
             <Suspense fallback={null}>
               <Dithering
@@ -95,7 +93,7 @@ const Footer = () => {
           </span>
 
           {/* Card content */}
-          <div className="relative z-10 px-8 pt-14 pb-12 md:px-16 md:pt-16 md:pb-14 lg:px-20">
+          <div className="relative z-10 px-8 pt-14 pb-12 md:px-16 md:pt-16 md:pb-14 lg:px-20 max-w-[1400px] mx-auto">
             {/* Main grid — brand left, 3 nav columns right */}
             <div className="grid grid-cols-1 md:grid-cols-[1.8fr_1fr_1fr_1fr] gap-12 md:gap-16 lg:gap-20">
               {/* Brand column */}
@@ -167,8 +165,10 @@ const Footer = () => {
           </div>
         </footer>
 
-        {/* Bottom bar — outside card, on the dark base */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 px-4 md:px-8 lg:px-10 pt-5 pb-1">
+        {/* Bottom bar */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 px-8 md:px-16 lg:px-20 max-w-[1400px] mx-auto py-5"
+          style={{ background: "#040711" }}
+        >
           <p className="text-[#3d4f6a] text-[12px] font-body whitespace-nowrap">
             {lang === "de" ? "© 2026 Voxalio. Alle Rechte vorbehalten." : "© 2026 Voxalio. All rights reserved."}
           </p>
@@ -178,7 +178,6 @@ const Footer = () => {
               : 'AI Disclosure: "Hello, I am an AI assistant for Voxalio."'}
           </p>
         </div>
-      </div>
     </div>
   );
 };
