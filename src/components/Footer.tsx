@@ -49,7 +49,7 @@ const Footer = () => {
   return (
     <footer className="relative overflow-hidden" style={{ background: "#f8fafc", borderTop: "1px solid rgba(37,99,235,0.1)" }}>
       {/* Dithering texture background */}
-      <div className="absolute inset-0 z-[1] pointer-events-none opacity-15">
+      <div className="absolute inset-0 z-[1] pointer-events-none opacity-30">
         <Suspense fallback={null}>
           <Dithering
             colorBack="#00000000"
