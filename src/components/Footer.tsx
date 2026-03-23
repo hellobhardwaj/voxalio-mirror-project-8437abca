@@ -8,6 +8,9 @@ const Dithering = lazy(() =>
   import("@paper-design/shaders-react").then((mod) => ({ default: mod.Dithering }))
 );
 
+// Preload the shader module immediately
+import("@paper-design/shaders-react").catch(() => {});
+
 const Footer = () => {
   const { lang } = useLanguage();
 
