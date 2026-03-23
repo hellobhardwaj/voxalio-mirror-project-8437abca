@@ -62,14 +62,14 @@ const Footer = () => {
           }}
         >
           {/* Dithering texture background */}
-          <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-[20px] md:rounded-[28px]">
+          <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden rounded-[20px] md:rounded-[28px]">
             <Suspense fallback={null}>
               <Dithering
-                colorBack="#090f1e"
-                colorFront="#2563eb"
-                speed={0.2}
-                scale={3}
-                style={{ width: "100%", height: "100%", opacity: 0.15 }}
+                colorBack="#0a1628"
+                colorFront="#3b82f6"
+                speed={0.3}
+                scale={2.5}
+                style={{ width: "100%", height: "100%", opacity: 0.4 }}
               />
             </Suspense>
           </div>
