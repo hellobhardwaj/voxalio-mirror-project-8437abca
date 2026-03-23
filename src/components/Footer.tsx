@@ -43,139 +43,143 @@ const Footer = () => {
     { label: "GDPR", to: "/gdpr" },
   ];
 
-  const headingClass = "font-body font-semibold text-[rgba(255,255,255,0.65)] text-[11px] uppercase tracking-[0.14em] mb-6";
-  const linkClass = "text-[#b0c4de] text-[13.5px] font-body font-normal hover:text-white transition-colors duration-200";
+  const headingClass = "font-body font-semibold text-[rgba(255,255,255,0.45)] text-[11px] uppercase tracking-[0.14em] mb-6";
+  const linkClass = "text-[#8a9bb8] text-[13.5px] font-body font-normal hover:text-white transition-colors duration-200";
 
   return (
-    <footer className="relative overflow-hidden">
-      {/* Gradient transition from page background to footer */}
-      <div
-        className="absolute top-0 left-0 right-0 h-32 z-[5] pointer-events-none"
-        style={{
-          background: "linear-gradient(to bottom, var(--bg-mid) 0%, #0f1a2e 100%)",
-        }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(175deg, #0f1a2e 0%, #090f1e 60%, #070b17 100%)",
-          boxShadow: "0 -2px 60px rgba(37,99,235,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
-        }}
-      />
-      {/* Dithering texture background */}
-      <div className="absolute inset-0 z-[1] pointer-events-none opacity-25">
-        <Suspense fallback={null}>
-          <Dithering
-            colorBack="#00000000"
-            colorFront="#2563eb"
-            shape="warp"
-            type="4x4"
-            speed={0.2}
-            className="size-full"
-            minPixelRatio={1}
-          />
-        </Suspense>
-      </div>
+    <div style={{ background: "#040711" }}>
+      {/* Outer wrapper with generous padding */}
+      <div className="px-5 pb-5 pt-8 md:px-8 md:pb-8 md:pt-10 lg:px-10">
+        {/* Main footer card */}
+        <footer
+          className="relative overflow-hidden rounded-[20px] md:rounded-[28px]"
+          style={{
+            background: "linear-gradient(175deg, #0f1a2e 0%, #090f1e 60%, #070b17 100%)",
+            border: "1px solid rgba(255,255,255,0.07)",
+            borderTopColor: "rgba(37,99,235,0.25)",
+            boxShadow:
+              "0 -2px 60px rgba(37,99,235,0.08), 0 12px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)",
+          }}
+        >
+          {/* Dithering texture background */}
+          <div
+            className="absolute inset-0 z-[1] pointer-events-none overflow-hidden rounded-[20px] md:rounded-[28px] opacity-40"
+          >
+            <Suspense fallback={null}>
+              <Dithering
+                colorBack="#00000000"
+                colorFront="#2563eb"
+                shape="warp"
+                type="4x4"
+                speed={0.2}
+                className="size-full"
+                minPixelRatio={1}
+              />
+            </Suspense>
+          </div>
 
-      {/* Watermark */}
-      <span
-        className="absolute z-0 pointer-events-none select-none font-display font-extrabold uppercase hidden md:block"
-        style={{
-          bottom: "24px",
-          right: "40px",
-          fontSize: "80px",
-          color: "rgba(255,255,255,0.025)",
-          letterSpacing: "0.08em",
-          lineHeight: 1,
-        }}
-      >
-        VOXALIO
-      </span>
 
-      {/* Card content */}
-      <div className="relative z-10 px-8 pt-36 pb-8 md:px-16 md:pt-40 md:pb-10 lg:px-20">
-        {/* Main grid — brand left, 3 nav columns right */}
-        <div className="grid grid-cols-1 md:grid-cols-[1.8fr_1fr_1fr_1fr] gap-12 md:gap-16 lg:gap-20">
-          {/* Brand column */}
-          <div>
-            <div className="flex items-center gap-3">
-              <img src={voxalioIcon} alt="Voxalio" className="w-8 h-8 rounded-lg object-contain" />
-              <span className="font-display font-bold text-white text-[17px] tracking-tight">Voxalio</span>
-            </div>
-            <p className="text-[#8fa4c0] text-[13px] font-body mt-4 leading-[1.6] whitespace-pre-line">
-              {lang === "de" ? "KI-Sprachagenten —\nMade in Germany" : "Discover the future of\nAI Voice Agents"}
-            </p>
-            <div className="flex items-center gap-3 mt-6">
-              {[Instagram, Facebook, Twitter].map((Icon, i) => (
+          {/* Watermark */}
+          <span
+            className="absolute z-0 pointer-events-none select-none font-display font-extrabold uppercase hidden md:block"
+            style={{
+              bottom: "24px",
+              right: "40px",
+              fontSize: "80px",
+              color: "rgba(255,255,255,0.025)",
+              letterSpacing: "0.08em",
+              lineHeight: 1,
+            }}
+          >
+            VOXALIO
+          </span>
+
+          {/* Card content */}
+          <div className="relative z-10 px-8 pt-14 pb-12 md:px-16 md:pt-16 md:pb-14 lg:px-20">
+            {/* Main grid — brand left, 3 nav columns right */}
+            <div className="grid grid-cols-1 md:grid-cols-[1.8fr_1fr_1fr_1fr] gap-12 md:gap-16 lg:gap-20">
+              {/* Brand column */}
+              <div>
+                <div className="flex items-center gap-3">
+                  <img src={voxalioIcon} alt="Voxalio" className="w-8 h-8 rounded-lg object-contain" />
+                  <span className="font-display font-bold text-white text-[17px] tracking-tight">Voxalio</span>
+                </div>
+                <p className="text-[#6b7f9e] text-[13px] font-body mt-4 leading-[1.6] whitespace-pre-line">
+                  {lang === "de" ? "KI-Sprachagenten —\nMade in Germany" : "Discover the future of\nAI Voice Agents"}
+                </p>
+                <div className="flex items-center gap-3 mt-6">
+                  {[Instagram, Facebook, Twitter].map((Icon, i) => (
+                    <a
+                      key={i}
+                      href="#"
+                      className="flex items-center justify-center w-8 h-8 rounded-lg text-[#6b7f9e] hover:text-white hover:bg-[rgba(255,255,255,0.06)] transition-all duration-200"
+                    >
+                      <Icon className="w-[14px] h-[14px]" />
+                    </a>
+                  ))}
+                </div>
                 <a
-                  key={i}
-                  href="#"
-                  className="flex items-center justify-center w-8 h-8 rounded-lg text-[#6b7f9e] hover:text-white hover:bg-[rgba(255,255,255,0.06)] transition-all duration-200"
+                  href="https://www.optimis-ai.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-6 text-[#3d4f6a] text-[12px] font-body hover:text-[#8a9bb8] transition-colors duration-200"
                 >
-                  <Icon className="w-[14px] h-[14px]" />
+                  Powered by Optimis AI
                 </a>
-              ))}
+              </div>
+
+              {/* Navigation */}
+              <div>
+                <h4 className={headingClass}>Navigation</h4>
+                <ul className="flex flex-col gap-[14px]">
+                  {navLinks.map((link) => (
+                    <li key={link.label}>
+                      <a href={link.href} className={linkClass}>{link.label}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Product */}
+              <div>
+                <h4 className={headingClass}>{lang === "de" ? "Produkt" : "Product"}</h4>
+                <ul className="flex flex-col gap-[14px]">
+                  {productLinks.map((link) => (
+                    <li key={link.label}>
+                      <a href={link.href} className={linkClass}>{link.label}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Legal */}
+              <div>
+                <h4 className={headingClass}>{lang === "de" ? "Rechtliches" : "Legal"}</h4>
+                <ul className="flex flex-col gap-[14px]">
+                  {legalLinks.map((link) => (
+                    <li key={link.label}>
+                      <Link to={link.to} className={linkClass}>{link.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <a
-              href="https://www.optimis-ai.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-6 text-[#7a8da8] text-[12px] font-body hover:text-white transition-colors duration-200"
-            >
-              Powered by Optimis AI
-            </a>
           </div>
+        </footer>
 
-          {/* Navigation */}
-          <div>
-            <h4 className={headingClass}>Navigation</h4>
-            <ul className="flex flex-col gap-[14px]">
-              {navLinks.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className={linkClass}>{link.label}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Product */}
-          <div>
-            <h4 className={headingClass}>{lang === "de" ? "Produkt" : "Product"}</h4>
-            <ul className="flex flex-col gap-[14px]">
-              {productLinks.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className={linkClass}>{link.label}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className={headingClass}>{lang === "de" ? "Rechtliches" : "Legal"}</h4>
-            <ul className="flex flex-col gap-[14px]">
-              {legalLinks.map((link) => (
-                <li key={link.label}>
-                  <Link to={link.to} className={linkClass}>{link.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mt-10 pt-5 border-t border-[rgba(255,255,255,0.15)]">
-          <p className="text-[#7a8da8] text-[12px] font-body whitespace-nowrap">
+        {/* Bottom bar — outside card, on the dark base */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 px-4 md:px-8 lg:px-10 pt-5 pb-1">
+          <p className="text-[#3d4f6a] text-[12px] font-body whitespace-nowrap">
             {lang === "de" ? "© 2026 Voxalio. Alle Rechte vorbehalten." : "© 2026 Voxalio. All rights reserved."}
           </p>
-          <p className="text-[#7a8da8] text-[12px] font-body whitespace-nowrap">
+          <p className="text-[#3d4f6a] text-[12px] font-body whitespace-nowrap">
             {lang === "de"
               ? 'KI-Hinweis: "Hallo, ich bin ein KI-Assistent für Voxalio."'
               : 'AI Disclosure: "Hello, I am an AI assistant for Voxalio."'}
           </p>
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
 
