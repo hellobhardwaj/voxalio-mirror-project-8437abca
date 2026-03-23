@@ -50,7 +50,7 @@ const Footer = () => {
     <footer className="relative overflow-hidden">
       {/* Gradient transition from page background to footer */}
       <div
-        className="absolute top-0 left-0 right-0 h-32 z-[2] pointer-events-none"
+        className="absolute top-0 left-0 right-0 h-32 z-[5] pointer-events-none"
         style={{
           background: "linear-gradient(to bottom, var(--bg-mid) 0%, #0f1a2e 100%)",
         }}
@@ -63,7 +63,7 @@ const Footer = () => {
         }}
       />
       {/* Dithering texture background */}
-      <div className="absolute inset-0 z-[1] pointer-events-none opacity-40">
+      <div className="absolute inset-0 z-[1] pointer-events-none opacity-25">
         <Suspense fallback={null}>
           <Dithering
             colorBack="#00000000"
