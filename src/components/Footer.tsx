@@ -102,7 +102,7 @@ const Footer = () => {
               <img src={voxalioIcon} alt="Voxalio" className="w-8 h-8 rounded-lg object-contain" />
               <span className="font-display font-bold text-white text-[17px] tracking-tight">Voxalio</span>
             </div>
-            <p className="text-[#6b7f9e] text-[13px] font-body mt-4 leading-[1.6] whitespace-pre-line">
+            <p className="text-[#8fa4c0] text-[13px] font-body mt-4 leading-[1.6] whitespace-pre-line">
               {lang === "de" ? "KI-Sprachagenten —\nMade in Germany" : "Discover the future of\nAI Voice Agents"}
             </p>
             <div className="flex items-center gap-3 mt-6">
