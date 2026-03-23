@@ -120,7 +120,7 @@ const Footer = () => {
               href="https://www.optimis-ai.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-6 text-[#3d4f6a] text-[12px] font-body hover:text-[#8a9bb8] transition-colors duration-200"
+              className="inline-block mt-6 text-[#7a8da8] text-[12px] font-body hover:text-white transition-colors duration-200"
             >
               Powered by Optimis AI
             </a>
