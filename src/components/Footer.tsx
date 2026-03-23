@@ -47,14 +47,21 @@ const Footer = () => {
   const linkClass = "text-[#8a9bb8] text-[13.5px] font-body font-normal hover:text-white transition-colors duration-200";
 
   return (
-    <footer
-      className="relative overflow-hidden"
-      style={{
-        background: "linear-gradient(175deg, #0f1a2e 0%, #090f1e 60%, #070b17 100%)",
-        borderTop: "1px solid rgba(37,99,235,0.25)",
-        boxShadow: "0 -2px 60px rgba(37,99,235,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
-      }}
-    >
+    <footer className="relative overflow-hidden">
+      {/* Gradient transition from page background to footer */}
+      <div
+        className="absolute top-0 left-0 right-0 h-32 z-[2] pointer-events-none"
+        style={{
+          background: "linear-gradient(to bottom, var(--bg-mid) 0%, #0f1a2e 100%)",
+        }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background: "linear-gradient(175deg, #0f1a2e 0%, #090f1e 60%, #070b17 100%)",
+          boxShadow: "0 -2px 60px rgba(37,99,235,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
+        }}
+      />
       {/* Dithering texture background */}
       <div className="absolute inset-0 z-[1] pointer-events-none opacity-40">
         <Suspense fallback={null}>
@@ -86,7 +93,7 @@ const Footer = () => {
       </span>
 
       {/* Card content */}
-      <div className="relative z-10 px-8 pt-14 pb-8 md:px-16 md:pt-16 md:pb-10 lg:px-20">
+      <div className="relative z-10 px-8 pt-36 pb-8 md:px-16 md:pt-40 md:pb-10 lg:px-20">
         {/* Main grid — brand left, 3 nav columns right */}
         <div className="grid grid-cols-1 md:grid-cols-[1.8fr_1fr_1fr_1fr] gap-12 md:gap-16 lg:gap-20">
           {/* Brand column */}
