@@ -1,7 +1,12 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Instagram, Facebook, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Suspense, lazy } from "react";
 import voxalioIcon from "@/assets/voxalio-icon.png";
+
+const Dithering = lazy(() =>
+  import("@paper-design/shaders-react").then((mod) => ({ default: mod.Dithering }))
+);
 
 const Footer = () => {
   const { lang } = useLanguage();
