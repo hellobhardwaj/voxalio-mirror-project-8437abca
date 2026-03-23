@@ -12,6 +12,7 @@ import IntegrationsSection from "@/components/IntegrationsSection";
 import PricingSection from "@/components/PricingSection";
 
 import FAQSection from "@/components/FAQSection";
+import DemoCallSection from "@/components/DemoCallSection";
 import LeadFormSection from "@/components/LeadFormSection";
 import CalendlySection from "@/components/CalendlySection";
 import CTASection from "@/components/CTASection";
@@ -37,6 +38,7 @@ const Index = () => (
     <PricingSection />
     
     <FAQSection />
+    <DemoCallSection />
     <LeadFormSection />
     <CalendlySection />
     <CTASection />
