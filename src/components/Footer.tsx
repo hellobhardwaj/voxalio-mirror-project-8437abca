@@ -165,8 +165,10 @@ const Footer = () => {
           </div>
         </footer>
 
-        {/* Bottom bar — outside card, on the dark base */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 px-4 md:px-8 lg:px-10 pt-5 pb-1">
+        {/* Bottom bar */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 px-8 md:px-16 lg:px-20 max-w-[1400px] mx-auto py-5"
+          style={{ background: "#040711" }}
+        >
           <p className="text-[#3d4f6a] text-[12px] font-body whitespace-nowrap">
             {lang === "de" ? "© 2026 Voxalio. Alle Rechte vorbehalten." : "© 2026 Voxalio. All rights reserved."}
           </p>
@@ -176,7 +178,6 @@ const Footer = () => {
               : 'AI Disclosure: "Hello, I am an AI assistant for Voxalio."'}
           </p>
         </div>
-      </div>
     </div>
   );
 };
