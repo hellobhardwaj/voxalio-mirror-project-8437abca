@@ -43,8 +43,8 @@ const Footer = () => {
     { label: "GDPR", to: "/gdpr" },
   ];
 
-  const headingClass = "font-body font-semibold text-[rgba(255,255,255,0.45)] text-[11px] uppercase tracking-[0.14em] mb-6";
-  const linkClass = "text-[#8a9bb8] text-[13.5px] font-body font-normal hover:text-white transition-colors duration-200";
+  const headingClass = "font-body font-semibold text-[rgba(255,255,255,0.65)] text-[11px] uppercase tracking-[0.14em] mb-6";
+  const linkClass = "text-[#b0c4de] text-[13.5px] font-body font-normal hover:text-white transition-colors duration-200";
 
   return (
     <footer className="relative overflow-hidden">
@@ -102,7 +102,7 @@ const Footer = () => {
               <img src={voxalioIcon} alt="Voxalio" className="w-8 h-8 rounded-lg object-contain" />
               <span className="font-display font-bold text-white text-[17px] tracking-tight">Voxalio</span>
             </div>
-            <p className="text-[#6b7f9e] text-[13px] font-body mt-4 leading-[1.6] whitespace-pre-line">
+            <p className="text-[#8fa4c0] text-[13px] font-body mt-4 leading-[1.6] whitespace-pre-line">
               {lang === "de" ? "KI-Sprachagenten —\nMade in Germany" : "Discover the future of\nAI Voice Agents"}
             </p>
             <div className="flex items-center gap-3 mt-6">
@@ -164,11 +164,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mt-10 pt-5 border-t border-[rgba(255,255,255,0.06)]">
-          <p className="text-[#3d4f6a] text-[12px] font-body whitespace-nowrap">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mt-10 pt-5 border-t border-[rgba(255,255,255,0.15)]">
+          <p className="text-[#7a8da8] text-[12px] font-body whitespace-nowrap">
             {lang === "de" ? "© 2026 Voxalio. Alle Rechte vorbehalten." : "© 2026 Voxalio. All rights reserved."}
           </p>
-          <p className="text-[#3d4f6a] text-[12px] font-body whitespace-nowrap">
+          <p className="text-[#7a8da8] text-[12px] font-body whitespace-nowrap">
             {lang === "de"
               ? 'KI-Hinweis: "Hallo, ich bin ein KI-Assistent für Voxalio."'
               : 'AI Disclosure: "Hello, I am an AI assistant for Voxalio."'}
