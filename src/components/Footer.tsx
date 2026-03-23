@@ -94,8 +94,8 @@ const Footer = () => {
           <div className="relative z-10 px-8 pt-14 pb-12 md:px-16 md:pt-16 md:pb-14 lg:px-20">
             {/* Main grid — brand left, 3 nav columns right */}
             <div className="grid grid-cols-1 md:grid-cols-[1.8fr_1fr_1fr_1fr] gap-12 md:gap-16 lg:gap-20">
-              {/* Brand column — pushed right to clear ribbons */}
-              <div className="md:pl-[180px] lg:pl-[220px]">
+              {/* Brand column */}
+              <div>
                 <div className="flex items-center gap-3">
                   <img src={voxalioIcon} alt="Voxalio" className="w-8 h-8 rounded-lg object-contain" />
                   <span className="font-display font-bold text-white text-[17px] tracking-tight">Voxalio</span>
