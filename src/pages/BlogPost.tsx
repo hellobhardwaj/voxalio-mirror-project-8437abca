@@ -1,4 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -232,6 +233,18 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen" style={{ background: "var(--bg-dark)" }}>
+      <Helmet>
+        <title>{post.title} | Voxalio Blog</title>
+        <meta name="description" content={post.metaDescription} />
+        <meta name="keywords" content={post.keywords.join(", ")} />
+        <link rel="canonical" href={`https://voxalio.de/blog/${post.slug}`} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.metaDescription} />
+        <meta property="og:url" content={`https://voxalio.de/blog/${post.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="article:published_time" content={post.publishedAt} />
+        <meta property="article:modified_time" content={post.updatedAt} />
+      </Helmet>
       <Navbar />
 
       <article className="pt-28 md:pt-36 pb-16 px-6 md:px-10">
