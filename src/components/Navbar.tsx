@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Globe } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import voxalioIcon from "@/assets/voxalio-icon.png";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -30,6 +31,7 @@ const Navbar = () => {
     { label: t("nav.howItWorks"), href: "#how-it-works" },
     { label: t("nav.useCases"), href: "#use-cases" },
     { label: t("nav.pricing"), href: "#pricing" },
+    { label: "Blog", href: "/blog", isRoute: true },
     { label: t("nav.partner"), href: "#contact" },
   ];
 
@@ -53,16 +55,27 @@ const Navbar = () => {
 
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center" style={{ gap: 32 }}>
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="relative text-[14px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 group"
-            >
-              {item.label}
-              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[var(--purple)] opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-            </a>
-          ))}
+          {navItems.map((item) =>
+            (item as any).isRoute ? (
+              <Link
+                key={item.label}
+                to={item.href}
+                className="relative text-[14px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 group"
+              >
+                {item.label}
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[var(--purple)] opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+              </Link>
+            ) : (
+              <a
+                key={item.label}
+                href={item.href}
+                className="relative text-[14px] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 group"
+              >
+                {item.label}
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[var(--purple)] opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+              </a>
+            )
+          )}
         </div>
 
         {/* Desktop buttons */}
@@ -117,16 +130,27 @@ const Navbar = () => {
             style={{ background: "rgba(255,255,255,0.98)", backdropFilter: "blur(20px)", borderBottom: "1px solid #e2e8f0" }}
           >
             <div className="px-6 py-4 flex flex-col gap-1">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="py-3 px-3 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-lg hover:bg-[rgba(37,99,235,0.04)] transition-colors"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) =>
+                (item as any).isRoute ? (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className="py-3 px-3 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-lg hover:bg-[rgba(37,99,235,0.04)] transition-colors"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="py-3 px-3 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-lg hover:bg-[rgba(37,99,235,0.04)] transition-colors"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                )
+              )}
               <a
                 href="#booking"
                 className="py-3 px-3 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-lg hover:bg-[rgba(37,99,235,0.04)] transition-colors"

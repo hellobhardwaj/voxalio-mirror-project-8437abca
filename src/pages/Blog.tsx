@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -15,6 +16,15 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen" style={{ background: "var(--bg-dark)" }}>
+      <Helmet>
+        <title>AI Voice Agent Blog | Voxalio Germany</title>
+        <meta name="description" content="Expert guides on AI voice agents for German businesses — GDPR, pricing, use cases, and how to automate your phone calls with AI. By Voxalio, Munich." />
+        <link rel="canonical" href="https://voxalio.de/blog" />
+        <meta property="og:title" content="AI Voice Agent Blog | Voxalio Germany" />
+        <meta property="og:description" content="Expert guides on AI voice agents for German businesses — GDPR, pricing, use cases, and how to automate your phone calls with AI." />
+        <meta property="og:url" content="https://voxalio.de/blog" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <Navbar />
 
       {/* Hero */}
