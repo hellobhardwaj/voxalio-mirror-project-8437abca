@@ -113,10 +113,17 @@ const PhoneCallForm = ({ lang }: { lang: string }) => {
     }
     setLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke("trigger-call", {
-        body: { phone: cleaned },
-      });
-      if (error) throw error;
+      const response = await fetch(
+        "https://n8n.srv1116041.hstgr.cloud/webhook/retell-call",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ to_number: cleaned }),
+        }
+      );
+      const data = await response.json();
+      console.log("Retell call response:", data);
+      if (!response.ok) throw new Error(data?.error || "Call failed");
       toast.success(lang === "de" ? "Anruf wird eingeleitet!" : "Call is being initiated!");
       setPhone("");
     } catch (err: any) {
