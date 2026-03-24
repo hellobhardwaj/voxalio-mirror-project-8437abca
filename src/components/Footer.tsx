@@ -119,12 +119,12 @@ const Footer = () => {
                   ))}
                 </div>
                 <a
-                  href="https://www.optimis-ai.com"
+                  href="https://rapid-xai.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-6 text-[#5a6d8a] text-[12px] font-body font-semibold hover:text-[#a3b5d0] transition-colors duration-200"
                 >
-                  Powered by Optimis AI
+                  Powered by RapidX AI
                 </a>
               </div>
 
