@@ -6,7 +6,7 @@ import MagicRings from "@/components/MagicRings";
 import DotGrid from "@/components/DotGrid";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { supabase } from "@/integrations/supabase/client";
+
 import { toast } from "sonner";
 
 const fadeUp = {
