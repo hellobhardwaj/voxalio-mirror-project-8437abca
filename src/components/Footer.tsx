@@ -176,7 +176,7 @@ const Footer = () => {
             href="https://rapid-xai.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute left-1/2 -translate-x-1/2 text-[#4a5d7a] text-[10px] font-body font-semibold opacity-40 hover:opacity-70 transition-opacity duration-200 hidden md:block"
+            className="absolute left-1/2 -translate-x-1/2 text-[#5a6d8a] text-[11px] font-body font-semibold opacity-70 hover:opacity-100 transition-opacity duration-200 hidden md:block"
           >
             Powered by RapidX AI
           </a>
