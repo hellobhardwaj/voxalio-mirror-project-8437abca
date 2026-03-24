@@ -13,6 +13,8 @@ import Privacy from "./pages/Privacy";
 import AIDisclosure from "./pages/AIDisclosure";
 import GDPR from "./pages/GDPR";
 import ThankYou from "./pages/ThankYou";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
