@@ -178,6 +178,16 @@ const Footer = () => {
               : 'AI Disclosure: "Hello, I am an AI assistant for Voxalio."'}
           </p>
         </div>
+        <div className="text-center pt-4 pb-1">
+          <a
+            href="https://rapid-xai.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#4a5d7a] text-[10px] font-body font-semibold opacity-50 hover:opacity-80 transition-opacity duration-200"
+          >
+            Powered by RapidX AI
+          </a>
+        </div>
       </div>
     </div>
   );
