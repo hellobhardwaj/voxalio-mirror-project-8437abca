@@ -15,6 +15,7 @@ import FAQSection from "@/components/FAQSection";
 import DemoCallSection from "@/components/DemoCallSection";
 import LeadFormSection from "@/components/LeadFormSection";
 import CalendlySection from "@/components/CalendlySection";
+import BlogPreviewSection from "@/components/BlogPreviewSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
@@ -41,6 +42,7 @@ const Index = () => (
     <DemoCallSection />
     <LeadFormSection />
     <CalendlySection />
+    <BlogPreviewSection />
     <CTASection />
     <Footer />
     <CookieBanner />

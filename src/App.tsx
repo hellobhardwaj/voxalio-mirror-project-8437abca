@@ -13,6 +13,8 @@ import Privacy from "./pages/Privacy";
 import AIDisclosure from "./pages/AIDisclosure";
 import GDPR from "./pages/GDPR";
 import ThankYou from "./pages/ThankYou";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +37,8 @@ const AnimatedRoutes = () => {
           <Route path="/ai-disclosure" element={<AIDisclosure />} />
           <Route path="/gdpr" element={<GDPR />} />
           <Route path="/thank-you" element={<ThankYou />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </motion.div>
