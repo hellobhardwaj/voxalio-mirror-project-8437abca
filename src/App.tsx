@@ -37,6 +37,8 @@ const AnimatedRoutes = () => {
           <Route path="/ai-disclosure" element={<AIDisclosure />} />
           <Route path="/gdpr" element={<GDPR />} />
           <Route path="/thank-you" element={<ThankYou />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </motion.div>

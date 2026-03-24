@@ -42,6 +42,7 @@ const Index = () => (
     <DemoCallSection />
     <LeadFormSection />
     <CalendlySection />
+    <BlogPreviewSection />
     <CTASection />
     <Footer />
     <CookieBanner />
