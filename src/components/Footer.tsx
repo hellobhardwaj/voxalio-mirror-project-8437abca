@@ -168,25 +168,23 @@ const Footer = () => {
         </footer>
 
         {/* Bottom bar — outside card, on the dark base */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 px-4 md:px-8 lg:px-10 pt-5 pb-1">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 px-4 md:px-8 lg:px-10 pt-5 pb-1 relative">
           <p className="text-[#5a6d8a] text-[12px] font-body font-semibold whitespace-nowrap">
             {lang === "de" ? "© 2026 Voxalio. Alle Rechte vorbehalten." : "© 2026 Voxalio. All rights reserved."}
           </p>
+          <a
+            href="https://rapid-xai.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute left-1/2 -translate-x-1/2 text-[#4a5d7a] text-[10px] font-body font-semibold opacity-40 hover:opacity-70 transition-opacity duration-200 hidden md:block"
+          >
+            Powered by RapidX AI
+          </a>
           <p className="text-[#5a6d8a] text-[12px] font-body font-semibold whitespace-nowrap">
             {lang === "de"
               ? 'KI-Hinweis: "Hallo, ich bin ein KI-Assistent für Voxalio."'
               : 'AI Disclosure: "Hello, I am an AI assistant for Voxalio."'}
           </p>
-        </div>
-        <div className="text-center pt-4 pb-1">
-          <a
-            href="https://rapid-xai.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#4a5d7a] text-[10px] font-body font-semibold opacity-50 hover:opacity-80 transition-opacity duration-200"
-          >
-            Powered by RapidX AI
-          </a>
         </div>
       </div>
     </div>
